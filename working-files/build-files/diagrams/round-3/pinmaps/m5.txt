@@ -1,0 +1,3 @@
+t-xs|not pin `6`, where older charts put it
+t-xs|pin `6` stays empty; older charts put it there
+t-xs|`6` stays empty: older charts put it there

@@ -1,0 +1,12 @@
+[["t-xs","\"not used\" on US drawings"],["t-xs","(builders report it works)"],["t-xs","\"not used\" on US M3 drawings;"],["t-xs","builders report it works"],
+["t-sm t-b t-mono","X60004 pin 10"],["t-sm t-b t-mono","X60002 pin 11"],["t-xs t-mono","0.35 SW/VI"],["t-xs t-mono","1.5 RT/WS"],["t-xs t-mono","2.5 RT/VI"],["t-xs t-mono","1.5 WS/BL"],
+["t-xs","F3 via X6021 pin 2"],["t-xs t-mono","X6021 pin 2"],["t-xs","F54, 15 A"],["t t-b","Relay K96"],["t-xs","socket X10156"],["t-xs t-mono","X10156"],["t-xs","behind the glovebox"],
+["t-sm t-b","Pin 11 connected to nothing: expect fault 1 (0x01)"],["t-xs","It shows in INPA, ISTA and PA-Soft but doesn't light the check-engine"],
+["t-sm t-b","Expect stored fault location 1 (0x01), \"Relais Kraftstoffpumpe\""],
+["t-xs","Fault location 1 (0x01), \"Relais Kraftstoffpumpe\": INPA shows 1."],
+["t-h","RECOMMENDED: KEEP THE RELAY"],["t-h","OPTIONAL: THE M3 PUMP MODULE (EKP)"],
+["t-xs t-mono","STEUERN_EKP"],["t-xs","Prove it on the car: one prime at key-on, and STEUERN_EKP makes K96 click."],
+["t-xs","Whether US software drops the pin-10 output after a crash isn't documented."],
+["t-xs","0–120 Hz PWM"],["t-xs","X6021 pin 1: your side empty"],["t-xs t-mono","X6021"],["t-sm t-b","M3 DME"],["t-sm","MSS54 / HP"],
+["t t-b","EKP module"],["t-xs","plug X10157"],["t-xs t-mono","2.5 RT/WS"],["t-xs t-mono","2.5 BR"],["t-xs","ground"],["t t-b","Airbag unit"],["t t-b","Cluster"],["t-xs","K-bus"],["t-xs","CAN"],
+["t","13px sample text"],["t-sm","11.5px sample text"],["t-xs","10.5px sample text"],["t t-mono","0123456789"],["t-sm t-mono","0123456789"],["t-xs t-mono","0123456789"]]

@@ -1,0 +1,5 @@
+t-sm t-b|Replaces your DSC button
+t-sm|61316901592: a DSC Touring
+t-sm|61316925498 is ETK's unit
+t-sm|for cars without DSC
+t-sm|has no console unit.

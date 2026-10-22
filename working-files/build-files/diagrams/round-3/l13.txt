@@ -1,0 +1,44 @@
+t-sm t-b|Donor built before 09/2002
+t-sm t-b|Donor built from 09/2002
+t-xs|MK20, 43-pin plug: it won't
+t-xs|plug into your harness
+t-xs|MK60: same 47-pin plug and yaw
+t-xs|sensor as your Touring's
+t-h|A  KEEP YOURS
+t-h|B  FIT THE M3'S UNIT
+t-xs|the default; recommended
+t-xs|09/2002-on donors only
+t t-b|Your booster
+t t-b|Your master cylinder
+t t-b|M3 master cylinder
+t t-b|Your MK60
+t t-b|M3 MK60
+t-xs|or perhaps the M3's
+t t-b|Front brake pipes: yours if they reach the hoses
+t-sm t-b|Front brake pipes: yours, if they reach the M3 hoses
+t-xs|if not, use the M3's
+t t-b|M3 front brake hoses
+t-xs|M3-only, buy new: 34322229723
+t t-b|M3 calipers
+t-xs|with the corners and trailing arms
+t-xs|No coding tricks: initialise its
+t-xs|VIN and steering angle in INPA
+t-xs|Stays coded for a 325i: no M Track
+t-xs|M3 calipers on your master cylinder:
+t-xs|pedal feel unreported. Bleed, test, judge
+t-xs|Code M3 values by hand (NCS Expert):
+t-xs|it takes 325i values otherwise, and has
+t-xs|no Touring body type
+t-xs|Brings M Track
+t-xs|Touring built before 09/2001: also the
+t-xs|later yaw-sensor cluster
+t-xs|"VIN not initialized" won't clear?
+t-xs|Refit your own unit
+t-sm t-b|Both routes
+t-xs|Wheel-speed sensors: use ones whose plugs fit your harness. The rear sensors
+t-xs|changed type at 09/2001 on the Touring and 09/2002 on the M3. Read the DSC
+t-xs|fault memory after the first slow drive.
+t-xs|Calibrate the steering angle after the wheel alignment.
+t-xs|Keep the parts you don't use until the car has passed inspection.
+t-xs|M3 booster: its bolt holes needed slotting in one swap, and its vacuum hose connects on the other side
+t-sm|Buy new

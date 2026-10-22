@@ -1,0 +1,12 @@
+t-sm|Layout as WDS draws it. WDS doesn't say which face that is,
+t-sm|so your plug may look mirrored: find each cavity by the number
+t-sm|moulded on the housing, never by counting positions in this drawing.
+t-sm t-b|Layout as WDS draws it. WDS doesn't say which face that is,
+t-sm|Touring built 09/2001 to 02/2003; M3 donor built from 09/2001.
+t-sm|Touring built from 03/2003 (M54, manual gearbox); M3 donor from 09/2001.
+t-sm|Touring built from 03/2003, M54, manual gearbox; M3 donor built from 09/2001.
+t-sm|WDS draws `X60001`, `X60002`, `X60003` and `X60005`
+t-sm|the other way round: pin `1` at the bottom right.
+t-sm|In WDS, `X60001`/`2`/`3`/`5` run the other way:
+t-sm|pin `1` at the bottom right.
+t-sm|`6` stays empty

@@ -1,0 +1,7 @@
+t-sm|Donor from 03/2004: WDS stops drawing pins 1 and 2.
+t-sm|If the lamp stays dark at key-on, code it 
+t-sm t-mono|aktiv
+t-sm t-b|Donor from 03/2004:
+t-sm| WDS stops drawing pins 1 and 2;
+t-sm|lamp dark at key-on? Code it 
+t-sm|move to X60004 21

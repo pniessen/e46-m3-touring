@@ -1,0 +1,8 @@
+t-sm fill-fg t-mono|16132229735
+t-sm fill-fg t-mono|51717893604
+t-sm fill-fg| and cover 
+t-sm fill-fg| at
+t-sm fill-fg|M3 floor: expect the M3 holder. Canister under 25 mm from the
+t-sm fill-fg|at the donor's position; 25 mm or more: either layout works.
+t-sm fill-fg|muffler or H3: fit holder 
+t-sm fill-fg|the donor's position; 25 mm or more: either layout works.

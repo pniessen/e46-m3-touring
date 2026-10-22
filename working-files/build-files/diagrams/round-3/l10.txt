@@ -1,0 +1,36 @@
+t-h|MS43 TOURING (TO 02/2003)
+t-h|MS45 TOURING (FROM 02/2003)
+t-sm t-b|X6011
+t-sm t-b|X60004
+t-xs|E-box plug, your half
+t-xs|your plug at the M3 DME
+t-sm|Oil-pressure lamp, BR/GN
+t-sm|Charge lamp
+t-sm|Oil level
+t-sm|Start signal to the cluster (optional)
+t-sm|DM-TL heater, BK/RT
+t-sm|Clutch signal, BL/BR, to the gear-switch wire
+t-sm|Brake-light switch, BR/GN
+t-sm|Sport button (optional), from X1869
+t-sm|Fuel pump: no move. Confirm pin 10 reaches K96
+t-xs|probably pin 7, once emptied: confirm on the donor
+t-sm|Remove if populated; insulate, tie back
+t-xs|BK/GE: a ground on the MSS54, so a wire left there would be grounded
+t-sm|Oil-pressure lamp: add a wire
+t-xs|and code the cluster not to expect oil pressure over CAN
+t-sm|Charge lamp: add a wire, or leave it on CAN
+t-sm|Oil level: add a wire, or leave it on CAN
+t-sm|Clutch signal, if populated: into the gear-switch path
+t-sm|Fuel pump: confirm which pin drives relay K96
+t t-b|11
+t t-b|17, 18
+t t-b|15, 16
+t-sm t-b|17, 18
+t-sm t-b|15, 16
+t t-b|K96
+t-sm|Move a wire
+t-sm|Add a wire
+t-sm|Optional
+t-sm|Remove
+t-sm t-b|Cluster X11175
+t-xs|the M3 cluster's black plug

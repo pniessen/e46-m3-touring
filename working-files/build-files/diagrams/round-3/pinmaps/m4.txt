@@ -1,0 +1,16 @@
+t-sm|Ground `0.35 BR/SW`, recommended
+t-sm|New ground `0.35 BR/SW`, recommended
+t-sm|Ground `0.35 BR/SW`, once `5` is clear
+t-sm|New ground, `0.35 BR/SW`
+t-sm|Sport (optional), once `15` is clear
+t-sm|Start feedback, `0.35 SW/GN`
+t-xs|via the gear switch to `X60002` pin `20`
+t-xs|recommended
+t-xs|Fuel pump: `K96` stays on `X60004` pin `10` on both; prove it with `STEUERN_EKP`.
+t-xs|Both cars: fit the M3 clutch module `61319122700` in place of `61319231129`.
+t-xs|to `nicht_aktiv`: then the lamps work with any MSS54 software.
+t-xs|Pins `20` and `30` (leak-test pump) don't move on the drawings: test first.
+t-xs|Out first; insulate.
+t-xs|`19`: E-box fan, if fitted
+t-xs|both are SW/RT
+t-xs|meets the M3 harness's `0.5 GR`, then the gear switch

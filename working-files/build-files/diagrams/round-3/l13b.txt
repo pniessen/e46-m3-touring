@@ -1,0 +1,9 @@
+t-xs|NCS Expert gives it 325i values: set
+t-xs|M3 values by hand. Its coding has
+t-xs|no Touring body type
+t-xs|Check its label first: some US
+t-xs|Tourings have an ASC-only unit
+t-xs|Booster vacuum hose: the M3's meets the booster from the other side,
+t-xs|so check its route at mock-up.
+t-xs|Booster vacuum hose: the M3's meets the booster from the other side;
+t-xs|check its route at mock-up.

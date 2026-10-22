@@ -1,0 +1,17 @@
+t-sm|See text: Touring before 03/2001 (switch S32); SMG donor (no X60002 pin 20 wire).
+t-sm|See text: Tourings before 03/2001 (switch S32), SMG donors (no X60002 pin 20 wire).
+t-sm|See text: pre-03/2001 Touring (clutch switch S32); SMG donor (no wire at X60002 20).
+t-sm|Both bits change with the pedal.
+t-sm|Both parts are electronic:
+t-sm| a meter proves only their wires; 
+t-sm t-mono|STATUS_DIGITAL
+t-sm| proves the brake switch and the clutch module (tables below).
+t-sm|The clutch module's EWS signal: 
+t-sm t-mono|EWS3.PRG
+t-sm| → 
+t-sm t-mono|STATUS_LESEN
+t-sm|, clutch down: 
+t-sm t-mono|STAT_P_N_EINGANG
+t-sm| changes and 
+t-sm t-mono|STAT_ANLASSER_AUS_P_N
+t-sm| = 0 (power-up step 27).

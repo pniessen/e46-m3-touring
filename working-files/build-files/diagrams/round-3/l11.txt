@@ -1,0 +1,43 @@
+t-h|KEEP YOUR RELAY (RECOMMENDED)
+t-h|THE US M3'S EKP MODULE (OPTIONAL)
+t t-b|M3 DME
+t-sm|MSS54 or HP
+t-sm|MSS54 / HP
+t-sm t-b|X60004 pin 10
+t-sm t-b|X60002 pin 11
+t-xs|"not USA"
+t-xs|"USA only"
+t-xs|SW/VI wire
+t t-b|Relay K96
+t-xs|behind the glovebox
+t-xs|glovebox
+t t-b|Fuel pump
+t t-b|Pump
+t-xs|in the tank
+t-xs|F54, 15 A
+t-xs|connected to nothing
+t-xs crit-t|never to K96
+t-sm t-b|Stored pump-module fault
+t-xs|shows in INPA, ISTA and PA-Soft;
+t-xs|no check-engine lamp
+t-sm t-b crit-t|Never connect the PWM output to K96
+t-xs|A relay coil can't follow a 0–120 Hz signal and would
+t-xs|likely chatter. If the wire would reach K96, de-pin it
+t-xs|and insulate it.
+t-xs|0–120 Hz PWM
+t t-b|EKP module
+t-xs|not used
+t t-b|Airbag unit
+t-xs|crash signal
+t-xs|cuts the module's power after an airbag deployment
+t-xs|Slows the pump at idle and part load; full speed for
+t-xs|about 20 s at start-up and at full load.
+t-xs|Fit it only if your state won't accept the stored fault,
+t-xs|or you want the slow-running pump and crash cut-off back.
+t-xs|Five wires to the relay's four. Nobody has documented it in a Touring.
+t-xs|Confirm pin 10 reaches K96's coil wire in your VIN's diagrams, first on an MS45 car.
+t-xs|Other fix: have the DME vendor suppress the fault. Don't flash
+t-xs|Euro software: it drops the DM-TL leak test.
+t-xs|(the M3 harness's wire in the black 4-pin E-box plug)
+t-sm|From the donor M3
+t-sm|Keep

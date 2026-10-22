@@ -1,0 +1,10 @@
+t-xs|Every wire crossing between `X6011` and `X60004` gets a new terminal of the target's type.
+t-xs|Each wire crossing `X6011` ↔ `X60004` gets a new terminal of the target's type.
+t-xs|Every wire that crosses `X6011` ↔ `X60004` gets a new terminal of the target's type.
+t-xs|Both cars: fit the M3 clutch module `61319122700` in place of `61319231129` (#10, #13).
+t-xs|Both cars: M3 clutch module `61319122700` in place of `61319231129` (#10, #13).
+t-xs|Code `CAN_OELDRUCKSCHALTER`, `GENERATOR_UEBER_CAN` and `TOG_UEBER_CAN` to `nicht_aktiv`.
+t-xs|Code the cluster: `CAN_OELDRUCKSCHALTER`, `GENERATOR_UEBER_CAN`, `TOG_UEBER_CAN` = `nicht_aktiv`.
+t-xs|Pins `20` and `30` (leak-test pump) stay: test before your Touring's DME comes out.
+t-xs|Pins `20` and `30` don't move on the drawings: test before your Touring's DME comes out.
+t-xs|body side

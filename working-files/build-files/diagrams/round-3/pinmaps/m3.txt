@@ -1,0 +1,34 @@
+t-sm|Oil-pressure lamp, `0.35 BR/GN`
+t-sm|Charge lamp, `0.35 BL`
+t-sm|Oil level, `0.5 WS/GN`
+t-sm|Start feedback, `0.35 SW/GN`
+t-sm|Start feedback (30h), `0.35 SW/GN`
+t-sm|Leak-test heater, `0.75 SW/RT`
+t-sm|Clutch, `0.35 BL/BR`
+t-sm|Clutch, `0.35 BL/BR`, new terminal
+t-sm|Clutch, `0.35 BL/BR`: new terminal
+t-sm|Brake test contact, `0.35 BR/GR`
+t-sm|New ground, `0.35 BR/SW`
+t-sm|Ground, `0.35 BR/SW` (recommended)
+t-sm|New ground, recommended
+t-sm|Sport button (optional)
+t-sm|Start feedback, if present
+t-sm|Start feedback `0.35 SW/GN`, if present
+t-xs|`0.35 SW/RT/GE` and `0.35 SW/GR/GE`
+t-xs|once the heater wire is out of pin `7`
+t-xs|after the heater wire is out of pin `7`
+t-xs|then via the gear switch to `X60002` pin `20`
+t-xs|meets the M3's `0.5 GR` to the gear switch
+t-xs|this `X6011` has only pins `1` and `2`
+t-xs|only if your `X6011` pin `6` holds a wire
+t-xs|once `15` is clear; `0.35 SW/RT/GE`, `SW/GR/GE`
+t-xs|once `5` is clear (recommended)
+t-xs|X60004 pin `6` stays empty: older charts put the start feedback there.
+t-xs|Code `CAN_OELDRUCKSCHALTER`, `GENERATOR_UEBER_CAN` and `TOG_UEBER_CAN`
+t-xs|to `nicht_aktiv`: on CAN they need stock MSS54HP software.
+t-xs|Fuel pump: relay `K96` stays on `X60004` pin `10` on both cars; prove it with `STEUERN_EKP`.
+t-xs|Also fit the M3 clutch module `61319122700` in place of `61319231129`.
+t-xs|Pins `20` and `30` (leak-test pump) don't move on the drawings: test first.
+t-xs|`5`, `15`: secondary-air sensor
+t-xs|Tag `2` and `15` first: both SW/RT
+t-xs|`0.5 SW/GE`

@@ -1,0 +1,8 @@
+t-sm t-b|Your brake pipes stay
+t-xs|from 09/2002 the M3 uses the same front pipes; rear pipes and hoses are shared
+t-xs|an MK60 M3 uses the same front pipes; the rear pipes and hoses are shared
+t-xs|Wheel-speed sensors: the rear sensor changed type at 09/2001 on the Touring
+t-xs|and 09/2002 on the M3, and one build's plugs didn't mate. Check the plugs on
+t-xs|both cars before you order, use sensors whose plugs fit your harness, keep the
+t-xs|donor's sensors and pigtails until yours are proven, and read the DSC fault
+t-xs|memory after the first slow drive.

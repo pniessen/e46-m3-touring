@@ -1,0 +1,5 @@
+t-sm| X60004 pins 1, 2 aren't
+t-sm|in WDS. Lamp dark at key-on? Code it 
+t-sm| WDS stops drawing
+t-sm|pins 1, 2. Lamp dark at key-on? Code it 
+t-sm|.

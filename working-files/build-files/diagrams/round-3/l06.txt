@@ -1,0 +1,27 @@
+t fab-t|move a few pins in
+t fab-t|your body-side plugs
+t fab-t|re-pin a few of your
+t fab-t|body-side pins
+t t-b|DME (MSS54 / HP)
+t fab-t|EWS-deleted, your VIN
+t fab-t|EWS delete, your VIN
+t-sm|or virginized and synced
+t-sm|(or virginized, synced)
+t-xs crit-t|rolling-code check
+t-xs crit-t|off after a delete
+t t-b|DSC unit (MK60)
+t-sm|yours, or the M3's
+t fab-t|code and initialise
+t fab-t|gets your VIN
+t-sm|via a service or new chip
+t-sm|from a service or new chip
+t-xs|true mileage
+t t-b|Light module (LCM)
+t-sm|holds VIN + true mileage
+t-sm|your VIN + true mileage
+t t-b|Steering-angle sensor
+t fab-t|calibrate after the
+t fab-t|wheel alignment
+t-sm fab-t|calibrate after the alignment
+t fab-t|calibrate it after
+t-sm|the wheel alignment

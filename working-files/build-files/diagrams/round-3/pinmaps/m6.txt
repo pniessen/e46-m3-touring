@@ -1,0 +1,6 @@
+t t-b|Sensor wire out; ground recommended
+t t-b|Sensor wire out; Sport optional
+t-sm|`0.5 SW/GE` out → new `0.35 BR/SW` to ground point `X1108`
+t-sm|`0.5 SW/RT` out → new `0.35 SW/RT/GE` from `X1869` pin `17`
+t-sm|A wire that moves between `X6011` and `X60004` needs a new terminal of the target's type; body `X6011` has only pins `1` and `2` today.
+t-sm|Wires that move between `X6011` and `X60004` need new terminals of the target's type; body `X6011` has only pins `1` and `2`.

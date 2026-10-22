@@ -1,0 +1,36 @@
+t t-b|Brake: key on, engine off, press the pedal
+t t-b|Clutch: key on, engine off, parking brake on
+t-sm|The chain is high only with the pedal up AND a gear in.
+t-sm|Chain high = pedal up AND in gear
+t|The brake switch and the clutch module are electronic: a meter proves only their wires; STATUS_DIGITAL proves the parts.
+t|The clutch module's EWS signal: EWS3.PRG → STATUS_LESEN, clutch down: STAT_P_N_EINGANG changes and STAT_ANLASSER_AUS_P_N = 0.
+t-sm|same fuse as the brake switch
+t-sm|See text: Tourings built before 03/2001 (clutch switch S32); SMG donors (no wire at X60002 pin 20).
+t-sm|See text for Tourings built before 03/2001 (clutch switch S32)
+t-sm|and SMG donors (no gear-switch wire at X60002 pin 20).
+t-sm|donor from 03/2004: WDS drops pins 1 and 2;
+t-sm|lamp dark at key-on? Code it aktiv.
+t-sm|Donor from 03/2004 (WDS drops X60004 pins 1, 2):
+t-sm|if the lamp stays dark at key-on, code it aktiv
+t-sm|E-box fan plug (if fitted)
+t-sm t-b|lamps over CAN
+t-sm|lamp pins 2, 13, 17 (may be empty)
+t-sm t-b fab-t|move to X60004
+t-sm fab-t|move X6011 6 → X60004 2 only if pin 6 holds a wire,
+t-sm fab-t|after the heater has left pin 2
+t-sm|Touring console fit unconfirmed
+t-sm|fit in a Touring console
+t-sm|fit in a Touring console unconfirmed
+t-sm t-b|X1869 (same plug)
+t-sm t-b fab-t|MS45.1, every swap, Sport or not:
+t-sm|the secondary-air sensor wire (0.5 SW/RT)
+t-sm|comes out of X60004 pin 15; insulate it.
+t-sm|It's not the 0.75 SW/RT wire in pin 2: tag both.
+t-sm|X1869 pins 1, 13, 20, 21: seat heating; pins
+t-sm|14, 15, 19: sunshade and HiFi.
+t-sm|Optional: pin 2, tire-pressure reset (0.5 GE/SW),
+t-sm|to DSC unit pin 40; needs DSC and cluster coding;
+t-sm|unproven in a Touring.
+t-sm|Meter, power-up step 8 (battery disconnected, DME unplugged,
+t-sm|switch unit in): X60004 pin 15 to ground is open with the button
+t-sm|released, near 0 Ω pressed.

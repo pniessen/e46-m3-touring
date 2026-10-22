@@ -1,0 +1,14 @@
+t t-b|8  Vehicle-order changes and body modules
+t t-b|9  Light module and headlights
+t-xs|Phase 12, after session 7, and whenever you change the vehicle order
+t-xs|Phase 12, last, with the front end on
+t t-b|3  EWS check
+t t-b|3  EWS sync
+t-xs|nothing to code after a delete
+t-xs|sync the virgin DME to your EWS
+t-xs|key and clutch input only
+t t-b|Wire, then check
+t-xs|Phase 11: re-pin, ohm-check every moved circuit, power up
+t-xs|Phase 11: the cluster gets your VIN and true mileage from the light module
+t-xs|Phase 11: your VIN; true mileage from the light module
+t-xs|Phase 11: re-pin, ohm-check, then power up

@@ -1,0 +1,33 @@
+t-xs t-b|X60004
+t-xs t-b|X11175
+t-xs t-b|X1869
+t-xs|E-box
+t-xs|DME
+t-xs|cluster
+t-sm|Clutch signal, BL/BR
+t-sm|Clutch signal, if populated
+t-xs|now via the gear switch to X60002 pin 20
+t-xs|into the gear-switch path, as on an MS43
+t-sm|Remove if populated;
+t-sm|insulate and tie back
+t-xs|Pin 5 is a ground on the MSS54,
+t-xs|so a wire left there would be grounded
+t-xs|then code the cluster not to expect
+t-xs|oil pressure over CAN
+t-xs|and code the cluster: no oil pressure over CAN
+t-sm|Charge lamp: add, or leave on CAN
+t-sm|Oil level: add, or leave on CAN
+t-sm|Charge lamp: add a wire, or leave it on CAN
+t-sm|Sport button (optional)
+t-sm|Sport button (optional), from X1869
+t-xs|7?: probably X6011 pin 7, the cavity facing the M3 harness's gear-switch wire; confirm on the donor.
+t-xs|Fuel pump: X60004 pin 10 should reach relay K96. No move on an MS43; on an MS45,
+t-xs|confirm which pin drives K96.
+t-sm|Move a wire
+t-sm|Add a wire
+t-sm|Optional
+t-sm|Remove
+t-xs|BK/GE
+t-xs|BR/OR
+t t-b|7?
+t-sm t-b|17, 18

@@ -1,0 +1,31 @@
+t-sm|Layout as WDS draws it. WDS doesn't say which face that is, so your plug may look mirrored: find each cavity by the number moulded on the housing, never by counting positions in this drawing.
+t-sm t-b|Layout as WDS draws it. WDS doesn't say which
+t-sm|face that is, so your plug may look mirrored: find
+t-sm|each cavity by the number moulded on the housing,
+t-sm|never by counting positions in this drawing.
+t-sm|For a Touring built 09/2001 to 02/2003, with an M3 donor built from 09/2001.
+t-sm|For a Touring built from 03/2003 (M54, manual gearbox), with an M3 donor built from 09/2001.
+t-sm|Touring built from 03/2003 (M54, manual gearbox); M3 donor built from 09/2001.
+t-sm|moved here
+t-sm|new wire
+t-sm|new, recommended
+t-sm|new, optional
+t-sm|emptied
+t-sm|only if present
+t-sm|unchanged
+t-sm|out, then new
+t-sm|a wire moves
+t-sm|tag it first
+t-sm|`0.75 SW/RT` → `18`, then `0.35 SW/GN` from body `X6011` pin `6`
+t t-b|Heater out; start feedback only if present
+t-sm|`X60001`, `X60002`, `X60003` and `X60005` number
+t-sm|the other way in WDS: pin `1` at the bottom right.
+t-sm|start feedback, only if present:
+t-sm|new terminal · #10
+t-sm|brake · #7
+t-sm|heater · #1
+t-sm|No change: pin `10` (pump relay `K96`); pins `20` and `30` (leak-test pump: test before your Touring's DME comes out).
+t-sm|Order: take the wires out of `5`, `15` and (if fitted) `19` first and insulate them; the heater leaves `2` before anything else goes in.
+t-sm|Wire colors: SW black, WS white, RT red, GN green, BL blue, BR brown, GE yellow, GR gray, VI violet, OR orange.
+t-sm|fit the M3's `61319122700` in place of `61319231129`
+t-sm|a forum mapping put the start feedback here; it goes in `2`

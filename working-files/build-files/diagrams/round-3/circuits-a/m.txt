@@ -1,0 +1,7 @@
+t-sm|MS43 from 09/2001: heater wire (0.75 SW/RT)
+t-sm|out to X60004 18 first
+t-sm|Earlier MS43, and MS45.1: pin 7 is empty
+t-sm|Both: fit a new X6011-type terminal
+t-sm|MS43 from 09/2001: move the heater wire
+t-sm|(0.75 SW/RT) to X60004 18 first
+t-sm|MS45.1 and earlier MS43: pin 7 is empty

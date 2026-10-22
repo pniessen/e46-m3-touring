@@ -1,0 +1,18 @@
+t-h|MS43 TOURING (09/2001 TO 02/2003): X60004 AND BODY X6011
+t-h|MS45.1 TOURING (FROM 03/2003): X60004 AND BODY X6011
+t-sm|Cavity numbers as moulded on the housing; WDS doesn't state the viewing side.
+t t-b|Leak-test heater · move 1
+t t-b|Start feedback (terminal 30h) · move 6
+t-sm|empty → 0.75 SW/RT from body X6011 pin 7
+t-sm|empty → new 0.35 SW/RT/GE from X1869 pin 17
+t-sm t-mono|0.35 SW/RT/GE
+t-sm t-mono|38
+t t-b t-mono|38
+t-sm|older charts put the start feedback here
+t-sm|SW black · WS white · RT red · GN green · BL blue · BR brown · GE yellow · GR gray · VI violet · OR orange
+t-sm|start feedback
+t-sm|oil-pressure lamp
+t-sm|leak-test heater
+t-sm|upper block
+t t-b|X60004 (DME plug)
+t-sm|0.35 BL/BR → empty: the wire goes to body X6011 pin 7

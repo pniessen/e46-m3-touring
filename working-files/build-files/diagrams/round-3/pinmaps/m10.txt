@@ -1,0 +1,39 @@
+t-sm|#1 Leak-test heater, `0.75 SW/RT`
+t-sm|#2 Clutch, `0.35 BL/BR`
+t-sm|#3 Oil-pressure lamp, `0.35 BR/GN`
+t-sm|#3 Oil pressure, `0.35 BR/GN`
+t-sm|#4 Charge lamp, `0.35 BL`
+t-sm|#5 Oil level, `0.5 WS/GN`
+t-sm|#6 Start feedback, `0.35 SW/GN`
+t-sm|#7 Brake test contact, `0.35 BR/GR`
+t-sm|#8 New ground, recommended
+t-sm|#9 Sport button, `0.35 SW/RT/GE`
+t-sm|#9 Sport LED, `0.35 SW/GR/GE`
+t-sm|#6 Clutch `0.35 BL/BR`, new terminal
+t-sm|#10 Start feedback, `0.35 SW/GN`
+t-sm|#11 New ground, recommended
+t-sm|#12 Sport button, `0.35 SW/RT/GE`
+t-sm|#12 Sport LED, `0.35 SW/GR/GE`
+t-sm t-b fab-t|after the heater wire is out of pin `7`
+t-sm t-b fab-t|only if body `X6011` pin `6` has a wire,
+t-sm t-b fab-t|only if `X6011` pin `6` has a wire; once `2` is clear
+t-sm t-b fab-t|once `2` is clear
+t-sm t-b fab-t|once `5` is clear
+t-sm t-b fab-t|once `15` is clear
+t-xs|`0.35 BR/SW` to ground point `X1108`
+t-xs|via the gear switch to `X60002` pin `20`
+t-xs|M3 donor built from 09/2001; earlier cars: see “Earlier MS43 Tourings”.
+t-xs|Manual gearbox; M3 donor built from 09/2001.
+t-xs t-b crit-t|Tag `2` and `15` first: both are SW/RT (0.75 mm² in `2`, 0.5 mm² in `15`).
+t-xs|Every wire that crosses between `X6011` and `X60004` gets a new terminal of the target's type.
+t-xs|Both cars: fit the M3 clutch module `61319122700` in place of `61319231129` (#10, #13).
+t-xs|Code the cluster's `CAN_OELDRUCKSCHALTER`, `GENERATOR_UEBER_CAN` and
+t-xs|`TOG_UEBER_CAN` to `nicht_aktiv`.
+t-xs t-b crit-t|X60004 pin `6` stays empty: a forum mapping put the start feedback there.
+t-xs|Pins `20` and `30` (leak-test pump) don't move on the drawings: test them
+t-xs|before your Touring's DME comes out.
+t-xs|Fuel pump: `K96` stays on `X60004` pin `10`; prove it with `STEUERN_EKP`.
+t-xs|#2 `0.5 SW/GE`
+t-xs|Out first; insulate.
+t-h|MS43 TOURING (09/2001 TO 02/2003)
+t-h|MS45.1 TOURING (M54, FROM 03/2003)

@@ -1,0 +1,7 @@
+t-sm t-b|A manual Touring almost certainly has no pusher fan:
+t-xs|Almost certainly not: see below
+t-xs|ETK lists one (64546988913) with no gearbox note, but the DME has only
+t-xs|No pin moves. The orange lead: extend or re-route X82 only if it doesn't
+t-xs|one fan output and owners call it the automatic's part. Check your car
+t-xs|reach the pusher (one manual-Touring swap plugged straight in), keeping
+t-xs|the pins; extend pins 1 and 4 in 6.0 mm², pin 2 in 0.5 mm².

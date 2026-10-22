@@ -1,0 +1,4 @@
+t-sm|disconnected, DME unplugged, switch unit in): X60004 pin 15 to ground is
+t-sm|open with the button released, near 0 Ω pressed.
+t-sm|press the button, and the LED follows. Meter, at power-up step 8 (battery
+t-sm|unconfirmed

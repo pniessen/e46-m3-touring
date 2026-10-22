@@ -1,0 +1,44 @@
+t t-b|1  Back up everything
+t t-b|2  DME VIN and EWS
+t t-b|3  EWS: nothing to code
+t t-b|3  EWS: sync the DME
+t t-b|4  Cluster and light module
+t t-b|5  DSC coding and VIN
+t t-b|6  First start, adaptations, throttle check
+t t-b|7  Steering angle after the alignment
+t-sm t-mono|NCS Expert, PA-Soft, INPA
+t-sm t-mono|Tool32, a vendor
+t-sm t-mono|Tool32
+t-sm t-mono|PA-Soft, NCS Expert
+t-sm t-mono|PA-Soft, NCS Expert, INPA
+t-sm t-mono|INPA or Tool32
+t-sm t-mono|NCS Expert
+t-xs|Phase 0: vehicle order, codings, cluster and light-module memories
+t-xs|Phase 0, before you change anything
+t-xs|Read in Phase 1; vendor work in Phase 3
+t-xs|Phase 11, once wired and checked
+t-xs|Phase 11: the cluster gets your VIN and takes the true mileage from the light module
+t-xs|Phase 11, after session 4
+t-xs|Phase 12, adaptations cleared
+t-xs|Phase 12: wheel straight, car level, no brake pressure
+t t-b|EWS delete
+t-xs|bought as a service, your VIN in
+t-xs t-b|recommended
+t t-b|Virginized DME
+t-xs|a vendor clears it; you sync it
+t-xs|no documented Touring success
+t t-b|A  Keep your MK60
+t t-b|B  The M3's MK60
+t-xs|initialise its VIN and steering angle
+t-xs|09/2002-on donors only: write your VIN,
+t-xs|code M3 values by hand, initialise
+t-xs|check its status
+t-xs|the DSC checks its VIN against the cluster's
+t t-b|Wheel alignment
+t-xs|at the car's loaded ride height
+t-sm t-b|Later, as needed
+t-xs|8  Vehicle-order changes and body modules: once the car runs
+t-xs|9  Light module and headlights: once the front end is on
+t-sm|From donor M3
+t-sm|Keep
+t-sm|Other work

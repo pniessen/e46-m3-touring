@@ -1,0 +1,5 @@
+t-sm|Pre-03/2001 Touring (switch S32) or SMG donor (no X60002 pin 20 wire): see text.
+t-sm|Touring before 03/2001 (switch S32) or SMG donor (no pin-20 wire): see text.
+t-sm|See text: Touring before 03/2001 (S32 switch); SMG donor (no X60002 20 wire).
+t-sm|In neutral, 0 and 1 is correct, not a fault. Chain fault: 80 (0x50).
+t-sm| = 0.

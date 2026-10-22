@@ -1,0 +1,17 @@
+t|Brake-light switch S29
+t t-b|Brake-light switch S29
+t-sm|61316967601, same on both cars
+t t-mono|0.35 BR/GR
+t-sm t-mono|0.35 BR/GR
+t-sm t-mono|STAT_KRAFTSCHLUSS_EIN
+t t-mono|STAT_KRAFTSCHLUSS_EIN
+t-sm t-mono|CAN_OELDRUCKSCHALTER = nicht_aktiv
+t-h|BRAKE-LIGHT SWITCH: TWO CONTACTS
+t-h|CLUTCH CHAIN
+t|Oil-pressure switch
+t-sm|closed below about 0.5 bar
+t t-mono|X60004
+t-sm|M
+t|M
+t t-mono|0
+t-sm t-mono|0
