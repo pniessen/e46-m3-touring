@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Right side view of the rear quarter and rear door. The rear door's lower trailing edge curves around the wheel arch. The M3 arch bulge reaches that shut line: BMW's prototype stops the flare there, while some builders reshape the door edge. The cut line runs on flat panel outside the bulge, close to the fuel filler door, whose M3 version is shaped to the M3 quarter." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<rect class="bg" x="0" y="0" width="400" height="300" fill="#ffffff"/>
+
+<!-- Glass above the beltline -->
+<path class="panel" d="M28,96 L44,62 H388 V96 Z"/>
+<rect class="fill-fg" x="226" y="62" width="10" height="34" opacity="0.8"/>
+<text class="t-xs" x="392" y="58" text-anchor="end">front →</text>
+
+<!-- Quarter panel (yours) with the wheel opening -->
+<path class="keep" d="M20,96 H231 V180 A74,74 0 0 1 243.3,232 H235.2 A66,66 0 1 0 104.8,232 H20 Z" stroke-width="1.5"/>
+<!-- Rear door (yours) -->
+<path class="shape" d="M231,96 H392 V232 H243.3 A74,74 0 0 0 231,180 Z"/>
+<text class="t-sm" x="318" y="168" text-anchor="middle">rear door</text>
+
+<!-- M3 arch bulge (about 25 mm proud) -->
+<path class="fab" d="M259.4,232 A90,90 0 1 0 80.6,232 H104.8 A66,66 0 1 1 235.2,232 Z" opacity="0.75" stroke-width="1.5"/>
+<!-- Where the bulge crosses onto the door -->
+<path class="crit-s" d="M231,165 V180 A74,74 0 0 1 243.3,232" stroke-width="3"/>
+
+<!-- Cut line on flat panel -->
+<path class="fab-s dash" d="M231,142.8 A100,100 0 0 0 70.5,232" stroke-width="2"/>
+
+<!-- Fuel filler door -->
+<rect class="keep" x="118" y="104" width="26" height="22" rx="5" stroke-width="1.5"/>
+
+<!-- Wheel -->
+<circle class="ln" cx="170" cy="222" r="50"/>
+<circle class="fill-fg" cx="170" cy="222" r="6"/>
+
+<!-- Labels -->
+<g class="ln-thin">
+  <path d="M100,36 L128,104"/>
+  <path d="M64,250 L76,212"/>
+  <path d="M126,264 L96,228"/>
+  <path d="M300,250 L240,206"/>
+</g>
+<text class="t crit-t" x="8" y="20">Fuel filler: remove the neck</text>
+<text class="t crit-t" x="8" y="36">and graft the M3 flap</text>
+<text class="t fab-t" x="8" y="268">Cut line, on</text>
+<text class="t fab-t" x="8" y="284">flat panel</text>
+<text class="t fab-t" x="150" y="278" text-anchor="middle">M3 arch bulge,</text>
+<text class="t fab-t" x="150" y="294" text-anchor="middle">about 25–30 mm proud</text>
+<text class="t crit-t" x="392" y="264" text-anchor="end">Bulge meets the door:</text>
+<text class="t crit-t" x="392" y="280" text-anchor="end">stop at the shut line (BMW)</text>
+<text class="t crit-t" x="392" y="296" text-anchor="end">or reshape the door edge</text>
+</svg>

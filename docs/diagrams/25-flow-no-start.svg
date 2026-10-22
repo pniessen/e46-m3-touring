@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 691" role="img" aria-label="The no-start tree: work down the questions in order; each one rules out a group of causes. If the engine starts and then dies, use the next figure instead: an immobilizer mismatch gives crank-no-start. 1: key on, does Tool32 IDENT or INPA reach the DME? If not, check the cable's pin 7/8 bridge and a COM port matching obd.ini, the DME relay K6300 and F29, F102, the E-box fuse carrier and X64101/X64102, the grounds, then the E-box plugs pin by pin. 2: clutch fully down, key to start, does the starter crank? If not, the battery (at least about 12.4 volts at rest, generic, with the charger on), EWS3.PRG STATUS_LESEN for the key, the clutch input and the coding, and terminal 50 to the starter; never jumper EWS pins. 3: while cranking, does the DME see engine speed? If not, the crankshaft sensor, its plug and X60003 pins 8 and 21, fault 16 (0x10). 4: is fault 130 (0x82) or 66 (0x42) stored, or does STAT_EWS3_FREIGABE read 0? If so the DME isn't released: after a delete, confirm it took; with a virgin DME, the sync failed. If not, or if only a leftover 130 (0x82) is stored after a delete the vendor has confirmed, go on: a deleted DME can keep 130 stored and still start. 5: did the pump prime at key-on, and is there 5.0 plus or minus 0.2 bar (BMW)? With no prime, the checks on the pump circuit: X60004 pin 10 to K96, the fuses, K96 swapped with K19, STEUERN_EKP, the E-box plugs; with a prime but low or no pressure, feed and return swapped at the filter-regulator, the regulator and its vacuum hose, the pump's delivery, old fuel. 6: injector faults 3 to 5 and 31 to 33 or circuit low on all six? Then the injector relay K6327, its fuse, an X6053/X60531 mix, six equal injector resistances. 7: coil faults 23 to 25 and 50 to 52, or no spark? Then about 0.8 ohms to each coil (BMW), the X60005 pin 5 ground, the M3 coil harness, plugs and boots. 8: does STATUS_ADAPTIONSBLOCK_06 STAT_WDK_ADAPT_WERT read 0, do the throttles follow the pedal, is the idle actuator plugged in and are there no throttle (EML) faults? If not, clear the adaptations and let the throttles relearn on a cold engine, then the sensors, pedal and actuator; if all is well, the cause is mechanical, not wiring." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="691" fill="#ffffff"/>
+<rect class="shape" x="8" y="8" width="364" height="37.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="30.14">Does it start, then die?</text>
+<rect class="panel" x="402" y="8" width="390" height="37.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="22.64"><tspan class="t-b">Starts, then dies:</tspan> see the next figure. An immobilizer</text>
+<text class="t" x="412" y="37.64">mismatch gives crank-no-start instead (question 4).</text>
+<path class="ln" d="M372,26.75 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="18.75" text-anchor="middle">yes</text>
+<path class="ln" d="M190,45.5 V58.5" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="56"><tspan class="t-sm t-b">no</tspan></text>
+<rect class="shape" x="8" y="59.5" width="364" height="67.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="96.64"><tspan class="t-b">1  </tspan> Key on: does Tool32 <tspan class="t-mono">IDENT</tspan> (or INPA) reach the DME?</text>
+<rect class="crit-s" x="402" y="59.5" width="390" height="67.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="74.14"><tspan class="t-b crit-t">Link, power, grounds:</tspan> the cable's pin 7/8 bridge and a COM</text>
+<text class="t" x="412" y="89.14">port matching <tspan class="t-mono">obd.ini</tspan>; K6300 and F29; F102, the E-box fuse</text>
+<text class="t" x="412" y="104.14">carrier and X64101/X64102; the grounds; then the E-box</text>
+<text class="t" x="412" y="119.14">plugs pin by pin.</text>
+<path class="ln" d="M372,93.25 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="85.25" text-anchor="middle">no</text>
+<path class="ln" d="M190,127 V140" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="137.5"><tspan class="t-sm t-b">yes</tspan></text>
+<rect class="shape" x="8" y="141" width="364" height="52.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="170.64"><tspan class="t-b">2  </tspan> Clutch fully down, key to start: does the starter crank?</text>
+<rect class="crit-s" x="402" y="141" width="390" height="52.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="155.64"><tspan class="t-b crit-t">Battery and EWS:</tspan> at least about 12.4 V at rest (generic),</text>
+<text class="t" x="412" y="170.64">charger on; <tspan class="t-mono">EWS3.PRG</tspan> → <tspan class="t-mono">STATUS_LESEN</tspan>: key, clutch input,</text>
+<text class="t" x="412" y="185.64">coding; terminal 50 to the starter. Never jumper EWS pins.</text>
+<path class="ln" d="M372,167.25 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="159.25" text-anchor="middle">no</text>
+<path class="ln" d="M190,193.5 V206.5" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="204"><tspan class="t-sm t-b">yes</tspan></text>
+<rect class="shape" x="8" y="207.5" width="364" height="37.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="222.81"><tspan class="t-b">3  </tspan> While cranking, does the DME see engine speed?</text>
+<text class="t-sm" x="22" y="236.81"><tspan class="t-mono">STATUS_MOTORDREHZAHL</tspan> above 0, the tachometer moving</text>
+<rect class="crit-s" x="402" y="207.5" width="390" height="37.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="222.14"><tspan class="t-b crit-t">Engine speed:</tspan> the crankshaft sensor, its plug and X60003</text>
+<text class="t" x="412" y="237.14">pins 8 and 21; fault 16 (0x10).</text>
+<path class="ln" d="M372,226.25 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="218.25" text-anchor="middle">no</text>
+<path class="ln" d="M190,245 V258" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="255.5"><tspan class="t-sm t-b">yes</tspan></text>
+<rect class="shape" x="8" y="259" width="364" height="53.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="273.64"><tspan class="t-b">4  </tspan> Is fault 130 (0x82) or 66 (0x42) stored, or does</text>
+<text class="t" x="22" y="288.64"><tspan class="t-mono">STAT_EWS3_FREIGABE</tspan> read 0?</text>
+<text class="t-sm" x="22" y="304.64">130 (0x82) is the immobilizer fault, not the pump fault 1 (0x01).</text>
+<rect class="crit-s" x="402" y="259" width="390" height="53.17" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="273.98"><tspan class="t-b crit-t">The DME isn't released:</tspan> after a delete, confirm it took</text>
+<text class="t" x="412" y="288.98">(re-read the DME; ask the vendor); with a virgin DME, the sync</text>
+<text class="t" x="412" y="303.98">failed (Session 3).</text>
+<path class="ln" d="M372,285.58 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="277.58" text-anchor="middle">yes</text>
+<path class="ln" d="M190,312.17 V346.17" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="322.67"><tspan class="t-sm t-b">no,</tspan> <tspan class="t-sm">or only a leftover 130 (0x82) after a delete the vendor has confirmed: that alone isn't the cause. A deleted</tspan></text>
+<text class="t-sm" x="197" y="336.67"><tspan class="t-sm">DME can keep 130 stored and still start (step 22; Session 2).</tspan></text>
+<rect class="shape" x="8" y="347.17" width="364" height="102.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="364.48"><tspan class="t-b">5  </tspan> Did the pump prime at key-on, and is there</text>
+<text class="t" x="22" y="379.48">5.0 ± 0.2 bar (BMW)?</text>
+<text class="t-sm" x="22" y="397.48">Listen at K96 and the tank at key-on: one prime.</text>
+<text class="t-sm" x="22" y="411.48"><tspan class="t-mono">STEUERN_EKP</tspan> clicks K96 and runs the pump (step 28).</text>
+<text class="t-sm" x="22" y="425.48">Fault 1 (0x01) stored? The next figure tells the</text>
+<text class="t-sm" x="22" y="439.48">expected one from a real pump fault.</text>
+<rect class="crit-s" x="402" y="347.17" width="390" height="102.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="361.81"><tspan class="t-b crit-t">No prime:</tspan> "Checks on the pump circuit": X60004 pin 10 to</text>
+<text class="t" x="412" y="376.81">K96, the fuses, K96 swapped with K19, <tspan class="t-mono">STEUERN_EKP</tspan>, the</text>
+<text class="t" x="412" y="391.81">E-box plugs.</text>
+<text class="t" x="412" y="411.81"><tspan class="t-b crit-t">Primes, but low or no pressure:</tspan> feed and return swapped at</text>
+<text class="t" x="412" y="426.81">the filter-regulator; the regulator and its vacuum hose; the</text>
+<text class="t" x="412" y="441.81">pump's delivery; old fuel.</text>
+<path class="ln" d="M372,398.42 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="390.42" text-anchor="middle">no</text>
+<path class="ln" d="M190,449.67 V462.67" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="460.17"><tspan class="t-sm t-b">yes</tspan></text>
+<rect class="shape" x="8" y="463.67" width="364" height="37.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="478.31"><tspan class="t-b">6  </tspan> Injector faults 3–5 and 31–33 (0x03–0x05,</text>
+<text class="t" x="22" y="493.31">0x1F–0x21), or "circuit low" on all six?</text>
+<rect class="crit-s" x="402" y="463.67" width="390" height="37.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="478.31"><tspan class="t-b crit-t">Injectors:</tspan> the injector relay K6327, its E-box fuse, an</text>
+<text class="t" x="412" y="493.31">X6053/X60531 mix; six equal injector resistances (step 12).</text>
+<path class="ln" d="M372,482.42 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="474.42" text-anchor="middle">yes</text>
+<path class="ln" d="M190,501.17 V514.17" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="511.67"><tspan class="t-sm t-b">no</tspan></text>
+<rect class="shape" x="8" y="515.17" width="364" height="52.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="537.31"><tspan class="t-b">7  </tspan> Coil faults 23–25 and 50–52 (0x17–0x19,</text>
+<text class="t" x="22" y="552.31">0x32–0x34), or no spark?</text>
+<rect class="crit-s" x="402" y="515.17" width="390" height="52.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="529.81"><tspan class="t-b crit-t">Coils:</tspan> about 0.8 Ω from terminal 15 to each coil's pin (BMW,</text>
+<text class="t" x="412" y="544.81">step 11); the X60005 pin 5 ground; the M3 harness's coil</text>
+<text class="t" x="412" y="559.81">harness only; plugs and boots.</text>
+<path class="ln" d="M372,541.42 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="533.42" text-anchor="middle">yes</text>
+<path class="ln" d="M190,567.67 V580.67" marker-end="url(#ah)"/>
+<text class="t-sm" x="197" y="578.17"><tspan class="t-sm t-b">no</tspan></text>
+<rect class="shape" x="8" y="581.67" width="364" height="67.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="596.31"><tspan class="t-b">8  </tspan> Air and throttle: <tspan class="t-mono">STATUS_ADAPTIONSBLOCK_06</tspan> →</text>
+<text class="t" x="22" y="611.31"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan> = 0, the throttles following the</text>
+<text class="t" x="22" y="626.31">pedal, the idle actuator plugged in (X60003 pins</text>
+<text class="t" x="22" y="641.31">46 and 47), no throttle (EML) faults?</text>
+<rect class="crit-s" x="402" y="581.67" width="390" height="67.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="412" y="603.81"><tspan class="t-b crit-t">Relearn:</tspan> clear the adaptations and let the throttles relearn on</text>
+<text class="t" x="412" y="618.81">a cold engine (Session 6). Then the throttle sensors, pedal and</text>
+<text class="t" x="412" y="633.81">actuator.</text>
+<path class="ln" d="M372,615.42 H401" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="387" y="607.42" text-anchor="middle">no</text>
+<path class="ln" d="M190,649.17 V662.17" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="197" y="659.67">yes</text>
+<rect class="panel" x="8" y="663.17" width="364" height="22.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="18" y="677.81"><tspan class="t-b">Mechanical</tspan> (timing, compression), not wiring</text>
+<rect class="shape" x="404" y="668.42" width="20" height="12" rx="6" stroke-width="1.2"/>
+<text class="t-sm" x="430" y="678.92">Question</text>
+<rect class="crit-s" x="492.39" y="668.42" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="518.39" y="678.92">Stop: fix before going on</text>
+<rect class="panel" x="660.73" y="668.42" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="686.73" y="678.92">Elsewhere</text>
+</svg>

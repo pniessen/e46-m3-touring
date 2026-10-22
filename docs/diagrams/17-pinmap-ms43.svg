@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 683" role="img" aria-label="Pin map for an MS43 Touring built 09/2001 to 02/2003, with an M3 donor built from 09/2001: the DME plug X60004, two blocks of two rows of ten, and the body side of the E-box plug X6011, two rows of four, laid out as WDS draws them. WDS doesn't say which face that is, so your plug may look mirrored: find each cavity by the number moulded on the housing, never by counting positions in the drawing. Five wires move from X6011 into X60004: the oil-pressure lamp from 3 to 11, the charge lamp from 4 to 1, the oil level from 5 to 21, the start feedback from 6 to 2 and the leak-test heater from 7 to 18. Once the heater wire is out, the clutch wire moves from X60004 pin 23 into X6011 pin 7, and the brake test contact moves from 28 to 34. New wires go into 5, a ground to X1108 (recommended), and into 15 and 16 for the optional Sport button. X60004 pin 6 stays empty. Every wire that moves between X6011 and X60004 needs a new terminal of the target's type, or a BMW repair lead, and the cluster's three lamp switches are coded to nicht_aktiv." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahf" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fab-f"/></marker>
+  <marker id="ahn" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="new-f"/></marker>
+  <marker id="ahs" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fab-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="683" fill="#ffffff"/>
+
+<!-- Title, scope and the viewing-side caution -->
+<text class="t-h" x="12" y="22">MS43 TOURING: X60004 AND BODY X6011</text>
+<text class="t-sm" x="12" y="40">For a Touring built 09/2001 to 02/2003, with an M3 donor built from 09/2001.</text>
+<rect class="warn-f" x="8" y="49" width="348" height="64" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="14" y="64"><tspan class="t-b">Layout as WDS draws it.</tspan> WDS doesn't say which face that is,</text>
+<text class="t-sm" x="14" y="78">so your plug may look mirrored: find each cavity by the number</text>
+<text class="t-sm" x="14" y="92">moulded on the housing, never by counting positions in this</text>
+<text class="t-sm" x="14" y="106">drawing.</text>
+
+<!-- Legend -->
+<rect class="fab" x="441" y="7" width="22" height="14" rx="3" stroke-width="1.5"/>
+<text class="t-sm" x="470" y="18">moved here</text>
+<rect class="new" x="582" y="7" width="22" height="14" rx="3" stroke-width="1.5"/>
+<text class="t-sm" x="611" y="18">new wire</text>
+<rect class="fill-bg" x="690" y="7" width="22" height="14" rx="3"/>
+<rect class="fab-s dash" x="690" y="7" width="22" height="14" rx="3" stroke-width="1.5"/>
+<text class="t-sm" x="719" y="18">emptied</text>
+<rect class="new dash" x="441" y="27" width="22" height="14" rx="3" stroke-width="1.5"/>
+<text class="t-sm" x="470" y="38">new, recommended</text>
+<rect class="fill-bg" x="582" y="27" width="22" height="14" rx="3"/>
+<rect class="new-s dash" x="582" y="27" width="22" height="14" rx="3" stroke-width="1.5"/>
+<text class="t-sm" x="611" y="38">new, optional</text>
+<rect class="keep" x="441" y="47" width="22" height="14" rx="3" stroke-width="1.5"/>
+<text class="t-sm" x="470" y="58">unchanged</text>
+<rect class="fill-bg" x="582" y="47" width="22" height="14" rx="3"/>
+<rect class="ln-thin" x="582" y="47" width="22" height="14" rx="3"/>
+<text class="t-sm" x="611" y="58">empty</text>
+<circle class="fab-f" cx="584" cy="74" r="2.5"/>
+<path class="fab-s" d="M584,74 L605,74" stroke-width="1.5" marker-end="url(#ahf)"/>
+<text class="t-sm" x="611" y="78">a wire moves</text>
+
+<!-- X60004: two blocks of two rows of ten, as WDS draws them -->
+<text class="t t-b" x="364" y="100"><tspan class="t-mono">X60004</tspan> DME plug (body harness)</text>
+<rect class="panel" x="364" y="108" width="312" height="80" rx="6"/>
+<text class="t-sm" x="686" y="152">upper block</text>
+<rect class="panel" x="364" y="228" width="312" height="80" rx="6"/>
+<text class="t-sm" x="686" y="272">lower block</text>
+<rect class="fab" x="372" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="385" y="293.5" text-anchor="middle">1</text>
+<rect class="fab" x="402" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="415" y="293.5" text-anchor="middle">2</text>
+<rect class="keep" x="432" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="445" y="293" text-anchor="middle">3</text>
+<rect class="keep" x="462" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="475" y="293" text-anchor="middle">4</text>
+<rect class="new dash" x="492" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="505" y="293.5" text-anchor="middle">5</text>
+<rect class="fill-bg" x="522" y="278" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="522" y="278" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="535" y="293" text-anchor="middle">6</text>
+<rect class="keep" x="552" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="565" y="293" text-anchor="middle">7</text>
+<rect class="keep" x="582" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="595" y="293" text-anchor="middle">8</text>
+<rect class="keep" x="612" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="625" y="293" text-anchor="middle">9</text>
+<rect class="keep" x="642" y="278" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="655" y="293" text-anchor="middle">10</text>
+<rect class="fab" x="372" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="385" y="251.5" text-anchor="middle">11</text>
+<rect class="keep" x="402" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="415" y="251" text-anchor="middle">12</text>
+<rect class="keep" x="432" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="445" y="251" text-anchor="middle">13</text>
+<rect class="keep" x="462" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="475" y="251" text-anchor="middle">14</text>
+<rect class="fill-bg" x="492" y="236" width="26" height="22" rx="3"/>
+<rect class="new-s dash" x="492" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="505" y="251.5" text-anchor="middle">15</text>
+<rect class="fill-bg" x="522" y="236" width="26" height="22" rx="3"/>
+<rect class="new-s dash" x="522" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="535" y="251.5" text-anchor="middle">16</text>
+<rect class="keep" x="552" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="565" y="251" text-anchor="middle">17</text>
+<rect class="fab" x="582" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="595" y="251.5" text-anchor="middle">18</text>
+<rect class="fill-bg" x="612" y="236" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="612" y="236" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="625" y="251" text-anchor="middle">19</text>
+<rect class="keep" x="642" y="236" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="655" y="251" text-anchor="middle">20</text>
+<rect class="fab" x="372" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="385" y="173.5" text-anchor="middle">21</text>
+<rect class="keep" x="402" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="415" y="173" text-anchor="middle">22</text>
+<rect class="fill-bg" x="432" y="158" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="432" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="445" y="173.5" text-anchor="middle">23</text>
+<rect class="keep" x="462" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="475" y="173" text-anchor="middle">24</text>
+<rect class="fill-bg" x="492" y="158" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="492" y="158" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="505" y="173" text-anchor="middle">25</text>
+<rect class="keep" x="522" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="535" y="173" text-anchor="middle">26</text>
+<rect class="keep" x="552" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="565" y="173" text-anchor="middle">27</text>
+<rect class="fill-bg" x="582" y="158" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="582" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="595" y="173.5" text-anchor="middle">28</text>
+<rect class="keep" x="612" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="625" y="173" text-anchor="middle">29</text>
+<rect class="keep" x="642" y="158" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="655" y="173" text-anchor="middle">30</text>
+<rect class="fill-bg" x="372" y="116" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="372" y="116" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="385" y="131" text-anchor="middle">31</text>
+<rect class="keep" x="402" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="415" y="131" text-anchor="middle">32</text>
+<rect class="keep" x="432" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="445" y="131" text-anchor="middle">33</text>
+<rect class="fab" x="462" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="475" y="131.5" text-anchor="middle">34</text>
+<rect class="fill-bg" x="492" y="116" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="492" y="116" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="505" y="131" text-anchor="middle">35</text>
+<rect class="keep" x="522" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="535" y="131" text-anchor="middle">36</text>
+<rect class="keep" x="552" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="565" y="131" text-anchor="middle">37</text>
+<rect class="keep" x="582" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="595" y="131" text-anchor="middle">38</text>
+<rect class="keep" x="612" y="116" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="625" y="131" text-anchor="middle">39</text>
+<rect class="fill-bg" x="642" y="116" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="642" y="116" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="655" y="131" text-anchor="middle">40</text>
+<text class="t-sm" x="548" y="326">In WDS, <tspan class="t-mono">X60001</tspan>/<tspan class="t-mono">2</tspan>/<tspan class="t-mono">3</tspan>/<tspan class="t-mono">5</tspan> run the other way:</text>
+<text class="t-sm" x="548" y="340">pin <tspan class="t-mono">1</tspan> at the bottom right.</text>
+
+<!-- Body X6011: two rows of four, 5 next to 1 -->
+<rect class="panel" x="36" y="207" width="132" height="80" rx="6"/>
+<rect class="keep" x="44" y="257" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="57" y="272" text-anchor="middle">1</text>
+<rect class="keep" x="74" y="257" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="87" y="272" text-anchor="middle">2</text>
+<rect class="fill-bg" x="104" y="257" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="104" y="257" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="117" y="272.5" text-anchor="middle">3</text>
+<rect class="fill-bg" x="134" y="257" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="134" y="257" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="147" y="272.5" text-anchor="middle">4</text>
+<rect class="fill-bg" x="44" y="215" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="44" y="215" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="57" y="230.5" text-anchor="middle">5</text>
+<rect class="fill-bg" x="74" y="215" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="74" y="215" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="87" y="230.5" text-anchor="middle">6</text>
+<rect class="fab" x="104" y="215" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="117" y="230.5" text-anchor="middle">7</text>
+<rect class="fill-bg" x="134" y="215" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="134" y="215" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="147" y="230" text-anchor="middle">8</text>
+<text class="t t-b" x="36" y="303"><tspan class="t-mono">X6011</tspan> body side (E-box)</text>
+<text class="t-sm" x="36" y="318"><tspan class="t-mono">1</tspan> and <tspan class="t-mono">2</tspan> stay; <tspan class="t-mono">8</tspan> stays empty</text>
+<text class="t-sm" x="36" y="332"><tspan class="t-mono">7</tspan>: heater out, then clutch in</text>
+
+<!-- Wires that move between body X6011 and X60004 (orange): no two cross -->
+<circle class="fab-f" cx="57" cy="215" r="2.5"/>
+<path class="fab-s" d="M57,215 L57,154 L350,154 L350,169 L372,169" stroke-width="1.5" marker-end="url(#ahf)"/>
+<circle class="fab-f" cx="445" cy="180" r="2.5"/>
+<path class="fab-s" d="M445,180 L445,197 L334,197 L334,174 L110,174 L110,215" stroke-width="1.5" marker-end="url(#ahf)"/>
+<circle class="fab-f" cx="124" cy="215" r="2.5"/>
+<path class="fab-s" d="M124,215 L124,194 L318,194 L318,219 L595,219 L595,236" stroke-width="1.5" marker-end="url(#ahf)"/>
+<circle class="fab-f" cx="117" cy="257" r="2.5"/>
+<path class="fab-s" d="M117,257 L117,247 L372,247" stroke-width="1.5" marker-end="url(#ahf)"/>
+<circle class="fab-f" cx="160" cy="268" r="2.5"/>
+<path class="fab-s" d="M160,268 L342,268 L342,289 L372,289" stroke-width="1.5" marker-end="url(#ahf)"/>
+<circle class="fab-f" cx="87" cy="237" r="2.5"/>
+<path class="fab-s" d="M87,237 L87,242 L24,242 L24,349 L415,349 L415,300" stroke-width="1.5" marker-end="url(#ahf)"/>
+<text class="t-sm" x="214" y="344">start feedback · #6</text>
+<text class="t-sm" x="174" y="149">oil level · #5</text>
+<text class="t-sm" x="174" y="169">clutch · #2</text>
+<text class="t-sm" x="174" y="189">leak-test heater · #1</text>
+<text class="t-sm" x="174" y="242">oil-pressure lamp · #3</text>
+<text class="t-sm" x="174" y="263">charge lamp · #4</text>
+
+<!-- Moves inside X60004 (small arrowheads), labelled on the line -->
+<circle class="fab-f" cx="595" cy="158" r="2.5"/>
+<path class="fab-s" d="M595,158 L595,148 L475,148 L475,138" stroke-width="1.5" marker-end="url(#ahs)"/>
+<rect class="fill-bg" x="503" y="141" width="64" height="14" rx="3"/>
+<text class="t-sm" x="535" y="152" text-anchor="middle">brake · #7</text>
+
+<!-- X60004 pin 6 stays empty -->
+<path class="crit-s" d="M535,300 L535,322" stroke-width="1.5"/>
+<text class="t-sm t-b crit-t" x="530" y="326" text-anchor="end"><tspan class="t-mono">6</tspan> stays empty</text>
+
+<!-- Change cards: every X60004 cavity that changes, before -> after, with its move number -->
+<path class="ln-faint" d="M12,359 L788,359"/>
+<rect class="fab" x="12" y="367" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="25" y="382.5" text-anchor="middle">1</text>
+<text class="t t-b" x="50" y="378">Charge lamp<tspan class="t-sm">  #4</tspan></text>
+<text class="t-sm" x="50" y="392">empty → <tspan class="t-mono">0.35 BL</tspan> from body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">4</tspan></text>
+<rect class="fab" x="12" y="399" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="25" y="414.5" text-anchor="middle">2</text>
+<text class="t t-b" x="50" y="410">Start feedback (terminal 30h)<tspan class="t-sm">  #6</tspan></text>
+<text class="t-sm" x="50" y="424">empty → <tspan class="t-mono">0.35 SW/GN</tspan> from body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">6</tspan></text>
+<rect class="new dash" x="12" y="431" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="25" y="446.5" text-anchor="middle">5</text>
+<text class="t t-b" x="50" y="442">DME ground, recommended<tspan class="t-sm">  #8</tspan></text>
+<text class="t-sm" x="50" y="456">empty → new <tspan class="t-mono">0.35 BR/SW</tspan> to ground point <tspan class="t-mono">X1108</tspan></text>
+<rect class="fill-bg" x="12" y="463" width="26" height="22" rx="3"/>
+<rect class="ln-thin" x="12" y="463" width="26" height="22" rx="3"/>
+<text class="t-sm t-mono" x="25" y="478" text-anchor="middle">6</text>
+<text class="t t-b crit-t" x="50" y="474">Stays empty</text>
+<text class="t-sm" x="50" y="488">a forum mapping put the start feedback here; it goes in <tspan class="t-mono">2</tspan></text>
+<rect class="fab" x="12" y="495" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="25" y="510.5" text-anchor="middle">11</text>
+<text class="t t-b" x="50" y="506">Oil-pressure lamp<tspan class="t-sm">  #3</tspan></text>
+<text class="t-sm" x="50" y="520">empty → <tspan class="t-mono">0.35 BR/GN</tspan> from body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">3</tspan></text>
+<rect class="fill-bg" x="12" y="527" width="26" height="22" rx="3"/>
+<rect class="new-s dash" x="12" y="527" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="25" y="542.5" text-anchor="middle">15</text>
+<text class="t t-b" x="50" y="538">Sport button, optional<tspan class="t-sm">  #9</tspan></text>
+<text class="t-sm" x="50" y="552">empty → new <tspan class="t-mono">0.35 SW/RT/GE</tspan> from <tspan class="t-mono">X1869</tspan> pin <tspan class="t-mono">17</tspan></text>
+<rect class="fill-bg" x="406" y="367" width="26" height="22" rx="3"/>
+<rect class="new-s dash" x="406" y="367" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="419" y="382.5" text-anchor="middle">16</text>
+<text class="t t-b" x="444" y="378">Sport LED, optional<tspan class="t-sm">  #9</tspan></text>
+<text class="t-sm" x="444" y="392">empty → new <tspan class="t-mono">0.35 SW/GR/GE</tspan> to <tspan class="t-mono">X1869</tspan> pin <tspan class="t-mono">18</tspan></text>
+<rect class="fab" x="406" y="399" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="419" y="414.5" text-anchor="middle">18</text>
+<text class="t t-b" x="444" y="410">Leak-test heater<tspan class="t-sm">  #1</tspan></text>
+<text class="t-sm" x="444" y="424">empty → <tspan class="t-mono">0.75 SW/RT</tspan> from body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">7</tspan></text>
+<rect class="fab" x="406" y="431" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="419" y="446.5" text-anchor="middle">21</text>
+<text class="t t-b" x="444" y="442">Oil level<tspan class="t-sm">  #5</tspan></text>
+<text class="t-sm" x="444" y="456">empty → <tspan class="t-mono">0.5 WS/GN</tspan> from body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">5</tspan></text>
+<rect class="fill-bg" x="406" y="463" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="406" y="463" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="419" y="478.5" text-anchor="middle">23</text>
+<text class="t t-b" x="444" y="474">Clutch<tspan class="t-sm">  #2</tspan></text>
+<text class="t-sm" x="444" y="488"><tspan class="t-mono">0.35 BL/BR</tspan> → empty: the wire goes to body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">7</tspan></text>
+<rect class="fill-bg" x="406" y="495" width="26" height="22" rx="3"/>
+<rect class="fab-s dash" x="406" y="495" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="419" y="510.5" text-anchor="middle">28</text>
+<rect class="fab" x="436" y="495" width="26" height="22" rx="3" stroke-width="1.5"/>
+<text class="t t-b t-mono" x="449" y="510.5" text-anchor="middle">34</text>
+<text class="t t-b" x="474" y="506">Brake test contact<tspan class="t-sm">  #7</tspan></text>
+<text class="t-sm" x="474" y="520"><tspan class="t-mono">0.35 BR/GR</tspan> moves from <tspan class="t-mono">28</tspan> to <tspan class="t-mono">34</tspan></text>
+<text class="t t-b" x="444" y="538">Clutch module<tspan class="t-sm">  #10</tspan></text>
+<text class="t-sm" x="444" y="552">fit the M3's <tspan class="t-mono">61319122700</tspan> in place of <tspan class="t-mono">61319231129</tspan></text>
+
+<!-- Notes and the wire-color key -->
+<path class="ln-faint" d="M12,557 L788,557"/>
+<text class="t-sm t-b fab-t" x="12" y="579">Order: move #1 takes the heater wire out of body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">7</tspan> before move #2 puts the clutch wire in.</text>
+<text class="t-sm" x="12" y="594">Every wire that moves between <tspan class="t-mono">X6011</tspan> and <tspan class="t-mono">X60004</tspan> needs a new terminal of the target's type, or a BMW repair lead.</text>
+<text class="t-sm" x="12" y="609">Code the cluster's <tspan class="t-mono">CAN_OELDRUCKSCHALTER</tspan>, <tspan class="t-mono">GENERATOR_UEBER_CAN</tspan> and <tspan class="t-mono">TOG_UEBER_CAN</tspan> to <tspan class="t-mono">nicht_aktiv</tspan>.</text>
+<text class="t-sm" x="12" y="624">No change: pin <tspan class="t-mono">10</tspan> (pump relay <tspan class="t-mono">K96</tspan>); pins <tspan class="t-mono">20</tspan> and <tspan class="t-mono">30</tspan> (leak-test pump: test before your Touring's DME comes out).</text>
+<text class="t-sm" x="12" y="639">Built before 09/2001? Body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">7</tspan> is empty and the leak-test module has no heater: see “Earlier MS43 Tourings” in the manual.</text>
+<text class="t-sm" x="12" y="654">Wire colors: SW black, WS white, RT red, GN green, BL blue, BR brown, GE yellow, GR gray, VI violet, OR orange.</text>
+<text class="t-sm" x="12" y="669">0.35 BR/GR = 0.35 mm², brown with a gray tracer.</text>
+</svg>

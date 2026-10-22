@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 636" role="img" aria-label="Wiring diagram of the optional Sport button circuit. The M3's switch center (61316925520 coupe, 61316925521 convertible; your 325i's is 61316925498) takes a new plug, X1869. Pin 17 runs a new 0.35 SW/RT/GE wire to DME plug X60004 pin 15, the Sport input, which the button grounds when pressed; status STAT_FDYN_EIN. The DME drives the LED from X60004 pin 16 over a new 0.35 SW/GR/GE wire to X1869 pin 18; without it the DME stores fault 110 (0x6E). The switch center also needs three feeds a base Touring lacks: pin 7, terminal 30, 4.0 RT/VI from fuse F42 (30 A); pin 22, terminal R from fuse F12, wire and rating not given; and pin 23, the K-bus, 0.35 WS/RT/GE to any K-bus point. Your existing DSC-button plug X521 plugs in as it is: pin 1 terminal 15 from F33 (5 A, 0.5 GN/BL/GE), pin 2 the DSC-off button to the DSC unit's MK60 pin 39, pin 3 panel lighting 58g (0.5 GR/RT) from the light module, pin 4 ground. Nobody has confirmed the M3 unit's fit in a Touring console. On an MS45.1 the secondary-air sensor wire (0.5 SW/RT) comes out of X60004 pin 15 on every swap, Sport or not; it is not the 0.75 SW/RT wire in pin 2, so tag both. The tire-pressure reset on pin 2 would go to DSC unit pin 40, needs DSC and cluster coding and is unproven in a Touring." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahn" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="new-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="636" fill="#ffffff"/>
+
+<!-- Key -->
+<rect class="donor" x="8" y="7" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="30" y="17">From donor M3</text>
+<rect class="keep" x="126.8" y="7" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="148.8" y="17">Keep</text>
+<rect class="new" x="193.4" y="7" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="215.4" y="17">New wire or plug</text>
+<text class="t-sm fab-t t-b" x="320" y="17">Orange text: an MS45.1 step</text>
+<text class="t-h" x="8" y="48">SPORT BUTTON AND SWITCH CENTER: OPTIONAL</text>
+<text class="t-sm" x="8" y="66">The button switches the DME's throttle map. Skip the circuit and the DME stores fault 110 (0x6E), with no warning lamp.</text>
+
+<!-- M3 switch center -->
+<rect class="donor" x="331" y="84" width="174" height="386" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="343" y="104">M3 switch center</text>
+<text class="t-sm" x="343" y="119">61316925520 coupe,</text>
+<text class="t-sm" x="343" y="134">61316925521 convertible</text>
+<text class="t-sm" x="343" y="149">(your 325i's: 61316925498)</text>
+<text class="t-sm" x="343" y="164">fit in a Touring console</text>
+<text class="t-sm" x="343" y="179">unconfirmed</text>
+<line class="ln-faint" x1="332" y1="188" x2="504" y2="188"/>
+
+<!-- Feeds a base Touring lacks: new X1869 pins 7, 22, 23 -->
+<text class="t-sm t-b new-t" x="8" y="180">NEW: feeds a base Touring lacks</text>
+<rect class="keep" x="8" y="192" width="168" height="36" rx="5" stroke-width="1.5"/>
+<text class="t" x="16" y="207">Fuse F42, 30 A</text>
+<text class="t-sm" x="16" y="222">terminal 30</text>
+<line class="new-s" x1="176" y1="210" x2="304.5" y2="210" stroke-width="2"/>
+<rect class="new" x="305" y="201.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="214.5" text-anchor="middle">7</text>
+<text class="t-sm t-mono" x="240.2" y="204" text-anchor="middle">4.0 RT/VI</text>
+<rect class="keep" x="8" y="236" width="168" height="36" rx="5" stroke-width="1.5"/>
+<text class="t" x="16" y="251">Fuse F12</text>
+<text class="t-sm" x="16" y="266">terminal R; rating not given</text>
+<line class="new-s" x1="176" y1="254" x2="304.5" y2="254" stroke-width="2"/>
+<rect class="new" x="305" y="245.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="258.5" text-anchor="middle">22</text>
+<text class="t-sm t-mono" x="240.2" y="248" text-anchor="middle">wire not given</text>
+<rect class="keep" x="8" y="280" width="168" height="36" rx="5" stroke-width="1.5"/>
+<text class="t" x="16" y="295">K-bus, any point</text>
+<text class="t-sm" x="16" y="310">such as cluster pin 14's wire</text>
+<line class="new-s" x1="176" y1="298" x2="304.5" y2="298" stroke-width="2"/>
+<circle class="new-f" cx="176" cy="298" r="3.6"/>
+<rect class="new" x="305" y="289.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="302.5" text-anchor="middle">23</text>
+<text class="t-sm t-mono" x="240.2" y="292" text-anchor="middle">0.35 WS/RT/GE</text>
+<text class="t-sm t-b" x="339" y="214">X1869</text>
+<text class="t-sm" x="339" y="228">new plug</text>
+
+<!-- X521: your DSC-button plug, already there -->
+<text class="t-sm t-b" x="8" y="332">ALREADY THERE: your DSC-button plug</text>
+<rect class="keep" x="8" y="336.5" width="168" height="31" rx="5" stroke-width="1.5"/>
+<text class="t" x="16" y="350">Fuse F33, 5 A</text>
+<text class="t-sm" x="16" y="363.5">terminal 15</text>
+<line class="keep-s" x1="176" y1="352" x2="304.5" y2="352" stroke-width="1.5"/>
+<rect class="keep" x="305" y="343.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="356.5" text-anchor="middle">1</text>
+<text class="t-sm t-mono" x="240.2" y="347" text-anchor="middle">0.5 GN/BL/GE</text>
+<rect class="keep" x="8" y="370.5" width="168" height="31" rx="5" stroke-width="1.5"/>
+<text class="t" x="16" y="384">DSC unit</text>
+<text class="t-sm" x="16" y="397.5">MK60 pin 39: DSC off</text>
+<line class="keep-s" x1="176" y1="386" x2="304.5" y2="386" stroke-width="1.5"/>
+<rect class="keep" x="305" y="377.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="390.5" text-anchor="middle">2</text>
+<text class="t-sm t-mono" x="240.2" y="381" text-anchor="middle">blue/violet (TIS)</text>
+<rect class="keep" x="8" y="404.5" width="168" height="31" rx="5" stroke-width="1.5"/>
+<text class="t" x="16" y="418">Light module</text>
+<text class="t-sm" x="16" y="431.5">panel lighting 58g</text>
+<line class="keep-s" x1="176" y1="420" x2="304.5" y2="420" stroke-width="1.5"/>
+<rect class="keep" x="305" y="411.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="424.5" text-anchor="middle">3</text>
+<text class="t-sm t-mono" x="240.2" y="415" text-anchor="middle">0.5 GR/RT</text>
+<line class="keep-s" x1="150" y1="452" x2="304.5" y2="452" stroke-width="1.5"/>
+<rect class="keep" x="305" y="443.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="318" y="456.5" text-anchor="middle">4</text>
+<line class="keep-s" x1="150" y1="452" x2="150" y2="456" stroke-width="1.5"/>
+<line class="keep-s" x1="140" y1="456" x2="160" y2="456" stroke-width="1.5"/>
+<line class="keep-s" x1="143.5" y1="460" x2="156.5" y2="460" stroke-width="1.5"/>
+<line class="keep-s" x1="147" y1="464" x2="153" y2="464" stroke-width="1.5"/>
+<text class="t" x="136" y="456" text-anchor="end">ground</text>
+<text class="t-sm t-mono" x="227.2" y="447" text-anchor="middle">0.75 BR or 0.5 BR/SW</text>
+<text class="t-sm t-b" x="339" y="356">X521</text>
+<text class="t-sm" x="339" y="370">plugs in as it is</text>
+
+<!-- Sport input X1869 17 to X60004 15; LED X60004 16 to X1869 18 -->
+<rect class="new" x="505" y="217.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="518" y="230.5" text-anchor="middle">17</text>
+<rect class="new" x="505" y="281.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="518" y="294.5" text-anchor="middle">18</text>
+<rect class="keep" x="649" y="217.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="662" y="230.5" text-anchor="middle">15</text>
+<rect class="keep" x="649" y="281.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="662" y="294.5" text-anchor="middle">16</text>
+<line class="new-s" x1="531.5" y1="226" x2="648.5" y2="226" stroke-width="2" marker-end="url(#ahn)"/>
+<line class="new-s" x1="648.5" y1="290" x2="531.5" y2="290" stroke-width="2" marker-end="url(#ahn)"/>
+<text class="t-sm t-mono" x="583" y="220" text-anchor="middle">0.35 SW/RT/GE</text>
+<text class="t-sm t-mono" x="597" y="284" text-anchor="middle">0.35 SW/GR/GE</text>
+<text class="t-sm" x="583" y="245" text-anchor="middle">pressed, the button</text>
+<text class="t-sm" x="583" y="259" text-anchor="middle">grounds the input</text>
+<text class="t-sm t-b" x="497" y="204" text-anchor="end">X1869 (same plug)</text>
+<text class="t" x="497" y="230" text-anchor="end">Sport button</text>
+<text class="t" x="497" y="294" text-anchor="end">Sport LED</text>
+
+<!-- DME -->
+<rect class="donor" x="675" y="84" width="117" height="254" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="684" y="104">DME, the M3's</text>
+<text class="t-sm" x="684" y="119">MSS54 or MSS54HP</text>
+<text class="t-sm t-b" x="684" y="204">X60004</text>
+<text class="t-sm" x="684" y="230">Sport in</text>
+<text class="t-sm t-mono" x="684" y="248">STAT_FDYN_EIN</text>
+<text class="t-sm" x="684" y="262">follows the button</text>
+<text class="t-sm" x="684" y="294">LED out</text>
+<text class="t-sm" x="684" y="312">no LED wire:</text>
+<text class="t-sm crit-t" x="684" y="326">fault 110 (0x6E)</text>
+
+<!-- MS45.1: the secondary-air sensor wire leaves pin 15 on every swap -->
+<rect class="fab" x="520" y="352" width="272" height="72" rx="4" stroke-width="1.5"/>
+<text class="t-sm t-b fab-t" x="530" y="369">MS45.1, every swap, Sport or not:</text>
+<text class="t-sm" x="530" y="384">the secondary-air sensor wire (0.5 SW/RT)</text>
+<text class="t-sm" x="530" y="399">comes out of X60004 pin 15; insulate it.</text>
+<text class="t-sm" x="530" y="414">It's not the 0.75 SW/RT wire in pin 2: tag both.</text>
+
+<!-- Notes -->
+<rect class="warn-f" x="8" y="482" width="784" height="36" rx="4"/>
+<text class="t-sm" x="18" y="497"><tspan class="t-b">Wire pins 7, 22 and 23 too:</tspan> without 7 the switch center logs “terminal 30 missing”; without 22 nothing on the</text>
+<text class="t-sm" x="18" y="511">panel works, the DSC button included. Check that F42 and F12 are wired on their load side: unused positions often aren't.</text>
+<rect class="panel" x="8" y="528" width="452" height="100" rx="6"/>
+<text class="t-sm t-b" x="18" y="545">Test</text>
+<text class="t-sm" x="18" y="561"><tspan class="t-mono">SZM46.PRG</tspan> → <tspan class="t-mono">STATUS_IO</tspan>: terminals R, 15 and 50 on, terminal-30 voltage present.</text>
+<text class="t-sm" x="18" y="576"><tspan class="t-mono">MSS54DS0.PRG</tspan> → <tspan class="t-mono">STATUS_DIGITAL</tspan>: <tspan class="t-mono">STAT_FDYN_EIN</tspan> changes when you</text>
+<text class="t-sm" x="18" y="590">press the button, and the LED follows. Meter, at power-up step 8 (battery</text>
+<text class="t-sm" x="18" y="604">disconnected, DME unplugged, switch unit in): X60004 pin 15 to ground is</text>
+<text class="t-sm" x="18" y="618">open with the button released, near 0 Ω pressed.</text>
+<rect class="panel" x="470" y="528" width="322" height="100" rx="6"/>
+<text class="t-sm t-b" x="480" y="545">Leave out unless fitted</text>
+<text class="t-sm" x="480" y="561">X1869 pins 1, 13, 20, 21: seat heating; pins</text>
+<text class="t-sm" x="480" y="575">14, 15, 19: sunshade and HiFi.</text>
+<text class="t-sm" x="480" y="590">Optional: pin 2, tire-pressure reset (0.5 GE/SW),</text>
+<text class="t-sm" x="480" y="604">to DSC unit pin 40; needs DSC and cluster coding;</text>
+<text class="t-sm" x="480" y="618">unproven in a Touring.</text>
+</svg>

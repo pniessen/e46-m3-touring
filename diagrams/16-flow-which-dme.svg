@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 667" role="img" aria-label="How to tell which DME your US 325i Touring with a manual gearbox has, and which move table to use. The DME changed with March 2003 production: MS43 before, MS45.1 from then on. First check the engine code: an M56 SULEV also runs an MS45.1, with a CAN-controlled pump module and a returnless metal tank, and this manual doesn't cover it; a manual gearbox doesn't prove an M54; if the code is unreadable, stop and don't re-pin until the label or INPA answers. Then work down the tests, most reliable first, until one answers: 1, the DME label in the E-box, but a car built in 02 or 03/2003 also needs tests 4 and 5; 2, INPA or NCS Expert; 3, ETK by VIN under Programmed DME control unit: an MS43 unit means MS43, the manual-gearbox MS45.1 units 12147561526, 12147561528 and 12147562340 mean MS45.1, and another number can't tell; 4, where the 0.75 SW/RT leak-test heater wire sits, in the body side of X6011 pin 7 on an MS43 built from 09/2001 or in X60004 pin 2 on an MS45.1; 5, wires in X60004 pins 5 and 15 mean an MS45.1; 6, unverified, the main air-mass meter plug is said to have three wires on an MS43 and five on an MS45.1, and with neither, stop and don't re-pin until the label or INPA answers. An MS43 uses the table MS43 Touring: what to move, with Earlier MS43 Tourings below it for cars built before 09/2001; an MS45.1, often written MS45, uses MS45.1 Touring: what to move; both with an M3 donor built from 09/2001. The coils and valve cover are not a test; on a 325xi, never assume, read the label." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="667" fill="#ffffff"/>
+<rect class="shape" x="8" y="7" width="20" height="12" rx="6" stroke-width="1.2"/>
+<text class="t-sm" x="34" y="17.5">Question</text>
+<rect class="new" x="102.39" y="7" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="128.39" y="17.5">Your move table</text>
+<rect class="crit-s" x="234.47" y="7" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="260.47" y="17.5">Stop</text>
+<rect class="warn-f" x="306.27" y="7" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="332.27" y="17.5">Caution</text>
+<path class="ln dash" d="M393.97,13 H417.97"/>
+<text class="t-sm" x="423.97" y="17.5">Unverified</text>
+<rect class="panel" x="160" y="30" width="480" height="56.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b" x="400" y="44.64" text-anchor="middle">US 325i Touring with a manual gearbox</text>
+<text class="t" x="400" y="60.64" text-anchor="middle">The DME changed with March 2003 production:</text>
+<text class="t" x="400" y="76.64" text-anchor="middle">MS43 before, MS45.1 from then on.</text>
+<path class="ln" d="M400,86.5 V107.5" marker-end="url(#ah)"/>
+<rect class="shape" x="160" y="108.5" width="480" height="41.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="124.64" text-anchor="middle">Check the engine code: M54 or M56?</text>
+<text class="t-sm" x="400" y="139.14" text-anchor="middle">A manual gearbox doesn't prove an M54.</text>
+<text class="t t-b" x="176" y="133.39">unreadable</text>
+<text class="t t-b" x="624" y="133.39" text-anchor="end">M56</text>
+<rect class="crit-s" x="660" y="8" width="132" height="136.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="670" y="22.64">Not covered</text>
+<text class="t" x="670" y="38.64">The M56 SULEV</text>
+<text class="t" x="670" y="54.64">also runs an</text>
+<text class="t" x="670" y="70.64">MS45.1, with a</text>
+<text class="t" x="670" y="86.64">CAN-controlled</text>
+<text class="t" x="670" y="102.64">pump module and</text>
+<text class="t" x="670" y="118.64">a returnless metal</text>
+<text class="t" x="670" y="134.64">tank.</text>
+<path class="ln" d="M640,129.09 H659" marker-end="url(#ah)"/>
+<rect class="crit-s" x="8" y="72.59" width="132" height="72.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="18" y="87.23">Stop</text>
+<text class="t" x="18" y="103.23">Don't re-pin until</text>
+<text class="t" x="18" y="119.23">the label or INPA</text>
+<text class="t" x="18" y="135.23">answers.</text>
+<path class="ln" d="M160,129.09 H141" marker-end="url(#ah)"/>
+<path class="ln" d="M400,149.67 V170.67" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="164.67">M54</text>
+<rect class="shape" x="160" y="171.67" width="480" height="41.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="187.81" text-anchor="middle"><tspan class="t-b">1  </tspan> The DME label in the E-box: what does it say?</text>
+<text class="t-sm" x="400" y="202.31" text-anchor="middle">Built 02 or 03/2003: confirm with tests 4 and 5.</text>
+<text class="t t-b" x="176" y="196.56">MS43</text>
+<text class="t t-b" x="624" y="196.56" text-anchor="end">MS45.1</text>
+<path class="ln" d="M400,212.84 V233.84" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="227.84">unreadable</text>
+<rect class="shape" x="160" y="234.84" width="480" height="40" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="257.48" text-anchor="middle"><tspan class="t-b">2  </tspan> INPA or NCS Expert: which DME does it identify?</text>
+<text class="t t-b" x="176" y="259.14">MS43</text>
+<text class="t t-b" x="624" y="259.14" text-anchor="end">MS45.1</text>
+<path class="ln" d="M400,274.84 V295.84" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="289.84">can't tell</text>
+<rect class="shape" x="160" y="296.84" width="480" height="55.67" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="312.98" text-anchor="middle"><tspan class="t-b">3  </tspan> ETK by VIN, under "Programmed DME control unit"</text>
+<text class="t-sm" x="400" y="327.48" text-anchor="middle">Manual-gearbox MS45.1 units:</text>
+<text class="t-sm" x="400" y="341.98" text-anchor="middle">12147561526, 12147561528, 12147562340</text>
+<text class="t-sm t-b" x="176" y="321.98">an MS43</text>
+<text class="t-sm t-b" x="176" y="335.98">unit</text>
+<text class="t t-b" x="624" y="328.98" text-anchor="end">MS45.1</text>
+<path class="ln" d="M400,352.51 V373.51" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="367.51">another number: can't tell</text>
+<rect class="shape" x="160" y="374.51" width="480" height="41.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="390.65" text-anchor="middle"><tspan class="t-b">4  </tspan> Where is the leak-test heater wire?</text>
+<text class="t-sm" x="400" y="405.15" text-anchor="middle">0.75 SW/RT. In X6011 on an MS43 built from 09/2001.</text>
+<text class="t-sm t-b" x="176" y="392.4">body X6011</text>
+<text class="t-sm t-b" x="176" y="406.4">pin 7</text>
+<text class="t-sm t-b" x="624" y="392.4" text-anchor="end">X60004</text>
+<text class="t-sm t-b" x="624" y="406.4" text-anchor="end">pin 2</text>
+<path class="ln" d="M400,415.68 V436.68" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="430.68">can't tell</text>
+<rect class="shape" x="160" y="437.68" width="480" height="41.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="453.82" text-anchor="middle"><tspan class="t-b">5  </tspan> Do X60004 pins 5 and 15 carry wires?</text>
+<text class="t-sm" x="400" y="468.32" text-anchor="middle">0.5 SW/GE and SW/RT, for the secondary-air air-mass sensor</text>
+<text class="t t-b" x="624" y="462.57" text-anchor="end">yes</text>
+<path class="ln" d="M400,478.85 V499.85" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="493.85">no</text>
+<rect class="shape" x="160" y="500.85" width="480" height="41.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="400" y="516.99" text-anchor="middle"><tspan class="t-b">6  </tspan> Main air-mass meter plug: how many wires?</text>
+<text class="t-sm" x="400" y="531.49" text-anchor="middle">Unverified: said to be 3 on an MS43 and 5 on an MS45.1.</text>
+<text class="t t-b" x="176" y="525.74">3 wires</text>
+<text class="t t-b" x="624" y="525.74" text-anchor="end">5 wires</text>
+<path class="ln" d="M400,542.02 V563.02" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="407" y="557.02">neither</text>
+<rect class="crit-s" x="160" y="564.02" width="480" height="24.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="400" y="578.66" text-anchor="middle"><tspan class="t-b crit-t">Stop:</tspan> don't re-pin until the label or INPA answers.</text>
+<rect class="new" x="8" y="171.67" width="132" height="370.35" rx="4" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="186.31">MS43</text>
+<text class="t" x="18" y="202.31">Use the table</text>
+<text class="t-sm" x="18" y="216.81">"MS43 Touring: what</text>
+<text class="t-sm" x="18" y="231.31">to move"</text>
+<text class="t" x="18" y="247.31">for a Touring built</text>
+<text class="t" x="18" y="263.31">from 09/2001 to</text>
+<text class="t" x="18" y="279.31">02/2003, with an</text>
+<text class="t" x="18" y="295.31">M3 donor built</text>
+<text class="t" x="18" y="311.31">from 09/2001.</text>
+<text class="t" x="18" y="337.31">Built before</text>
+<text class="t" x="18" y="353.31">09/2001:</text>
+<text class="t-sm" x="18" y="367.81">"Earlier MS43</text>
+<text class="t-sm" x="18" y="382.31">Tourings", below that</text>
+<text class="t-sm" x="18" y="396.81">table</text>
+<rect class="new" x="660" y="171.67" width="132" height="370.35" rx="4" stroke-width="1.5"/>
+<text class="t" x="670" y="186.31"><tspan class="t-b">MS45.1</tspan> (often</text>
+<text class="t" x="670" y="202.31">written MS45)</text>
+<text class="t" x="670" y="218.31">Use the table</text>
+<text class="t-sm" x="670" y="232.81">"MS45.1 Touring:</text>
+<text class="t-sm" x="670" y="247.31">what to move"</text>
+<text class="t" x="670" y="263.31">for a Touring built</text>
+<text class="t" x="670" y="279.31">from 03/2003 with</text>
+<text class="t" x="670" y="295.31">the M54 and a</text>
+<text class="t" x="670" y="311.31">manual gearbox,</text>
+<text class="t" x="670" y="327.31">with an M3 donor</text>
+<text class="t" x="670" y="343.31">built from</text>
+<text class="t" x="670" y="359.31">09/2001.</text>
+<text class="t-sm" x="670" y="383.81">In ETK, by build</text>
+<text class="t-sm" x="670" y="398.31">date:</text>
+<text class="t-sm" x="670" y="412.81">12147561526</text>
+<text class="t-sm" x="670" y="427.31">(03/2003–07/2004)</text>
+<text class="t-sm" x="670" y="441.81">12147561528</text>
+<text class="t-sm" x="670" y="456.31">(07/2004–09/2005)</text>
+<text class="t-sm" x="670" y="470.81">12147562340</text>
+<text class="t-sm" x="670" y="485.31">(from 09/2005)</text>
+<path class="ln" d="M160,192.26 H141" marker-end="url(#ah)"/>
+<path class="ln" d="M640,192.26 H659" marker-end="url(#ah)"/>
+<path class="ln" d="M160,254.84 H141" marker-end="url(#ah)"/>
+<path class="ln" d="M640,254.84 H659" marker-end="url(#ah)"/>
+<path class="ln" d="M160,324.68 H141" marker-end="url(#ah)"/>
+<path class="ln" d="M640,324.68 H659" marker-end="url(#ah)"/>
+<path class="ln" d="M160,395.1 H141" marker-end="url(#ah)"/>
+<path class="ln" d="M640,395.1 H659" marker-end="url(#ah)"/>
+<path class="ln" d="M640,458.27 H659" marker-end="url(#ah)"/>
+<path class="ln dash" d="M160,521.44 H141" marker-end="url(#ah)"/>
+<path class="ln dash" d="M640,521.44 H659" marker-end="url(#ah)"/>
+<rect class="warn-f" x="8" y="602.52" width="385" height="56.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="18" y="617.16"><tspan class="t-b">Not a test:</tspan> the coils and the valve cover. BMW changed those</text>
+<text class="t" x="18" y="633.16">at 09/2002, before the DME.</text>
+<rect class="warn-f" x="407" y="602.52" width="385" height="56.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="417" y="617.16"><tspan class="t-b">A 325xi:</tspan> never assume. ETK lists it with MS43 and no end</text>
+<text class="t" x="417" y="633.16">date, yet with the 325i's "from Mar '03" engine harness and</text>
+<text class="t" x="417" y="649.16">secondary-air sensor. Read the label.</text>
+</svg>

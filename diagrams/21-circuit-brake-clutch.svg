@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" role="img" aria-label="Wiring diagram of the brake-light switch and the clutch chain after the swap. Brake: fuse F9 (5 A, terminal R) feeds switch S29 on plug X78 pin 1 (0.5 VI/GE); pin 2 grounds at X217 (0.35 BR/SW); the first contact, pin 4, runs 0.35 BL/RT through splice X181 to the light module and DME plug X60004 pin 24, unchanged; the test contact, pin 3, runs 0.35 BR/GR through splice X1179 and moves from X60004 pin 28 to pin 34. Clutch: F9 feeds the M3's clutch module 61319122700 on plug X13635 pin 3 (0.5 VI/GE); pin 1 grounds at X217; pin 4 keeps its 0.35 BL/SW wire to EWS X1659 pin 8, the start interlock, high with the pedal down; pin 2's 0.35 BL/BR wire moves out of X60004 pin 23 into body X6011 pin 7, where the M3 engine harness carries it as 0.5 GR to X6053 pin 5 and the gear switch 23142229113 on the 420G, then 0.5 GR/BL to DME X60002 pin 20. The Touring's module 61319231129 does not work in this chain. Both parts are electronic, so a meter proves only the wires: STATUS_DIGITAL proves the parts, and EWS3.PRG STATUS_LESEN the clutch module's signal to the EWS (clutch down, STAT_P_N_EINGANG changes and STAT_ANLASSER_AUS_P_N reads 0). Test with the key on and the engine off. Brake: STAT_BLS_EIN and STAT_BLTS_EIN must both change with the pedal; if only one changes the DME stores fault 106 (0x6A) and cruise is off. Clutch, parking brake on: the chain is high only with the pedal up and a gear in, when STAT_KRAFTSCHLUSS_EIN reads 1 and STAT_KUP_EIN 0; pedal down in gear, or neutral with either pedal position, reads 0 and 1. A Touring built before 03/2001 (clutch switch S32) or an SMG donor (no gear-switch wire at X60002 pin 20) needs the text." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="640" fill="#ffffff"/>
+
+<!-- Key -->
+<rect class="donor" x="8" y="7" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="30" y="17">From donor M3</text>
+<rect class="keep" x="126.8" y="7" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="148.8" y="17">Keep</text>
+<line class="fab-s" x1="193.4" y1="13" x2="215.4" y2="13" stroke-width="2"/>
+<text class="t-sm" x="221.4" y="17">Moved wire</text>
+<line class="fab-s dash" x1="298.5" y1="13" x2="320.5" y2="13" stroke-width="1.5"/>
+<text class="t-sm" x="326.5" y="17">Where it was</text>
+<text class="t-h" x="8" y="48">BRAKE-LIGHT SWITCH: TWO CONTACTS</text>
+<text class="t-h" x="364" y="48">CLUTCH CHAIN: MODULE AND GEAR SWITCH</text>
+<line class="ln-faint" x1="352" y1="34" x2="352" y2="392"/>
+
+<!-- Brake: fuse F9 to X78 pin 1 -->
+<rect class="keep" x="20" y="58" width="172" height="24" rx="5" stroke-width="1.5"/>
+<text class="t" x="30" y="74.5">Fuse F9, 5 A (terminal R)</text>
+<line class="keep-s" x1="56" y1="82" x2="56" y2="105" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="62" y="99">0.5 VI/GE</text>
+<rect class="keep" x="43" y="105" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="56" y="118" text-anchor="middle">1</text>
+<text class="t-sm t-b" x="75" y="116.5">X78</text>
+
+<!-- Brake-light switch S29 -->
+<rect class="keep" x="20" y="122" width="236" height="60" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="30" y="141">Brake-light switch S29</text>
+<text class="t-sm" x="30" y="157">61316967601, same on both cars</text>
+<text class="t-sm" x="30" y="173">electronic: sends B+ when braking</text>
+<rect class="keep" x="31" y="182" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="44" y="195" text-anchor="middle">2</text>
+<rect class="keep" x="117" y="182" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="130" y="195" text-anchor="middle">4</text>
+<rect class="keep" x="209" y="182" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="222" y="195" text-anchor="middle">3</text>
+
+<!-- Pin 2: ground X217 -->
+<line class="keep-s" x1="44" y1="199.5" x2="44" y2="222" stroke-width="1.5"/>
+<line class="keep-s" x1="34" y1="222" x2="54" y2="222" stroke-width="1.5"/>
+<line class="keep-s" x1="37.5" y1="226" x2="50.5" y2="226" stroke-width="1.5"/>
+<line class="keep-s" x1="41" y1="230" x2="47" y2="230" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="50" y="214">0.35 BR/SW</text>
+<text class="t-sm" x="58" y="233">X217</text>
+
+<!-- Pin 4: first contact through splice X181 to the light module and X60004 pin 24 (unchanged) -->
+<line class="keep-s" x1="130" y1="199.5" x2="130" y2="388" stroke-width="1.5"/>
+<line class="keep-s" x1="130" y1="272" x2="106" y2="272" stroke-width="1.5"/>
+<circle class="keep-f" cx="130" cy="272" r="3.6"/>
+<rect class="keep" x="10" y="259" width="96" height="26" rx="5" stroke-width="1.5"/>
+<text class="t" x="18" y="276.5">Light module</text>
+<text class="t-sm t-mono" x="136" y="218">0.35 BL/RT</text>
+<text class="t-sm" x="136" y="233">first contact</text>
+<text class="t-sm" x="138" y="276">splice X181</text>
+
+<!-- Pin 3: test contact through splice X1179, moved from X60004 pin 28 to 34 -->
+<line class="fab-s" x1="222" y1="199.5" x2="222" y2="388" stroke-width="2"/>
+<circle class="fab-f" cx="222" cy="300" r="3.6"/>
+<text class="t-sm t-mono fab-t" x="228" y="218">0.35 BR/GR</text>
+<text class="t-sm" x="228" y="233">test contact</text>
+<text class="t-sm" x="230" y="304">splice X1179</text>
+<path class="fab-s dash" d="M222,334 H176 V388" stroke-width="1.5"/>
+<text class="t-sm fab-t" x="230" y="338">was in pin 28</text>
+<text class="t-sm fab-t t-b" x="230" y="376">moved to 34</text>
+
+<!-- DSC reads the switch too -->
+<text class="t-sm" x="266" y="140">The DSC unit</text>
+<text class="t-sm" x="266" y="155">reads it too</text>
+<text class="t-sm" x="266" y="170">(MK60 pin 41)</text>
+
+<!-- Clutch: fuse F9 to X13635 pin 3 -->
+<rect class="keep" x="376" y="58" width="172" height="24" rx="5" stroke-width="1.5"/>
+<text class="t" x="386" y="74.5">Fuse F9, 5 A (terminal R)</text>
+<text class="t-sm" x="556" y="74.5">same fuse as the brake switch</text>
+<line class="keep-s" x1="404" y1="82" x2="404" y2="105" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="410" y="99">0.5 VI/GE</text>
+<rect class="keep" x="391" y="105" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="404" y="118" text-anchor="middle">3</text>
+<text class="t-sm t-b" x="423" y="116.5">X13635</text>
+
+<!-- M3 clutch module -->
+<rect class="donor" x="376" y="122" width="180" height="74" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="386" y="141">M3 clutch module</text>
+<text class="t-sm t-b donor-t" x="386" y="157">61319122700: required</text>
+<text class="t-sm crit-t" x="386" y="173">not the Touring's 61319231129</text>
+<text class="t-sm" x="386" y="189">electronic (Hall-effect)</text>
+
+<!-- Pin 4: start interlock to EWS X1659 pin 8 (keep) -->
+<rect class="keep" x="556" y="131.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="569" y="144.5" text-anchor="middle">4</text>
+<line class="keep-s" x1="582.5" y1="140" x2="663.5" y2="140" stroke-width="1.5"/>
+<rect class="keep" x="664" y="131.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="677" y="144.5" text-anchor="middle">8</text>
+<rect class="keep" x="690" y="122" width="102" height="56" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="700" y="141">EWS X1659</text>
+<text class="t-sm" x="700" y="156">start interlock:</text>
+<text class="t-sm" x="700" y="171">keep it</text>
+<text class="t-sm t-mono" x="589" y="134">0.35 BL/SW</text>
+<text class="t-sm" x="589" y="163">high, pedal down</text>
+
+<!-- Pin 1: ground X217 -->
+<rect class="keep" x="383" y="196" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="396" y="209" text-anchor="middle">1</text>
+<line class="keep-s" x1="396" y1="213.5" x2="396" y2="236" stroke-width="1.5"/>
+<line class="keep-s" x1="386" y1="236" x2="406" y2="236" stroke-width="1.5"/>
+<line class="keep-s" x1="389.5" y1="240" x2="402.5" y2="240" stroke-width="1.5"/>
+<line class="keep-s" x1="393" y1="244" x2="399" y2="244" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="402" y="228">0.35 BR/SW</text>
+<text class="t-sm" x="410" y="247">X217</text>
+
+<!-- Pin 2: chain wire, moved from X60004 pin 23 into body X6011 pin 7 -->
+<rect class="keep" x="471" y="196" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="484" y="209" text-anchor="middle">2</text>
+<path class="fab-s" d="M484,213.5 V294 H498.5" stroke-width="2"/>
+<text class="t-sm t-mono fab-t" x="490" y="229">0.35 BL/BR</text>
+<text class="t-sm fab-t" x="490" y="244">out of X60004 23</text>
+<text class="t-sm" x="490" y="259">+12 V with the pedal up</text>
+
+<!-- X6011 pin 7: body half (yours) and engine half (M3) -->
+<rect class="keep" x="499" y="285.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="512" y="298.5" text-anchor="middle">7</text>
+<rect class="donor" x="525" y="285.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="538" y="298.5" text-anchor="middle">7</text>
+<text class="t-sm t-b" x="525" y="279" text-anchor="middle">X6011</text>
+<text class="t-sm" x="512" y="317" text-anchor="middle">body</text>
+<text class="t-sm donor-t" x="538" y="317" text-anchor="middle">M3</text>
+
+<!-- M3 engine harness 0.5 GR to X6053 pin 5 -->
+<line class="donor-s" x1="551.5" y1="294" x2="602.5" y2="294" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="557" y="288">0.5 GR</text>
+<rect class="donor" x="603" y="285.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="616" y="298.5" text-anchor="middle">5</text>
+<rect class="donor" x="629" y="285.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="642" y="298.5" text-anchor="middle">5</text>
+<text class="t-sm t-b" x="629" y="279" text-anchor="middle">X6053</text>
+<text class="t-sm donor-t" x="629" y="317" text-anchor="middle">both M3</text>
+
+<!-- Gear switch on the 420G -->
+<line class="donor-s" x1="655.5" y1="294" x2="663.5" y2="294" stroke-width="1.5"/>
+<rect class="donor" x="664" y="285.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="677" y="298.5" text-anchor="middle">1</text>
+<rect class="donor" x="690" y="256" width="102" height="86" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="700" y="274">Gear switch</text>
+<text class="t-sm" x="700" y="289">23142229113</text>
+<text class="t-sm" x="700" y="304">on the 420G</text>
+<text class="t-sm" x="700" y="319">closed in gear,</text>
+<text class="t-sm" x="700" y="334">open in neutral</text>
+<rect class="donor" x="747" y="342" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="760" y="355" text-anchor="middle">2</text>
+<line class="donor-s" x1="760" y1="359.5" x2="760" y2="388" stroke-width="1.5"/>
+<text class="t-sm t-mono" x="752" y="382" text-anchor="end">0.5 GR/BL</text>
+
+<!-- X6011 pin 7 must be clear first -->
+<rect class="warn-f" x="364" y="325" width="262" height="76" rx="4"/>
+<text class="t-sm t-b" x="372" y="340">First clear X6011 pin 7:</text>
+<text class="t-sm" x="372" y="353.5">MS43 from 09/2001: move the heater wire</text>
+<text class="t-sm" x="372" y="367">(0.75 SW/RT) to X60004 18 first</text>
+<text class="t-sm" x="372" y="380.5">MS45.1 and earlier MS43: pin 7 is empty</text>
+<text class="t-sm" x="372" y="394">Both: fit a new X6011-type terminal</text>
+
+<!-- DME and its plugs -->
+<rect class="donor" x="8" y="406" width="784" height="28" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="470" y="424.5" text-anchor="middle">DME: MSS54 or MSS54HP, the M3's</text>
+<text class="t-sm t-b" x="76" y="401" text-anchor="end">X60004</text>
+<rect class="keep dash" x="81" y="388.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="94" y="401.5" text-anchor="middle">23</text>
+<rect class="keep" x="117" y="388.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="130" y="401.5" text-anchor="middle">24</text>
+<rect class="keep dash" x="163" y="388.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="176" y="401.5" text-anchor="middle">28</text>
+<rect class="keep" x="209" y="388.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="222" y="401.5" text-anchor="middle">34</text>
+<text class="t-sm fab-t" x="108" y="362" text-anchor="end">23: clutch wire</text>
+<text class="t-sm fab-t" x="108" y="376" text-anchor="end">moved to X6011</text>
+<text class="t-sm t-b" x="741" y="401" text-anchor="end">X60002</text>
+<rect class="donor" x="747" y="388.5" width="26" height="17" rx="2"/>
+<text class="t t-mono" x="760" y="401.5" text-anchor="middle">20</text>
+
+<!-- Electronic parts: meter proves wires, status bits prove parts -->
+<rect class="warn-f" x="8" y="442" width="784" height="38" rx="4"/>
+<text class="t-sm" x="18" y="457"><tspan class="t-b">Both parts are electronic:</tspan> a meter proves only their wires; <tspan class="t-mono">STATUS_DIGITAL</tspan> proves the brake switch and the clutch module (tables below).</text>
+<text class="t-sm" x="18" y="472.5">The clutch module's EWS signal: <tspan class="t-mono">EWS3.PRG</tspan> → <tspan class="t-mono">STATUS_LESEN</tspan>, clutch down: <tspan class="t-mono">STAT_P_N_EINGANG</tspan> changes and <tspan class="t-mono">STAT_ANLASSER_AUS_P_N</tspan> = 0.</text>
+
+<!-- Brake logic -->
+<rect class="panel" x="8" y="488" width="336" height="145" rx="6"/>
+<text class="t t-b" x="18" y="505">Brake: key on, engine off, press the pedal</text>
+<text class="t-sm" x="18" y="520">Both bits change with the pedal.</text>
+<text class="t-sm t-mono t-b" x="18" y="538">STAT_BLS_EIN</text>
+<text class="t-sm t-mono t-b" x="120" y="538">STAT_BLTS_EIN</text>
+<text class="t-sm t-b" x="228" y="538">Means</text>
+<line class="ln-faint" x1="16" y1="542" x2="336" y2="542"/>
+<text class="t" x="18" y="556">changes</text>
+<text class="t" x="120" y="556">changes</text>
+<text class="t" x="228" y="556">OK</text>
+<line class="ln-faint" x1="16" y1="560" x2="336" y2="560"/>
+<text class="t" x="18" y="574">changes</text>
+<text class="t" x="120" y="574">stays</text>
+<text class="t-sm crit-t" x="228" y="574">106 (0x6A), no cruise</text>
+<line class="ln-faint" x1="16" y1="578" x2="336" y2="578"/>
+<text class="t" x="18" y="592">stays</text>
+<text class="t" x="120" y="592">changes</text>
+<text class="t-sm crit-t" x="228" y="592">106 (0x6A), no cruise</text>
+<text class="t-sm" x="18" y="611">Left on 28: yellow brake lamp (one xi Touring, unverified)</text>
+
+<!-- Clutch logic -->
+<rect class="panel" x="364" y="488" width="428" height="145" rx="6"/>
+<text class="t t-b" x="374" y="505">Clutch: key on, engine off, parking brake on</text>
+<text class="t-sm" x="374" y="520">Chain high = pedal up AND in gear</text>
+<text class="t-sm t-b" x="374" y="538">Gearbox</text>
+<text class="t-sm t-b" x="446" y="538">Pedal</text>
+<text class="t-sm t-mono t-b" x="506" y="538">STAT_KRAFTSCHLUSS_EIN</text>
+<text class="t-sm t-mono t-b" x="690" y="538">STAT_KUP_EIN</text>
+<line class="ln-faint" x1="372" y1="542" x2="784" y2="542"/>
+<text class="t t-b" x="374" y="556">in gear</text>
+<text class="t t-b" x="446" y="556">up</text>
+<text class="t t-b" x="506" y="556">1</text>
+<text class="t t-b" x="690" y="556">0</text>
+<line class="ln-faint" x1="372" y1="560" x2="784" y2="560"/>
+<text class="t" x="374" y="574">in gear</text>
+<text class="t" x="446" y="574">down</text>
+<text class="t" x="506" y="574">0</text>
+<text class="t" x="690" y="574">1</text>
+<line class="ln-faint" x1="372" y1="578" x2="784" y2="578"/>
+<text class="t" x="374" y="592">neutral</text>
+<text class="t" x="446" y="592">either</text>
+<text class="t" x="506" y="592">0</text>
+<text class="t" x="690" y="592">1</text>
+<text class="t-sm" x="374" y="611">In neutral, 0 and 1 is correct, not a fault. Chain fault: 80 (0x50).</text>
+<text class="t-sm" x="374" y="625">Touring before 03/2001 (switch S32) or SMG donor (no pin-20 wire): see text.</text>
+</svg>

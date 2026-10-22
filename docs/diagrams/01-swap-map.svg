@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Top view of the Touring showing part origins: engine, gearbox, both axles, driveshaft, cooling and front panels come from the donor M3; body, interior, fuel tank, immobilizer and DSC unit stay; the fuel filter-regulator is new; rear arches, subframe mounts, floor and rear bumper are fabricated or modified. The M3 rear wheels sit outside the Touring's body line." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<rect class="bg" x="0" y="0" width="400" height="560" fill="#ffffff"/>
+
+<!-- Legend -->
+<rect class="donor" x="12" y="12" width="14" height="14" rx="2"/>
+<text class="t" x="32" y="23.5">From donor M3</text>
+<rect class="keep" x="206" y="12" width="14" height="14" rx="2"/>
+<text class="t" x="226" y="23.5">Keep from your Touring</text>
+<rect class="new" x="12" y="34" width="14" height="14" rx="2"/>
+<text class="t" x="32" y="45.5">Buy new</text>
+<rect class="fab" x="206" y="34" width="14" height="14" rx="2"/>
+<text class="t" x="226" y="45.5">Fabricate or modify</text>
+
+<!-- Body, front at top -->
+<path class="shape" d="M164,70 H236 Q260,70 260,94 V390 Q260,400 250,400 H150 Q140,400 140,390 V94 Q140,70 164,70 Z"/>
+<path class="ln-faint" d="M150,178 Q200,168 250,178 V386 H150 Z"/>
+
+<!-- Front panels -->
+<rect class="donor-s dash" x="150" y="77" width="100" height="92" rx="10"/>
+<path class="donor-s" d="M146,84 Q148,71 164,71 H236 Q252,71 254,84" stroke-width="4"/>
+
+<!-- Tires: front M3 track, rear M3 track pokes past the body -->
+<rect class="fill-fg" x="136" y="105" width="16" height="48" rx="3" opacity="0.85"/>
+<rect class="fill-fg" x="248" y="105" width="16" height="48" rx="3" opacity="0.85"/>
+<rect class="fill-fg" x="134.5" y="306" width="19" height="48" rx="3" opacity="0.85"/>
+<rect class="fill-fg" x="246.5" y="306" width="19" height="48" rx="3" opacity="0.85"/>
+
+<!-- Front fenders (M3, grafted) and rear arches (welded M3 steel) -->
+<path class="donor-s" d="M140,102 C132,111 132,147 140,156" stroke-width="2.5"/>
+<path class="donor-s" d="M260,102 C268,111 268,147 260,156" stroke-width="2.5"/>
+<path class="fab-s" d="M140,298 C129,308 129,352 140,362" stroke-width="2.5"/>
+<path class="fab-s" d="M260,298 C271,308 271,352 260,362" stroke-width="2.5"/>
+
+<!-- Cooling -->
+<rect class="donor" x="166" y="80" width="68" height="6" rx="1"/>
+<rect class="donor" x="180" y="89" width="40" height="4" rx="1"/>
+
+<!-- Engine, front axle, gearbox -->
+<rect class="donor" x="153" y="125" width="94" height="8" rx="2" stroke-width="1.5"/>
+<line class="donor-s" x1="160" y1="140" x2="240" y2="140" stroke-width="2"/>
+<rect class="donor" x="186" y="98" width="28" height="56" rx="3" stroke-width="1.5"/>
+<text class="t-xs donor-t" x="200" y="118" text-anchor="middle">S54</text>
+<path class="donor" d="M190,154 H210 L206,206 H194 Z" stroke-width="1.5"/>
+<rect class="donor" x="182" y="205" width="36" height="5" rx="1"/>
+
+<!-- Fuel tank (keep) -->
+<rect class="keep" x="158" y="272" width="84" height="30" rx="4" stroke-width="1.5"/>
+<rect class="new" x="160" y="254" width="16" height="10" rx="2" stroke-width="1.5"/>
+
+<!-- Driveshaft and centre bearing -->
+<line class="donor-s" x1="200" y1="210" x2="200" y2="320" stroke-width="3"/>
+<rect class="donor" x="195" y="252" width="10" height="7" rx="1"/>
+
+<!-- Rear axle -->
+<rect class="donor" x="162" y="313" width="76" height="34" rx="4" stroke-width="1.5"/>
+<line class="donor-s" x1="190" y1="330" x2="153.5" y2="330" stroke-width="2.5"/>
+<line class="donor-s" x1="210" y1="330" x2="246.5" y2="330" stroke-width="2.5"/>
+<rect class="donor-f" x="190" y="320" width="20" height="20" rx="3"/>
+
+<!-- Exhaust: M3 manifolds, cats, mid-pipes -->
+<path class="donor-s" d="M214,110 Q223,116 222,146 V350" stroke-width="2"/>
+<path class="donor-s" d="M214,126 Q228,132 226,158 V350" stroke-width="2"/>
+
+<!-- Subframe mount reinforcement (all four mounts) -->
+<circle class="fab-s" cx="166" cy="316.5" r="4.5" stroke-width="2"/>
+<circle class="fab-s" cx="234" cy="316.5" r="4.5" stroke-width="2"/>
+<circle class="fab-s" cx="166" cy="343.5" r="4.5" stroke-width="2"/>
+<circle class="fab-s" cx="234" cy="343.5" r="4.5" stroke-width="2"/>
+
+<!-- Muffler vs spare-wheel well -->
+<circle class="crit-s dash" cx="200" cy="371" r="21" stroke-width="1.5"/>
+<rect class="fab" x="166" y="352" width="68" height="14" rx="5" stroke-width="1.5"/>
+<rect class="fill-fg" x="168" y="395" width="7" height="6" rx="1"/>
+<rect class="fill-fg" x="178" y="395" width="7" height="6" rx="1"/>
+<rect class="fill-fg" x="215" y="395" width="7" height="6" rx="1"/>
+<rect class="fill-fg" x="225" y="395" width="7" height="6" rx="1"/>
+<path class="fab-s" d="M146,399 H254" stroke-width="4"/>
+
+<!-- Labels, left (driver side) -->
+<g class="ln-thin">
+  <path d="M131,92 L150,97"/>
+  <path d="M131,132 L134,129"/>
+  <path d="M131,194 L141,200"/>
+  <path d="M131,248 L160,258"/>
+  <path d="M131,290 L165,312"/>
+  <path d="M131,372 L135,357"/>
+</g>
+<text class="t" x="128" y="88" text-anchor="end">M3 hood, bumper,</text>
+<text class="t" x="128" y="104" text-anchor="end">headlights</text>
+<text class="t" x="128" y="128" text-anchor="end">M3 fenders grafted</text>
+<text class="t" x="128" y="144" text-anchor="end">onto 4-door rears</text>
+<text class="t" x="128" y="190" text-anchor="end">Body, interior,</text>
+<text class="t" x="128" y="206" text-anchor="end">keys, EWS: keep</text>
+<text class="t" x="128" y="236" text-anchor="end">Fuel tank: keep</text>
+<text class="t" x="128" y="252" text-anchor="end">Filter-regulator:</text>
+<text class="t" x="128" y="268" text-anchor="end">new, 5 bar</text>
+<text class="t" x="128" y="290" text-anchor="end">Weld plates at</text>
+<text class="t" x="128" y="306" text-anchor="end">subframe mounts</text>
+<text class="t" x="128" y="372" text-anchor="end">Weld in M3 rear</text>
+<text class="t" x="128" y="388" text-anchor="end">arch steel</text>
+
+<!-- Labels, right (passenger side) -->
+<g class="ln-thin">
+  <path d="M269,82 L234,83"/>
+  <path d="M269,120 L264,120"/>
+  <path d="M269,170 L214,150"/>
+  <path d="M269,214 L208,194"/>
+  <path d="M269,254 L205,255"/>
+  <path d="M269,300 L266,310"/>
+  <path d="M269,356 L232,361"/>
+  <path d="M269,402 L232,398"/>
+</g>
+<text class="t" x="272" y="78">Radiator, fans,</text>
+<text class="t" x="272" y="94">oil cooler</text>
+<text class="t" x="272" y="116">Front axle, rack,</text>
+<text class="t" x="272" y="132">struts, brakes</text>
+<text class="t" x="272" y="166">S54: refresh it</text>
+<text class="t" x="272" y="182">before install</text>
+<text class="t" x="272" y="210">Getrag 420G</text>
+<text class="t" x="272" y="226">six-speed</text>
+<text class="t" x="272" y="258">M3 driveshaft</text>
+<text class="t" x="272" y="296">Rear axle: M diff,</text>
+<text class="t" x="272" y="312">arms, brakes</text>
+<text class="t crit-t" x="272" y="352">Muffler hits spare</text>
+<text class="t crit-t" x="272" y="368">well: rework floor</text>
+<text class="t" x="272" y="398">Rear bumper: cut</text>
+<text class="t" x="272" y="414">for quad tips</text>
+
+<!-- Electronics -->
+<line class="ln-faint" x1="12" y1="434" x2="388" y2="434"/>
+<text class="t-h" x="12" y="456">ELECTRONICS</text>
+<rect class="donor" x="12" y="468" width="12" height="12" rx="2"/>
+<text class="t" x="32" y="478.5">DME + engine harness: EWS-delete flash, re-pin</text>
+<rect class="donor" x="12" y="492" width="12" height="12" rx="2"/>
+<text class="t" x="32" y="502.5">M3 cluster: code to your VIN and true mileage</text>
+<rect class="keep" x="12" y="516" width="12" height="12" rx="2"/>
+<text class="t" x="32" y="526.5">DSC unit: keep your MK60, recalibrate after alignment</text>
+<rect class="keep" x="12" y="540" width="12" height="12" rx="2"/>
+<text class="t" x="32" y="550.5">EWS, keys, light and body modules: keep</text>
+</svg>

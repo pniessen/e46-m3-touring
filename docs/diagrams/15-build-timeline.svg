@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 618" role="img" aria-label="A typical 24-month build on a calendar, with a mark every six months and a typical finish between 18 and 30 months. Phases 0 to 2, paperwork and baseline, buying and inspecting the donor, and stripping the donor, fill roughly the first three and a half months; the donor is bought and tested at the end of Phase 1. Phase 3, bench work on the S54, 420G, axles, DME and fenders, runs alongside Phases 4 to 8. After stripping your Touring, Phase 5 welds the subframe mounts and floor, and the first cut into your floor there is the point of no return; Phase 6, the rear arches, is the longest phase of your own work. Phases 7 to 10 fit the rear axle and fuel system, front suspension and steering, the S54 and 420G, and cooling, intake and exhaust; Phase 11 is wiring, immobilizer and coding; Phase 12 fits the front end and includes the first start, shakedown and alignment. Phase 13 includes about four months at the paint shop and ends with inspection at about 24 months. Bar lengths follow the guide's weekend estimates for each phase: typical, and your times will vary." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="618" fill="#ffffff"/>
+
+<text class="t-h" x="8" y="20">BUILD CALENDAR</text>
+<text class="t-xs" x="390" y="20" text-anchor="end">Typical; your times will vary</text>
+<text class="t-xs t-b" x="8" y="42">weekends</text>
+
+<!-- Typical finish window and month grid -->
+<rect class="panel" x="250.4" y="46" width="129.6" height="456" opacity="0.6"/>
+<g class="ln-faint">
+  <line x1="56" y1="46" x2="56" y2="502"/>
+  <line x1="120.8" y1="46" x2="120.8" y2="502"/>
+  <line x1="185.6" y1="46" x2="185.6" y2="502"/>
+  <line x1="250.4" y1="46" x2="250.4" y2="502"/>
+  <line x1="315.2" y1="46" x2="315.2" y2="502"/>
+  <line x1="380" y1="46" x2="380" y2="502"/>
+</g>
+
+<!-- Weekend estimates from the Time table; brackets join phases that share one -->
+<path class="ln-thin" d="M43,89 H47 V131 H43"/>
+<text class="t-sm" x="40" y="114" text-anchor="end">4–8</text>
+<text class="t-sm" x="40" y="162" text-anchor="end">6–10</text>
+<text class="t-sm" x="40" y="194" text-anchor="end">2–4</text>
+<text class="t-sm" x="40" y="226" text-anchor="end">4–8</text>
+<text class="t-sm" x="40" y="258" text-anchor="end">8–16</text>
+<path class="ln-thin" d="M43,281 H47 V387 H43"/>
+<text class="t-sm" x="40" y="338" text-anchor="end">8–12</text>
+<path class="ln-thin" d="M43,409 H47 V451 H43"/>
+<text class="t-sm" x="40" y="434" text-anchor="end">4–8</text>
+<text class="t-sm" x="40" y="482" text-anchor="end">4–8</text>
+<text class="t-xs" x="40" y="496" text-anchor="end">+ shop</text>
+
+<!-- Phase bars -->
+<rect class="shape" x="56" y="57.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="donor" x="68.5" y="89.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="donor" x="80.9" y="121.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="donor" x="93.4" y="153.5" width="108" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="93.4" y="185.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="fab" x="105.8" y="217.5" width="24.9" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="fab" x="130.8" y="249.5" width="49.8" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="180.6" y="281.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="191" y="313.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="201.4" y="345.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="211.8" y="377.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="222.2" y="409.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="234.6" y="441.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="247.1" y="473.5" width="12.5" height="9" rx="1.5"/>
+<rect class="keep dash" x="259.5" y="473.5" width="43.2" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="302.7" y="473.5" width="12.5" height="9" rx="1.5"/>
+
+<!-- Phase titles -->
+<text class="t-sm fill-fg" x="74.5" y="66"><tspan class="t-b">0 </tspan>Paperwork and baseline</text>
+<text class="t-xs" x="84.5" y="80">before you buy the donor</text>
+<text class="t-sm fill-fg" x="86.9" y="98"><tspan class="t-b">1 </tspan>Buy and inspect the donor</text>
+<text class="t-sm fill-fg" x="99.4" y="130"><tspan class="t-b">2 </tspan>Strip the donor</text>
+<text class="t-sm fill-fg" x="207.4" y="162"><tspan class="t-b">3 </tspan>Bench work, alongside 4–8</text>
+<text class="t-xs" x="217.4" y="176">S54, 420G, axles, DME, fenders</text>
+<text class="t-sm fill-fg" x="111.8" y="194"><tspan class="t-b">4 </tspan>Strip your Touring</text>
+<text class="t-sm fill-fg" x="136.8" y="226"><tspan class="t-b">5 </tspan>Metalwork 1, subframe mounts and floor</text>
+<text class="t-sm fill-fg" x="186.6" y="258"><tspan class="t-b">6 </tspan>Metalwork 2, rear arches</text>
+<text class="t-sm fill-fg" x="197" y="290"><tspan class="t-b">7 </tspan>Fit the M3 rear axle and</text>
+<text class="t-sm fill-fg" x="207" y="304">fuel system</text>
+<text class="t-sm fill-fg" x="207.4" y="322"><tspan class="t-b">8 </tspan>Fit the M3 front suspension</text>
+<text class="t-sm fill-fg" x="217.4" y="336">and steering</text>
+<text class="t-sm fill-fg" x="217.8" y="354"><tspan class="t-b">9 </tspan>Install the S54 and 420G</text>
+<text class="t-sm fill-fg" x="228.2" y="386"><tspan class="t-b">10 </tspan>Cooling, intake and</text>
+<text class="t-sm fill-fg" x="244.7" y="400">exhaust</text>
+<text class="t-sm fill-fg" x="240.6" y="418"><tspan class="t-b">11 </tspan>Wiring, immobilizer and</text>
+<text class="t-sm fill-fg" x="257.1" y="432">coding</text>
+<text class="t-sm fill-fg" x="228.6" y="450" text-anchor="end"><tspan class="t-b">12 </tspan>Front end, first start</text>
+<text class="t-sm fill-fg" x="228.6" y="464" text-anchor="end">and shakedown</text>
+<text class="t-sm fill-fg" x="241.1" y="482" text-anchor="end"><tspan class="t-b">13 </tspan>Paint, trim and paperwork</text>
+
+<!-- Milestones -->
+<path class="fill-fg" d="M80.9,89.5 L85.4,94 L80.9,98.5 L76.4,94 Z"/>
+<text class="t-xs t-b fill-fg" x="96.9" y="112">Donor bought and tested</text>
+<path class="crit-f" d="M115.8,217.5 L120.3,222 L115.8,226.5 L111.3,222 Z"/>
+<text class="t-xs t-b crit-t" x="146.8" y="240">First cut into your floor: point of no return</text>
+<path class="fill-fg" d="M236.5,442.4 L240.1,446 L236.5,449.6 L232.9,446 Z"/>
+<path class="fill-fg" d="M247.1,442.4 L250.7,446 L247.1,449.6 L243.5,446 Z"/>
+<text class="t-xs t-b fill-fg" x="255.1" y="450">First start</text>
+<text class="t-xs t-b fill-fg" x="255.1" y="464">Alignment</text>
+<path class="fill-fg" d="M315.2,473.5 L319.7,478 L315.2,482.5 L310.7,478 Z"/>
+<text class="t-xs t-b fill-fg" x="322.2" y="482">Inspection</text>
+<text class="t-xs" x="281.1" y="496" text-anchor="middle">at the paint shop, about 4 months</text>
+
+<!-- Month axis -->
+<text class="t-xs" x="56" y="515" text-anchor="middle">0</text>
+<text class="t-xs" x="120.8" y="515" text-anchor="middle">6</text>
+<text class="t-xs" x="185.6" y="515" text-anchor="middle">12</text>
+<text class="t-xs" x="250.4" y="515" text-anchor="middle">18</text>
+<text class="t-xs" x="315.2" y="515" text-anchor="middle">24</text>
+<text class="t-xs" x="380" y="515" text-anchor="middle">30</text>
+<text class="t-xs" x="56" y="529">months from the start</text>
+<line class="ln-thin" x1="163" y1="525.5" x2="181" y2="525.5" marker-end="url(#ah)"/>
+<text class="t-xs t-b" x="315.2" y="529" text-anchor="middle">typical finish: 18–30 months</text>
+
+<!-- Key -->
+<rect class="shape" x="8" y="546" width="12" height="12" rx="2"/>
+<text class="t-sm" x="26" y="556.5">Your Touring</text>
+<rect class="donor" x="132" y="546" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="150" y="556.5">Donor and bench</text>
+<rect class="fab" x="270" y="546" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="288" y="556.5">Welding</text>
+<rect class="keep dash" x="8" y="564" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="26" y="574.5">At a shop</text>
+<path class="fill-fg" d="M138,565.5 L142.5,570 L138,574.5 L133.5,570 Z"/>
+<text class="t-sm" x="150" y="574.5">Milestone</text>
+
+<text class="t-xs" x="8" y="598">Bar lengths follow the guide's weekend estimates, spread over a</text>
+<text class="t-xs" x="8" y="611">24-month build with about four months at the paint shop.</text>
+</svg>

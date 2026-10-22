@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 664" role="img" aria-label="Wiring diagram of the leak-test (DM-TL) module with the M3 DME as BMW draws it, for a Touring and donor built from 09/2001, showing the pump-on-30 result of the test, and the test that decides pins 20 and 30. Fuse F3 (20 A, after the DME relay) feeds X6021 pin 2, 1.5 RT/WS, from the M3 harness to splice X11212, which also feeds the K96 and K19 relay coils, and on by a 0.75 RT/WS wire to module pin 4, +12 V. Inside the module the heater, valve and pump each run from pin 4 to their own pin. The M3 DME's X60004 pin 18 takes the 0.75 SW/RT heater wire to module pin 2; this wire is moved first: from body X6011 pin 7 on an MS43 Touring built from 09/2001, after which the clutch wire takes X6011 pin 7, or from X60004 pin 2 on an MS45.1, where pins 2 and 15 are both SW/RT and need tags. A Touring built before 09/2001 has a three-wire module and no heater wire: fit 16137193479 and run a new 0.75 mm2 wire from X60004 pin 18 to module pin 2. X60004 pin 20 (MSS54 name: valve, DMTL) goes to module pin 1 and pin 30 (pump, DMTLP) to module pin 3. The MS43 and MSS54 tables call pin 20 the valve and pin 30 the pump, the MS45.1 table the reverse, and every heated-module drawing wires 20 to module pin 1 and 30 to pin 3. MS45.1 and MSS54 drawings show 20 as 0.75 BR/BL and 30 as 0.5 SW/GN; the US MS43 drawing has the colors the other way round, as did one MS43 car, so go by the cavity, not the color or the name. After the engine swap, STEUERN_DMTL_HEIZUNG switches the heater, START_SYSTEMCHECK_DMTL then LESEN_SYSTEMCHECK_DMTL run the check, and the faults are 14 (0x0E) heater, 27 (0x1B) valve and 127 (0x7F) module. The test before you swap 20 and 30: first, with the Touring's DME still in, run its leak-test jobs (MS45.1, MS450DS0.PRG: STEUERN_DMTL_P, _V and _H; MS43, MS430DS0.PRG: STEUERN_DMTL_MOTOR, _VENTIL and _HEIZUNG) and tag the X60004 wire that switches for each, using a test lamp at the back of the plug; the MSS54 has no pump or valve job of its own. Second, with the heater in pin 18, DME unplugged and module plugged in (power-up step 9), measure X60004 pins 18 to 20, 18 to 30 and 20 to 30: each element is the two readings that include its pin, added, minus the third, divided by two, and the lowest is the pump; a new Bosch module (E93) read about 68, 52 and 44 ohms, giving heater 38, valve 30 and pump 14 ohms, generic values rather than BMW limits. Third, if still unsure, bench-check the module with 12 volts through a fused lead on its pin 4, grounding pin 1 and then pin 3; the pump should run on one and the valve click on the other, the manual's inference from the drawings. The MSS54 wants the pump on 30: pump on 30, change nothing; pump on 20, swap 20 and 30." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahf" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fab-f"/></marker>
+  <marker id="ahk" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="keep-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="664" fill="#ffffff"/>
+<text class="t-h" x="8" y="24">WITH THE M3 DME, AS BMW DRAWS IT</text>
+<text class="t-sm" x="743.9" y="22">New wire</text>
+<line class="new-s" x1="715.9" y1="18" x2="735.9" y2="18" stroke-width="2.5"/>
+<text class="t-sm" x="640.8" y="22">Moved wire</text>
+<line class="fab-s" x1="612.8" y1="18" x2="632.8" y2="18" stroke-width="2.5"/>
+<text class="t-sm" x="570.2" y="22">Keep</text>
+<rect class="keep" x="548.2" y="12" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="453.4" y="22">From donor M3</text>
+<rect class="donor" x="431.4" y="12" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="8" y="44">Touring and donor built from 09/2001; drawn for the "pump on 30" result of the test below.</text>
+
+<!-- Supply: DME relay, F3, X6021 pin 2, splice X11212, module pin 4 -->
+<rect class="shape" x="8" y="90" width="120" height="36" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="16" y="105">Fuse F3, 20 A</text>
+<text class="t-sm" x="16" y="120">after the DME relay</text>
+<line class="donor-s" x1="128" y1="108" x2="146" y2="108" stroke-width="2"/>
+<rect class="donor" x="146" y="99" width="20" height="18" rx="2" stroke-width="1.2"/>
+<rect class="keep" x="166" y="99" width="20" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="156" y="112.5" text-anchor="middle">2</text>
+<text class="t t-mono" x="176" y="112.5" text-anchor="middle">2</text>
+<text class="t-sm t-mono t-b" x="166" y="93" text-anchor="middle">X6021</text>
+<line class="keep-s" x1="186" y1="108" x2="351" y2="108" stroke-width="2"/>
+<text class="t-sm" x="222" y="102" text-anchor="middle"><tspan class="t-mono">1.5 RT/WS</tspan></text>
+<text class="t-sm" x="308.5" y="102" text-anchor="middle"><tspan class="t-mono">0.75 RT/WS</tspan></text>
+<circle class="keep-f" cx="262" cy="108" r="4"/>
+<line class="keep-s" x1="262" y1="104" x2="262" y2="74" stroke-width="2" marker-end="url(#ahk)"/>
+<text class="t-sm" x="262" y="64" text-anchor="middle">also feeds the K96 and K19 relay coils</text>
+<text class="t-sm t-b" x="270" y="82">splice <tspan class="t-mono">X11212</tspan></text>
+
+<!-- DME and its X60004 cavities -->
+<rect class="donor" x="8" y="136" width="120" height="110" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="16" y="155">M3 DME</text>
+<text class="t-sm" x="16" y="171">MSS54 / HP</text>
+<rect class="keep" x="128" y="138" width="34" height="104" rx="3" stroke-width="1.2"/>
+<rect class="shape" x="133" y="139" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="145" y="152.5" text-anchor="middle">18</text>
+<rect class="shape" x="133" y="179" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="145" y="192.5" text-anchor="middle">20</text>
+<rect class="shape" x="133" y="219" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="145" y="232.5" text-anchor="middle">30</text>
+<text class="t-sm t-mono t-b" x="145" y="258" text-anchor="middle">X60004</text>
+
+<!-- Module and its plug -->
+<rect class="keep" x="380" y="56" width="136" height="190" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="388" y="74">Leak-test module</text>
+<text class="t-sm" x="388" y="90"><tspan class="t-mono">16137193479</tspan>, heated</text>
+<rect class="keep" x="344" y="94" width="36" height="148" rx="3" stroke-width="1.2"/>
+<rect class="shape" x="351" y="99" width="22" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="362" y="112.5" text-anchor="middle">4</text>
+<rect class="shape" x="351" y="139" width="22" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="362" y="152.5" text-anchor="middle">2</text>
+<rect class="shape" x="351" y="179" width="22" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="362" y="192.5" text-anchor="middle">1</text>
+<rect class="shape" x="351" y="219" width="22" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="362" y="232.5" text-anchor="middle">3</text>
+<text class="t-sm t-b" x="362" y="258" text-anchor="middle">plug <tspan class="t-mono">X1714</tspan> (MS43) or <tspan class="t-mono">X17141</tspan> (MS45.1)</text>
+<line class="keep-s" x1="373" y1="108" x2="502" y2="108" stroke-width="1.5"/>
+<line class="keep-s" x1="502" y1="108" x2="502" y2="228" stroke-width="1.5"/>
+<text class="t-sm" x="437.5" y="102" text-anchor="middle">+12 V</text>
+<line class="keep-s" x1="373" y1="148" x2="414" y2="148" stroke-width="1.5"/>
+<rect class="shape" x="414" y="142" width="48" height="12" rx="1" stroke-width="1.2"/>
+<line class="keep-s" x1="462" y1="148" x2="502" y2="148" stroke-width="1.5"/>
+<circle class="keep-f" cx="502" cy="148" r="2.6"/>
+<text class="t-sm" x="438" y="138" text-anchor="middle">heater</text>
+<line class="keep-s" x1="373" y1="188" x2="414" y2="188" stroke-width="1.5"/>
+<rect class="shape" x="414" y="182" width="48" height="12" rx="1" stroke-width="1.2"/>
+<line class="keep-s" x1="462" y1="188" x2="502" y2="188" stroke-width="1.5"/>
+<circle class="keep-f" cx="502" cy="188" r="2.6"/>
+<text class="t-sm" x="438" y="178" text-anchor="middle">valve</text>
+<line class="keep-s" x1="373" y1="228" x2="414" y2="228" stroke-width="1.5"/>
+<rect class="shape" x="414" y="222" width="48" height="12" rx="1" stroke-width="1.2"/>
+<line class="keep-s" x1="462" y1="228" x2="502" y2="228" stroke-width="1.5"/>
+<text class="t-sm" x="438" y="218" text-anchor="middle">pump</text>
+
+<!-- The three DME wires -->
+<line class="fab-s" x1="157" y1="148" x2="351" y2="148" stroke-width="2.5"/>
+<text class="t-sm fab-t" x="253" y="141" text-anchor="middle"><tspan class="t-mono">0.75 SW/RT</tspan>, moved here</text>
+<line class="keep-s" x1="157" y1="188" x2="351" y2="188" stroke-width="2"/>
+<text class="t-sm" x="253" y="181" text-anchor="middle"><tspan class="t-mono">0.75 BR/BL</tspan>*</text>
+<line class="keep-s" x1="157" y1="228" x2="351" y2="228" stroke-width="2"/>
+<text class="t-sm" x="253" y="221" text-anchor="middle"><tspan class="t-mono">0.5 SW/GN</tspan>*</text>
+<text class="t-sm" x="170" y="164">MSS54: heater</text>
+<text class="t-sm" x="170" y="204">MSS54: valve (DMTL)</text>
+<text class="t-sm" x="170" y="244">MSS54: pump (DMTLP)</text>
+
+<!-- The heater wire's move, and cars built before 09/2001 -->
+<rect class="panel" x="8" y="270" width="508" height="112" rx="6" stroke-width="1"/>
+<text class="t t-b" x="18" y="290">Move the heater wire first: <tspan class="t-mono">0.75 SW/RT</tspan> into <tspan class="t-mono">X60004</tspan> pin <tspan class="t-mono">18</tspan></text>
+<text class="t-sm t-b" x="18" y="309">MS43 Touring, built from 09/2001</text>
+<rect class="keep" x="18" y="313" width="105.3" height="20" rx="3" stroke-width="1.2"/>
+<text class="t-sm" x="25" y="327">body <tspan class="t-mono">X6011</tspan> pin <tspan class="t-mono">7</tspan></text>
+<line class="fab-s" x1="123.3" y1="323" x2="145.3" y2="323" stroke-width="2" marker-end="url(#ahf)"/>
+<rect class="keep" x="147.3" y="313" width="90.9" height="20" rx="3" stroke-width="1.2"/>
+<text class="t-sm" x="154.3" y="327"><tspan class="t-mono">X60004</tspan> pin <tspan class="t-mono">18</tspan></text>
+<text class="t-sm" x="18" y="344">then the clutch wire takes X6011 pin 7</text>
+<text class="t-sm t-b" x="282" y="309">MS45.1 Touring</text>
+<rect class="keep" x="282" y="313" width="84" height="20" rx="3" stroke-width="1.2"/>
+<text class="t-sm" x="289" y="327"><tspan class="t-mono">X60004</tspan> pin <tspan class="t-mono">2</tspan></text>
+<line class="fab-s" x1="366" y1="323" x2="388" y2="323" stroke-width="2" marker-end="url(#ahf)"/>
+<rect class="keep" x="390" y="313" width="90.9" height="20" rx="3" stroke-width="1.2"/>
+<text class="t-sm" x="397" y="327"><tspan class="t-mono">X60004</tspan> pin <tspan class="t-mono">18</tspan></text>
+<text class="t-sm" x="282" y="344">pins 2 and 15 are both SW/RT: tag them</text>
+<text class="t-sm new-t" x="18" y="364">Built before 09/2001: a three-wire module and no heater wire. Fit <tspan class="t-mono">16137193479</tspan></text>
+<text class="t-sm new-t" x="18" y="378">and run a new <tspan class="t-mono">0.75</tspan> mm² wire from <tspan class="t-mono">X60004</tspan> pin <tspan class="t-mono">18</tspan> to module pin <tspan class="t-mono">2</tspan>.</text>
+
+<!-- The labels and colors disagree: go by the cavity -->
+<rect class="warn-f" x="532" y="40" width="260" height="234" rx="6" stroke-width="1.5"/>
+<text class="t t-b" x="542" y="58">Names and colors disagree</text>
+<text class="t-sm t-b" x="668" y="78">pin <tspan class="t-mono">20</tspan></text>
+<text class="t-sm t-b" x="728" y="78">pin <tspan class="t-mono">30</tspan></text>
+<text class="t-sm" x="542" y="96">MS43 table</text>
+<text class="t-sm" x="668" y="96">valve</text>
+<text class="t-sm" x="728" y="96">pump</text>
+<text class="t-sm" x="542" y="112">MS45.1 table</text>
+<text class="t-sm" x="668" y="112">pump</text>
+<text class="t-sm" x="728" y="112">valve</text>
+<text class="t-sm" x="542" y="128">MSS54 table</text>
+<text class="t-sm" x="668" y="128">valve</text>
+<text class="t-sm" x="728" y="128">pump</text>
+<text class="t-sm t-b" x="542" y="144">Every heated drawing</text>
+<text class="t-sm t-b" x="668" y="144">module 1</text>
+<text class="t-sm t-b" x="728" y="144">module 3</text>
+<line class="ln-faint" x1="542" y1="152" x2="782" y2="152"/>
+<text class="t-sm" x="542" y="170">Every heated drawing wires 20 to module</text>
+<text class="t-sm" x="542" y="184">pin 1 and 30 to pin 3; only the tables'</text>
+<text class="t-sm" x="542" y="198">names differ.</text>
+<text class="t-sm" x="542" y="212">* MS45.1 and MSS54 drawings: 20 = BR/BL,</text>
+<text class="t-sm" x="542" y="226">30 = SW/GN. The US MS43 drawing has them</text>
+<text class="t-sm" x="542" y="240">the other way round, as did one MS43 car.</text>
+<text class="t-sm t-b" x="542" y="262">Go by the cavity, not color or name.</text>
+
+<!-- After the engine swap: the MSS54's own checks -->
+<rect class="keep" x="532" y="284" width="260" height="100" rx="6" stroke-width="1.5"/>
+<text class="t t-b" x="542" y="303">After the engine swap (MSS54)</text>
+<text class="t-sm" x="542" y="321"><tspan class="t-mono">STEUERN_DMTL_HEIZUNG</tspan> switches the</text>
+<text class="t-sm" x="542" y="335">heater. Run <tspan class="t-mono">START_SYSTEMCHECK_DMTL</tspan>,</text>
+<text class="t-sm" x="542" y="349">then <tspan class="t-mono">LESEN_SYSTEMCHECK_DMTL</tspan>.</text>
+<text class="t-sm" x="542" y="363">Faults: <tspan class="t-mono">14 (0x0E)</tspan> heater, <tspan class="t-mono">27 (0x1B)</tspan></text>
+<text class="t-sm" x="542" y="377">valve, <tspan class="t-mono">127 (0x7F)</tspan> module.</text>
+
+<!-- The test that decides pins 20 and 30 -->
+<text class="t-h" x="8" y="406">TEST BEFORE YOU SWAP 20 AND 30</text>
+<rect class="keep" x="8" y="418" width="184" height="196" rx="6" stroke-width="1.5"/>
+<circle class="fill-fg" cx="26" cy="434" r="9"/>
+<text class="t t-b fill-bg" x="26" y="438.5" text-anchor="middle">1</text>
+<text class="t t-b" x="40" y="438.5">Touring DME still in</text>
+<text class="t-sm" x="17" y="458">Run its leak-test jobs. A test</text>
+<text class="t-sm" x="17" y="472">lamp at the back of the plug</text>
+<text class="t-sm" x="17" y="486">shows which X60004 wire</text>
+<text class="t-sm" x="17" y="500">switches; tag each one. The</text>
+<text class="t-sm" x="17" y="514">MSS54 has no pump or valve</text>
+<text class="t-sm" x="17" y="528">job of its own.</text>
+<text class="t-sm t-b" x="17" y="548">MS45.1 (<tspan class="t-mono">MS450DS0.PRG</tspan>):</text>
+<text class="t-sm" x="17" y="562"><tspan class="t-mono">STEUERN_DMTL_P</tspan>, <tspan class="t-mono">_V</tspan>, <tspan class="t-mono">_H</tspan></text>
+<text class="t-sm t-b" x="17" y="580">MS43 (<tspan class="t-mono">MS430DS0.PRG</tspan>):</text>
+<text class="t-sm" x="17" y="594"><tspan class="t-mono">STEUERN_DMTL_MOTOR</tspan>,</text>
+<text class="t-sm" x="17" y="608"><tspan class="t-mono">_VENTIL</tspan>, <tspan class="t-mono">_HEIZUNG</tspan></text>
+<line class="ln" x1="192" y1="480" x2="207" y2="480" marker-end="url(#ah)"/>
+<rect class="keep" x="208" y="418" width="220" height="238" rx="6" stroke-width="1.5"/>
+<circle class="fill-fg" cx="226" cy="434" r="9"/>
+<text class="t t-b fill-bg" x="226" y="438.5" text-anchor="middle">2</text>
+<text class="t t-b" x="240" y="438.5">Measure the triangle</text>
+<text class="t-sm" x="217" y="456">at X60004, DME unplugged, module in,</text>
+<text class="t-sm" x="217" y="470">heater in pin 18 (power-up step 9)</text>
+<line class="ln-thin" x1="296" y1="500" x2="260" y2="536" stroke-width="1.5"/>
+<line class="ln-thin" x1="316" y1="500" x2="352" y2="536" stroke-width="1.5"/>
+<line class="ln-thin" x1="263" y1="546" x2="349" y2="546" stroke-width="1.5"/>
+<rect class="shape" x="294" y="481" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="306" y="494.5" text-anchor="middle">18</text>
+<rect class="shape" x="238" y="537" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="250" y="550.5" text-anchor="middle">20</text>
+<rect class="shape" x="350" y="537" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="362" y="550.5" text-anchor="middle">30</text>
+<text class="t-sm t-b" x="266" y="520" text-anchor="end">68 Ω</text>
+<text class="t-sm t-b" x="346" y="520">52 Ω</text>
+<text class="t-sm t-b" x="306" y="540" text-anchor="middle">44 Ω</text>
+<text class="t-sm" x="324" y="494">heater ≈ 38 Ω</text>
+<text class="t-sm" x="250" y="568" text-anchor="middle">valve ≈ 30 Ω</text>
+<text class="t-sm t-b" x="362" y="568" text-anchor="middle">pump ≈ 14 Ω</text>
+<text class="t-sm" x="217" y="586">Each element = (the two readings that</text>
+<text class="t-sm" x="217" y="600">include its pin, added, minus the</text>
+<text class="t-sm" x="217" y="614">third) ÷ 2.</text>
+<text class="t-sm t-b" x="271.5" y="614">The lowest is the pump.</text>
+<text class="t-sm" x="217" y="632">Values from a new Bosch module (E93):</text>
+<text class="t-sm" x="217" y="646">generic, not BMW limits.</text>
+<line class="ln" x1="428" y1="480" x2="443" y2="480" marker-end="url(#ah)"/>
+<rect class="keep" x="444" y="418" width="152" height="160" rx="6" stroke-width="1.5"/>
+<circle class="fill-fg" cx="462" cy="434" r="9"/>
+<text class="t t-b fill-bg" x="462" y="438.5" text-anchor="middle">3</text>
+<text class="t t-b" x="476" y="438.5">Still unsure?</text>
+<text class="t-sm" x="453" y="458">Unplug the module, feed</text>
+<text class="t-sm" x="453" y="472">+12 V through a fused lead</text>
+<text class="t-sm" x="453" y="486">to its pin 4, then briefly</text>
+<text class="t-sm" x="453" y="500">ground pin 1, then pin 3.</text>
+<text class="t-sm" x="453" y="514">The pump runs on one, the</text>
+<text class="t-sm" x="453" y="528">valve clicks on the other</text>
+<text class="t-sm" x="453" y="542">(our inference from the</text>
+<text class="t-sm" x="453" y="556">drawings).</text>
+<text class="t-sm" x="701" y="430" text-anchor="middle">The MSS54 wants the pump on 30.</text>
+<line class="ln" x1="596" y1="480" x2="612" y2="480" marker-end="url(#ah)"/>
+<path class="shape" d="M613,480 L701,446 L789,480 L701,514 Z"/>
+<text class="t-sm t-b" x="701" y="477" text-anchor="middle">Which X60004 pin</text>
+<text class="t-sm t-b" x="701" y="491" text-anchor="middle">runs the pump?</text>
+<line class="ln" x1="701" y1="514" x2="701" y2="524"/>
+<line class="ln" x1="655" y1="524" x2="747" y2="524"/>
+<line class="ln" x1="655" y1="524" x2="655" y2="541" marker-end="url(#ah)"/>
+<line class="ln" x1="747" y1="524" x2="747" y2="541" marker-end="url(#ah)"/>
+<rect class="keep" x="610" y="542" width="90" height="40" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="655" y="558" text-anchor="middle">Pump on 30</text>
+<text class="t-sm" x="655" y="574" text-anchor="middle">change nothing</text>
+<rect class="fab" x="702" y="542" width="90" height="40" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b fab-t" x="747" y="558" text-anchor="middle">Pump on 20</text>
+<text class="t-sm fab-t" x="747" y="574" text-anchor="middle">swap 20 and 30</text>
+</svg>

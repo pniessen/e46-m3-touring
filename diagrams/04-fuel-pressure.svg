@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 292" role="img" aria-label="Fuel system before and after. Today the 325i's filter-regulator holds 3.5 bar with no vacuum reference. After the swap the tank, lines and pump stay (test the pump at 5 bar), and the M3 filter-regulator holds 5.0 bar with a vacuum hose to the S54's idle-air pipe." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="292" fill="#ffffff"/>
+
+<!-- Row 1: 325i today -->
+<text class="t-h" x="8" y="20">325i TODAY (M54)</text>
+<rect class="keep" x="8" y="36" width="88" height="50" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="52" y="57" text-anchor="middle">Tank</text>
+<text class="t" x="52" y="74" text-anchor="middle">+ pump</text>
+<rect class="keep" x="150" y="36" width="100" height="50" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="200" y="57" text-anchor="middle">Filter +</text>
+<text class="t t-b" x="200" y="74" text-anchor="middle">regulator</text>
+<rect class="keep" x="304" y="36" width="88" height="50" rx="5" stroke-width="1.5"/>
+<text class="t" x="348" y="57" text-anchor="middle">M54</text>
+<text class="t" x="348" y="74" text-anchor="middle">fuel rail</text>
+<line class="ln" x1="96" y1="50" x2="149" y2="50" marker-end="url(#ah)"/>
+<line class="ln" x1="150" y1="72" x2="97" y2="72" marker-end="url(#ah)"/>
+<line class="ln" x1="250" y1="61" x2="303" y2="61" marker-end="url(#ah)"/>
+<text class="t-xs" x="123" y="44" text-anchor="middle">feed</text>
+<text class="t-xs" x="123" y="86" text-anchor="middle">return</text>
+<text class="t-xs" x="277" y="54" text-anchor="middle">to engine</text>
+<line class="ln-thin" x1="200" y1="36" x2="200" y2="27"/>
+<text class="t-xs" x="206" y="30">vent, no vacuum reference</text>
+<text class="t t-b t-mono" x="200" y="108" text-anchor="middle">3.5 bar</text>
+
+<line class="ln-faint" x1="8" y1="128" x2="392" y2="128"/>
+
+<!-- Row 2: after the swap -->
+<text class="t-h" x="8" y="152">AFTER THE SWAP (S54)</text>
+<rect class="keep" x="8" y="166" width="88" height="50" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="52" y="187" text-anchor="middle">Tank</text>
+<text class="t" x="52" y="204" text-anchor="middle">+ pump</text>
+<text class="t-xs t-b" x="52" y="234" text-anchor="middle">test the pump</text>
+<text class="t-xs t-b" x="52" y="247" text-anchor="middle">at 5 bar first</text>
+<rect class="new" x="150" y="166" width="100" height="50" rx="5" stroke-width="2"/>
+<text class="t t-b" x="200" y="187" text-anchor="middle">M3 filter +</text>
+<text class="t t-b" x="200" y="204" text-anchor="middle">regulator</text>
+<rect class="donor" x="304" y="166" width="88" height="50" rx="5" stroke-width="1.5"/>
+<text class="t" x="348" y="187" text-anchor="middle">S54</text>
+<text class="t" x="348" y="204" text-anchor="middle">fuel rail</text>
+<line class="ln" x1="96" y1="180" x2="149" y2="180" marker-end="url(#ah)"/>
+<line class="ln" x1="150" y1="202" x2="97" y2="202" marker-end="url(#ah)"/>
+<line class="ln" x1="250" y1="191" x2="303" y2="191" marker-end="url(#ah)"/>
+<text class="t-xs" x="123" y="174" text-anchor="middle">feed</text>
+<text class="t-xs" x="123" y="216" text-anchor="middle">return</text>
+<text class="t-xs" x="277" y="184" text-anchor="middle">to engine</text>
+<text class="t t-b t-mono new-t" x="200" y="238" text-anchor="middle">5.0 bar</text>
+
+<!-- Vacuum reference -->
+<rect class="donor" x="304" y="244" width="88" height="40" rx="5" stroke-width="1.5"/>
+<text class="t" x="348" y="261" text-anchor="middle">S54 idle-</text>
+<text class="t" x="348" y="277" text-anchor="middle">air pipe</text>
+<path class="new-s dash" d="M200,246 V264 H303" stroke-width="2"/>
+<text class="t-sm new-t" x="252" y="258" text-anchor="middle">vacuum hose</text>
+</svg>

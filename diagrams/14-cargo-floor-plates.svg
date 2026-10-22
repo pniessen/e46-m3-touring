@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 718" role="img" aria-label="Two plan views of the Touring's rear floor around the rear subframe mounts, front of the car at the top, schematic and not to scale. From below, with the fuel tank, exhaust and subframe out: one reinforcement plate is plug-welded under each of the four subframe mounts, a V-brace mounting box is welded in on each side where the Touring has a grommet, the M3 push rod and V-brace bolt on later, and both diagonals between the mounts are measured before welding and after each session. From the cargo side, with the seat and trim out: the front-mount top welds are reached by cutting in under the rear seat and patching; the Touring has no partition wall behind the seat, so some kit parts won't fit; failed spot welds along the rail flanges are stitched and rail plates fitted; the seam across the front of the spare-wheel well is kept; the well is cut out for the M3 muffler and the three rosette welds on each rear mount are welded through the opening; nothing is flame-cut or ground within about 120 mm of the rails unless it will be rebuilt. No kit maker publishes Touring-specific cargo-side plates, so sedan-pattern plates are dry-fitted and traced before cutting." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="718" fill="#ffffff"/>
+
+<!-- ============ Panel A: underside, seen from below ============ -->
+<text class="t-h" x="8" y="20">UNDERSIDE, SEEN FROM BELOW</text>
+<text class="t-xs" x="380" y="20" text-anchor="end">front</text>
+<line class="ln" x1="388" y1="22" x2="388" y2="9" marker-end="url(#ah)"/>
+<text class="t-xs" x="8" y="38">Fuel tank, exhaust and rear subframe out</text>
+<text class="t-xs" x="392" y="38" text-anchor="end">Schematic, not to scale</text>
+
+<g transform="translate(8,50)">
+  <!-- Floor and chassis rails -->
+  <rect class="panel" x="14" y="0" width="168" height="236"/>
+  <rect class="keep" x="0" y="0" width="14" height="236"/>
+  <rect class="keep" x="182" y="0" width="14" height="236"/>
+  <text class="t-xs" x="98" y="70" text-anchor="middle">RACP</text>
+
+  <!-- Spare-wheel well, bulging down toward you -->
+  <rect class="keep" x="48" y="124" width="100" height="106" rx="20"/>
+  <rect class="ln-faint" x="60" y="136" width="76" height="82" rx="12"/>
+  <text class="t-xs" x="98" y="175" text-anchor="middle">spare-wheel</text>
+  <text class="t-xs" x="98" y="188" text-anchor="middle">well</text>
+
+  <!-- Diagonals between the four mounts -->
+  <path class="ln-thin dash" d="M44,48 L160,133 M152,48 L36,133"/>
+
+  <!-- M3 push rod and V-brace, bolted on later -->
+  <path class="donor-s dash" d="M50,48 H146" stroke-width="3"/>
+  <path class="donor-s dash" d="M31,12 L98,48 L165,12" stroke-width="2"/>
+
+  <!-- One plate per mount, plug-welded -->
+  <g class="fab" stroke-width="1.5">
+    <rect x="22" y="36" width="44" height="26" rx="4"/>
+    <rect x="130" y="36" width="44" height="26" rx="4"/>
+    <rect x="18" y="120" width="36" height="26" rx="4"/>
+    <rect x="142" y="120" width="36" height="26" rx="4"/>
+  </g>
+  <g class="fab-f">
+    <circle cx="28" cy="41" r="2"/><circle cx="60" cy="41" r="2"/><circle cx="28" cy="57" r="2"/><circle cx="60" cy="57" r="2"/>
+    <circle cx="136" cy="41" r="2"/><circle cx="168" cy="41" r="2"/><circle cx="136" cy="57" r="2"/><circle cx="168" cy="57" r="2"/>
+    <circle cx="24" cy="125" r="2"/><circle cx="48" cy="125" r="2"/><circle cx="24" cy="141" r="2"/><circle cx="48" cy="141" r="2"/>
+    <circle cx="148" cy="125" r="2"/><circle cx="172" cy="125" r="2"/><circle cx="148" cy="141" r="2"/><circle cx="172" cy="141" r="2"/>
+  </g>
+
+  <!-- Subframe mounts -->
+  <g class="shape">
+    <circle cx="44" cy="48" r="5.5"/><circle cx="152" cy="48" r="5.5"/>
+    <circle cx="36" cy="133" r="5.5"/><circle cx="160" cy="133" r="5.5"/>
+  </g>
+  <g class="fill-fg">
+    <circle cx="44" cy="48" r="2"/><circle cx="152" cy="48" r="2"/>
+    <circle cx="36" cy="133" r="2"/><circle cx="160" cy="133" r="2"/>
+  </g>
+
+  <!-- V-brace mounting boxes -->
+  <g class="fab" stroke-width="1.5">
+    <rect x="23" y="5" width="16" height="14" rx="2"/>
+    <rect x="157" y="5" width="16" height="14" rx="2"/>
+  </g>
+  <circle class="fill-fg" cx="31" cy="12" r="1.8"/><circle class="fill-fg" cx="165" cy="12" r="1.8"/>
+
+  <!-- Labels -->
+  <g class="ln-thin">
+    <path d="M204,12 L174,12"/>
+    <path d="M204,41 L146,22"/>
+    <path d="M204,90 L118,73"/>
+    <path d="M204,128 L178,134"/>
+    <path d="M204,180 L164,137"/>
+  </g>
+  <text class="t-sm fab-t" x="206" y="8">V-brace box each side, where</text>
+  <text class="t-sm fab-t" x="206" y="22">your Touring has a grommet</text>
+  <text class="t-sm donor-t" x="206" y="37">M3 push rod and V-brace</text>
+  <text class="t-sm donor-t" x="206" y="51">bolt on later; spacer plates</text>
+  <text class="t-sm donor-t" x="206" y="65">go under the push rod</text>
+  <text class="t-sm" x="206" y="88">Measure both diagonals before</text>
+  <text class="t-sm" x="206" y="102">welding and after each session</text>
+  <text class="t-sm fab-t" x="206" y="124">A plate under each of the four</text>
+  <text class="t-sm fab-t" x="206" y="138">subframe mounts: plug welds,</text>
+  <text class="t-sm fab-t" x="206" y="152">then short stitches</text>
+  <text class="t-sm" x="206" y="178">Rear mounts sit at the front</text>
+  <text class="t-sm" x="206" y="192">corners of the well</text>
+</g>
+
+<line class="ln-faint" x1="8" y1="300" x2="392" y2="300"/>
+
+<!-- ============ Panel B: cargo side, seen from above ============ -->
+<text class="t-h" x="8" y="324">CARGO SIDE, SEEN FROM ABOVE</text>
+<text class="t-xs" x="380" y="324" text-anchor="end">front</text>
+<line class="ln" x1="388" y1="326" x2="388" y2="313" marker-end="url(#ah)"/>
+<text class="t-xs" x="8" y="342">Seat and trim out: on a Touring only trim covers this floor</text>
+
+<g transform="translate(8,354)">
+  <!-- Floor; no-cut bands within about 120 mm of each rail; rails -->
+  <rect class="panel" x="14" y="0" width="168" height="236"/>
+  <rect class="crit-f" x="14" y="70" width="30" height="166" opacity="0.14"/>
+  <rect class="crit-f" x="152" y="70" width="30" height="166" opacity="0.14"/>
+  <rect class="keep" x="0" y="0" width="14" height="236"/>
+  <rect class="keep" x="182" y="0" width="14" height="236"/>
+
+  <!-- Rear-seat base: front mounts below, cut-in openings -->
+  <text class="t-xs" x="98" y="22" text-anchor="middle">rear-seat base</text>
+  <g class="ln-thin dash">
+    <circle cx="44" cy="48" r="5.5"/><circle cx="152" cy="48" r="5.5"/>
+  </g>
+  <g class="fab-s dash" stroke-width="1.5">
+    <rect x="33" y="37" width="22" height="22" rx="2"/>
+    <rect x="141" y="37" width="22" height="22" rx="2"/>
+  </g>
+
+  <!-- No partition wall behind the seat on a Touring -->
+  <rect class="warn-f dash" x="14" y="62" width="168" height="7"/>
+
+  <!-- RACP top; rail-to-RACP flange (spot welds) and rail plates -->
+  <text class="t-xs" x="98" y="98" text-anchor="middle">RACP</text>
+  <g class="fill-fg">
+    <circle cx="17.5" cy="75" r="1.6"/><circle cx="17.5" cy="82" r="1.6"/><circle cx="17.5" cy="89" r="1.6"/><circle cx="17.5" cy="96" r="1.6"/>
+    <circle cx="178.5" cy="75" r="1.6"/><circle cx="178.5" cy="82" r="1.6"/><circle cx="178.5" cy="89" r="1.6"/><circle cx="178.5" cy="96" r="1.6"/>
+  </g>
+  <g class="fab" stroke-width="1.5">
+    <rect x="6" y="100" width="22" height="15" rx="2"/>
+    <rect x="168" y="100" width="22" height="15" rx="2"/>
+  </g>
+  <g class="fab-f">
+    <circle cx="11" cy="107.5" r="1.8"/><circle cx="23" cy="107.5" r="1.8"/>
+    <circle cx="173" cy="107.5" r="1.8"/><circle cx="185" cy="107.5" r="1.8"/>
+  </g>
+
+  <!-- Seam across the front of the well -->
+  <line class="ln" x1="14" y1="118" x2="182" y2="118"/>
+
+  <!-- Spare-wheel well: the cut-out -->
+  <rect class="fab dash" x="48" y="124" width="100" height="106" rx="20" stroke-width="1.5"/>
+  <text class="t-xs fab-t" x="98" y="172" text-anchor="middle">cut out for</text>
+  <text class="t-xs fab-t" x="98" y="185" text-anchor="middle">the M3 muffler</text>
+
+  <!-- Rear mounts below; three rosette welds on top -->
+  <g class="ln-thin dash">
+    <circle cx="36" cy="133" r="7"/><circle cx="160" cy="133" r="7"/>
+  </g>
+  <g class="fab-f">
+    <circle cx="32" cy="130" r="2.2"/><circle cx="40" cy="130" r="2.2"/><circle cx="36" cy="137" r="2.2"/>
+    <circle cx="156" cy="130" r="2.2"/><circle cx="164" cy="130" r="2.2"/><circle cx="160" cy="137" r="2.2"/>
+  </g>
+
+  <!-- Band edges and width -->
+  <path class="crit-s dash" d="M44,70 V236 M152,70 V236"/>
+  <line class="ln-thin" x1="153" y1="222" x2="181" y2="222" marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+  <!-- Labels -->
+  <g class="ln-thin">
+    <path d="M204,33 L164,46"/>
+    <path d="M204,68 L180,65.5"/>
+    <path d="M204,99 L190,106"/>
+    <path d="M204,131 L172,118"/>
+    <path d="M204,172 L167,134"/>
+    <path d="M204,224 L178,204"/>
+  </g>
+  <text class="t-sm fab-t" x="206" y="26">Front mounts, under the seat:</text>
+  <text class="t-sm fab-t" x="206" y="40">cut in, weld the tops, patch</text>
+  <text class="t-sm" x="206" y="62">No partition wall behind the</text>
+  <text class="t-sm" x="206" y="76">seat: some kit parts won't fit</text>
+  <text class="t-sm fab-t" x="206" y="98">Rail flange: stitch failed spot</text>
+  <text class="t-sm fab-t" x="206" y="112">welds, then fit rail plates</text>
+  <text class="t-sm" x="206" y="134">Keep the seam across the</text>
+  <text class="t-sm" x="206" y="148">front of the well</text>
+  <text class="t-sm fab-t" x="206" y="170">Rear mounts: through the</text>
+  <text class="t-sm fab-t" x="206" y="184">opening, weld the three</text>
+  <text class="t-sm fab-t" x="206" y="198">rosette welds on top</text>
+  <text class="t-sm crit-t" x="206" y="214">No flame-cutting or grinding</text>
+  <text class="t-sm crit-t" x="206" y="228">within about 120 mm of the rails</text>
+  <text class="t-sm crit-t" x="206" y="242">unless you'll rebuild it</text>
+</g>
+
+<!-- Touring note -->
+<rect class="warn-f" x="8" y="612" width="384" height="58" rx="5"/>
+<text class="t-sm fill-fg" x="18" y="631">No kit maker publishes Touring-specific cargo-side plates.</text>
+<text class="t-sm fill-fg" x="18" y="646">The steel is the sedan's, so sedan-pattern plates should</text>
+<text class="t-sm fill-fg" x="18" y="661">land in the same places: dry-fit and trace before you cut.</text>
+
+<!-- Key -->
+<rect class="fab" x="8" y="682" width="12" height="12" rx="2"/>
+<text class="t-sm" x="26" y="692.5">Phase 5: cut, weld, fit</text>
+<line class="donor-s dash" x1="206" y1="688" x2="222" y2="688" stroke-width="2.5"/>
+<text class="t-sm" x="228" y="692.5">M3 part, bolted on in Phase 7</text>
+<rect class="keep" x="8" y="700" width="12" height="12" rx="2"/>
+<text class="t-sm" x="26" y="710.5">Your Touring's floor and rails</text>
+<rect class="crit-f" x="206" y="700" width="16" height="12" opacity="0.14"/>
+<line class="crit-s dash" x1="222" y1="700" x2="222" y2="712"/>
+<text class="t-sm" x="228" y="710.5">No flame-cutting or grinding</text>
+</svg>

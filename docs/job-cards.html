@@ -1,0 +1,2952 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Job cards · E46 M3 Touring Conversion</title>
+<meta name="description" content="One printable job card per build phase: parts, tools, torques, fluids, steps and checks.">
+<link rel="canonical" href="https://pniessen.github.io/e46-m3-touring/job-cards.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="E46 M3 Touring Conversion">
+<meta property="og:title" content="Job cards · E46 M3 Touring Conversion">
+<meta property="og:description" content="One printable job card per build phase: parts, tools, torques, fluids, steps and checks.">
+<meta property="og:url" content="https://pniessen.github.io/e46-m3-touring/job-cards.html">
+<meta property="og:image" content="https://pniessen.github.io/e46-m3-touring/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: workshop-manual reading column (~70ch); figures and tables scroll in place;
+   sticky chapter bar; risk is shown by callout stripes, part origin by colored pills. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --panel: #e7ecf1;
+  --fg: #151a20;
+  --muted: #55606c;
+  --line: #d2d9e0;
+  --accent: #1d5fa6;
+  --accent-soft: #e0eaf6;
+  --warn: #8a5a00;
+  --warn-fill: #fff3cf;
+  --warn-edge: #e0a800;
+  --crit: #ad2a22;
+  --crit-fill: #fbe9e7;
+  --ok: #1f6e45;
+  --ok-fill: #e3f2ea;
+  --c-donor: #1d5fa6;
+  --c-donor-soft: #dce8f6;
+  --c-new: #1f6e45;
+  --c-new-soft: #dff0e6;
+  --c-fab: #b9440f;
+  --c-fab-soft: #fbe5d9;
+  --c-keep: #66727e;
+  --c-keep-soft: #e9edf1;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --measure: 70ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1114;
+    --surface: #161a1f;
+    --panel: #1d232a;
+    --fg: #e5e9ed;
+    --muted: #9ba6b1;
+    --line: #2b333b;
+    --accent: #7cb0ea;
+    --accent-soft: #182a3e;
+    --warn: #f0c75a;
+    --warn-fill: #2c2410;
+    --warn-edge: #c99a1c;
+    --crit: #ff8a80;
+    --crit-fill: #321a19;
+    --ok: #6fd19c;
+    --ok-fill: #142a1f;
+    --c-donor: #7cb0ea;
+    --c-donor-soft: #18283a;
+    --c-new: #6fd19c;
+    --c-new-soft: #15291e;
+    --c-fab: #ff9a62;
+    --c-fab-soft: #33200f;
+    --c-keep: #a3adb7;
+    --c-keep-soft: #222930;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1114;
+  --surface: #161a1f;
+  --panel: #1d232a;
+  --fg: #e5e9ed;
+  --muted: #9ba6b1;
+  --line: #2b333b;
+  --accent: #7cb0ea;
+  --accent-soft: #182a3e;
+  --warn: #f0c75a;
+  --warn-fill: #2c2410;
+  --warn-edge: #c99a1c;
+  --crit: #ff8a80;
+  --crit-fill: #321a19;
+  --ok: #6fd19c;
+  --ok-fill: #142a1f;
+  --c-donor: #7cb0ea;
+  --c-donor-soft: #18283a;
+  --c-new: #6fd19c;
+  --c-new-soft: #15291e;
+  --c-fab: #ff9a62;
+  --c-fab-soft: #33200f;
+  --c-keep: #a3adb7;
+  --c-keep-soft: #222930;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+code, kbd { font-family: var(--font-mono); font-size: 0.88em; background: var(--panel); padding: 0.08em 0.35em; border-radius: 3px; }
+strong { font-weight: 600; }
+
+.wrap {
+  max-width: calc(var(--measure) + 2rem);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Masthead */
+.masthead { border-bottom: 1px solid var(--line); background: var(--surface); }
+.masthead .wrap { padding-block: 2.2rem 1.6rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0;
+}
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 8vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+.masthead h1 .from { color: var(--muted); display: block; font-size: 0.48em; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+.lede { margin: 0; font-size: 1.06rem; color: var(--fg); max-width: var(--measure); }
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  margin: 0.4rem 0 0;
+  border-top: 2px solid var(--fg);
+}
+.spec div { padding: 0.55rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spec dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.35; }
+
+/* Photos */
+figure.photo { margin: 1.4rem 0 1.6rem; }
+figure.photo img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--panel); }
+figure.photo figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--muted); margin-top: 0.45rem; }
+figure.photo figcaption a { color: inherit; }
+.photo-pair { display: grid; gap: 1.1rem; margin: 1.4rem 0 1.6rem; }
+.photo-pair figure.photo { margin: 0; }
+@media (min-width: 720px) {
+  .photo-pair { grid-template-columns: 1fr 1fr; align-items: start; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+}
+
+/* Site links (website build only) */
+.sitenav ul { list-style: none; margin: 0 0 0.2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; }
+.sitenav li { margin: 0; }
+.sitenav a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; }
+.sitenav a:hover { color: var(--fg); text-decoration: underline; }
+.sitenav a[aria-current="page"] { color: var(--fg); font-weight: 500; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Chapter bar */
+.chapters {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.chapters ol {
+  list-style: none;
+  margin: 0 auto;
+  max-width: calc(var(--measure) + 2rem);
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.chapters ol::-webkit-scrollbar { display: none; }
+.chapters a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.chapters a:hover { color: var(--fg); background: var(--panel); }
+.chapters a[aria-current="true"] { color: var(--bg); background: var(--fg); }
+.chapters .lbl-full { display: none; }
+
+/* Body copy */
+main .wrap { padding-block: 0.5rem 3rem; }
+main section { padding-top: 1.5rem; }
+main section + section { border-top: 2px solid var(--fg); margin-top: 2.5rem; }
+h2, h3, h4 { text-wrap: balance; line-height: 1.2; }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5.5vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0.8rem;
+}
+h3 { font-size: 1.28rem; font-weight: 600; margin: 2.1rem 0 0.6rem; }
+h4 { font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 0.9rem; }
+li { margin: 0.2rem 0; }
+li > ul, li > ol { margin: 0.2rem 0 0.4rem; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+/* Step lists inside the procedure read like a manual */
+section[data-chapter="steps"] ol > li::marker { font-family: var(--font-mono); font-weight: 500; color: var(--muted); }
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.8rem 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line); }
+th {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+table.parts td:first-child { font-weight: 400; }
+table.parts td:nth-child(2) { font-weight: 500; min-width: 11rem; }
+table.parts td:last-child { min-width: 14rem; }
+tr.done td { color: var(--muted); }
+tr.done td:nth-child(2) { text-decoration: line-through; text-decoration-color: var(--muted); }
+.tick-col { width: 2.4rem; text-align: center; }
+.tick-col input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); margin: 0.1rem 0 0; cursor: pointer; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.pill-donor { color: var(--c-donor); background: var(--c-donor-soft); }
+.pill-new { color: var(--c-new); background: var(--c-new-soft); }
+.pill-fab { color: var(--c-fab); background: var(--c-fab-soft); }
+.pill-keep { color: var(--c-keep); background: var(--c-keep-soft); }
+
+/* Parts toolbar */
+.parts-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0.6rem 0 1rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.parts-tools .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-right: 0.2rem; }
+.parts-tools button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.parts-tools button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.parts-tools .count { margin-left: auto; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.parts-tools .note { flex-basis: 100%; font-size: 0.78rem; color: var(--muted); }
+
+/* Long inline code (file names, coding parameters) wraps instead of widening the page. */
+p code, li code, td code, dd code { overflow-wrap: anywhere; }
+
+/* Worksheets and job cards */
+.fill-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.5rem;
+  margin: 1.2rem 0 0.4rem; padding: 0.6rem 0.7rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+}
+.fill-tools .note { flex: 1 1 16rem; font-size: 0.82rem; color: var(--muted); }
+.fill-tools button {
+  font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer;
+}
+td.fill-cell { padding: 0.1rem 0.35rem; min-width: 5.5rem; }
+input.fill {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95em; color: var(--fg);
+  background: transparent; border: 0; border-bottom: 1px dashed var(--line); padding: 0.35rem 0.15rem;
+}
+input.fill:focus { background: var(--accent-soft); border-bottom-color: var(--accent); outline: none; }
+ul.task-list { list-style: none; padding-left: 0.1rem; }
+ul.task-list li { position: relative; margin: 0.3rem 0; padding-left: 1.75rem; }
+ul.task-list li label { cursor: pointer; }
+ul.task-list input[type="checkbox"] { position: absolute; left: 0; top: 0.18rem; width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--accent); }
+tr[hidden] { display: none !important; }
+
+/* Callouts (GitHub alert syntax in the Markdown source) */
+.callout {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0.75rem 0.95rem 0.8rem;
+  border-left: 4px solid var(--edge, var(--accent));
+  background: var(--fill, var(--accent-soft));
+  border-radius: 0 6px 6px 0;
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout .callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--edge-text, var(--accent));
+  margin-bottom: 0.25rem;
+}
+.callout-note { --edge: var(--accent); --fill: var(--accent-soft); --edge-text: var(--accent); }
+.callout-tip { --edge: var(--ok); --fill: var(--ok-fill); --edge-text: var(--ok); }
+.callout-key { --edge: var(--fg); --fill: var(--panel); --edge-text: var(--fg); }
+.callout-warn { --edge: var(--warn-edge); --fill: var(--warn-fill); --edge-text: var(--warn); }
+.callout-crit { --edge: var(--crit); --fill: var(--crit-fill); --edge-text: var(--crit); }
+
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+
+/* Deep dives */
+details {
+  margin: 1rem 0 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  width: 1ch;
+  flex: none;
+}
+details[open] > summary::before { content: "\2212"; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > :not(summary) { margin-left: 0.9rem; margin-right: 0.9rem; }
+details > :nth-child(2) { margin-top: 0.8rem; }
+details > :last-child { margin-bottom: 0.9rem; }
+
+/* Figures */
+figure.diagram { margin: 1.4rem 0 1.8rem; }
+.diagram-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 0.6rem;
+}
+.diagram-scroll svg { display: block; width: 100%; height: auto; min-width: 600px; color: var(--fg); }
+.diagram-scroll.portrait svg { min-width: 340px; max-width: 540px; margin: 0 auto; }
+figure.diagram figcaption { font-size: 0.86rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
+figure.diagram figcaption strong { color: var(--fg); }
+.scroll-hint { display: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem; }
+@media (max-width: 640px) { .diagram-scroll:not(.portrait) + .scroll-hint, .scroll-hint.show { display: block; } }
+
+/* Diagram kit: classes used inside the SVG files */
+.diagram svg text { font-family: var(--font-body); fill: currentColor; }
+.diagram svg .t { font-size: 13px; }
+.diagram svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+.diagram svg .t-xs { font-size: 10.5px; fill: var(--muted); }
+.diagram svg .t-b { font-weight: 600; }
+.diagram svg .t-h { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; }
+.diagram svg .t-mono { font-family: var(--font-mono); }
+.diagram svg .ln { stroke: currentColor; fill: none; stroke-width: 1.5; }
+.diagram svg .ln-thin { stroke: var(--muted); fill: none; stroke-width: 1; }
+.diagram svg .ln-faint { stroke: var(--line); fill: none; stroke-width: 1; }
+.diagram svg .dash { stroke-dasharray: 5 4; }
+.diagram svg .fill-fg { fill: currentColor; }
+.diagram svg .fill-bg { fill: var(--surface); }
+.diagram svg .panel { fill: var(--panel); stroke: var(--line); }
+.diagram svg .donor { fill: var(--c-donor-soft); stroke: var(--c-donor); }
+.diagram svg .new { fill: var(--c-new-soft); stroke: var(--c-new); }
+.diagram svg .fab { fill: var(--c-fab-soft); stroke: var(--c-fab); }
+.diagram svg .keep { fill: var(--c-keep-soft); stroke: var(--c-keep); }
+.diagram svg .donor-s { stroke: var(--c-donor); fill: none; }
+.diagram svg .new-s { stroke: var(--c-new); fill: none; }
+.diagram svg .fab-s { stroke: var(--c-fab); fill: none; }
+.diagram svg .crit-s { stroke: var(--crit); fill: none; }
+.diagram svg .donor-t { fill: var(--c-donor); }
+.diagram svg .new-t { fill: var(--c-new); }
+.diagram svg .fab-t { fill: var(--c-fab); }
+.diagram svg .crit-t { fill: var(--crit); }
+.diagram svg .crit-f { fill: var(--crit); }
+.diagram svg .donor-f { fill: var(--c-donor); }
+.diagram svg .fab-f { fill: var(--c-fab); }
+.diagram svg .new-f { fill: var(--c-new); }
+.diagram svg .warn-f { fill: var(--warn-fill); stroke: var(--warn-edge); }
+.diagram svg .shape { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; }
+.diagram svg .keep-s { stroke: var(--c-keep); fill: none; }
+.diagram svg .keep-f { fill: var(--c-keep); }
+.diagram svg .t-h { font-size: 15px; }
+
+/* Footer */
+.colophon { border-top: 1px solid var(--line); background: var(--surface); }
+.colophon .wrap { padding-block: 1.4rem 2rem; font-size: 0.85rem; color: var(--muted); }
+.colophon p { margin: 0 0 0.5rem; }
+
+@media (max-width: 480px) {
+  body { font-size: 15.5px; }
+  h3 { font-size: 1.18rem; }
+  .spec { grid-template-columns: 1fr 1fr; }
+}
+
+/* Section links in the chapter navigation appear only in the wide-screen sidebar */
+.chapters .sub { display: none; }
+
+/* Wide screens: sidebar contents, text at reading width, tables and figures use the full column */
+@media (min-width: 1100px) {
+  html { scroll-padding-top: 1.5rem; }
+  body { font-size: 17px; display: grid; grid-template-columns: 17.5rem minmax(0, 1fr); }
+  body > .masthead { grid-column: 2; grid-row: 1; }
+  body > main { grid-column: 2; grid-row: 2; }
+  body > .colophon { grid-column: 2; grid-row: 3; }
+  body > nav.chapters {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    scrollbar-width: thin;
+  }
+  .chapters > ol {
+    flex-direction: column;
+    overflow: visible;
+    max-width: none;
+    gap: 0.05rem;
+    padding: 1.4rem 0.9rem 3rem 1.1rem;
+  }
+  .chapters a { white-space: normal; }
+  .chapters .lbl-short { display: none; }
+  .chapters .lbl-full { display: inline; }
+  .chapters li.open > .sub { display: block; }
+  .chapters .sub {
+    list-style: none;
+    margin: 0.2rem 0 0.7rem 0.55rem;
+    padding: 0 0 0 0.55rem;
+    border-left: 1px solid var(--line);
+  }
+  .chapters .sub a {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.22rem 0.45rem;
+    color: var(--muted);
+  }
+  .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
+  .masthead .wrap { padding-block: 3rem 2rem; }
+  .masthead .lede,
+  main section > :is(p, ul, ol, h2, h3, h4, blockquote, aside, details),
+  main .wrap > :is(p, ul, ol, blockquote, aside, details) { max-width: 47rem; }
+  .diagram-scroll.portrait svg { max-width: 620px; }
+  figure.photo, .photo-pair { max-width: 58rem; }
+  table { font-size: 0.88rem; }
+}
+
+/* Printing: garage-ready pages without navigation or tick boxes */
+@media print {
+  :root:not([data-theme="print"]), :root[data-theme] {
+    --bg: #fff; --surface: #fff; --panel: #eef1f4; --fg: #000; --muted: #444; --line: #bbb;
+    --accent: #1d5fa6; --accent-soft: #eef3fa; --warn: #6b4600; --warn-fill: #fff7dc; --warn-edge: #c99a1c;
+    --crit: #9a1f18; --crit-fill: #fdeeec; --ok: #1f6e45; --ok-fill: #ecf7f0;
+    --c-donor: #1d5fa6; --c-donor-soft: #e6eef9; --c-new: #1f6e45; --c-new-soft: #e8f4ec;
+    --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
+  }
+  body { display: block !important; font-size: 10.5pt; background: #fff; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col { display: none !important; }
+  input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
+  main[data-fill] ~ .colophon { display: none; }
+  td.fill-cell { min-width: 0; }
+  .wrap { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .masthead, .colophon { border: 0; }
+  main section { break-before: page; border-top: 0 !important; margin-top: 0 !important; padding-top: 0; }
+  main section:first-child { break-before: auto; }
+  h2, h3, h4 { break-after: avoid; }
+  tr, figure, aside, .callout { break-inside: avoid; }
+  .table-wrap { overflow: visible; border: 0; }
+  table { font-size: 8.5pt; }
+  th { white-space: normal; }
+  .diagram-scroll { border: 0; padding: 0; overflow: visible; }
+  .diagram-scroll svg { min-width: 0 !important; max-width: 100%; }
+  .diagram-scroll.portrait svg { max-width: 13cm; }
+  figure.photo img { width: auto; max-width: 100%; max-height: 9cm; }
+  .photo-pair { grid-template-columns: 1fr 1fr; break-inside: avoid; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+  a { color: inherit; text-decoration: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <nav class="sitenav" aria-label="Site"><ul><li><a href="./">Guide</a></li><li><a href="wiring-and-coding.html">Wiring and coding</a></li><li><a href="job-cards.html" aria-current="page">Job cards</a></li><li><a href="worksheets.html">Worksheets</a></li><li><a href="calculators.html">Calculators</a></li><li><a href="research.html">Research notes</a></li><li><a href="https://github.com/pniessen/e46-m3-touring">Source on GitHub</a></li></ul></nav>
+    <p class="eyebrow">Job cards &middot; one printable page per phase</p>
+    <h1>Job cards</h1>
+    <p class="lede">One card per phase of the build, in the guide's order; the longer phases take two or more cards so that each fits one printed page. Print them for the garage, or tick the boxes and type your readings here on a phone; longer records go on the <a href="worksheets.html">Worksheets</a>. Every value comes from the <a href="./">build guide</a>: check TIS for your car's build date before you tighten, fill or re-pin anything.</p>
+    
+  </div>
+</header>
+<nav class="chapters" aria-label="Chapters"><ol><li><a href="#card-0-paperwork-and-baseline"><span class="lbl-short">0 Paperwork and baseline</span><span class="lbl-full">Card 0: Paperwork and baseline</span></a></li><li><a href="#card-1-buy-and-inspect-the-donor"><span class="lbl-short">1 Buy and inspect the donor</span><span class="lbl-full">Card 1: Buy and inspect the donor</span></a></li><li><a href="#card-2a-strip-the-donor"><span class="lbl-short">2a Strip the donor</span><span class="lbl-full">Card 2a: Strip the donor</span></a></li><li><a href="#card-2b-cut-the-donor-steel"><span class="lbl-short">2b Cut the donor steel</span><span class="lbl-full">Card 2b: Cut the donor steel</span></a></li><li><a href="#card-3a-bench-work-rod-bearings"><span class="lbl-short">3a Rod bearings</span><span class="lbl-full">Card 3a: Bench work, rod bearings</span></a></li><li><a href="#card-3b-bench-work-vanos"><span class="lbl-short">3b VANOS</span><span class="lbl-full">Card 3b: Bench work, VANOS</span></a></li><li><a href="#card-3c-bench-work-valves-and-seals"><span class="lbl-short">3c Valves and seals</span><span class="lbl-full">Card 3c: Bench work, valves and seals</span></a></li><li><a href="#card-3d-bench-work-clutch-and-420g"><span class="lbl-short">3d Clutch and 420G</span><span class="lbl-full">Card 3d: Bench work, clutch and 420G</span></a></li><li><a href="#card-3e-bench-work-axles"><span class="lbl-short">3e Axles</span><span class="lbl-full">Card 3e: Bench work, axles</span></a></li><li><a href="#card-3f-bench-work-dme-cluster-and-fenders"><span class="lbl-short">3f DME, cluster and fenders</span><span class="lbl-full">Card 3f: Bench work, DME, cluster and fenders</span></a></li><li><a href="#card-4-strip-your-touring"><span class="lbl-short">4 Strip your Touring</span><span class="lbl-full">Card 4: Strip your Touring</span></a></li><li><a href="#card-5-subframe-mounts-and-floor"><span class="lbl-short">5 Subframe mounts and floor</span><span class="lbl-full">Card 5: Subframe mounts and floor</span></a></li><li><a href="#card-6-rear-arches"><span class="lbl-short">6 Rear arches</span><span class="lbl-full">Card 6: Rear arches</span></a></li><li><a href="#card-7a-fuel-system"><span class="lbl-short">7a Fuel system</span><span class="lbl-full">Card 7a: Fuel system</span></a></li><li><a href="#card-7b-rear-axle-in"><span class="lbl-short">7b Rear axle in</span><span class="lbl-full">Card 7b: Rear axle in</span></a></li><li><a href="#card-7c-rear-axle-at-ride-height"><span class="lbl-short">7c Rear axle at ride height</span><span class="lbl-full">Card 7c: Rear axle at ride height</span></a></li><li><a href="#card-8a-front-suspension"><span class="lbl-short">8a Front suspension</span><span class="lbl-full">Card 8a: Front suspension</span></a></li><li><a href="#card-8b-steering"><span class="lbl-short">8b Steering</span><span class="lbl-full">Card 8b: Steering</span></a></li><li><a href="#card-8c-brakes-and-bleeding"><span class="lbl-short">8c Brakes and bleeding</span><span class="lbl-full">Card 8c: Brakes and bleeding</span></a></li><li><a href="#card-9a-engine-and-gearbox-in"><span class="lbl-short">9a Engine and gearbox in</span><span class="lbl-full">Card 9a: Engine and gearbox in</span></a></li><li><a href="#card-9b-driveshaft-and-clutch"><span class="lbl-short">9b Driveshaft and clutch</span><span class="lbl-full">Card 9b: Driveshaft and clutch</span></a></li><li><a href="#card-10a-cooling-and-intake"><span class="lbl-short">10a Cooling and intake</span><span class="lbl-full">Card 10a: Cooling and intake</span></a></li><li><a href="#card-10b-exhaust"><span class="lbl-short">10b Exhaust</span><span class="lbl-full">Card 10b: Exhaust</span></a></li><li><a href="#card-11a-wiring-and-checks"><span class="lbl-short">11a Wiring and checks</span><span class="lbl-full">Card 11a: Wiring and checks</span></a></li><li><a href="#card-11b-power-up-and-coding"><span class="lbl-short">11b Power-up and coding</span><span class="lbl-full">Card 11b: Power-up and coding</span></a></li><li><a href="#card-12a-front-end-and-oil-prime"><span class="lbl-short">12a Front end and oil prime</span><span class="lbl-full">Card 12a: Front end and oil prime</span></a></li><li><a href="#card-12b-first-start"><span class="lbl-short">12b First start</span><span class="lbl-full">Card 12b: First start</span></a></li><li><a href="#card-12c-shakedown"><span class="lbl-short">12c Shakedown</span><span class="lbl-full">Card 12c: Shakedown</span></a></li><li><a href="#card-12d-alignment-and-final-coding"><span class="lbl-short">12d Alignment and final coding</span><span class="lbl-full">Card 12d: Alignment and final coding</span></a></li><li><a href="#card-12e-break-in-and-readiness"><span class="lbl-short">12e Break-in and readiness</span><span class="lbl-full">Card 12e: Break-in and readiness</span></a></li><li><a href="#card-13-paint-trim-and-paperwork"><span class="lbl-short">13 Paint, trim and paperwork</span><span class="lbl-full">Card 13: Paint, trim and paperwork</span></a></li></ol></nav>
+<main data-page="cards" data-fill><div class="wrap"><section id="card-0-paperwork-and-baseline"><h2>Card 0: Paperwork and baseline</h2>
+<p><strong>Goal:</strong> prove your Touring is the car this guide assumes, back it up and record its baseline (<a href="./#phase-0-paperwork-and-baseline">Phase 0</a>).<br/>
+<strong>Before you start:</strong> the unmodified car with its original modules, and the <a href="./#factory-documentation-and-coding-kit">coding kit</a>.</p>
+<p><strong>Tools:</strong> Windows 10 or 11 laptop, run natively; K+DCAN cable (FTDI chip, pins 7 and 8 bridged, COM1, 1 ms latency timer); Standard Tools 2.12 with E46 data files; PA-Soft and its interface; a charger of at least 10 A.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>VIN decoded: build date (facelift and FA from 09/2001), options, rear-drive 325i (<a href="./#if-your-car-is-a-325xi">if it's an xi</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Engine code M54B25 and a plastic tank, not the M56 SULEV: a manual doesn't prove it (<a href="./#check-your-own-touring-first">checks</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>DME label (MS43 to 02/2003, MS45.1 from 03/2003); DSC, not ASC only; IHKA or IHKR; switch panel</span></label></li>
+<li><label><input type="checkbox"/><span>Wiring drawings for both cars: WDS by build date, or ISTA by VIN (<a href="wiring-and-coding.html#engine-harness-and-dme">manual</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Your state asked what an engine change needs, in writing (<a href="./#questions-for-your-state-program">questions</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Kit proven on the unmodified car (<a href="wiring-and-coding.html#prove-the-setup-on-your-touring">manual</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>FA or ZCS, every module's coding, cluster and LCM EEPROMs and fault lists saved (<a href="wiring-and-coding.html#session-1-vehicle-order-and-codings">Session 1</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Odometer photographed; the mileage the cluster and the LCM each hold noted</span></label></li>
+<li><label><input type="checkbox"/><span>RACP at all four mounts; arches, sills, jacking points, battery box, floor at the tank brackets (<a href="./#rear-subframe-mount-reinforcement">RACP</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Ride height at four corners; alignment printout; photos of engine bay, E-box, harness and underside</span></label></li>
+<li><label><input type="checkbox"/><span>A/C blows cold; refrigerant recovery booked for <a href="#card-4-strip-your-touring">Card 4</a></span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Coding kit</td>
+<td>INPA shows two solid black dots and reads the DME, cluster, LCM, EWS and DSC; NCS Expert reads the FA or ZCS</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Backups</td>
+<td>FA or ZCS screenshots, a coding file per module, cluster and LCM EEPROM files and fault lists, stored in two places</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Your car</td>
+<td>Engine code, tank, DME, DSC, climate control and switch panel recorded</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Shell</td>
+<td>RACP, arches, sills and jacking points inspected and photographed</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Your state</td>
+<td>Written answer on what the engine change needs</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mileage</td>
+<td>Odometer photographed; cluster and LCM mileage noted</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ride height</td>
+<td>Hub-center and arch-lip heights at four corners, level ground, placard pressures</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=FiBr1h9j0bU&amp;t=532s">50sKid – coding the vehicle order (2017), 08:52</a> reads the FA from an E46's cluster.<br/>
+<strong>Stop and ask:</strong> never back up or code anything until the kit reads every module. An xi, an M56 or an ASC-only car, a torn or rotten floor, or no written answer from your state: re-plan before you buy a donor.</p>
+</section><section id="card-1-buy-and-inspect-the-donor"><h2>Card 1: Buy and inspect the donor</h2>
+<p><strong>Goal:</strong> buy a manual M3 that meets the model-year rule, and record what you can't test once it's apart (<a href="./#phase-1-buy-and-inspect-the-donor">Phase 1</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-0-paperwork-and-baseline">Card 0</a> done, with your state's written answer in hand.</p>
+<p><strong>Tools:</strong> compression and leak-down testers; a fuel-pressure gauge with an adapter and a relay bypass jumper; INPA, Tool32 and PA-Soft; tape measure, plumb line and a level floor.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Manual M3s shortlisted, same model year as your Touring or newer (<a href="./#choose-the-donor">Choose the donor</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>VIN, build date and an engine-number photo; for its DSC, a donor built 09/2002 or later (MK60)</span></label></li>
+<li><label><input type="checkbox"/><span>Compression and leak-down, warm, all plugs out; cylinders compared</span></label></li>
+<li><label><input type="checkbox"/><span>Hood, fenders, headlights, bumper, both rear arches with their inner lips, and trunk floor sound</span></label></li>
+<li><label><input type="checkbox"/><span>INPA: every module's part number, software and faults; MK60 or MK20</span></label></li>
+<li><label><input type="checkbox"/><span>Tool32: DME identity, fault memory and AIF saved (<a href="wiring-and-coding.html#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2</a>); PA-Soft: cluster EEPROM saved</span></label></li>
+<li><label><input type="checkbox"/><span>Tool32 VANOS timing and leak tests, warm; fuel pressure through a relay bypass</span></label></li>
+<li><label><input type="checkbox"/><span>Road test: all gears, diff, clutch, steering, brakes, ABS, DSC and cold A/C</span></label></li>
+<li><label><input type="checkbox"/><span>Tire placard and underhood A/C and emissions labels photographed</span></label></li>
+<li><label><input type="checkbox"/><span>Hub, lip and body-point heights and lip offsets at four corners (<a href="./#measure-and-mock-up-before-you-cut">how</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Refrigerant recovery booked while it can still be driven or towed to a shop</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Compression</td>
+<td>About 11–12 bar (160–174 psi) minimum, about the same on every cylinder (compilation figure; confirm in TIS); leak-down even</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>VANOS and fuel</td>
+<td>VANOS tests recorded; fuel pressure 5.0 ± 0.2 bar (72.5 ± 2.9 psi)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Electronics record</td>
+<td>Module IDs and faults, DME identity and AIF, and cluster EEPROM saved</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DSC</td>
+<td>Unit type noted: MK60 or MK20</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Measurements</td>
+<td>Hub, lip and body-point heights and lip offsets at four corners, with hub-to-body and hub-to-lip worked out; placard and labels photographed</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Paperwork</td>
+<td>Title or salvage paperwork and bill of sale in hand; engine number and VIN plates photographed</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=RyoFFLppseE&amp;t=40s">Autoalex Cars – Part 1 (2023), 00:40</a> inspects a donor M3 on a ramp.<br/>
+<strong>Stop and ask:</strong> low or uneven compression means a head or engine job, or walk away. An MK20 means keeping your Touring's DSC (option A). Don't buy without the paperwork.</p>
+</section><section id="card-2a-strip-the-donor"><h2>Card 2a: Strip the donor</h2>
+<p><strong>Goal:</strong> every donor part off, tagged and stored dry (<a href="./#phase-2-strip-the-donor">Phase 2</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-1-buy-and-inspect-the-donor">Card 1</a> done; dry storage for two cars' parts (<a href="./#space-storage-and-logistics">logistics</a>).</p>
+<p><strong>Tools:</strong> an engine hoist with a load leveler, or a lift; transmission jack, stands and straps; approved fluid containers; tags, bags and a camera.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Take (the <a href="./#parts-list">Parts list</a>'s Donor M3 lines; easy to miss)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cabin</td>
+<td>Cluster; console switch unit 61316925520 (coupe) or 61316925521 (convertible); clutch-switch module 61319122700; accelerator pedal; shift lever and carrier; mirrors; steering wheel (airbag disarmed per BMW's procedure first)</td>
+</tr>
+<tr class="even">
+<td>Engine bay</td>
+<td>Engine harness with the DME, gearbox-module harness and the whole E-box branch (fuse carrier, X6011, X6021, X6053, X6054, battery feed X64101/X64102); expansion-tank and secondary-air pump brackets; radiator, both fans, oil cooler and lines; power-steering reservoir, lines and cooler; A/C lines; DSC unit, its lines and the master cylinder (booster too for option B)</td>
+</tr>
+<tr class="odd">
+<td>Underside</td>
+<td>Fuel filter-regulator with its vacuum hoses; fuel lines 16122229409, 16122229410, 16122229411; exhaust with hangers and heat shields; front heat shields; driveshaft; clutch hard line; front brake hoses 34322229723</td>
+</tr>
+<tr class="even">
+<td>Running gear</td>
+<td>420G with gear-identification switch 23142229113; rack, tie rods and lines, control arms and brackets, struts, knuckles, hubs, brakes, sway bar and links, front reinforcement plate; rear axle as one unit with push rod 33312229295 and V-brace 33312229899; wheel-speed sensors from an MK60 donor (09/2002 on)</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>A shop recovers the refrigerant before any A/C line is opened; receipt kept</span></label></li>
+<li><label><input type="checkbox"/><span>Oil, coolant, gearbox, diff, power-steering and brake fluid and fuel drained into approved containers (<a href="./#safety">Safety</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Both halves of every connector tagged; everything photographed; fasteners bagged by assembly</span></label></li>
+<li><label><input type="checkbox"/><span>Car supported or strapped before the engine or an axle comes out</span></label></li>
+<li><label><input type="checkbox"/><span>Cabin, engine-bay and underside parts off and tagged</span></label></li>
+<li><label><input type="checkbox"/><span>Engine and gearbox out: front subframe dropped with the engine (lift), or gearbox out and engine out the top</span></label></li>
+<li><label><input type="checkbox"/><span>Front axle and steering off; rear axle out as one unit (<a href="./#driveline-and-rear-axle">Driveline and rear axle</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>An MK60 donor's wheel-speed sensors kept as spares; an MK20 donor's don't fit your harness</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Parts</td>
+<td>Every Donor M3 line on the parts list removed, tagged, photographed and stored dry</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fluids</td>
+<td>Refrigerant recovered (receipt kept); all fluids drained and disposed of</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=SH-J8ngKerk&amp;t=1621s">DBO – pulling an E46 M3 engine (2019), 27:01</a>.<br/>
+<strong>Stop and ask:</strong> never open an A/C line before recovery: venting is prohibited. A part missing or damaged: order it now, while you can still compare it with the donor.</p>
+</section><section id="card-2b-cut-the-donor-steel"><h2>Card 2b: Cut the donor steel</h2>
+<p><strong>Goal:</strong> the front panels off and the arch, filler and floor steel cut out, then the shell gone (<a href="./#phase-2-strip-the-donor">Phase 2</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-2a-strip-the-donor">Card 2a</a> done; the donor's arch targets measured (<a href="#card-1-buy-and-inspect-the-donor">Card 1</a>).</p>
+<p><strong>Parts:</strong> both rear arch areas; fuel filler flap 51172695524 with its surround; trunk floor with front reinforcement 51717894229 (coupe) and muffler brackets 41122494844, 41112493931; V-brace mounting boxes with their reinforcement panels if you'll fit the V-brace.<br/>
+<strong>Tools:</strong> spot-weld drill bits and a spot-weld chisel; cut-off discs; cardboard; a profile gauge.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Hood, fenders, headlights, bumper with carrier and supports, kidney grilles and liners off</span></label></li>
+<li><label><input type="checkbox"/><span>Cardboard templates of each rear flare at three or four stations, before you cut</span></label></li>
+<li><label><input type="checkbox"/><span>Both rear arch areas cut with generous margins: outer skin and as much inner tub as you can (<a href="./#rear-arches-and-doors">how</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Spot welds drilled out where you can, instead of cutting</span></label></li>
+<li><label><input type="checkbox"/><span>Fuel filler flap cut out with its surround</span></label></li>
+<li><label><input type="checkbox"/><span>Trunk floor round the muffler cut out with its reinforcement and the muffler brackets</span></label></li>
+<li><label><input type="checkbox"/><span>V-brace mounting boxes cut out with their reinforcement panels, if you'll fit the V-brace</span></label></li>
+<li><label><input type="checkbox"/><span>SMG parts, interior, glass or a convertible's top sold; the donor's DSC unit kept until your DSC plan has worked</span></label></li>
+<li><label><input type="checkbox"/><span>Shell and title disposed of as your state requires (<a href="./#space-storage-and-logistics">logistics</a>)</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Body steel</td>
+<td>Arches with inner tubs, filler surround and floor section cut with margins; templates made</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Shell</td>
+<td>Shell and title disposed of as your state requires</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=YqM2rQw1HQI&amp;t=400s">M346 Projects – SMG Touring build Pt 1 (2023), 06:40</a> cuts the quarters and trunk floor from a convertible donor.<br/>
+<strong>Stop and ask:</strong> rotten or damaged donor steel: plan new BMW or aftermarket panels now (<a href="./#rear-arches-and-doors">Rear arches and doors</a>). Keep the donor's paperwork and engine-number photos either way.</p>
+</section><section id="card-3a-bench-work-rod-bearings"><h2>Card 3a: Bench work, rod bearings</h2>
+<p><strong>Goal:</strong> new rod bearings, measured and tightened to the procedure for their bolts (<a href="./#s54-refresh-on-the-stand">S54 refresh</a>).<br/>
+<strong>Before you start:</strong> the engine on a stand and drained; the bolt type read from the heads, not the build date.</p>
+<p><strong>Parts:</strong> rod bearings, blue 11247835440 (rod side) and red 11247835439 (cap side); rod bolts 11247834310 (12, M10 engines only); pan gaskets, pickup-tube O-ring.<br/>
+<strong>Tools:</strong> Plastigauge PG-1; E12 or 12 mm 12-point socket; angle gauge; 5–60 Nm wrench; dial gauge.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rod bolts, M11×1.25, 12-point head (12 mm socket)</td>
+<td>5 Nm (44 in-lb), then 30 Nm (22 ft-lb), then 70° in one single stroke</td>
+<td>Reused, each in the hole it came from</td>
+</tr>
+<tr class="even">
+<td>Rod bolts, M10×1.25, E-Torx head (E12)</td>
+<td>Three cycles. Each cycle: 5 Nm, 30 Nm, then 105° in one single stroke. After cycles 1 and 2, back each bolt off about one turn. Cycle 3 is final</td>
+<td>New bolts every time: 11247834310, 12 per engine</td>
+</tr>
+<tr class="odd">
+<td>Oil-pump sprocket nut</td>
+<td>25 Nm (18 ft-lb)</td>
+<td>Left-hand thread</td>
+</tr>
+<tr class="even">
+<td>Oil-pan screws, M6</td>
+<td>10 Nm (89 in-lb); Flow gives 12 Nm (106 in-lb) for 10.9 screws</td>
+<td>Hylomar at the joints (SI)</td>
+</tr>
+<tr class="odd">
+<td>Oil drain plug</td>
+<td>25 Nm (18 ft-lb)</td>
+<td>New sealing ring 07119963151</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Every cap marked to its rod, every M11 bolt to its hole (<a href="./#s54-refresh-on-the-stand">procedure</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Oil pump off for room; its housing checked for chain rub</span></label></li>
+<li><label><input type="checkbox"/><span>Plastigauge on each clean, oil-free crank pin at bottom dead center, with the old bolts</span></label></li>
+<li><label><input type="checkbox"/><span>Below 0.040 mm: new shells; still below with new shells: a new rod</span></label></li>
+<li><label><input type="checkbox"/><span>Pins and shells oiled, caps on by their pair numbers, bolts tightened to their procedure</span></label></li>
+<li><label><input type="checkbox"/><span>Crank end play checked; oil pump and pan refitted</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rod bearings</td>
+<td>Plastigauge reads 0.040–0.070 mm on every rod (old bolts); final bolts fitted and tightened to the procedure for their type</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Crank end play</td>
+<td>0.141–0.253 mm (0.0056–0.0100 in)</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=Emjw22o_V8c&amp;t=1251s">FCP Euro – S54 rod bearings (2022), 20:51</a> shows the three M10 cycles; <a href="https://www.youtube.com/watch?v=O345BKC8EkM&amp;t=480s">Paul Vo – rod bearing torque procedure (2017), 08:00</a>.<br/>
+<strong>Stop and ask:</strong> out of range: measure the journals; undersize shells mean a machine shop. Skipping the M10 procedure "will result in serious engine damage" (BMW). ARP bolts: <a href="./#torque-values">ARP's values</a>, never the angle method.</p>
+</section><section id="card-3b-bench-work-vanos"><h2>Card 3b: Bench work, VANOS</h2>
+<p><strong>Goal:</strong> VANOS seals, oil-pump disc, chain guide and hub sorted, and the cams timed (<a href="./#s54-refresh-on-the-stand">S54 refresh</a>).<br/>
+<strong>Before you start:</strong> the engine on a stand; Beisan's S54 VANOS procedure, which this job follows.</p>
+<p><strong>Parts:</strong> VANOS seals and oil-pump disc (Beisan BS025); Torx exhaust-sprocket bolts; upper chain guide, tensioner; new exhaust hub if a tab is cracked.<br/>
+<strong>Tools:</strong> crank socket 83300491056 (36 mm 12-point on early engines); 32 mm fan wrench, pulley holder 83300491046; S54 timing set; transfer-gear holder.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VANOS solenoid coil screws</td>
+<td>4 Nm (35 in-lb)</td>
+<td>One video only</td>
+</tr>
+<tr class="even">
+<td>VANOS piston covers, lower VANOS bolts, solenoid-block screws</td>
+<td>10 Nm (89 in-lb)</td>
+<td>One video only</td>
+</tr>
+<tr class="odd">
+<td>VANOS transfer-gear cover</td>
+<td>55 Nm (41 ft-lb)</td>
+<td>One video only</td>
+</tr>
+<tr class="even">
+<td>VANOS exhaust sprocket Torx bolts</td>
+<td>12 Nm (106 in-lb) with blue thread-locker</td>
+<td>One video only</td>
+</tr>
+<tr class="odd">
+<td>Upper chain guide bolt; chain tensioner</td>
+<td>Guide 24 Nm (18 ft-lb); tensioner snug plus ½ turn with a new washer</td>
+<td>One video only</td>
+</tr>
+<tr class="even">
+<td>VANOS hub bolts (new M6×25)</td>
+<td>About 14 Nm (124 in-lb), by feel, because no torque wrench fits</td>
+<td>One video only</td>
+</tr>
+<tr class="odd">
+<td>Fan clutch to water pump</td>
+<td>40 Nm (30 ft-lb)</td>
+<td>Left-hand thread: loosen it clockwise</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Engine turned on the four balancer bolts, never on the cover's 32 mm hex; balancer inspected</span></label></li>
+<li><label><input type="checkbox"/><span>Seals and oil-pump disc renewed by Beisan's procedure (<a href="./#s54-refresh-on-the-stand">VANOS</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Exhaust-hub tabs inspected: the new disc takes out play; a cracked tab means a new hub</span></label></li>
+<li><label><input type="checkbox"/><span>Upper chain guide and tensioner renewed; Torx sprocket bolts in place of the hex bolts</span></label></li>
+<li><label><input type="checkbox"/><span>Cams re-timed: the cam bridge sits flat and the crank pin slides in</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VANOS</td>
+<td>New seals and oil-pump disc; exhaust-hub tabs intact or the hub replaced; the cam bridge sits flat and the crank pin slides in after reassembly</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=vhsxb5IRa8s&amp;t=1050s">ECS Tuning – S54 VANOS rebuild (2025), 17:30</a>, which fits E39 M5 (S62) diaphragm springs and plates.<br/>
+<strong>Stop and ask:</strong> if the cam bridge won't sit flat or the crank pin won't slide in, re-time before the covers go on. The VANOS torques are one video's: check TIS group 11 36.</p>
+</section><section id="card-3c-bench-work-valves-and-seals"><h2>Card 3c: Bench work, valves and seals</h2>
+<p><strong>Goal:</strong> valve clearances in range and the top-end seals renewed before the engine goes in (<a href="./#s54-refresh-on-the-stand">S54 refresh</a>).<br/>
+<strong>Before you start:</strong> the engine on a stand and cold (below 35 °C).</p>
+<p><strong>Parts:</strong> valve shims; valve-cover gasket and spark-plug-tube seals; CPV O-ring; rear main seal; water pump, thermostat and their gaskets.<br/>
+<strong>Tools:</strong> feeler gauges; a micrometer; a magnet.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Spark plugs, M12×1.25</td>
+<td><strong>No BMW figure found; the videos disagree:</strong> 23 Nm (17 ft-lb), dry, or 25 Nm (18 ft-lb)</td>
+<td>Check TIS</td>
+</tr>
+<tr class="even">
+<td>Valve-cover cap nuts</td>
+<td><strong>No BMW figure found; the videos disagree:</strong> 10 Nm (89 in-lb) or 8 Nm (71 in-lb), in a cross pattern</td>
+<td>Check TIS</td>
+</tr>
+<tr class="odd">
+<td>Crankcase-vent return banjo (17 mm)</td>
+<td>19 Nm (14 ft-lb)</td>
+<td>New washers; one video only</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Plugs out; engine turned clockwise; each valve measured with its lobe pointing straight up (<a href="./#s54-refresh-on-the-stand">valves</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Valley packed with rags before any shim is lifted: early heads have no screen in the drain gallery</span></label></li>
+<li><label><input type="checkbox"/><span>Old shim measured; new shim = old shim + (measured clearance − target)</span></label></li>
+<li><label><input type="checkbox"/><span>Clearances set to the middle of the range: 0.20 mm intake, 0.30 mm exhaust</span></label></li>
+<li><label><input type="checkbox"/><span>CPV O-ring, valve-cover gasket, rear main seal, water pump and thermostat renewed</span></label></li>
+<li><label><input type="checkbox"/><span>Throttle actuator tested; idle control valve cleaned</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Valves</td>
+<td>Intake 0.18–0.23 mm, exhaust 0.28–0.33 mm, measured below 35 °C</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=6xtAIiKbKmM&amp;t=1039s">FCP Euro – S54 valve adjustment (2022), 17:19</a>.<br/>
+<strong>Stop and ask:</strong> a clearance out of range: re-shim before the cover goes on. The spark-plug and cover-nut torques come from videos that disagree: use TIS.</p>
+</section><section id="card-3d-bench-work-clutch-and-420g"><h2>Card 3d: Bench work, clutch and 420G</h2>
+<p><strong>Goal:</strong> flywheel, clutch and driveshaft flex disc on new fasteners, and the 420G resealed (<a href="./#phase-3-bench-work">Phase 3</a>, <a href="./#driveline-and-rear-axle">driveline</a>).<br/>
+<strong>Before you start:</strong> the engine on its stand with the rear main seal done (<a href="#card-3c-bench-work-valves-and-seals">Card 3c</a>).</p>
+<p><strong>Parts:</strong> dual-mass flywheel 21212229900 and clutch set 21212282667; flywheel bolts 11222243051 (8); pressure-plate screws 21207548052 (6); pilot bearing 11211720310; 420G seals 23121228493, 23127501582, 23121222769; flex disc 26112226527 with bolts 26117635643 and nuts 26127536563; center mount 26122282495.<br/>
+<strong>Tools:</strong> a clutch alignment tool; a flywheel lock.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dual-mass flywheel to crank</td>
+<td>105 Nm (77 ft-lb), no angle</td>
+<td>Eight new bolts 11222243051, threads lightly oiled, no thread locker; cross pattern</td>
+</tr>
+<tr class="even">
+<td>Pressure plate to flywheel, M8 10.9</td>
+<td>34 Nm (25 ft-lb)</td>
+<td>Six new micro-encapsulated screws 21207548052; 25 Nm is for 8.8 screws</td>
+</tr>
+<tr class="odd">
+<td>420G drain and fill plugs, M24×1.5</td>
+<td>52 Nm (38 ft-lb)</td>
+<td>Reverse-light switch 20 Nm (15 ft-lb)</td>
+</tr>
+<tr class="even">
+<td>Flex disc (guibo), M3, M12 10.9: shaft side</td>
+<td>115 Nm (85 ft-lb)</td>
+<td>M12×1.5×62 bolts 26117635643 with new self-locking nuts 26127536563; turn the bolt, not the nut. Gearbox side: Card 9b</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>New flywheel bolts, lightly oiled, tightened in a cross pattern (<a href="./#driveline-and-rear-axle">clutch</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Pilot bearing renewed; disc centered with the alignment tool; pressure plate on new screws</span></label></li>
+<li><label><input type="checkbox"/><span>Release-fork pivot pin, fork and guide tube: FCP Euro's M3 clutch job renews them</span></label></li>
+<li><label><input type="checkbox"/><span>420G: new input, selector-shaft and output seals; fill plug undone before the drain plug</span></label></li>
+<li><label><input type="checkbox"/><span>Gear-identification switch checked or replaced; new shifter bushings</span></label></li>
+<li><label><input type="checkbox"/><span>Driveshaft: new flex disc bolted to the shaft on the M3's bolts and new self-locking nuts; new center mount</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Clutch and 420G</td>
+<td>Flywheel and pressure plate on new bolts, torqued and marked; three new gearbox seals; gear switch fitted</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=NmEOFBqreX8&amp;t=1039s">FCP Euro – E46 M3 clutch (2022), 17:19</a>.<br/>
+<strong>Stop and ask:</strong> anything wrong here is a gearbox-out job later: fix it now. Ignore the 100 Nm in FCP's non-M DIY and the 120 Nm seen in snippets.</p>
+</section><section id="card-3e-bench-work-axles"><h2>Card 3e: Bench work, axles</h2>
+<p><strong>Goal:</strong> both M3 axles rebuilt, and the running gear chosen for the arch mock-up (<a href="./#phase-3-bench-work">Phase 3</a>).<br/>
+<strong>Before you start:</strong> the axles off the donor (<a href="#card-2a-strip-the-donor">Card 2a</a>); a press and bushing tools.</p>
+<p><strong>Parts:</strong> subframe mounts 33312283573/574 and 33312283419 (two); diff mount 33172282484; trailing-arm bushings; worn arms, ball joints, end links; pads, rotors.<br/>
+<strong>Tools:</strong> bushing press kits; a ball-joint separator.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Diff front mount bolt, M14×1.5×65 10.9</td>
+<td>200 Nm (148 ft-lb)</td>
+<td>Not Condor's 128 ft-lb (174 Nm)</td>
+</tr>
+<tr class="even">
+<td>Diff rear bolts, M12×50 Torx, ×2</td>
+<td>20 Nm (15 ft-lb) + 90°</td>
+<td>Not Condor's 70 ft-lb (95 Nm)</td>
+</tr>
+<tr class="odd">
+<td>Rear caliper carrier, M10</td>
+<td>65 Nm (48 ft-lb)</td>
+<td>Micro-encapsulated screws</td>
+</tr>
+<tr class="even">
+<td>Front caliper carrier, M12×1.5</td>
+<td>110 Nm (81 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Caliper guide bolts, front and rear</td>
+<td>30 Nm (22 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Rotor retaining screw</td>
+<td>16 Nm (142 in-lb)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Subframe and diff mounts, trailing-arm bushings, worn arms, ball joints and end links renewed (<a href="./#driveline-and-rear-axle">axles</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Rear control arms fitted to the subframe before the diff; then the diff, its mounts torqued here</span></label></li>
+<li><label><input type="checkbox"/><span>No powder coat in the bushing bores</span></label></li>
+<li><label><input type="checkbox"/><span>A diff output flange that comes out: its bolt marked first and refitted to the mark</span></label></li>
+<li><label><input type="checkbox"/><span>Brakes rebuilt with new pads and rotors</span></label></li>
+<li><label><input type="checkbox"/><span>Rubber-bushed joints left snug, for ride height later</span></label></li>
+<li><label><input type="checkbox"/><span>Springs, dampers, wheels and tires chosen and bought (<a href="./#suspension-for-touring-weight">suspension</a>, <a href="./#wheels-track-and-offsets">wheels</a>)</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Axles</td>
+<td>Bushings, mounts and arms renewed; the diff on the subframe with its mount bolts torqued; bolts marked, rubber-bushed joints left snug</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Running gear</td>
+<td>Springs, dampers, wheels and tires in hand for the Card 6 mock-up</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=usfbSLE_1aI&amp;t=743s">FCP Euro – E46 M3 control arms and bushings (2020), 12:23</a>.<br/>
+<strong>Stop and ask:</strong> a bushing that went in crooked: re-press it. Don't start the arches (<a href="#card-6-rear-arches">Card 6</a>) without your final springs, dampers, wheels and tires.</p>
+</section><section id="card-3f-bench-work-dme-cluster-and-fenders"><h2>Card 3f: Bench work, DME, cluster and fenders</h2>
+<p><strong>Goal:</strong> the DME flashed with your VIN and nothing else, the M3 cluster prepared, and the front fenders grafted (<a href="./#phase-3-bench-work">Phase 3</a>).<br/>
+<strong>Before you start:</strong> the donor DME's identity, faults and AIF saved (<a href="#card-1-buy-and-inspect-the-donor">Card 1</a>); your state's answer on DME software.</p>
+<p><strong>Parts:</strong> the donor DME; the M3 cluster; genuine M3 fenders 41357894337/338 and your 4-door fenders, or carbon Touring fenders.<br/>
+<strong>Tools:</strong> MIG welder; clamps; hammers and dollies.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>DME sent away for the EWS delete with your Touring's full 17-character VIN (<a href="./#immobilizer-ews">Immobilizer (EWS)</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>SMG donor: manual (HS) software or a transmission-swap change added</span></label></li>
+<li><label><input type="checkbox"/><span>Every secondary-air, O2-sensor, catalyst and EVAP delete declined (<a href="./#shop-briefs">brief</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>No Euro software: it may drop US emissions functions such as the fuel-tank leak test</span></label></li>
+<li><label><input type="checkbox"/><span>Sync route only with a virgin DME: a used one keeps its code table for good</span></label></li>
+<li><label><input type="checkbox"/><span>Cluster service (if used): your VIN, set to take your true mileage, rear-door LEDs added (<a href="./#instrument-cluster-and-mileage">cluster</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Genuine M3 fenders grafted off the car onto your 4-door fenders' rear strips (<a href="./#front-end-on-a-4-door-body">fenders</a>)</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DME</td>
+<td>Back from the vendor with a written list of changes: EWS delete, your VIN, manual software if needed, and nothing else</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> any emissions function removed: send the DME back. The cluster shows only your car's true mileage (<a href="https://www.law.cornell.edu/uscode/text/49/32704">49 U.S.C. §32704</a>).</p>
+</section><section id="card-4-strip-your-touring"><h2>Card 4: Strip your Touring</h2>
+<p><strong>Goal:</strong> a clean, dry, safely supported shell with the fuel system out (<a href="./#phase-4-strip-your-touring">Phase 4</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-0-paperwork-and-baseline">Card 0</a> baseline recorded; refrigerant recovery booked; space for two cars' parts.</p>
+<p><strong>Tools:</strong> tall stands or a lift, straps, an engine hoist with a load leveler, transmission jack, a low table or dollies for the subframes, wheel dollies; approved fuel containers; an extinguisher; a pressure washer.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>A shop recovers the refrigerant; every opening capped (<a href="./#shop-briefs">Shop briefs</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Battery disconnected; oil, coolant, power-steering fluid and brake fluid drained</span></label></li>
+<li><label><input type="checkbox"/><span>Tank run low, the rest pumped into approved containers outdoors, extinguisher at hand (<a href="./#safety">Safety</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>The saddle tank's left half checked separately: it empties through a siphon jet</span></label></li>
+<li><label><input type="checkbox"/><span>Exhaust, driveshaft, M54 and gearbox, front suspension and steering, and rear axle out</span></label></li>
+<li><label><input type="checkbox"/><span>Car supported or strapped before and after each heavy part comes out</span></label></li>
+<li><label><input type="checkbox"/><span>Tank and filler neck out; EVAP parts near the right-rear arch out; every line capped</span></label></li>
+<li><label><input type="checkbox"/><span>Rear seats, cargo-floor trim and carpet, rear trim, door cards, arch liners and battery out</span></label></li>
+<li><label><input type="checkbox"/><span>Sound-deadening stripped back from every weld line</span></label></li>
+<li><label><input type="checkbox"/><span>DME wires tagged first (<a href="worksheets.html#electronics-baseline">worksheet</a>); M54 harness and DME out for resale; the body harness stays</span></label></li>
+<li><label><input type="checkbox"/><span>M54, 5-speed, DME and harness, 325i axle parts and front panels sold (<a href="./#space-storage-and-logistics">logistics</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Kept and labelled: every part on the <a href="./#space-storage-and-logistics">hold list</a></span></label></li>
+<li><label><input type="checkbox"/><span>Underside washed and dried; RACP, rails, inner arches and floor behind the tank and brake-pipe brackets re-checked</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A/C</td>
+<td>Refrigerant recovered (receipt kept); every opening capped</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fuel</td>
+<td>Both halves of the tank drained; tank, filler neck and EVAP parts out and stored away from the work area</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Support</td>
+<td>Shell stable on stands or the lift with the engine and axles out</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fallback parts</td>
+<td>Every part on the hold list labelled and stored</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Inspection</td>
+<td>Underside clean and dry; new findings photographed and added to Card 5</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=3ud3sHHYU5g&amp;t=380s">Tracks and Trails – M54 removal (2025), 06:20</a> supports the rear once the engine is out.<br/>
+<strong>Stop and ask:</strong> re-position the supports before anyone works under the car. Fuel left in the left half: drain it through its sender opening. Don't sell the fallback parts yet.</p>
+</section><section id="card-5-subframe-mounts-and-floor"><h2>Card 5: Subframe mounts and floor</h2>
+<p><strong>Goal:</strong> rear subframe mounts reinforced and the floor closed round the M3 axle and muffler (<a href="./#phase-5-metalwork-1-subframe-mounts-and-floor">Phase 5</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-4-strip-your-touring">Card 4</a> done, fuel parts and battery out; donor floor cut (<a href="#card-2b-cut-the-donor-steel">Card 2b</a>).</p>
+<p><strong>Parts:</strong> a reinforcement kit listed for the Touring; V-brace boxes; donor floor or new 41127895619, muffler brackets 41122494844, 41112493931; primers, seam sealer, cavity wax.<br/>
+<strong>Tools:</strong> MIG with 0.023–0.024 in or 0.030 in wire, 75/25 argon/CO2 (<a href="./#welding-settings-and-safety">settings</a>); spot-weld drill; clecos; fume extraction and respirator; tram gauge.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Coupons welded in the real thicknesses and broken; extraction and a fire watch set up</span></label></li>
+<li><label><input type="checkbox"/><span>Body diagonals across the rear and front subframe points measured and written down</span></label></li>
+<li><label><input type="checkbox"/><span>Bare metal; cracks stop-drilled and welded; failed spot welds re-welded</span></label></li>
+<li><label><input type="checkbox"/><span>Underside plates welded, with the kit's spacers (<a href="./#rear-subframe-mount-reinforcement">reinforcement</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Spare-wheel well opened by the cut rules, RACP and rail flanges whole (<a href="./#exhaust-and-the-spare-wheel-well">floor</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>From above: three rosette welds on each rear mount, failed rail spot welds, rail plates</span></label></li>
+<li><label><input type="checkbox"/><span>Front-mount top welds through the cabin floor under the rear seat; opening patched</span></label></li>
+<li><label><input type="checkbox"/><span>V-brace mounting boxes welded in, if you'll fit the V-brace</span></label></li>
+<li><label><input type="checkbox"/><span>Fit check with the M3 subframe, diff and muffler; donor hanger brackets welded on</span></label></li>
+<li><label><input type="checkbox"/><span>Floor closed at about factory spot-weld spacing; battery tray fits; diagonals measured again</span></label></li>
+<li><label><input type="checkbox"/><span>Primer, seam sealer both sides, underbody coating, cavity wax; no structural foam while welding remains</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Test coupons</td>
+<td>Broken coupons tear the metal, not the weld; plug welds penetrate without blowing holes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Repairs</td>
+<td>Every crack stop-drilled and welded; failed spot welds re-welded</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Reinforcement</td>
+<td>Underside plates, rear-mount rosette welds, front-mount top welds and any rail plates and V-brace boxes done, with penetration visible from inside where you can see</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fit check</td>
+<td>M3 subframe and muffler clear the new floor; hanger brackets line up</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Diagonals</td>
+<td>Match your before-welding figures</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Protection</td>
+<td>All seams sealed both sides, primed, coated and cavity-waxed</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=t4CtY_W3vpU&amp;t=440s">Tracks and Trails – RACP plates on a Touring (2025), 07:20</a>; <a href="https://www.youtube.com/watch?v=4_LqrbAlNmw&amp;t=40s">M346 Projects – Touring build Pt 14, body work (2024), 00:40</a>; <a href="https://www.youtube.com/watch?v=eMJLXbvzckE&amp;t=200s">Tracks and Trails – perfecting the Touring's rear end (2025), 03:20</a>.<br/>
+<strong>Stop and ask:</strong> diagonals off: stop; compare with BMW's body dimensions in TIS and have a body shop with a jig check. The kit makers recommend a professional shop (<a href="./#shop-briefs">brief</a>).</p>
+</section><section id="card-6-rear-arches"><h2>Card 6: Rear arches</h2>
+<p><strong>Goal:</strong> M3 arch steel welded into both rear quarters around a mock-up of the final axle, wheels and tires (<a href="./#phase-6-metalwork-2-rear-arches">Phase 6</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-5-subframe-mounts-and-floor">Card 5</a> done; final springs, dampers, wheels and tires in hand; the donor's hub-to-body and hub-to-lip figures.</p>
+<p><strong>Parts:</strong> the donor's arch steel; M3 filler flap 51172695524 and surround (hinge 51172695527 coupe, 51178151955 convertible); fill strips and gussets in your panel thickness; epoxy primer, seam sealer, cavity wax.<br/>
+<strong>Tools:</strong> MIG welder; a jack for each hub; profile gauge and the Card 2b templates; plumb line and tape; feeler gauges; hammers and dollies.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>M3 rear axle in with final dampers, wheels and tires, springs out (<a href="./#measure-and-mock-up-before-you-cut">mock-up</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Each hub jacked to the donor's hub-to-body height, or your own target</span></label></li>
+<li><label><input type="checkbox"/><span>Full bump: bump stop fully compressed; the tire's outer face and top marked on the body</span></label></li>
+<li><label><input type="checkbox"/><span>Each new lip marked at the donor's hub-to-lip height and offset, checked from the center line</span></label></li>
+<li><label><input type="checkbox"/><span>Donor steel checked against your templates (<a href="./#rear-arches-and-doors">steel</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Outer skin tacked, then stitched in short runs (<a href="./#arch-graft-step-by-step">graft</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Inner arch extended, or the donor's inner tub grafted; gaps at the rocker and door filled</span></label></li>
+<li><label><input type="checkbox"/><span>Front of the flare dressed in; M3 filler flap and surround grafted with the right arch</span></label></li>
+<li><label><input type="checkbox"/><span>Filler neck trial-fitted in the M3 filler pot before the right quarter is sealed</span></label></li>
+<li><label><input type="checkbox"/><span>Doors decided with them shut and aligned (<a href="./#rear-doors">Rear doors</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Epoxy-primed, seam-sealed and cavity-waxed; mock-up axle out; filler waits for Card 13</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Symmetry</td>
+<td>Lip heights above the hub centers, and lip offsets from the center line, match side to side</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Bump clearance</td>
+<td>The tire clears the lip and inner arch with the bump stop fully compressed</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Doors</td>
+<td>Doors open and close freely; shut gaps match the originals (feeler gauges)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Filler</td>
+<td>The neck reaches and seals in the M3 filler pot; the flap opens and closes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Inner lip</td>
+<td>A sealed, double-skin edge all round</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Diagonals</td>
+<td>Match your figures from before welding</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=4_LqrbAlNmw&amp;t=1640s">M346 Projects – Touring build Pt 14, body work (2024), 27:20</a> grafts the inner tub; <a href="https://www.youtube.com/watch?v=nADBRfX9DqY&amp;t=760s">Tracks and Trails – bodywork (2026), 12:40</a>; <a href="https://www.youtube.com/watch?v=c6PDOLC94K0&amp;t=20s">M346 Projects – Pt 22 door flare (2025), 00:20</a>.<br/>
+<strong>Stop and ask:</strong> lips that don't match side to side: re-check the mock-up corner heights before you rework metal. A filler neck that doesn't seal fails the EVAP leak test: rework it before the quarter is sealed.</p>
+</section><section id="card-7a-fuel-system"><h2>Card 7a: Fuel system</h2>
+<p><strong>Goal:</strong> the M3 filter-regulator and lines fitted and the pump proven at 5 bar before anything covers it (<a href="./#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a>, <a href="./#fuel-system">Fuel system</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-6-rear-arches">Card 6</a> done; the tank still easy to drop; the K96 relay socket's pins (X10156) checked in WDS.</p>
+<p><strong>Parts:</strong> M3 filter 13327831089, regulator housing 13537830368 and 5-bar regulator 13531404089 on your bracket 13321435583; O-rings 13531720251, 13531720252 and lock ring 13531736234; M3 lines 16122229410, 16122229409, 16122229411; M3 vacuum hoses; M3 pump 16142229684 and baffle 16112229656 if yours fails; pump lock ring and seal; clamps.<br/>
+<strong>Tools:</strong> a fuel-pressure gauge with an adapter; a fused relay-bypass switch; a measuring jug.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Your pump kept and tested, or the M3 pump fitted with the M3 baffle</span></label></li>
+<li><label><input type="checkbox"/><span>Your own pump: the M3 rear feed's quick-disconnect fits its outlet, or your rear feed kept and adapted at the filter</span></label></li>
+<li><label><input type="checkbox"/><span>Tank refitted, never dropped or carried by its vent hoses</span></label></li>
+<li><label><input type="checkbox"/><span>Filter, housing and 5-bar regulator on your bracket, with new O-rings and lock ring</span></label></li>
+<li><label><input type="checkbox"/><span>M3 lines fitted; feed and return labelled and checked before they're connected</span></label></li>
+<li><label><input type="checkbox"/><span>Regulator vacuum hose routed toward the engine's air distribution pipe</span></label></li>
+<li><label><input type="checkbox"/><span>K96 socket bridged with the bypass switch (pins checked on WDS); gauge on the end of the front feed line</span></label></li>
+<li><label><input type="checkbox"/><span>Pressure, 20-minute hold and flow tested; every joint checked for leaks</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fuel pressure</td>
+<td>5.0 ± 0.2 bar (72.5 ± 2.9 psi) static</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>After 20 minutes</td>
+<td>Above 4.5 bar (65 psi) after switch-off</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fuel flow</td>
+<td>At least 1.12 L in 30 s at 12 V, collected as TIS 13 31 describes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fuel leaks</td>
+<td>None at any joint with the system pressurised; feed and return confirmed</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> bleed-down of more than 0.5 bar: clamp the hoses to find whether the pump's check valve or the regulator leaks. Low pressure: regulator O-rings, filter, then the pump. Fix it before the axle goes in.</p>
+</section><section id="card-7b-rear-axle-in"><h2>Card 7b: Rear axle in</h2>
+<p><strong>Goal:</strong> the M3 rear axle bolted in, with the push rod, V-brace and half-shafts (<a href="./#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a>, <a href="./#driveline-and-rear-axle">axle</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-7a-fuel-system">Card 7a</a> passed; the axle rebuilt (<a href="#card-3e-bench-work-axles">Card 3e</a>); springs and dampers rated for the Touring.</p>
+<p><strong>Parts:</strong> push rod 33312229295 with the kit's spacer plates; V-brace 33312229899 and bolts 33306760652; sway bar 33552282181 and links 33552283743; half-shaft bolts 33211227664 (12); collar nuts 33411133785; your parking-brake cables.<br/>
+<strong>Tools:</strong> a transmission jack or table; a torque wrench to 300 Nm; a torque-angle gauge.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Subframe studs, M12×1.5, to body</td>
+<td>90 Nm (66 ft-lb)</td>
+<td>Before the axle goes up</td>
+</tr>
+<tr class="even">
+<td>Subframe collar nuts; rear M12×1.5×116 bolts</td>
+<td>77 Nm (57 ft-lb)</td>
+<td>Front studs lined up first</td>
+</tr>
+<tr class="odd">
+<td>Push rod (front support cradle) bolts, ×4</td>
+<td>25 Nm (18 ft-lb)</td>
+<td>Kit's spacer plates under it</td>
+</tr>
+<tr class="even">
+<td>V-brace bolts, ×3, M10×35 10.9</td>
+<td>59 Nm (44 ft-lb) + 90°</td>
+<td>Only with its mounting points</td>
+</tr>
+<tr class="odd">
+<td>Half-shaft to diff flange, ×12</td>
+<td>100 Nm (74 ft-lb) for the M3's black bolts</td>
+<td>New bolts; 80 Nm is for silver ones</td>
+</tr>
+<tr class="even">
+<td>Rear drive-flange collar nut, M27×1.5</td>
+<td>300 Nm (221 ft-lb)</td>
+<td>New nut; oil the contact face lightly</td>
+</tr>
+<tr class="odd">
+<td>Rear damper top-mount nuts, M8 (M3 parts); rod nut, M10×1</td>
+<td>28 Nm (21 ft-lb); 14 Nm (124 in-lb)</td>
+<td>New nuts; no Touring value</td>
+</tr>
+<tr class="even">
+<td>Trailing-arm bracket to body; the two M12 10.9 ball-joint bolts at the trailing arm</td>
+<td>77 Nm (57 ft-lb); 110 Nm (81 ft-lb)</td>
+<td>Any position</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Studs torqued; axle raised level over them; push rod and spacers, collar nuts, rear bolts; V-brace if fitted</span></label></li>
+<li><label><input type="checkbox"/><span>Springs and dampers rated for the Touring; M3 sway bar and links</span></label></li>
+<li><label><input type="checkbox"/><span>Half-shafts on new bolts; brake lines; your parking-brake cables</span></label></li>
+<li><label><input type="checkbox"/><span>Your own wheel-speed sensors, or an MK60 donor's; never an MK20 donor's (<a href="./#dsc-brakes-and-steering-angle">sensors</a>)</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rear axle</td>
+<td>Every fastener torqued and paint-marked; push rod on its spacers</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=eMJLXbvzckE&amp;t=2100s">Tracks and Trails – perfecting the Touring's rear end (2025), 35:00</a> raises the M3 axle into a Touring.<br/>
+<strong>Stop and ask:</strong> a subframe that binds: it must go up level over its studs. Never leave out the kit's spacer plates under the push rod (PS Designs calls them "ESSENTIAL").</p>
+</section><section id="card-7c-rear-axle-at-ride-height"><h2>Card 7c: Rear axle at ride height</h2>
+<p><strong>Goal:</strong> the rubber-bushed joints torqued at loaded ride height, the diff filled and the parking brake set (<a href="./#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-7b-rear-axle-in">Card 7b</a> done; the body on stands; a jack under the axle.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Trailing-arm through-bolt (arm to bracket)</td>
+<td>110 Nm (81 ft-lb)</td>
+<td>Loaded ride height</td>
+</tr>
+<tr class="even">
+<td>Rear control-arm bolts at the subframe, M12</td>
+<td>77 Nm (57 ft-lb)</td>
+<td>Loaded ride height</td>
+</tr>
+<tr class="odd">
+<td>Rear damper lower bolt, M12</td>
+<td>100 Nm (74 ft-lb)</td>
+<td>Loaded ride height</td>
+</tr>
+<tr class="even">
+<td>Rear anti-roll bar, links and brackets</td>
+<td>22 Nm (16 ft-lb)</td>
+<td>Loaded ride height (rubber mounts)</td>
+</tr>
+<tr class="odd">
+<td>Diff drain and fill plugs</td>
+<td>60 Nm (44 ft-lb) with an O-ring; 65 Nm (48 ft-lb) with a sealing washer</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fluid</th>
+<th>Specification</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M variable differential</td>
+<td>Genuine BMW SAF-XJ+FM 75W-140 GL-5 with its friction modifier (83222282583, 500 ml bottles)</td>
+<td>1.1 L (1.2 US qt); Turner says 1.2 L (unverified), so buy three bottles</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Shoes adjusted before the cable: up on the left, down on the right to lock, back 10 clicks (<a href="./#brakes-and-bleeding">how</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Cable slack taken up at the lever</span></label></li>
+<li><label><input type="checkbox"/><span>Diff filled to the fill plug with SAF-XJ+FM, not ordinary gear oil</span></label></li>
+<li><label><input type="checkbox"/><span>Axle jacked until the car just starts to lift off its stands; bushed joints torqued</span></label></li>
+<li><label><input type="checkbox"/><span>Every fastener paint-marked</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rear axle</td>
+<td>Bushed joints done at loaded height; every fastener paint-marked</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Diff</td>
+<td>Filled to the fill plug</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Parking brake</td>
+<td>Rear wheels turn freely with the lever down and lock with it up</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=eMJLXbvzckE&amp;t=2100s">Tracks and Trails – perfecting the Touring's rear end (2025), 35:00</a> torques the bushed joints at ride height.<br/>
+<strong>Stop and ask:</strong> joints tightened at the wrong height: re-torque them at the right one. A leaking diff plug: check its seal.</p>
+</section><section id="card-8a-front-suspension"><h2>Card 8a: Front suspension</h2>
+<p><strong>Goal:</strong> the M3 front suspension fitted to your front subframe (<a href="./#phase-8-fit-the-m3-front-suspension-and-steering">Phase 8</a>, <a href="./#front-axle-and-steering-1">front axle</a>).<br/>
+<strong>Before you start:</strong> the front corners rebuilt (<a href="#card-3e-bench-work-axles">Card 3e</a>); new self-locking nuts and bolts at hand.</p>
+<p><strong>Parts:</strong> M3 control arms 31122229453/454 and brackets 31122229623/624; struts, knuckles and hubs 31222229501; new end links; reinforcement plate 51717893609; new nuts and bolts (<a href="./#consumables-and-single-use-parts">consumables</a>).<br/>
+<strong>Tools:</strong> a torque wrench to 300 Nm; a torque-angle gauge; a ball-joint separator.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Front axle support (subframe) to body, M12 10.9</td>
+<td>110 Nm (81 ft-lb)</td>
+<td>If it came down: rear bolts first; their dowels center it</td>
+</tr>
+<tr class="even">
+<td>Control arm to subframe, M14 self-locking nut</td>
+<td>90 Nm (66 ft-lb)</td>
+<td>New nut</td>
+</tr>
+<tr class="odd">
+<td>Control-arm bushing bracket to body, M10</td>
+<td>59 Nm (44 ft-lb)</td>
+<td>New bolts; at ride height (<a href="#card-12d-alignment-and-final-coding">Card 12d</a>)</td>
+</tr>
+<tr class="even">
+<td>Ball joint to knuckle, M12 self-locking collar nut</td>
+<td>65 Nm (48 ft-lb)</td>
+<td>New nut; no impact wrench</td>
+</tr>
+<tr class="odd">
+<td>Strut to knuckle clamp bolt, M12×1.5×55 10.9</td>
+<td>81 Nm (60 ft-lb)</td>
+<td>New bolt</td>
+</tr>
+<tr class="even">
+<td>Strut top mount to body, M8 collar nuts</td>
+<td>24 Nm (18 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Damper rod top nut, M14</td>
+<td>64 Nm (47 ft-lb)</td>
+<td>New nut</td>
+</tr>
+<tr class="even">
+<td>Front wheel-speed sensor bolt</td>
+<td>8 Nm (71 in-lb)</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Front anti-roll bar link nuts, M10</td>
+<td>65 Nm (48 ft-lb)</td>
+<td>New nuts</td>
+</tr>
+<tr class="even">
+<td>Front anti-roll bar bracket nuts, M8</td>
+<td>21 Nm (15 ft-lb)</td>
+<td>At ride height</td>
+</tr>
+<tr class="odd">
+<td>Front reinforcement plate, M10×35 10.9</td>
+<td>59 Nm (44 ft-lb) + 90°</td>
+<td>New bolts</td>
+</tr>
+<tr class="even">
+<td>Front hub collar nut (only if hubs are replaced)</td>
+<td>290 Nm (214 ft-lb)</td>
+<td>New nut 31211128336</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>M3 control arms and brackets, struts, knuckles and hubs fitted (<a href="./#front-axle-and-steering-1">order</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Sway bar and new end links fitted</span></label></li>
+<li><label><input type="checkbox"/><span>Reinforcement plate on new bolts</span></label></li>
+<li><label><input type="checkbox"/><span>Rubber-bushed joints left snug, for ride height in Card 12d</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fasteners</td>
+<td>Torqued and paint-marked, except the rubber-bushed joints, which stay snug for Card 12d</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=usfbSLE_1aI&amp;t=958s">FCP Euro – E46 M3 control arms and bushings (2020), 15:58</a>.<br/>
+<strong>Stop and ask:</strong> move whole M3 corners: the M3 knuckle takes a bigger ball-joint taper, so non-M parts don't mix in.</p>
+</section><section id="card-8b-steering"><h2>Card 8b: Steering</h2>
+<p><strong>Goal:</strong> the M3 rack fitted and centered, with its tie rods and power-steering lines (<a href="./#phase-8-fit-the-m3-front-suspension-and-steering">Phase 8</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-8a-front-suspension">Card 8a</a> done.</p>
+<p><strong>Parts:</strong> M3 rack 32132229397 (32132282642 on ZCP) with its tie rods and lines; steering-joint bolts 32306778609; tie-rod-end nuts 32216769539; new aluminium sealing washers for the banjos.<br/>
+<strong>Tools:</strong> an inner tie-rod tool.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Steering rack to subframe, M10</td>
+<td>42 Nm (31 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Inner tie rod to rack</td>
+<td>100 + 10 Nm, as the compilation prints it</td>
+<td>Check TIS for what the "+ 10" means</td>
+</tr>
+<tr class="odd">
+<td>Outer tie-rod lock nut, M14</td>
+<td>45 Nm (33 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Tie-rod end to knuckle, M12 self-locking</td>
+<td>65 Nm (48 ft-lb)</td>
+<td>No impact wrench</td>
+</tr>
+<tr class="odd">
+<td>Steering shaft lower joint Torx bolt, M8×33</td>
+<td>22 Nm (16 ft-lb)</td>
+<td>New bolt</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>A replacement rack's hard lines checked against the subframe before it goes in</span></label></li>
+<li><label><input type="checkbox"/><span>Rack fitted; turns counted as you swap tie-rod ends, so the toe starts close</span></label></li>
+<li><label><input type="checkbox"/><span>Wheel straight, the shaft's notch lined up with the coupler's bolt hole; new pinch bolt (<a href="./#front-axle-and-steering-1">steering</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Power-steering lines connected, clear of the anti-roll bar and oil pan</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Steering</td>
+<td>Wheel straight with the rack centered; full lock both ways without binding or line contact</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=iwCoomDpICI&amp;t=755s">50sKid – rack replacement (2018), 12:35</a>, on a non-M car with the same rack mounting.<br/>
+<strong>Stop and ask:</strong> binding or line contact at full lock: re-index the coupler or re-route the lines. After rack or tie-rod work the car needs an alignment (<a href="#card-12d-alignment-and-final-coding">Card 12d</a>).</p>
+</section><section id="card-8c-brakes-and-bleeding"><h2>Card 8c: Brakes and bleeding</h2>
+<p><strong>Goal:</strong> the brake parts for your DSC option fitted, tested, filled and bled to a firm pedal (<a href="./#phase-8-fit-the-m3-front-suspension-and-steering">Phase 8</a>, <a href="./#brakes-and-bleeding">brakes</a>).<br/>
+<strong>Before you start:</strong> DSC option chosen (<a href="./#dsc-brakes-and-steering-angle">DSC, brakes and steering angle</a>); an MK20 donor means option A.</p>
+<p><strong>Parts:</strong> M3 front brake hoses 34322229723; option A keeps your DSC unit, booster and master cylinder; option B the M3 DSC unit and master cylinder, with new nuts 07129906196; brake fluid per the reservoir cap.<br/>
+<strong>Tools:</strong> a pressure bleeder with an airtight cap; a low-pressure air line for testing.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Brake line to caliper</td>
+<td>19 Nm (14 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Bleed screws</td>
+<td>7 mm: 3.5–5 Nm (31–44 in-lb); 11 mm: 12–16 Nm (106–142 in-lb)</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Master cylinder to booster, M8</td>
+<td>26 Nm (19 ft-lb)</td>
+<td>New nuts</td>
+</tr>
+<tr class="even">
+<td>Wheel bolts, M12×1.5</td>
+<td>120 ± 10 Nm (89 ± 7 ft-lb)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fluid</th>
+<th>Specification</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Brake and clutch fluid</td>
+<td><strong>Not found.</strong> Check the reservoir cap and TIS</td>
+<td>Allow about 1.5 L (1.6 US qt) for filling and bleeding</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>M3 front hoses fitted; every hose checked at full lock and full droop</span></label></li>
+<li><label><input type="checkbox"/><span>Your brake pipes kept: from 09/2002 the M3 uses the same front pipes, and the rear pipes and hoses are shared</span></label></li>
+<li><label><input type="checkbox"/><span>New hard lines tested with low-pressure air first, about 20 psi</span></label></li>
+<li><label><input type="checkbox"/><span>Filled and bled right rear, left rear, right front, left front</span></label></li>
+<li><label><input type="checkbox"/><span>A dry or replaced DSC unit: INPA's pump routine waits for <a href="#card-11b-power-up-and-coding">Card 11b</a></span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Brake lines</td>
+<td>Air test holds; after filling, no weeps at any union with the pedal held hard</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pedal</td>
+<td>High and firm after bleeding</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> a soft pedal: bleed again before you go on. Don't drive until the pedal is firm.</p>
+</section><section id="card-9a-engine-and-gearbox-in"><h2>Card 9a: Engine and gearbox in</h2>
+<p><strong>Goal:</strong> the S54 and 420G in on the M3 engine arms and new mounts, clear of the rack (<a href="./#phase-9-install-the-s54-and-420g">Phase 9</a>).<br/>
+<strong>Before you start:</strong> the engine refreshed (<a href="#card-3a-bench-work-rod-bearings">Cards 3a–3d</a>); the front axle in (<a href="#card-8a-front-suspension">Card 8a</a>).</p>
+<p><strong>Parts:</strong> M3 engine arms and new engine mounts; gearbox support 22312229198 and mounts 22322282340; the secondary-air valve.<br/>
+<strong>Tools:</strong> an engine hoist with a load leveler, or a lift and a table for the subframe; a transmission jack.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bellhousing Torx bolts</td>
+<td>M8 28 Nm (21 ft-lb); M10 52 Nm (38 ft-lb); M12 98 Nm (72 ft-lb)</td>
+<td>Flow's own general table gives 82 Nm (60 ft-lb) for M12 8.8; confirm the M12 value in TIS</td>
+</tr>
+<tr class="even">
+<td>Engine mount nuts, M10</td>
+<td>45 Nm (33 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Engine support arm to block, M8</td>
+<td>21 Nm (15 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Gearbox crossmember to body; gearbox mounts, M8</td>
+<td>21 Nm (15 ft-lb)</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Starter, M10 Torx</td>
+<td>45 Nm (33 ft-lb)</td>
+<td>Leads: M5 5 Nm (44 in-lb), M6 7 Nm (62 in-lb), M8 13 Nm (115 in-lb)</td>
+</tr>
+<tr class="even">
+<td>Front axle support to body, M12 10.9</td>
+<td>110 Nm (81 ft-lb)</td>
+<td>Only if it came down; rear bolts first</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Secondary-air valve fitted; engine and 420G bolted together with the Card 3d clutch and flywheel</span></label></li>
+<li><label><input type="checkbox"/><span>M3 engine arms, new mounts and the 420G's gearbox support fitted</span></label></li>
+<li><label><input type="checkbox"/><span>Lowered in from above, or raised in on the subframe; oil-cooler lines unbolted so the cooler clears</span></label></li>
+<li><label><input type="checkbox"/><span>Before the mounts are tightened: oil pan clear of the rack and subframe (<a href="./#driveline-and-rear-axle">fitting</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Power-steering lines routed clear of the pan and sway bar</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Oil pan</td>
+<td>Clear of the rack and subframe; power-steering lines clear of the pan and sway bar</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mounts</td>
+<td>Engine and gearbox mounts torqued and marked</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=iVGU_Yg0ZLw&amp;t=320s">Project BMW – S54 into a Touring (2021), 05:20</a> installs the engine and gearbox together; <a href="https://www.youtube.com/watch?v=NmEOFBqreX8&amp;t=1594s">FCP Euro – E46 M3 clutch (2022), 26:34</a> fits the 420G.<br/>
+<strong>Stop and ask:</strong> the pan touching the rack or subframe: check the engine sits on the M3 arms correctly before you tighten anything.</p>
+</section><section id="card-9b-driveshaft-and-clutch"><h2>Card 9b: Driveshaft and clutch</h2>
+<p><strong>Goal:</strong> shifter, driveshaft and clutch line in, the clutch bled and the 420G filled (<a href="./#phase-9-install-the-s54-and-420g">Phase 9</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-9a-engine-and-gearbox-in">Card 9a</a> done; the car level for the gearbox fill.</p>
+<p><strong>Parts:</strong> shift carrier and lever with new bushings; M3 driveshaft 26112229240 with its new flex disc and center mount (<a href="#card-3d-bench-work-clutch-and-420g">Card 3d</a>); clutch hard line 21522229675 and hose bracket 21522229699.<br/>
+<strong>Tools:</strong> a pressure bleeder or a slave-cylinder bleed tool; a hose clamp; a helper.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Flex disc (guibo), M3, M12 10.9: gearbox side</td>
+<td>115 Nm (85 ft-lb)</td>
+<td>New self-locking nuts 26127536563; turn the bolt, not the nut</td>
+</tr>
+<tr class="even">
+<td>Driveshaft center mount</td>
+<td>21 Nm (15 ft-lb)</td>
+<td>Preload the bearing 4–6 mm forward (compilation only)</td>
+</tr>
+<tr class="odd">
+<td>Driveshaft to diff, M3 (ribbed M10×46 Torx, E14)</td>
+<td>70 Nm (52 ft-lb)</td>
+<td>Mark the shaft's position before removal; it's balanced</td>
+</tr>
+<tr class="even">
+<td>Clutch slave cylinder nuts</td>
+<td>22 Nm (16 ft-lb)</td>
+<td>Line unions 14–20 Nm (10–15 ft-lb)</td>
+</tr>
+<tr class="odd">
+<td>420G drain and fill plugs, M24×1.5</td>
+<td>52 Nm (38 ft-lb)</td>
+<td>Reverse-light switch 20 Nm (15 ft-lb)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fluid</th>
+<th>Specification</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Getrag 420G gearbox</td>
+<td>Genuine BMW MTF-LT-2, 75W-80 GL-4 (83220309031)</td>
+<td>1.9 L (2.0 US qt); check the label on the gearbox</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Shift carrier and lever fitted with new bushings</span></label></li>
+<li><label><input type="checkbox"/><span>M3 driveshaft in: flex disc to the gearbox flange; center mount, bearing preloaded forward</span></label></li>
+<li><label><input type="checkbox"/><span>M3 clutch hard line fitted, the flexible hose clamped while you change lines</span></label></li>
+<li><label><input type="checkbox"/><span>Clutch bled after the brakes, at the slave's bleed screw (<a href="./#brakes-and-bleeding">bleeding</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>420G filled to its fill plug with the car level</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Clutch</td>
+<td>Pedal firm and returns; the slave's pushrod moves its full stroke (check from below with a helper)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Driveshaft</td>
+<td>Flex disc and center mount torqued; center bearing preloaded forward (the Flow compilation gives 4–6 mm)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gearbox</td>
+<td>Filled to the fill plug, no leaks at the seals</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> a soft clutch pedal: bleed again, then bench-bleed the slave (<a href="./#brakes-and-bleeding">Brakes and bleeding</a>). A leaking gearbox seal: fix it now.</p>
+</section><section id="card-10a-cooling-and-intake"><h2>Card 10a: Cooling and intake</h2>
+<p><strong>Goal:</strong> radiator, fans, oil cooler, intake and A/C lines in, sensor leads routed, and the cooling system pressure-tested (<a href="./#phase-10-cooling-intake-and-exhaust">Phase 10</a>).<br/>
+<strong>Before you start:</strong> the engine and gearbox in (<a href="#card-9b-driveshaft-and-clutch">Card 9b</a>); the expansion-tank brackets welded in.</p>
+<p><strong>Parts:</strong> M3 radiator, fan clutch 11527831619, electric fan 64546988914 and shroud; new expansion tank 17112283344, thermostat and hoses; oil cooler and lines; power-steering reservoir, lines and cooler; A/C lines, new O-rings and drier 64538377330 or 64536917658.<br/>
+<strong>Tools:</strong> a cooling-system pressure tester; a 32 mm fan wrench and pulley holder.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fan clutch to water pump</td>
+<td>40 Nm (30 ft-lb)</td>
+<td>Left-hand thread: loosen it clockwise</td>
+</tr>
+<tr class="even">
+<td>Oil-cooler pipes</td>
+<td>25 Nm (18 ft-lb)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fluid</th>
+<th>Specification</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Coolant</td>
+<td>BMW coolant, 50/50 with distilled water (unverified); system pressure 2 bar (29 psi)</td>
+<td><strong>Capacity not found:</strong> take it from TIS</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Radiator, both fans, oil cooler and lines; new expansion tank on the donor brackets (<a href="./#cooling-and-oil-cooler">cooling</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Intake and airbox; power-steering reservoir, lines and cooler</span></label></li>
+<li><label><input type="checkbox"/><span>Brake-booster vacuum hose: on the M3 it connects on the opposite side</span></label></li>
+<li><label><input type="checkbox"/><span>Coolant-level, washer and radiator-outlet sensor leads routed; every extension listed for Card 11a</span></label></li>
+<li><label><input type="checkbox"/><span>A/C lines with new O-rings and a new drier; system capped for the shop</span></label></li>
+<li><label><input type="checkbox"/><span>Cooling system filled and pressure-tested with the tester</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cooling</td>
+<td>Holds 2 bar (29 psi) on the tester with no drop and no leaks</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A/C</td>
+<td>New drier and O-rings; system closed and capped for the shop</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Sensor leads</td>
+<td>Every plug reaches its sensor without strain</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> a drop on the tester: find and fix the leak before the first start. An O-ring you reused: replace it.</p>
+</section><section id="card-10b-exhaust"><h2>Card 10b: Exhaust</h2>
+<p><strong>Goal:</strong> the M3 exhaust in with every emissions part, hung from the Card 5 brackets and clear of the floor, tank and tires (<a href="./#phase-10-cooling-intake-and-exhaust">Phase 10</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-10a-cooling-and-intake">Card 10a</a> done; a shop booked for the rear section if you won't build it (<a href="./#shop-briefs">brief</a>).</p>
+<p><strong>Parts:</strong> M3 manifolds, catalysts and O2 sensors; secondary-air parts; mid-pipes; a rear section and the M3 muffler; heat shields; new gaskets and nuts; anti-seize.<br/>
+<strong>Tools:</strong> an O2-sensor socket; a jack to compress the suspension.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exhaust manifold to front pipe (US S54)</td>
+<td>24 Nm (18 ft-lb)</td>
+<td>New nuts and gaskets</td>
+</tr>
+<tr class="even">
+<td>O2 sensors</td>
+<td>50 Nm (37 ft-lb)</td>
+<td>Anti-seize on the threads only</td>
+</tr>
+<tr class="odd">
+<td>Exhaust flange, M8</td>
+<td>22 ± 2 Nm (16 ± 1.5 ft-lb)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>M3 manifolds, catalysts and O2 sensors fitted; sensor plugs labelled so they can't be swapped</span></label></li>
+<li><label><input type="checkbox"/><span>Secondary-air parts and mid-pipes fitted</span></label></li>
+<li><label><input type="checkbox"/><span>Rear section built around the new floor on the Card 5 hangers (<a href="./#exhaust-and-the-spare-wheel-well">floor</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Heat shields over the muffler and near the tank, cargo floor and battery</span></label></li>
+<li><label><input type="checkbox"/><span>Clearance to floor, tank and tires checked with the suspension compressed</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exhaust</td>
+<td>Clears floor, tank and tires with the suspension compressed; heat shields fitted; new gaskets and nuts</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> keep the M3 catalysts, all four O2 sensors and the secondary-air parts (<a href="./#registration-and-legal-us">Registration and legal</a>). Contact anywhere: re-hang, or modify the rear section.</p>
+</section><section id="card-11a-wiring-and-checks"><h2>Card 11a: Wiring and checks</h2>
+<p><strong>Goal:</strong> the M3 engine harness and DME in, the body side re-pinned, and every moved wire checked before power-up (<a href="./#phase-11-wiring-immobilizer-and-coding">Phase 11</a>, <a href="wiring-and-coding.html#engine-harness-and-dme">manual</a>).<br/>
+<strong>Before you start:</strong> the DME back from the vendor (<a href="#card-3f-bench-work-dme-cluster-and-fenders">Card 3f</a>); your DME family known (<a href="wiring-and-coding.html#which-dme-your-touring-has">how to tell</a>); its wires tagged before it came out.</p>
+<p><strong>Parts:</strong> the M3 engine harness, E-box branch, fuse carrier and DME; clutch-switch module 61319122700; gear switch 23142229113; terminals or repair leads for each housing (X6011 and X60004 differ); 0.35 mm² wire.<br/>
+<strong>Tools:</strong> depinning keys and a crimper; a multimeter with back-probe pins; labels.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Ignition off whenever a DME plug is joined or parted</span></label></li>
+<li><label><input type="checkbox"/><span>M3 harness routed; its whole E-box branch, fuse carrier and DME fitted; the M3's own X6053 and X6054 halves together</span></label></li>
+<li><label><input type="checkbox"/><span>X6011, X6021, X6053, X6054 and X64101/X64102 compared cavity by cavity before joining (<a href="worksheets.html#e-box-plug-log">log</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Body side re-pinned in the table's order: <a href="wiring-and-coding.html#ms43-touring-what-to-move">MS43</a> or <a href="wiring-and-coding.html#ms451-touring-what-to-move">MS45.1</a>; re-pinned, not spliced</span></label></li>
+<li><label><input type="checkbox"/><span>Pin-5 ground to X1108 added; on an MS45.1, pins 2 and 15 (both SW/RT) tagged before they came out</span></label></li>
+<li><label><input type="checkbox"/><span>Pump wiring left alone: X60004 pin 10 to K96; X6021 pin 1 connected to nothing (<a href="wiring-and-coding.html#checks-on-the-pump-circuit">pump</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>M3 clutch-switch module fitted; its wire to EWS pin 8 stays (<a href="wiring-and-coding.html#clutch-switch-gear-switch-and-cruise">cruise</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Sport button, if wanted (<a href="wiring-and-coding.html#sport-button-and-switch-center">switch center</a>); rear-door LEDs in the M3 cluster</span></label></li>
+<li><label><input type="checkbox"/><span>Heater valve: your plain one, or the M3's with its pump wired and coded; Card 10a lead extensions done</span></label></li>
+<li><label><input type="checkbox"/><span>Steps 1–19 of the <a href="wiring-and-coding.html#checks-before-first-power-up">checks</a> logged (<a href="worksheets.html#power-up-checks">worksheet</a>)</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Moved wires</td>
+<td>Continuity end to end, open to ground (a meter proves wires; Card 11b proves the electronic parts)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leak-test triangle</td>
+<td>Lowest element (the pump) on X60004 pin 30, heater on 18</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Pump circuit</td>
+<td>X60004 pin 10 reaches K96 socket pin 4; X6021 pin 1 reaches no K96 terminal</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Supplies</td>
+<td>Terminal 15 at X60004 pin 26 above 9 V; grounds near 0 Ω</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CAN bus</td>
+<td>About 60 Ω between X60004 pins 36 and 37, back-probed at the DME with every module plugged in, battery off (BMW)</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=mDBiRn30fEs&amp;t=525s">Tenza Motorsports – 5 things part 2 (2021), 08:45</a> wires the Sport button into a Touring.<br/>
+<strong>Stop and ask:</strong> a pin that doesn't match the manual's table: stop and re-check. Never connect the US DME's pulsed pump output to the relay. Measure CAN at the DME, not at the diagnosis socket.</p>
+</section><section id="card-11b-power-up-and-coding"><h2>Card 11b: Power-up and coding</h2>
+<p><strong>Goal:</strong> first key-on, then the DME VIN, EWS, cluster and DSC sessions, in that order (<a href="./#phase-11-wiring-immobilizer-and-coding">Phase 11</a>, <a href="wiring-and-coding.html#coding-step-by-step">coding</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-11a-wiring-and-checks">Card 11a</a> checks passed; a charger of at least 10 A on; your Card 0 backups at hand.</p>
+<p><strong>Parts:</strong> the M3 cluster prepared for your VIN and true mileage (service, or a new M35080 chip); brake fluid for a DSC bleed.<br/>
+<strong>Tools:</strong> INPA, Tool32, NCS Expert and PA-Soft; a generic OBD-II scanner.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>First key-on, no cranking: steps 20–29; INPA reaches every module; one prime (<a href="wiring-and-coding.html#first-key-on-what-to-expect">what to expect</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>DME VIN: Tool32 shows your full 17-character VIN, or write it to the next free AIF slot (<a href="wiring-and-coding.html#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>EWS: after a delete, nothing to sync; the key and clutch interlock read (<a href="wiring-and-coding.html#session-3-ews">Session 3</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Cluster takes your true mileage from the LCM; no mileage ever written to the LCM (<a href="wiring-and-coding.html#session-4-cluster-and-light-module">Session 4</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Cluster coded: its three lamp switches <code>nicht_aktiv</code>; <code>TANK_KENNLINIE</code> = <code>60_l_literskala</code></span></label></li>
+<li><label><input type="checkbox"/><span>DSC coded; VIN and steering angle initialised, provisional until the alignment (<a href="wiring-and-coding.html#session-5-dsc-coding-and-vin">Session 5</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>A dry or replaced DSC unit bled with INPA's routine and a firm pedal, then conventionally</span></label></li>
+<li><label><input type="checkbox"/><span>Faults cleared in every module; ignition cycled; faults read again</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Modules</td>
+<td>INPA reaches the DME, cluster, LCM, EWS, DSC and the rest</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Warning lamps</td>
+<td>With the engine off, the red oil-pressure lamp and the charge lamp are lit</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Cluster</td>
+<td>Shows your car's true mileage (compare with your Card 0 photo), with no tamper dot</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DME VIN</td>
+<td>A generic OBD-II scanner shows your Touring's full VIN</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Clutch chain</td>
+<td>With a gear engaged, <code>STAT_KRAFTSCHLUSS_EIN</code> = 1 with the pedal up and <code>STAT_KUP_EIN</code> = 1 with it down; in neutral both stay fixed</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fuel pump</td>
+<td>One prime at key-on; <code>STEUERN_EKP</code> clicks K96</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fault memory</td>
+<td>Only location 1 (0x01), the pump fault, and possibly 130 (0x82) after an EWS delete</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=CvyVCwCAx1Q&amp;t=1874s">50sKid – coding an E46 DSC unit (2016), 31:14</a>, then the INPA VIN and steering-angle initialisation at <a href="https://www.youtube.com/watch?v=CvyVCwCAx1Q&amp;t=2027s">33:47</a>.<br/>
+<strong>Stop and ask:</strong> an M3 DSC unit that won't clear "VIN not initialized": refit your Touring's unit. On a pre-09/2001 (ZCS) car, check that the LCM passes the mileage across. The cluster shows only your car's true mileage (<a href="https://www.law.cornell.edu/uscode/text/49/32704">49 U.S.C. §32704</a>).</p>
+</section><section id="card-12a-front-end-and-oil-prime"><h2>Card 12a: Front end and oil prime</h2>
+<p><strong>Goal:</strong> the front end on in primer, fluids in, and oil pressure proven while cranking with fuel and sparks off (<a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-11b-power-up-and-coding">Card 11b</a> passed; fenders grafted (<a href="#card-3f-bench-work-dme-cluster-and-fenders">Card 3f</a>); a charger of at least 10 A on for the session.</p>
+<p><strong>Parts:</strong> grafted fenders, M3 hood, headlights, kidney grilles, bumper with carrier and supports (fender supports 51118195295/96 on Tourings built from 09/2001).<br/>
+<strong>Tools:</strong> a mechanical oil-pressure gauge on a tee with an M12×1.5 adapter; a fuel-pressure gauge; Tool32.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fluid</th>
+<th>Specification</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S54 engine oil</td>
+<td>Castrol TWS Motorsport SAE 10W-60 or Castrol Formula RS 10W-60, BMW 07510009420</td>
+<td>6.5 L (6.9 US qt) after a rod-bearing job. Fill, then check the dipstick</td>
+</tr>
+<tr class="even">
+<td>Power steering</td>
+<td><strong>Not found.</strong> Read the cap on the donor's M3 reservoir (ATF or CHF 11S) and don't mix the two</td>
+<td>Not found</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Front end fitted; the bumper's lower opening and ducting kept for the oil cooler (<a href="./#front-end-on-a-4-door-body">front end</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Headlight wiring checked if they differ from yours; no driving after dark until Session 9</span></label></li>
+<li><label><input type="checkbox"/><span>Engine oil and power-steering fluid in; no drips under the car</span></label></li>
+<li><label><input type="checkbox"/><span>Oil gauge on a tee at the oil-pressure switch port; fuel gauge at the TIS 13 31 fitting</span></label></li>
+<li><label><input type="checkbox"/><span>Tool32 <code>MSS54DS0.PRG</code>: <code>IDENT</code> and <code>FS_LESEN</code> saved (<a href="wiring-and-coding.html#session-6-first-start-adaptations-and-throttle-check">Session 6</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Fuel-pump relay K96 and injector relay K6327 pulled; six coil plugs off</span></label></li>
+<li><label><input type="checkbox"/><span>Interlock: no crank with the clutch up; cranks with it down</span></label></li>
+<li><label><input type="checkbox"/><span>Short bursts of cranking until the gauge shows pressure and the red lamp goes out; the tach moves</span></label></li>
+<li><label><input type="checkbox"/><span>Relays and coil plugs refitted</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Oil before firing</td>
+<td>The gauge shows pressure while cranking with fuel and sparks disabled</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Start interlock</td>
+<td>The starter turns only with the clutch down</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=4Q3PxGuJyxI&amp;t=207s">M346 Projects – Pt 13 first start (2024), 03:27</a> primes the oil before refitting the pump fuse.<br/>
+<strong>Stop and ask:</strong> no pressure while cranking: stop and check the oil level, the pickup tube's O-ring and the pump before you crank again. Cranks with the clutch up: the clutch-switch wire to EWS pin 8.</p>
+</section><section id="card-12b-first-start"><h2>Card 12b: First start</h2>
+<p><strong>Goal:</strong> adaptations reset, a clean first start, and hot-idle oil, fuel and trims checked (<a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, <a href="wiring-and-coding.html#session-6-first-start-adaptations-and-throttle-check">Session 6</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-12a-front-end-and-oil-prime">Card 12a</a> passed; gauges still fitted; the charger on.</p>
+<p><strong>Tools:</strong> Tool32 with <code>MSS54DS0.PRG</code>; the oil and fuel gauges; your Card 1 VANOS readings.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Oil-pressure switch, M12×1.5</td>
+<td>27 Nm (20 ft-lb)</td>
+<td>Refitted once the gauge and tee come off</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Session 6 steps 2–5: adaptations and faults cleared; throttle self-test heard</span></label></li>
+<li><label><input type="checkbox"/><span><code>STAT_WDK_ADAPT_WERT</code> reads 0; in gear the clutch bits follow the pedal; brake and Sport bits respond</span></label></li>
+<li><label><input type="checkbox"/><span>Key on, pump primes: 5.0 ± 0.2 bar (72.5 ± 2.9 psi); no leaks at the lines, filter-regulator or rail</span></label></li>
+<li><label><input type="checkbox"/><span>Started without touching the accelerator; oil pressure at once, or switch off</span></label></li>
+<li><label><input type="checkbox"/><span>Idling: no fuel, oil, coolant or power-steering leaks; no knocking or VANOS rattle</span></label></li>
+<li><label><input type="checkbox"/><span>Cooling bled as it warms; the electric fan runs (<a href="./#cooling-and-oil-cooler">cooling</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Hot idle: oil pressure, fuel below 5 bar with vacuum, steady idle, trims <code>STATUS_LAMBDA_ADD_1</code> and <code>_2</code> near zero</span></label></li>
+<li><label><input type="checkbox"/><span>Warm VANOS jobs (Session 6, step 7) compared with the donor's Card 1 readings</span></label></li>
+<li><label><input type="checkbox"/><span>Faults read in every module; then switched off, cooled, coolant topped up and oil checked</span></label></li>
+<li><label><input type="checkbox"/><span>Gauge and tee off; oil-pressure switch refitted; red lamp on at key-on, out once running</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Throttles</td>
+<td><code>STAT_WDK_ADAPT_WERT</code> = 0 after the reset; steady idle</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hot oil pressure</td>
+<td>At least 0.7 bar at hot idle (compilation figure; confirm in TIS)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fuel</td>
+<td>5.0 ± 0.2 bar at key-on, lower at idle with vacuum; no leaks</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Cooling</td>
+<td>Temperature steady, no air in the system, fan cycles</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Oil-pressure switch</td>
+<td>Refitted at 27 Nm with the gauge off; no oil at the port</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fault memory</td>
+<td>Only location 1 (0x01), the pump fault, and possibly 130 (0x82) after an EWS delete</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=8uwpzS_-uDs&amp;t=338s">Tenza Motorsports – first start (2021), 05:38</a>.<br/>
+<strong>Stop and ask:</strong> no oil pressure at once: switch off. Low hot oil pressure: find the cause before you drive. Starts, then dies: not the immobilizer (<a href="wiring-and-coding.html#wont-start">Won't start</a>). Any fault besides the expected ones: fix it before you drive.</p>
+</section><section id="card-12c-shakedown"><h2>Card 12c: Shakedown</h2>
+<p><strong>Goal:</strong> brakes, ABS, wheel speeds and gauges proven on short drives near home (<a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-12b-first-start">Card 12b</a> passed; a firm pedal; only the expected faults stored.</p>
+<p><strong>Tools:</strong> INPA; GPS; a measured amount of fuel.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wheel bolts, M12×1.5</td>
+<td>120 ± 10 Nm (89 ± 7 ft-lb)</td>
+<td>Checked after the first drives</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Progressive stops on a quiet road, then a careful hard stop from moderate speed (<a href="./#brakes-and-bleeding">brakes</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Brakes bled again after the first few drives</span></label></li>
+<li><label><input type="checkbox"/><span>Parking-brake shoes bedded in on an empty road</span></label></li>
+<li><label><input type="checkbox"/><span>All four wheel speeds agree in INPA's DSC status while rolling (<a href="./#dsc-brakes-and-steering-angle">sensors</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Short drives near home; then paint marks, wheel-bolt torque, fluid levels and fault memory checked</span></label></li>
+<li><label><input type="checkbox"/><span>Fuel gauge and range follow a measured fill, starting near empty</span></label></li>
+<li><label><input type="checkbox"/><span>Speedometer compared with GPS: the M3 cluster over-reads by about 8.9% by design</span></label></li>
+<li><label><input type="checkbox"/><span>A/C vacuum-tested and charged by weight from the underhood label by a shop; it blows cold</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shifts</td>
+<td>Revs drop cleanly between gears</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Brakes and ABS</td>
+<td>Firm pedal; ABS pulses in a hard stop; the car stops straight</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> rev hang: check the clutch-switch chain first, then that the DME runs manual software. An ABS light, or wheel speeds that disagree: check the sensor plugs before you go further. Your brake lights don't come on when you slow with the parking brake.</p>
+</section><section id="card-12d-alignment-and-final-coding"><h2>Card 12d: Alignment and final coding</h2>
+<p><strong>Goal:</strong> the front joints torqued on the wheels, the car aligned, then the steering angle and the last coding sessions (<a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, <a href="./#wheel-alignment">Wheel alignment</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-12c-shakedown">Card 12c</a> passed; an alignment shop briefed (<a href="./#shop-briefs">Shop briefs</a>).</p>
+<p><strong>Tools:</strong> INPA (or Tool32) and NCS Expert; the charger.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Control-arm bushing bracket to body, M10</td>
+<td>59 Nm (44 ft-lb)</td>
+<td>New bolts; at ride height</td>
+</tr>
+<tr class="even">
+<td>Front anti-roll bar bracket nuts, M8</td>
+<td>21 Nm (15 ft-lb)</td>
+<td>At ride height</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>E46 M3 target</th>
+<th>Front</th>
+<th>Rear</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total toe</td>
+<td>0°16' ± 7'</td>
+<td>0°22' ± 6'</td>
+</tr>
+<tr class="even">
+<td>Camber</td>
+<td>−1°00' ± 20' (left/right difference max 30')</td>
+<td>−1°45' ± 15' (left/right difference max 15')</td>
+</tr>
+<tr class="odd">
+<td>Caster, ±10° / ±20° lock</td>
+<td>7°25' ± 30' / 7°40' ± 30' (left/right difference max 30')</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Thrust angle</td>
+<td>—</td>
+<td>0° ± 4'</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Front bushed joints torqued with the car's weight on its wheels</span></label></li>
+<li><label><input type="checkbox"/><span>Aligned to BMW's E46 M3 figures at the car's own loaded ride height</span></label></li>
+<li><label><input type="checkbox"/><span>Steering angle calibrated: wheel straight, no brake pressure, car level (<a href="wiring-and-coding.html#session-7-steering-angle-after-the-alignment">Session 7</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>DSC compensation routines run; faults cleared and read again</span></label></li>
+<li><label><input type="checkbox"/><span>Vehicle-order changes and body modules, if any (<a href="wiring-and-coding.html#session-8-vehicle-order-changes-and-body-modules">Session 8</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Light module coded for the M3 headlights if they differ, then aimed at ride height (<a href="wiring-and-coding.html#session-9-light-module-and-headlights">Session 9</a>)</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alignment</td>
+<td>BMW's E46 M3 values, set at the car's loaded ride height, with before and after printouts</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Steering angle</td>
+<td>Calibrated after the alignment; INPA reads 0° with the wheel straight; DSC lamp out</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=lseY6SRXWks&amp;t=168s">Evan Goyuk – E46 steering-angle calibration in INPA (2020), 02:48</a>.<br/>
+<strong>Stop and ask:</strong> a sensor that won't hold 0° may be faulty (<a href="./#dsc-brakes-and-steering-angle">DSC, brakes and steering angle</a>). If you change the vehicle order, code the other modules one at a time and reset the DME adaptations again.</p>
+</section><section id="card-12e-break-in-and-readiness"><h2>Card 12e: Break-in and readiness</h2>
+<p><strong>Goal:</strong> the bearings broken in, the oil changed and every readiness monitor set (<a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, <a href="./#inspection-readiness">readiness</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-12d-alignment-and-final-coding">Card 12d</a> done; no faults but the expected ones.</p>
+<p><strong>Parts:</strong> oil filter set 11427833769; drain-plug sealing ring 07119963151.<br/>
+<strong>Tools:</strong> a generic OBD-II scanner; Tool32.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fastener</th>
+<th>Torque</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Oil drain plug</td>
+<td>25 Nm (18 ft-lb)</td>
+<td>New sealing ring 07119963151</td>
+</tr>
+<tr class="even">
+<td>Oil filter cover</td>
+<td>33 Nm (24 ft-lb)</td>
+<td>Filter housing bolts 22 Nm (16 ft-lb)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Fluid</th>
+<th>Specification</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S54 engine oil</td>
+<td>Castrol TWS Motorsport SAE 10W-60 or Castrol Formula RS 10W-60, BMW 07510009420</td>
+<td>5.5 L (5.8 US qt) for an oil change with filter. Fill, then check the dipstick</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>1,200 miles (1,930 km) below 5,500 rpm and 105 mph (169 km/h), BMW's figures after new rod bearings</span></label></li>
+<li><label><input type="checkbox"/><span>Our checks (BMW lists none): oil and leaks at each fuel stop; faults at halfway (<a href="worksheets.html#break-in-log">log</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Closed-throttle coast-downs in gear, so the DME learns the crankshaft wheel</span></label></li>
+<li><label><input type="checkbox"/><span>Oil and filter changed at the end (our recommendation, not BMW's); oil and filter checked for metal</span></label></li>
+<li><label><input type="checkbox"/><span>No cleared codes or disconnected battery in the weeks before an inspection</span></label></li>
+<li><label><input type="checkbox"/><span>Fuel gauge proven first; tank 35–85% for the <a href="wiring-and-coding.html#a-drive-plan-for-readiness">drive plan</a>, on two following days</span></label></li>
+<li><label><input type="checkbox"/><span>Leak test: engine off, after at least 20 minutes' driving that followed at least 5 hours parked, tank 15–85% full; every second time</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Break-in</td>
+<td>1,200 miles below 5,500 rpm and 105 mph done; oil changed; no metal in the oil or filter</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Readiness</td>
+<td>A generic scanner shows every monitor ready (purge shows under EVAP). New York, for example, fails a 2001-or-later car with more than one not ready</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Fault memory</td>
+<td>Only location 1 (0x01), the pump fault, and possibly 130 (0x82); <code>STAT_MIL_EIN</code> = 0</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Stop and ask:</strong> metal in the oil: stop driving and find its source. Fuel-tank leak test stuck: check its conditions, the leak-test wiring and the filler-neck seal (<a href="./#inspection-readiness">Inspection readiness</a>).</p>
+</section><section id="card-13-paint-trim-and-paperwork"><h2>Card 13: Paint, trim and paperwork</h2>
+<p><strong>Goal:</strong> final bodywork and paint, trim on, inspection passed and the paperwork done (<a href="./#phase-13-paint-trim-and-paperwork">Phase 13</a>).<br/>
+<strong>Before you start:</strong> <a href="#card-12e-break-in-and-readiness">Card 12e</a> done; the paint shop briefed (<a href="./#shop-briefs">Shop briefs</a>).</p>
+<p><strong>Parts:</strong> paint; M3 side skirts with OEM M3 rocker clips; M3 mirrors on adapter bases, with older-type door harnesses on facelift doors; the M3 rear bumper and side brackets for the graft.<br/>
+<strong>Tools:</strong> guide coat and long sanding boards; feeler gauges; a plastic welder; a generic OBD-II scanner.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"/><span>Filler, guide coat, block sanding and panel gaps done</span></label></li>
+<li><label><input type="checkbox"/><span>Painted; the shop briefed on your prep, the colour, and whether jambs and engine bay are included</span></label></li>
+<li><label><input type="checkbox"/><span>Trim, badges and side skirts on M3 rocker clips (<a href="./#rear-bumper-skirts-and-trim">trim</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Mirrors on adapter bases; older-type door harnesses on facelift doors</span></label></li>
+<li><label><input type="checkbox"/><span>Rear bumper with quad-tip cut-outs and the Touring bumper's center section grafted in; reflectors kept</span></label></li>
+<li><label><input type="checkbox"/><span>Flared doors: rubbing strips reshaped to follow the flare</span></label></li>
+<li><label><input type="checkbox"/><span>Inspection, registration and insurance; in California, a BAR Referee first (<a href="./#registration-and-legal-us">legal</a>)</span></label></li>
+<li><label><input type="checkbox"/><span>Fallback parts sold once the car has passed</span></label></li>
+</ul>
+<p><strong>Done when</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lights</td>
+<td>All lights, side markers and rear reflectors; headlight aim</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Horn and wipers</td>
+<td>Horn, wipers and washers work</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Brakes and tires</td>
+<td>Brakes, parking brake and tires</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Warning lamps</td>
+<td>ABS, DSC, airbag and check-engine lamps light at key-on and then go out</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Exhaust</td>
+<td>No exhaust leaks</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>OBD</td>
+<td>Readiness monitors set, and a generic scanner reads your Touring's VIN from the DME</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Inspection</td>
+<td>Passed; in California, the Referee label fitted</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Paperwork</td>
+<td>Registration and title updated as your state requires; agreed-value insurance in place</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=R2a68pcDo38&amp;t=20s">M346 Projects – making an E46 M3 Touring rear bumper (2024), 00:20</a>.<br/>
+<strong>Stop and ask:</strong> an emissions fail: see <a href="./#inspection-readiness">Inspection readiness</a>. Keep receipts, photos and the donor's paperwork together for the insurer.</p>
+</section></div></main>
+<footer class="colophon"><div class="wrap">
+  <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
+  <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
+  <p>An independent enthusiast project, not affiliated with or endorsed by BMW AG. BMW and M3 are trademarks of BMW AG.</p>
+  <p>Source, history and diagrams: <a href="https://github.com/pniessen/e46-m3-touring">github.com/pniessen/e46-m3-touring</a>. Anything you tick or type on these pages is saved in your browser only.</p>
+</div></footer>
+<script>
+(function () {
+  "use strict";
+
+  // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
+  // Mark the chapter (and section) in view, and keep its link visible.
+  var nav = document.querySelector(".chapters");
+  var bar = document.querySelector(".chapters > ol");
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"));
+  var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
+  var byId = {};
+  chapterLinks.concat(subLinks).forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
+  function reveal(a) {
+    if (sidebarMode()) {
+      var top = a.offsetTop - nav.clientHeight / 3;
+      if (a.offsetTop < nav.scrollTop || a.offsetTop > nav.scrollTop + nav.clientHeight - 40) {
+        nav.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      }
+    } else if (bar) {
+      var left = a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2;
+      bar.scrollTo({ left: Math.max(0, left), behavior: "auto" });
+    }
+  }
+  function setCurrent(id) {
+    var a = byId[id];
+    if (!a || a.getAttribute("aria-current") === "true") return;
+    chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
+    a.setAttribute("aria-current", "true");
+    a.parentNode.classList.add("open");
+    reveal(a);
+  }
+  function setSection(id) {
+    var a = byId[id];
+    if (!a) return;
+    subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
+    a.setAttribute("aria-current", "location");
+    if (sidebarMode()) reveal(a);
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+    }, { rootMargin: "0px 0px -75% 0px" });
+    document.querySelectorAll("main section h3[id]").forEach(function (h) { io2.observe(h); });
+  }
+
+  // Worksheets and job cards: empty table cells become text fields and task lists become tick
+  // boxes. Entries are a convenience saved in this browser only; printing keeps what's typed.
+  var fillMain = document.querySelector("main[data-fill]");
+  if (fillMain) {
+    var FKEY = "e46-m3-touring-" + fillMain.getAttribute("data-page") + "-v1";
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(FKEY) || "{}") || {}; } catch (e) { store = {}; }
+    var saveStore = function () { try { localStorage.setItem(FKEY, JSON.stringify(store)); } catch (e) { /* storage blocked */ } };
+    var fields = [];
+    fillMain.querySelectorAll("table").forEach(function (table, ti) {
+      var heads = table.tHead && table.tHead.rows[0]
+        ? Array.prototype.map.call(table.tHead.rows[0].cells, function (c) { return c.textContent.trim(); }) : [];
+      Array.prototype.forEach.call(table.tBodies, function (tb) {
+        Array.prototype.forEach.call(tb.rows, function (row, ri) {
+          Array.prototype.forEach.call(row.cells, function (cell, ci) {
+            if (cell.textContent.trim() !== "" || cell.children.length) return;
+            var id = "t" + ti + "r" + ri + "c" + ci;
+            var input = document.createElement("input");
+            input.type = "text";
+            input.className = "fill";
+            var rowLabel = row.cells[0] && row.cells[0] !== cell ? row.cells[0].textContent.trim() : "";
+            input.setAttribute("aria-label", (heads[ci] || "Entry") + (rowLabel ? ", " + rowLabel : ""));
+            input.value = store[id] || "";
+            input.addEventListener("input", function () {
+              if (input.value) { store[id] = input.value; } else { delete store[id]; }
+              saveStore();
+            });
+            cell.classList.add("fill-cell");
+            cell.appendChild(input);
+            fields.push(input);
+          });
+        });
+      });
+    });
+    fillMain.querySelectorAll('li input[type="checkbox"]').forEach(function (cb, i) {
+      var id = "c" + i;
+      cb.disabled = false;
+      cb.checked = !!store[id];
+      cb.addEventListener("change", function () {
+        if (cb.checked) { store[id] = 1; } else { delete store[id]; }
+        saveStore();
+      });
+      fields.push(cb);
+    });
+    if (fields.length) {
+      var bar = document.createElement("div");
+      bar.className = "fill-tools";
+      var note = document.createElement("span");
+      note.className = "note";
+      note.textContent = "Type in the blank cells and tick the boxes. Entries are saved in this browser on this device only.";
+      var printBtn = document.createElement("button");
+      printBtn.type = "button";
+      printBtn.textContent = "Print";
+      printBtn.addEventListener("click", function () { window.print(); });
+      var clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.textContent = "Clear my entries";
+      var armed = null;
+      clearBtn.addEventListener("click", function () {
+        if (!armed) {
+          clearBtn.textContent = "Tap again to clear everything";
+          armed = setTimeout(function () { armed = null; clearBtn.textContent = "Clear my entries"; }, 4000);
+          return;
+        }
+        clearTimeout(armed);
+        armed = null;
+        clearBtn.textContent = "Clear my entries";
+        store = {};
+        saveStore();
+        fields.forEach(function (f) { if (f.type === "checkbox") { f.checked = false; } else { f.value = ""; } });
+      });
+      bar.appendChild(note);
+      bar.appendChild(printBtn);
+      bar.appendChild(clearBtn);
+      var holder = fillMain.querySelector(".wrap") || fillMain;
+      holder.insertBefore(bar, holder.firstChild);
+    }
+  }
+
+  // Parts checklist. Ticks are a convenience saved in this browser only.
+  var KEY = "e46-m3-touring-parts-v1";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage blocked */ } }
+
+  function slug(s) {
+    var h = 0;
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+    return "p" + (h >>> 0).toString(36);
+  }
+  function kindOf(text) {
+    var t = text.toLowerCase();
+    if (t.indexOf("donor") > -1) return "donor";
+    if (t.indexOf("fab") > -1 || t.indexOf("make") > -1) return "fab";
+    if (t.indexOf("keep") > -1 || t.indexOf("reuse") > -1) return "keep";
+    return "new";
+  }
+
+  var partsSection = document.querySelector('section[data-chapter="parts"]');
+  var rows = [];
+  if (partsSection) {
+    partsSection.querySelectorAll("table").forEach(function (table) {
+      var head = table.tHead && table.tHead.rows[0];
+      if (!head || !table.tBodies[0]) return;
+      var srcIdx = -1;
+      Array.prototype.forEach.call(head.cells, function (c, i) { if (/source/i.test(c.textContent)) srcIdx = i; });
+      if (srcIdx < 0) return;
+      table.classList.add("parts");
+      var th = document.createElement("th");
+      th.className = "tick-col";
+      th.textContent = "Got";
+      head.insertBefore(th, head.firstChild);
+      Array.prototype.forEach.call(table.tBodies[0].rows, function (row) {
+        var name = (row.cells[0] ? row.cells[0].textContent : "").trim();
+        var id = slug(name + "|" + (row.cells[srcIdx] ? row.cells[srcIdx].textContent : ""));
+        var srcCell = row.cells[srcIdx];
+        var kind = kindOf(srcCell ? srcCell.textContent : "");
+        row.setAttribute("data-kind", kind);
+        if (srcCell) {
+          var pill = document.createElement("span");
+          pill.className = "pill pill-" + kind;
+          pill.textContent = srcCell.textContent.trim();
+          srcCell.textContent = "";
+          srcCell.appendChild(pill);
+        }
+        var td = document.createElement("td");
+        td.className = "tick-col";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = id;
+        cb.checked = !!saved[id];
+        cb.setAttribute("aria-label", "Got it: " + name);
+        if (cb.checked) row.classList.add("done");
+        cb.addEventListener("change", function () {
+          if (cb.checked) { saved[id] = 1; } else { delete saved[id]; }
+          row.classList.toggle("done", cb.checked);
+          persist();
+          updateCount();
+        });
+        td.appendChild(cb);
+        row.insertBefore(td, row.firstChild);
+        rows.push(row);
+      });
+    });
+  }
+
+  var countEl = null;
+  function updateCount() {
+    if (!countEl) return;
+    var done = rows.filter(function (r) { return r.classList.contains("done"); }).length;
+    countEl.textContent = done + " of " + rows.length + " ticked";
+  }
+
+  if (partsSection && rows.length) {
+    var tools = document.createElement("div");
+    tools.className = "parts-tools";
+    tools.setAttribute("role", "group");
+    tools.setAttribute("aria-label", "Filter parts by where they come from");
+    var label = document.createElement("span");
+    label.className = "label";
+    label.textContent = "Show";
+    tools.appendChild(label);
+    var filters = [["all", "All"], ["donor", "From donor M3"], ["new", "Buy new"], ["fab", "Fabricate"], ["keep", "Keep"]];
+    var buttons = [];
+    filters.forEach(function (f) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = "filter-" + f[0];
+      b.textContent = f[1];
+      b.setAttribute("aria-pressed", f[0] === "all" ? "true" : "false");
+      b.addEventListener("click", function () {
+        buttons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        rows.forEach(function (r) { r.hidden = !(f[0] === "all" || r.getAttribute("data-kind") === f[0]); });
+      });
+      buttons.push(b);
+      tools.appendChild(b);
+    });
+    countEl = document.createElement("span");
+    countEl.className = "count";
+    tools.appendChild(countEl);
+    var note = document.createElement("span");
+    note.className = "note";
+    note.textContent = "Ticks are saved in this browser on this device only.";
+    tools.appendChild(note);
+    var firstTable = partsSection.querySelector(".table-wrap");
+    if (firstTable) firstTable.parentNode.insertBefore(tools, firstTable);
+    updateCount();
+  }
+})();
+
+</script>
+</body>
+</html>

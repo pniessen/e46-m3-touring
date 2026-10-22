@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 664" role="img" aria-label="The DSC and brake choice. A donor built before 09/2002 has an MK20 with a 43-pin plug, which won't plug into your harness, so only route A applies; a donor built from 09/2002 has an MK60 with the same 47-pin plug and yaw sensor as your Touring, so either route works. Route A, the recommended default, keeps your MK60, master cylinder and booster: no coding tricks, just initialise its VIN and steering angle in INPA. It stays coded for a 325i with no M Track, nobody has reported the pedal feel of M3 calipers on your master cylinder, and you should check the unit's label first, as some US Tourings have an ASC-only unit. Route B fits the M3's MK60 and master cylinder, with your booster or perhaps the M3's. NCS Expert gives it 325i values, so you set M3 values by hand, and its coding has no Touring body type. It brings M Track; a Touring built before 09/2001 also needs the later yaw-sensor cluster; if VIN not initialized won't clear, refit your own unit. On both routes your brake pipes stay, since an MK60 M3 uses the same front pipes and the rear pipes and hoses are shared; the M3-only front brake hoses 34322229723 are bought new; and the M3 calipers come with the corners. Both routes: the rear wheel-speed sensor changed type at 09/2001 on the Touring and 09/2002 on the M3, and one build's plugs didn't mate, so check the plugs on both cars before you order, use sensors whose plugs fit your harness, keep the donor's sensors and pigtails until yours are proven, and read the DSC fault memory after the first slow drive. Check the route of the M3's booster vacuum hose, which meets the booster from the other side, calibrate the steering angle after the wheel alignment, and keep the parts you don't use until the car has passed inspection." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="664" fill="#ffffff"/>
+<!-- Key -->
+<rect class="keep" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">Keep</text>
+<rect class="donor" x="70" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="87" y="16.5">From donor M3</text>
+<rect class="new" x="186" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="203" y="16.5">Buy new</text>
+
+<!-- Which unit the donor has -->
+<rect class="donor" x="8" y="28" width="188" height="52" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="18" y="45">Donor built before 09/2002</text>
+<text class="t-xs" x="18" y="59">MK20, 43-pin plug:</text>
+<text class="t-xs crit-t" x="18" y="72">won't plug into your harness</text>
+<rect class="donor" x="204" y="28" width="188" height="52" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="214" y="45">Donor built from 09/2002</text>
+<text class="t-xs" x="214" y="59">MK60: same 47-pin plug and yaw</text>
+<text class="t-xs" x="214" y="72">sensor as your Touring's</text>
+<line class="ln" x1="102" y1="80" x2="102" y2="99" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="80" x2="298" y2="99" marker-end="url(#ah)"/>
+<path class="ln" d="M240,80 V89 H150 V99" marker-end="url(#ah)"/>
+
+<!-- Route A -->
+<text class="t-h" x="8" y="116">A  KEEP YOURS</text>
+<text class="t-xs t-b" x="8" y="130">the default; recommended</text>
+<text class="t-xs" x="8" y="148">No coding tricks: initialise its VIN</text>
+<text class="t-xs" x="8" y="161">and steering angle in INPA</text>
+<text class="t-xs" x="8" y="178">Stays coded for a 325i: no M Track</text>
+<text class="t-xs" x="8" y="195">Pedal feel of M3 calipers on your</text>
+<text class="t-xs" x="8" y="208">master cylinder: unreported</text>
+<text class="t-xs" x="8" y="225">Check its label first: some US</text>
+<text class="t-xs" x="8" y="238">Tourings have an ASC-only unit</text>
+
+<!-- Route B -->
+<text class="t-h" x="204" y="116">B  FIT THE M3'S UNIT</text>
+<text class="t-xs t-b" x="204" y="130">09/2002-on donors only</text>
+<text class="t-xs" x="204" y="148">NCS Expert gives it 325i values: set</text>
+<text class="t-xs" x="204" y="161">M3 values by hand. Its coding has</text>
+<text class="t-xs" x="204" y="174">no Touring body type</text>
+<text class="t-xs" x="204" y="191">Brings M Track</text>
+<text class="t-xs" x="204" y="208">Touring built before 09/2001: also</text>
+<text class="t-xs" x="204" y="221">the later yaw-sensor cluster</text>
+<text class="t-xs" x="204" y="238">"VIN not initialized" won't clear?</text>
+<text class="t-xs" x="204" y="251">Refit your own unit</text>
+
+<!-- Brake hydraulics, pedal to caliper -->
+<rect class="keep" x="8" y="266" width="188" height="36" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="288.6">Your booster</text>
+<rect class="keep" x="204" y="266" width="188" height="36" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="214" y="281.5">Your booster</text>
+<text class="t-xs" x="214" y="295">or perhaps the M3's</text>
+<line class="ln" x1="102" y1="302" x2="102" y2="312"/>
+<line class="ln" x1="298" y1="302" x2="298" y2="312"/>
+<rect class="keep" x="8" y="312" width="188" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="329.6">Your master cylinder</text>
+<rect class="donor" x="204" y="312" width="188" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="214" y="329.6">M3 master cylinder</text>
+<line class="ln" x1="102" y1="338" x2="102" y2="348"/>
+<line class="ln" x1="298" y1="338" x2="298" y2="348"/>
+<rect class="keep" x="8" y="348" width="188" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="365.6">Your MK60</text>
+<text class="t-xs" x="186" y="364.7" text-anchor="end">DSC unit</text>
+<rect class="donor" x="204" y="348" width="188" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="214" y="365.6">M3 MK60</text>
+<text class="t-xs" x="382" y="364.7" text-anchor="end">DSC unit</text>
+<line class="ln" x1="102" y1="374" x2="102" y2="384"/>
+<line class="ln" x1="298" y1="374" x2="298" y2="384"/>
+
+<!-- Same on both routes -->
+<rect class="keep" x="8" y="384" width="384" height="38" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="18" y="399.5">Your brake pipes stay</text>
+<text class="t-xs" x="18" y="413">an MK60 M3 uses the same front pipes; the rear pipes and hoses are shared</text>
+<line class="ln" x1="200" y1="422" x2="200" y2="432"/>
+<rect class="new" x="8" y="432" width="384" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="449.6">M3 front brake hoses</text>
+<text class="t-xs" x="382" y="448.7" text-anchor="end">M3-only, buy new: 34322229723</text>
+<line class="ln" x1="200" y1="458" x2="200" y2="468"/>
+<rect class="donor" x="8" y="468" width="384" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="485.6">M3 calipers</text>
+<text class="t-xs" x="382" y="484.7" text-anchor="end">with the corners and trailing arms</text>
+
+<!-- Both routes -->
+<rect class="panel" x="8" y="506" width="384" height="150" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="523">Both routes</text>
+<text class="t-xs" x="18" y="538">Wheel-speed sensors: the rear sensor changed type at 09/2001 on the</text>
+<text class="t-xs" x="18" y="551">Touring and 09/2002 on the M3, and one build's plugs didn't mate. Check</text>
+<text class="t-xs" x="18" y="564">the plugs on both cars before you order, use sensors whose plugs fit</text>
+<text class="t-xs" x="18" y="577">your harness, and keep the donor's sensors and pigtails until yours are</text>
+<text class="t-xs" x="18" y="590">proven. Read the DSC fault memory after the first slow drive.</text>
+<text class="t-xs" x="18" y="605">Booster vacuum hose: the M3's meets the booster from the other side;</text>
+<text class="t-xs" x="18" y="618">check its route at mock-up.</text>
+<text class="t-xs" x="18" y="633">Calibrate the steering angle after the wheel alignment.</text>
+<text class="t-xs" x="18" y="648">Keep the parts you don't use until the car has passed inspection.</text>
+</svg>

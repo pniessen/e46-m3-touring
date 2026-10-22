@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 572" role="img" aria-label="Network diagram of the powertrain CAN, the K-bus and the diagnosis socket after the swap. CAN high (GE/RT) runs along splice X1893 and CAN low (GE/BR) along splice X1894; four nodes land on both: the M3 DME at X60004 pins 36 and 37, the M3 cluster at X11175 pins 9 and 10, the DSC unit (MK60) at pins 11 and 15, and the steering-angle sensor at pins 3 and 4. The DSC unit holds one 120 ohm terminator and the cluster or the DME the other, which one isn't documented, so a healthy bus reads about 60 ohms. Measure with the battery disconnected and every module plugged in, back-probing X60004 pins 36 and 37 at the DME or X11175 pins 9 and 10 at the cluster, not at the diagnosis socket. Readings between high and low: about 60 ohms passes; about 120 ohms means a terminating module is unplugged or cut off; about 40 ohms a third terminator; 0 ohms high and low shorted together; open means both terminators are missing or the probe wire is broken. Key on, each line sits at about 2.5 volts to ground (2.35 to 2.65). Unplugging one module at a time shows which ones terminate. The diagnosis socket X19527 has no terminals at pins 6 and 14, so no CAN; its pin 7 goes to the DME's TXD II line at X60004 pin 32 and its pin 8 to the cluster's D-bus at X11175 pin 25. The K-bus is one WS/RT/GE wire at about 12 volts from cluster pin 14 to the light module, body module, climate control, airbag unit, EWS, switch center (X1869 pin 23), steering-wheel audio buttons, park distance control and others. The A/C request from the climate control and the crash signal from the airbag unit go over the K-bus to the cluster and on over CAN to the DME, and so does the cluster's tank level. By the manual's reading of BMW's descriptions, a cluster that isn't talking on both buses costs the A/C, the crash cut-off and the leak test; and even with a working cluster, the crash cut-off is unverified with the K96 relay. The DME logs 132 (0x84) for the DSC unit, 133 (0x85) for the steering-angle sensor, 134 (0x86) for the cluster and 86 (0x56) for its own CAN. The DSC unit's yaw sensor has a separate CAN, an MK20 DSC unit, not used in this build, has CAN on pins 17 and 16, and an ex-automatic Touring's gearbox-unit stub stays unplugged." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="572" fill="#ffffff"/>
+<text class="t-h" x="8" y="24">CAN, K-BUS AND DIAGNOSIS SOCKET</text>
+<text class="t-sm" x="702.1" y="22">120 Ω terminator</text>
+<rect class="shape" x="686.1" y="11" width="9" height="15" rx="1" stroke-width="1.2"/>
+<text class="t-sm" x="637.5" y="22">Keep</text>
+<rect class="keep" x="615.5" y="12" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="520.7" y="22">From donor M3</text>
+<rect class="donor" x="498.7" y="12" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="8" y="48">Terminators: one 120 Ω in the DSC unit, one in the cluster or the DME (which one isn't documented); together 60 Ω.</text>
+
+<!-- CAN high and CAN low: every node lands on both splices -->
+<line class="keep-s" x1="60" y1="82" x2="664" y2="82" stroke-width="2.5"/>
+<line class="keep-s" x1="60" y1="266" x2="664" y2="266" stroke-width="2.5"/>
+<line class="keep-s" x1="60" y1="82" x2="60" y2="99" stroke-width="2"/>
+<line class="keep-s" x1="60" y1="249" x2="60" y2="266" stroke-width="2"/>
+<circle class="keep-f" cx="60" cy="82" r="4"/>
+<circle class="keep-f" cx="60" cy="266" r="4"/>
+<line class="keep-s" x1="446" y1="82" x2="446" y2="99" stroke-width="2"/>
+<line class="keep-s" x1="446" y1="249" x2="446" y2="266" stroke-width="2"/>
+<circle class="keep-f" cx="446" cy="82" r="4"/>
+<circle class="keep-f" cx="446" cy="266" r="4"/>
+<line class="keep-s" x1="516" y1="82" x2="516" y2="99" stroke-width="2"/>
+<line class="keep-s" x1="516" y1="249" x2="516" y2="266" stroke-width="2"/>
+<circle class="keep-f" cx="516" cy="82" r="4"/>
+<circle class="keep-f" cx="516" cy="266" r="4"/>
+<line class="keep-s" x1="664" y1="82" x2="664" y2="99" stroke-width="2"/>
+<line class="keep-s" x1="664" y1="249" x2="664" y2="266" stroke-width="2"/>
+<circle class="keep-f" cx="664" cy="82" r="4"/>
+<circle class="keep-f" cx="664" cy="266" r="4"/>
+<text class="t-sm t-b" x="92" y="74">CAN high, <tspan class="t-mono">GE/RT</tspan>: splice <tspan class="t-mono">X1893</tspan></text>
+<text class="t-sm t-b" x="92" y="284">CAN low, <tspan class="t-mono">GE/BR</tspan>: splice <tspan class="t-mono">X1894</tspan></text>
+
+<!-- DME -->
+<rect class="donor" x="40" y="108" width="120" height="132" rx="5" stroke-width="1.5"/>
+<rect class="shape" x="48" y="99" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="60" y="112.5" text-anchor="middle">36</text>
+<rect class="shape" x="48" y="231" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="60" y="244.5" text-anchor="middle">37</text>
+<line class="ln-thin" x1="60" y1="117" x2="60" y2="176"/>
+<line class="ln-thin" x1="60" y1="204" x2="60" y2="231"/>
+<rect class="shape dash" x="55" y="176" width="10" height="28" rx="1" stroke-width="1.3"/>
+<text class="t t-b" x="76" y="126">M3 DME</text>
+<text class="t-sm" x="76" y="142">MSS54 / HP</text>
+<text class="t-sm t-mono t-b" x="76" y="158">X60004</text>
+<text class="t-sm" x="72" y="194">120 Ω ?</text>
+<rect class="shape" x="148" y="207" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="160" y="220.5" text-anchor="middle">32</text>
+<text class="t-sm t-mono" x="146" y="220" text-anchor="end">TXD II</text>
+
+<!-- Diagnosis socket X19527: no CAN cavities -->
+<rect class="keep" x="204" y="108" width="88" height="132" rx="5" stroke-width="1.5"/>
+<rect class="shape" x="192" y="207" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="204" y="220.5" text-anchor="middle">7</text>
+<rect class="shape" x="280" y="207" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="292" y="220.5" text-anchor="middle">8</text>
+<rect class="fill-bg" x="236" y="99" width="24" height="18" rx="2" stroke-width="0"/>
+<rect class="crit-s dash" x="236" y="99" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono crit-t" x="248" y="112.5" text-anchor="middle">6</text>
+<rect class="fill-bg" x="236" y="231" width="24" height="18" rx="2" stroke-width="0"/>
+<rect class="crit-s dash" x="236" y="231" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono crit-t" x="248" y="244.5" text-anchor="middle">14</text>
+<text class="t-sm crit-t" x="264" y="96">no terminal</text>
+<text class="t-sm crit-t" x="264" y="258">no terminal</text>
+<text class="t t-b" x="248" y="138" text-anchor="middle">Diagnosis</text>
+<text class="t t-b" x="248" y="153" text-anchor="middle">socket</text>
+<text class="t-sm t-mono t-b" x="248" y="169" text-anchor="middle">X19527</text>
+<text class="t-sm t-b crit-t" x="248" y="200" text-anchor="middle">no CAN</text>
+<line class="keep-s" x1="172" y1="216" x2="192" y2="216" stroke-width="2"/>
+
+<!-- Cluster: the gateway -->
+<rect class="donor" x="336" y="108" width="134" height="132" rx="5" stroke-width="1.5"/>
+<rect class="shape" x="434" y="99" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="446" y="112.5" text-anchor="middle">9</text>
+<rect class="shape" x="434" y="231" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="446" y="244.5" text-anchor="middle">10</text>
+<line class="ln-thin" x1="446" y1="117" x2="446" y2="176"/>
+<line class="ln-thin" x1="446" y1="204" x2="446" y2="231"/>
+<rect class="shape dash" x="441" y="176" width="10" height="28" rx="1" stroke-width="1.3"/>
+<text class="t t-b" x="354" y="126">M3 cluster</text>
+<text class="t-sm t-mono t-b" x="354" y="142">X11175</text>
+<text class="t-sm" x="354" y="158">gateway</text>
+<text class="t-sm" x="434" y="194" text-anchor="end">120 Ω ?</text>
+<rect class="shape" x="324" y="207" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="336" y="220.5" text-anchor="middle">25</text>
+<text class="t-sm" x="352" y="220">D-bus</text>
+<line class="keep-s" x1="304" y1="216" x2="324" y2="216" stroke-width="2"/>
+<rect class="shape" x="398" y="231" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="410" y="244.5" text-anchor="middle">14</text>
+<text class="t-sm" x="410" y="225" text-anchor="middle">K-bus</text>
+
+<!-- DSC unit (MK60) -->
+<rect class="keep" x="496" y="108" width="124" height="132" rx="5" stroke-width="1.5"/>
+<rect class="shape" x="504" y="99" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="516" y="112.5" text-anchor="middle">11</text>
+<rect class="shape" x="504" y="231" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="516" y="244.5" text-anchor="middle">15</text>
+<line class="ln-thin" x1="516" y1="117" x2="516" y2="176"/>
+<line class="ln-thin" x1="516" y1="204" x2="516" y2="231"/>
+<rect class="shape" x="511" y="176" width="10" height="28" rx="1" stroke-width="1.3"/>
+<text class="t t-b" x="532" y="126">DSC unit</text>
+<text class="t-sm" x="532" y="142">MK60: <tspan class="t-mono">11</tspan> / <tspan class="t-mono">15</tspan></text>
+<text class="t-sm t-b" x="532" y="194">120 Ω</text>
+
+<!-- Steering-angle sensor -->
+<rect class="keep" x="644" y="108" width="148" height="132" rx="5" stroke-width="1.5"/>
+<rect class="shape" x="652" y="99" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="664" y="112.5" text-anchor="middle">3</text>
+<rect class="shape" x="652" y="231" width="24" height="18" rx="2" stroke-width="1.2"/>
+<text class="t t-mono" x="664" y="244.5" text-anchor="middle">4</text>
+<text class="t t-b" x="680" y="126">Steering-angle</text>
+<text class="t t-b" x="680" y="141">sensor</text>
+
+<!-- Where to measure: back-probe at the DME, battery disconnected -->
+<rect class="panel" x="8" y="296" width="324" height="252" rx="6" stroke-width="1"/>
+<path class="ln-thin" d="M30,314 V90 H58" stroke-width="1.5" marker-end="url(#ah)"/>
+<path class="ln-thin" d="M50,314 V256 H58" stroke-width="1.5" marker-end="url(#ah)"/>
+<circle class="shape" cx="40" cy="328" r="17"/>
+<text class="t t-b" x="40" y="333" text-anchor="middle">Ω</text>
+<text class="t-sm" x="70" y="316">Back-probe <tspan class="t-mono">X60004</tspan> <tspan class="t-mono">36</tspan> and <tspan class="t-mono">37</tspan> at the</text>
+<text class="t-sm" x="70" y="330">plugged-in DME, or <tspan class="t-mono">X11175</tspan> <tspan class="t-mono">9</tspan> and <tspan class="t-mono">10</tspan> at</text>
+<text class="t-sm" x="70" y="344">the cluster. Battery disconnected, every</text>
+<text class="t-sm" x="70" y="358">module plugged in.</text>
+<text class="t-sm t-b crit-t" x="18" y="384">Not at the diagnosis socket: no CAN there.</text>
+<text class="t-sm t-b" x="18" y="406">Reading</text>
+<text class="t-sm t-b" x="112" y="406">Means</text>
+<line class="ln-faint" x1="18" y1="412" x2="322" y2="412"/>
+<text class="t-sm t-b" x="18" y="428">about 60 Ω</text>
+<text class="t-sm t-b" x="112" y="428">pass: both terminators in place</text>
+<text class="t-sm" x="18" y="444">about 120 Ω</text>
+<text class="t-sm" x="112" y="444">a terminating module unplugged or cut off</text>
+<text class="t-sm" x="18" y="460">about 40 Ω</text>
+<text class="t-sm" x="112" y="460">a third terminator</text>
+<text class="t-sm" x="18" y="476">0 Ω</text>
+<text class="t-sm" x="112" y="476">high and low shorted together</text>
+<text class="t-sm" x="18" y="492">open</text>
+<text class="t-sm" x="112" y="492">both missing, or the probe wire broken</text>
+<line class="ln-faint" x1="18" y1="506" x2="322" y2="506"/>
+<text class="t-sm" x="18" y="522">Key on: each line about 2.5 V to ground (2.35–2.65 V).</text>
+<text class="t-sm" x="18" y="536">Unplug one module at a time: about 120 Ω = a terminator.</text>
+
+<!-- K-bus: one wire from the cluster to the body modules -->
+<path class="keep-s" d="M410,249 V260 A6,6 0 0 1 410,272 V312" stroke-width="2"/>
+<rect class="keep" x="344" y="312" width="212" height="138" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="354" y="331">K-bus</text>
+<text class="t-sm" x="354" y="347">one wire, <tspan class="t-mono">WS/RT/GE</tspan>, about 12 V</text>
+<text class="t-sm" x="354" y="368">light module, body module, climate</text>
+<text class="t-sm" x="354" y="382">control, airbag unit, EWS, switch</text>
+<text class="t-sm" x="354" y="396">center (<tspan class="t-mono">X1869</tspan> pin <tspan class="t-mono">23</tspan>), steering-wheel</text>
+<text class="t-sm" x="354" y="410">audio buttons, park distance control</text>
+<text class="t-sm" x="354" y="424">and others</text>
+<text class="t-sm" x="344" y="470">DME faults for a missing partner:</text>
+<text class="t-sm" x="344" y="484"><tspan class="t-mono">132 (0x84)</tspan> DSC, <tspan class="t-mono">133 (0x85)</tspan></text>
+<text class="t-sm" x="344" y="498">steering-angle sensor, <tspan class="t-mono">134 (0x86)</tspan></text>
+<text class="t-sm" x="344" y="512">cluster, <tspan class="t-mono">86 (0x56)</tspan> its own CAN.</text>
+
+<!-- What crosses the cluster's gateway in this swap -->
+<rect class="keep" x="566" y="312" width="226" height="182" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="576" y="331">Through the cluster's gateway</text>
+<text class="t-sm" x="576" y="350">A/C request (climate control)</text>
+<text class="t-sm" x="576" y="364">and crash signal (airbag unit):</text>
+<text class="t-sm" x="576" y="378">K-bus → cluster → CAN → DME</text>
+<text class="t-sm" x="576" y="392">Tank level: cluster → CAN → DME</text>
+<text class="t-sm t-b" x="576" y="414">If the cluster isn't talking on both</text>
+<text class="t-sm t-b" x="576" y="428">buses: no A/C, no crash cut-off and</text>
+<text class="t-sm t-b" x="576" y="442">no leak test</text>
+<text class="t-sm" x="576" y="456">(our reading of BMW's descriptions).</text>
+<text class="t-sm" x="576" y="470">Even with a working cluster, the crash</text>
+<text class="t-sm" x="576" y="484">cut-off is unverified with the K96 relay.</text>
+
+<!-- Footnotes -->
+<text class="t-sm" x="344" y="534">The DSC unit's yaw sensor has a separate CAN of its own, not shown.</text>
+<text class="t-sm" x="344" y="548">An MK20 DSC unit (not used in this build) has CAN on pins 17 and 16.</text>
+<text class="t-sm" x="344" y="562">An ex-automatic Touring's gearbox-unit stub stays unplugged.</text>
+</svg>

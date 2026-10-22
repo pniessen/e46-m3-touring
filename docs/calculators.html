@@ -1,0 +1,2196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculators · E46 M3 Touring Conversion</title>
+<meta name="description" content="Calculators for the E46 M3 Touring build: gearing and road speed, tire size and speedometer, wheel fitment and offsets, and a tire load check.">
+<link rel="canonical" href="https://pniessen.github.io/e46-m3-touring/calculators.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="E46 M3 Touring Conversion">
+<meta property="og:title" content="Calculators · E46 M3 Touring Conversion">
+<meta property="og:description" content="Calculators for the E46 M3 Touring build: gearing and road speed, tire size and speedometer, wheel fitment and offsets, and a tire load check.">
+<meta property="og:url" content="https://pniessen.github.io/e46-m3-touring/calculators.html">
+<meta property="og:image" content="https://pniessen.github.io/e46-m3-touring/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: workshop-manual reading column (~70ch); figures and tables scroll in place;
+   sticky chapter bar; risk is shown by callout stripes, part origin by colored pills. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --panel: #e7ecf1;
+  --fg: #151a20;
+  --muted: #55606c;
+  --line: #d2d9e0;
+  --accent: #1d5fa6;
+  --accent-soft: #e0eaf6;
+  --warn: #8a5a00;
+  --warn-fill: #fff3cf;
+  --warn-edge: #e0a800;
+  --crit: #ad2a22;
+  --crit-fill: #fbe9e7;
+  --ok: #1f6e45;
+  --ok-fill: #e3f2ea;
+  --c-donor: #1d5fa6;
+  --c-donor-soft: #dce8f6;
+  --c-new: #1f6e45;
+  --c-new-soft: #dff0e6;
+  --c-fab: #b9440f;
+  --c-fab-soft: #fbe5d9;
+  --c-keep: #66727e;
+  --c-keep-soft: #e9edf1;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --measure: 70ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1114;
+    --surface: #161a1f;
+    --panel: #1d232a;
+    --fg: #e5e9ed;
+    --muted: #9ba6b1;
+    --line: #2b333b;
+    --accent: #7cb0ea;
+    --accent-soft: #182a3e;
+    --warn: #f0c75a;
+    --warn-fill: #2c2410;
+    --warn-edge: #c99a1c;
+    --crit: #ff8a80;
+    --crit-fill: #321a19;
+    --ok: #6fd19c;
+    --ok-fill: #142a1f;
+    --c-donor: #7cb0ea;
+    --c-donor-soft: #18283a;
+    --c-new: #6fd19c;
+    --c-new-soft: #15291e;
+    --c-fab: #ff9a62;
+    --c-fab-soft: #33200f;
+    --c-keep: #a3adb7;
+    --c-keep-soft: #222930;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1114;
+  --surface: #161a1f;
+  --panel: #1d232a;
+  --fg: #e5e9ed;
+  --muted: #9ba6b1;
+  --line: #2b333b;
+  --accent: #7cb0ea;
+  --accent-soft: #182a3e;
+  --warn: #f0c75a;
+  --warn-fill: #2c2410;
+  --warn-edge: #c99a1c;
+  --crit: #ff8a80;
+  --crit-fill: #321a19;
+  --ok: #6fd19c;
+  --ok-fill: #142a1f;
+  --c-donor: #7cb0ea;
+  --c-donor-soft: #18283a;
+  --c-new: #6fd19c;
+  --c-new-soft: #15291e;
+  --c-fab: #ff9a62;
+  --c-fab-soft: #33200f;
+  --c-keep: #a3adb7;
+  --c-keep-soft: #222930;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+code, kbd { font-family: var(--font-mono); font-size: 0.88em; background: var(--panel); padding: 0.08em 0.35em; border-radius: 3px; }
+strong { font-weight: 600; }
+
+.wrap {
+  max-width: calc(var(--measure) + 2rem);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Masthead */
+.masthead { border-bottom: 1px solid var(--line); background: var(--surface); }
+.masthead .wrap { padding-block: 2.2rem 1.6rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0;
+}
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 8vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+.masthead h1 .from { color: var(--muted); display: block; font-size: 0.48em; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+.lede { margin: 0; font-size: 1.06rem; color: var(--fg); max-width: var(--measure); }
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  margin: 0.4rem 0 0;
+  border-top: 2px solid var(--fg);
+}
+.spec div { padding: 0.55rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spec dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.35; }
+
+/* Photos */
+figure.photo { margin: 1.4rem 0 1.6rem; }
+figure.photo img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--panel); }
+figure.photo figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--muted); margin-top: 0.45rem; }
+figure.photo figcaption a { color: inherit; }
+.photo-pair { display: grid; gap: 1.1rem; margin: 1.4rem 0 1.6rem; }
+.photo-pair figure.photo { margin: 0; }
+@media (min-width: 720px) {
+  .photo-pair { grid-template-columns: 1fr 1fr; align-items: start; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+}
+
+/* Site links (website build only) */
+.sitenav ul { list-style: none; margin: 0 0 0.2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; }
+.sitenav li { margin: 0; }
+.sitenav a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; }
+.sitenav a:hover { color: var(--fg); text-decoration: underline; }
+.sitenav a[aria-current="page"] { color: var(--fg); font-weight: 500; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Chapter bar */
+.chapters {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.chapters ol {
+  list-style: none;
+  margin: 0 auto;
+  max-width: calc(var(--measure) + 2rem);
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.chapters ol::-webkit-scrollbar { display: none; }
+.chapters a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.chapters a:hover { color: var(--fg); background: var(--panel); }
+.chapters a[aria-current="true"] { color: var(--bg); background: var(--fg); }
+.chapters .lbl-full { display: none; }
+
+/* Body copy */
+main .wrap { padding-block: 0.5rem 3rem; }
+main section { padding-top: 1.5rem; }
+main section + section { border-top: 2px solid var(--fg); margin-top: 2.5rem; }
+h2, h3, h4 { text-wrap: balance; line-height: 1.2; }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5.5vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0.8rem;
+}
+h3 { font-size: 1.28rem; font-weight: 600; margin: 2.1rem 0 0.6rem; }
+h4 { font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 0.9rem; }
+li { margin: 0.2rem 0; }
+li > ul, li > ol { margin: 0.2rem 0 0.4rem; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+/* Step lists inside the procedure read like a manual */
+section[data-chapter="steps"] ol > li::marker { font-family: var(--font-mono); font-weight: 500; color: var(--muted); }
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.8rem 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line); }
+th {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+table.parts td:first-child { font-weight: 400; }
+table.parts td:nth-child(2) { font-weight: 500; min-width: 11rem; }
+table.parts td:last-child { min-width: 14rem; }
+tr.done td { color: var(--muted); }
+tr.done td:nth-child(2) { text-decoration: line-through; text-decoration-color: var(--muted); }
+.tick-col { width: 2.4rem; text-align: center; }
+.tick-col input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); margin: 0.1rem 0 0; cursor: pointer; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.pill-donor { color: var(--c-donor); background: var(--c-donor-soft); }
+.pill-new { color: var(--c-new); background: var(--c-new-soft); }
+.pill-fab { color: var(--c-fab); background: var(--c-fab-soft); }
+.pill-keep { color: var(--c-keep); background: var(--c-keep-soft); }
+
+/* Parts toolbar */
+.parts-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0.6rem 0 1rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.parts-tools .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-right: 0.2rem; }
+.parts-tools button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.parts-tools button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.parts-tools .count { margin-left: auto; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.parts-tools .note { flex-basis: 100%; font-size: 0.78rem; color: var(--muted); }
+
+/* Long inline code (file names, coding parameters) wraps instead of widening the page. */
+p code, li code, td code, dd code { overflow-wrap: anywhere; }
+
+/* Worksheets and job cards */
+.fill-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.5rem;
+  margin: 1.2rem 0 0.4rem; padding: 0.6rem 0.7rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+}
+.fill-tools .note { flex: 1 1 16rem; font-size: 0.82rem; color: var(--muted); }
+.fill-tools button {
+  font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer;
+}
+td.fill-cell { padding: 0.1rem 0.35rem; min-width: 5.5rem; }
+input.fill {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95em; color: var(--fg);
+  background: transparent; border: 0; border-bottom: 1px dashed var(--line); padding: 0.35rem 0.15rem;
+}
+input.fill:focus { background: var(--accent-soft); border-bottom-color: var(--accent); outline: none; }
+ul.task-list { list-style: none; padding-left: 0.1rem; }
+ul.task-list li { position: relative; margin: 0.3rem 0; padding-left: 1.75rem; }
+ul.task-list li label { cursor: pointer; }
+ul.task-list input[type="checkbox"] { position: absolute; left: 0; top: 0.18rem; width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--accent); }
+tr[hidden] { display: none !important; }
+
+/* Callouts (GitHub alert syntax in the Markdown source) */
+.callout {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0.75rem 0.95rem 0.8rem;
+  border-left: 4px solid var(--edge, var(--accent));
+  background: var(--fill, var(--accent-soft));
+  border-radius: 0 6px 6px 0;
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout .callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--edge-text, var(--accent));
+  margin-bottom: 0.25rem;
+}
+.callout-note { --edge: var(--accent); --fill: var(--accent-soft); --edge-text: var(--accent); }
+.callout-tip { --edge: var(--ok); --fill: var(--ok-fill); --edge-text: var(--ok); }
+.callout-key { --edge: var(--fg); --fill: var(--panel); --edge-text: var(--fg); }
+.callout-warn { --edge: var(--warn-edge); --fill: var(--warn-fill); --edge-text: var(--warn); }
+.callout-crit { --edge: var(--crit); --fill: var(--crit-fill); --edge-text: var(--crit); }
+
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+
+/* Deep dives */
+details {
+  margin: 1rem 0 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  width: 1ch;
+  flex: none;
+}
+details[open] > summary::before { content: "\2212"; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > :not(summary) { margin-left: 0.9rem; margin-right: 0.9rem; }
+details > :nth-child(2) { margin-top: 0.8rem; }
+details > :last-child { margin-bottom: 0.9rem; }
+
+/* Figures */
+figure.diagram { margin: 1.4rem 0 1.8rem; }
+.diagram-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 0.6rem;
+}
+.diagram-scroll svg { display: block; width: 100%; height: auto; min-width: 600px; color: var(--fg); }
+.diagram-scroll.portrait svg { min-width: 340px; max-width: 540px; margin: 0 auto; }
+figure.diagram figcaption { font-size: 0.86rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
+figure.diagram figcaption strong { color: var(--fg); }
+.scroll-hint { display: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem; }
+@media (max-width: 640px) { .diagram-scroll:not(.portrait) + .scroll-hint, .scroll-hint.show { display: block; } }
+
+/* Diagram kit: classes used inside the SVG files */
+.diagram svg text { font-family: var(--font-body); fill: currentColor; }
+.diagram svg .t { font-size: 13px; }
+.diagram svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+.diagram svg .t-xs { font-size: 10.5px; fill: var(--muted); }
+.diagram svg .t-b { font-weight: 600; }
+.diagram svg .t-h { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; }
+.diagram svg .t-mono { font-family: var(--font-mono); }
+.diagram svg .ln { stroke: currentColor; fill: none; stroke-width: 1.5; }
+.diagram svg .ln-thin { stroke: var(--muted); fill: none; stroke-width: 1; }
+.diagram svg .ln-faint { stroke: var(--line); fill: none; stroke-width: 1; }
+.diagram svg .dash { stroke-dasharray: 5 4; }
+.diagram svg .fill-fg { fill: currentColor; }
+.diagram svg .fill-bg { fill: var(--surface); }
+.diagram svg .panel { fill: var(--panel); stroke: var(--line); }
+.diagram svg .donor { fill: var(--c-donor-soft); stroke: var(--c-donor); }
+.diagram svg .new { fill: var(--c-new-soft); stroke: var(--c-new); }
+.diagram svg .fab { fill: var(--c-fab-soft); stroke: var(--c-fab); }
+.diagram svg .keep { fill: var(--c-keep-soft); stroke: var(--c-keep); }
+.diagram svg .donor-s { stroke: var(--c-donor); fill: none; }
+.diagram svg .new-s { stroke: var(--c-new); fill: none; }
+.diagram svg .fab-s { stroke: var(--c-fab); fill: none; }
+.diagram svg .crit-s { stroke: var(--crit); fill: none; }
+.diagram svg .donor-t { fill: var(--c-donor); }
+.diagram svg .new-t { fill: var(--c-new); }
+.diagram svg .fab-t { fill: var(--c-fab); }
+.diagram svg .crit-t { fill: var(--crit); }
+.diagram svg .crit-f { fill: var(--crit); }
+.diagram svg .donor-f { fill: var(--c-donor); }
+.diagram svg .fab-f { fill: var(--c-fab); }
+.diagram svg .new-f { fill: var(--c-new); }
+.diagram svg .warn-f { fill: var(--warn-fill); stroke: var(--warn-edge); }
+.diagram svg .shape { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; }
+.diagram svg .keep-s { stroke: var(--c-keep); fill: none; }
+.diagram svg .keep-f { fill: var(--c-keep); }
+.diagram svg .t-h { font-size: 15px; }
+
+/* Footer */
+.colophon { border-top: 1px solid var(--line); background: var(--surface); }
+.colophon .wrap { padding-block: 1.4rem 2rem; font-size: 0.85rem; color: var(--muted); }
+.colophon p { margin: 0 0 0.5rem; }
+
+@media (max-width: 480px) {
+  body { font-size: 15.5px; }
+  h3 { font-size: 1.18rem; }
+  .spec { grid-template-columns: 1fr 1fr; }
+}
+
+/* Section links in the chapter navigation appear only in the wide-screen sidebar */
+.chapters .sub { display: none; }
+
+/* Wide screens: sidebar contents, text at reading width, tables and figures use the full column */
+@media (min-width: 1100px) {
+  html { scroll-padding-top: 1.5rem; }
+  body { font-size: 17px; display: grid; grid-template-columns: 17.5rem minmax(0, 1fr); }
+  body > .masthead { grid-column: 2; grid-row: 1; }
+  body > main { grid-column: 2; grid-row: 2; }
+  body > .colophon { grid-column: 2; grid-row: 3; }
+  body > nav.chapters {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    scrollbar-width: thin;
+  }
+  .chapters > ol {
+    flex-direction: column;
+    overflow: visible;
+    max-width: none;
+    gap: 0.05rem;
+    padding: 1.4rem 0.9rem 3rem 1.1rem;
+  }
+  .chapters a { white-space: normal; }
+  .chapters .lbl-short { display: none; }
+  .chapters .lbl-full { display: inline; }
+  .chapters li.open > .sub { display: block; }
+  .chapters .sub {
+    list-style: none;
+    margin: 0.2rem 0 0.7rem 0.55rem;
+    padding: 0 0 0 0.55rem;
+    border-left: 1px solid var(--line);
+  }
+  .chapters .sub a {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.22rem 0.45rem;
+    color: var(--muted);
+  }
+  .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
+  .masthead .wrap { padding-block: 3rem 2rem; }
+  .masthead .lede,
+  main section > :is(p, ul, ol, h2, h3, h4, blockquote, aside, details),
+  main .wrap > :is(p, ul, ol, blockquote, aside, details) { max-width: 47rem; }
+  .diagram-scroll.portrait svg { max-width: 620px; }
+  figure.photo, .photo-pair { max-width: 58rem; }
+  table { font-size: 0.88rem; }
+}
+
+/* Printing: garage-ready pages without navigation or tick boxes */
+@media print {
+  :root:not([data-theme="print"]), :root[data-theme] {
+    --bg: #fff; --surface: #fff; --panel: #eef1f4; --fg: #000; --muted: #444; --line: #bbb;
+    --accent: #1d5fa6; --accent-soft: #eef3fa; --warn: #6b4600; --warn-fill: #fff7dc; --warn-edge: #c99a1c;
+    --crit: #9a1f18; --crit-fill: #fdeeec; --ok: #1f6e45; --ok-fill: #ecf7f0;
+    --c-donor: #1d5fa6; --c-donor-soft: #e6eef9; --c-new: #1f6e45; --c-new-soft: #e8f4ec;
+    --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
+  }
+  body { display: block !important; font-size: 10.5pt; background: #fff; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col { display: none !important; }
+  input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
+  main[data-fill] ~ .colophon { display: none; }
+  td.fill-cell { min-width: 0; }
+  .wrap { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .masthead, .colophon { border: 0; }
+  main section { break-before: page; border-top: 0 !important; margin-top: 0 !important; padding-top: 0; }
+  main section:first-child { break-before: auto; }
+  h2, h3, h4 { break-after: avoid; }
+  tr, figure, aside, .callout { break-inside: avoid; }
+  .table-wrap { overflow: visible; border: 0; }
+  table { font-size: 8.5pt; }
+  th { white-space: normal; }
+  .diagram-scroll { border: 0; padding: 0; overflow: visible; }
+  .diagram-scroll svg { min-width: 0 !important; max-width: 100%; }
+  .diagram-scroll.portrait svg { max-width: 13cm; }
+  figure.photo img { width: auto; max-width: 100%; max-height: 9cm; }
+  .photo-pair { grid-template-columns: 1fr 1fr; break-inside: avoid; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+  a { color: inherit; text-decoration: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Calculators page (CALCULATORS.md): forms, results and the wheel cross-section.
+   Appended after page.css. Uses only its colour and font variables, so the light, dark
+   and print themes all apply. Every rule is scoped to .calc. */
+
+.calc {
+  container-type: inline-size;
+  margin: 1.1rem 0 1.4rem;
+  padding: 1rem 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.calc-nojs { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.calc.is-ready .calc-nojs { display: none; }
+.calc-form { display: grid; gap: 1.1rem; margin: 0; }
+.calc fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.calc legend {
+  padding: 0;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.calc .calc-panel-title {
+  margin-bottom: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+}
+.calc-group > :not(legend) + :not(legend) { margin-top: 0.8rem; }
+
+/* Two side-by-side panels when the calculator is wide enough, stacked otherwise. */
+.calc-cols { display: grid; gap: 1rem; }
+.calc-panel {
+  min-width: 0;
+  padding: 0.85rem 0.85rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+div.calc-panel { container-type: inline-size; }
+
+/* Fields */
+.calc-fields {
+  display: grid;
+  gap: 0.75rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+  align-items: start;
+}
+.calc-fields-3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 7.5rem), 1fr)); }
+.calc-fields-wide { grid-template-columns: minmax(0, 34rem); }
+.calc-field { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.calc-field > label { font-size: 0.88rem; font-weight: 500; line-height: 1.3; }
+.calc input[type="number"],
+.calc input[type="text"],
+.calc select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0.45rem 0.6rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+  background-color: var(--bg);
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+}
+.calc input:invalid { box-shadow: none; }
+.calc input[aria-invalid="true"] { border-color: var(--crit); box-shadow: inset 0 0 0 1px var(--crit); }
+.calc input[type="radio"],
+.calc input[type="checkbox"] {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.calc-choice { display: block; }
+.calc-options { display: flex; flex-wrap: wrap; gap: 0 1.2rem; }
+.calc-options label,
+.calc-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.calc-check { margin-top: 0.35rem; }
+.calc-check label { font-weight: 500; cursor: pointer; }
+.calc-hint { font-size: 0.8rem; line-height: 1.35; color: var(--muted); }
+.calc-error { font-size: 0.82rem; font-weight: 500; line-height: 1.35; color: var(--crit); }
+.calc-error:empty { display: none; }
+
+/* Gear ratios: three across on a phone, six across when the panel is wide enough. */
+.calc-ratio-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+.calc-ratio-grid .calc-field > label {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.calc-ratio-grid input[type="number"] { padding-left: 0.45rem; padding-right: 0.3rem; -moz-appearance: textfield; appearance: textfield; }
+.calc-ratio-grid input::-webkit-inner-spin-button,
+.calc-ratio-grid input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.calc-ratios .calc-hint,
+.calc-ratios .calc-error { display: block; margin-top: 0.4rem; }
+.calc-ratios .calc-error:empty { display: none; }
+@container (min-width: 24rem) {
+  .calc-ratio-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* Results */
+.calc-results { display: grid; gap: 0.7rem; }
+.calc-out, .calc-facts, .calc-summary { margin: 0; }
+.calc output { display: block; font-variant-numeric: tabular-nums; }
+.calc output:empty { display: none; }
+.calc-k { color: var(--muted); }
+.calc-v { font-weight: 600; color: var(--fg); }
+.calc-facts { margin-top: 0.75rem; font-size: 0.9rem; line-height: 1.45; }
+.calc-summary,
+.calc-out {
+  padding: 0.6rem 0.8rem;
+  background: var(--panel);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.calc-panel .calc-out { margin-top: 0.75rem; }
+.calc-summary p { margin: 0; }
+.calc-summary p + p { margin-top: 0.35rem; }
+/* The fitment results: one panel, two columns when there's room. */
+.calc-list {
+  columns: 2 18rem;
+  column-gap: 2rem;
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  list-style: none;
+  background: var(--panel);
+  border-radius: 4px;
+}
+.calc-list li { margin: 0; padding: 0.12rem 0; line-height: 1.45; break-inside: avoid; }
+.calc-mark { color: var(--muted); }
+
+/* Result tables (built by calculators.js) */
+.calc-table {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.calc-results > .calc-table { margin-top: 0; }
+.calc-table:empty { display: none; }
+.calc-table table { font-size: 0.86rem; }
+.calc-table th,
+.calc-table td { padding: 0.4rem 0.55rem; }
+.calc-table thead th { white-space: normal; vertical-align: bottom; line-height: 1.3; }
+.calc-table thead th + th,
+.calc-table td { text-align: right; }
+.calc-table tbody th {
+  font-family: var(--font-body);
+  font-size: inherit;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fg);
+  background: none;
+  white-space: normal;
+}
+.calc-table tbody tr:last-child th { border-bottom: 0; }
+@container (max-width: 26rem) {
+  .calc-table th, .calc-table td { padding: 0.35rem 0.4rem; }
+  .calc-table thead th { letter-spacing: 0.03em; }
+}
+.calc-table td.calc-over { color: var(--muted); }
+.calc-table caption {
+  caption-side: top;
+  padding: 0.5rem 0.55rem 0.35rem;
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.calc-note { margin: 0.35rem 0 0; font-size: 0.8rem; color: var(--muted); }
+.calc-note:empty { display: none; }
+.calc-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Pass and fail: always a word as well as a colour. */
+.calc-badge {
+  display: inline-block;
+  margin-right: 0.2rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  vertical-align: 0.1em;
+}
+.calc-pass { color: var(--ok); background: var(--ok-fill); }
+.calc-fail { color: var(--crit); background: var(--crit-fill); }
+
+/* Wheel cross-section (an SVG drawn by calculators.js, 1 unit = 1 mm) */
+.calc-fit { margin: 0; }
+.calc-fit-draw { padding: 0.5rem; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; }
+.calc-fit-draw svg { display: block; width: 100%; height: auto; max-width: 34rem; margin: 0 auto; overflow: visible; color: var(--fg); }
+.calc-fit figcaption { margin-top: 0.45rem; font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
+.calc-key { display: inline-block; width: 1.4rem; height: 0.75rem; margin-right: 0.2rem; vertical-align: -0.08em; border-radius: 2px; }
+.calc-key-new { background: var(--accent-soft); border: 2px solid var(--accent); }
+.calc-key-ref { margin-left: 0.5rem; border: 2px dashed var(--fg); }
+.calc-fit-draw svg * { vector-effect: non-scaling-stroke; }
+.calc-fit-draw svg text { font-family: var(--font-body); font-size: 12.5px; fill: var(--muted); }
+.calc-fit-draw svg .fit-strong { fill: var(--fg); font-weight: 600; }
+.fit-new-tire { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.fit-new-rim { fill: var(--accent); stroke: var(--accent); stroke-width: 1; stroke-linejoin: round; }
+.fit-ref-tire,
+.fit-ref-rim { fill: none; stroke: var(--fg); stroke-width: 1.5; stroke-dasharray: 5 4; stroke-linejoin: round; }
+.fit-hub { stroke: var(--muted); stroke-width: 4; }
+.fit-plane { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 6 3 1 3; }
+.fit-guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; }
+.fit-scale { stroke: var(--fg); stroke-width: 1.5; fill: none; }
+@container (min-width: 26rem) {
+  .calc-fit-draw svg text { font-size: 10px; }
+}
+@container (min-width: 36rem) {
+  .calc-fit-draw svg text { font-size: 8.5px; }
+}
+@container (min-width: 46rem) {
+  .calc-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .calc { padding: 0.8rem 0.75rem 0.9rem; }
+  .calc-panel { padding: 0.75rem 0.7rem 0.8rem; }
+}
+
+/* Printing: keep the typed values and results, drop hints, keep panels whole. */
+@media print {
+  .calc { padding: 0.5rem 0.6rem; }
+  .calc-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+  .calc-panel { padding: 0.5rem 0.55rem 0.6rem; }
+  .calc-panel, .calc-table, .calc-fit, .calc-summary, .calc-out, .calc-list { break-inside: avoid; }
+  .calc input[type="number"], .calc input[type="text"], .calc select { min-height: 0; padding: 0.15rem 0.35rem; }
+  .calc-options label, .calc-check { min-height: 0; }
+  .calc-hint, .calc-nojs { display: none; }
+  .calc-summary, .calc-out, .calc-list { background: none; border: 1px solid var(--line); }
+  .calc-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .calc-fit-draw { background: none; }
+  .calc-fit-draw svg { max-width: 12cm; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <nav class="sitenav" aria-label="Site"><ul><li><a href="./">Guide</a></li><li><a href="wiring-and-coding.html">Wiring and coding</a></li><li><a href="job-cards.html">Job cards</a></li><li><a href="worksheets.html">Worksheets</a></li><li><a href="calculators.html" aria-current="page">Calculators</a></li><li><a href="research.html">Research notes</a></li><li><a href="https://github.com/pniessen/e46-m3-touring">Source on GitHub</a></li></ul></nav>
+    <p class="eyebrow">Calculators &middot; gearing, tires and wheel fitment</p>
+    <h1>Calculators</h1>
+    <p class="lede">Four calculators for planning the conversion: gearing and road speed, tire size and the speedometer, wheel fitment, and tire load. They run in your browser and save nothing: reload the page and they start again.</p>
+    
+  </div>
+</header>
+<nav class="chapters" aria-label="Chapters"><ol><li><a href="#gearing-and-speed">Gearing and speed</a></li><li><a href="#tire-size-change">Tire size change</a></li><li><a href="#wheel-fitment">Wheel fitment</a></li><li><a href="#tire-load-check">Tire load check</a></li></ol></nav>
+<main data-page="calc"><div class="wrap"><section id="gearing-and-speed"><h2>Gearing and speed</h2>
+<p>Compare two drivetrains side by side: the road speed in each gear at an engine speed you choose, and the engine speed in each gear at a road speed. Setup A starts as the M3's six-speed and final drive on its 18-inch rear tire. Setup B starts as a US 325i Touring's five-speed and final drive on its standard tire. Pick another preset, or type your own ratios.</p>
+<div class="calc" id="calc-gearing">
+<p class="calc-nojs">This calculator needs JavaScript.</p>
+<form autocomplete="off" class="calc-form" novalidate="">
+<fieldset class="calc-group">
+<legend>Compare at</legend>
+<div class="calc-fields">
+<div class="calc-field">
+<label for="g-rpm">Engine speed (rpm)</label>
+<input aria-describedby="g-rpm-hint g-rpm-err" id="g-rpm" inputmode="numeric" max="10000" min="500" step="100" type="number" value="8000"/>
+<span class="calc-hint" id="g-rpm-hint">The S54 revs to 8,000 rpm.</span>
+<span class="calc-error" id="g-rpm-err"></span>
+</div>
+<div class="calc-field">
+<label for="g-speed">Road speed (<span class="calc-unit">mph</span>)</label>
+<input aria-describedby="g-speed-err" id="g-speed" inputmode="decimal" max="250" min="1" step="1" type="number" value="70"/>
+<span class="calc-error" id="g-speed-err"></span>
+</div>
+<fieldset class="calc-field calc-choice">
+<legend>Speed in</legend>
+<div class="calc-options">
+<label><input checked="" name="g-unit" type="radio" value="mph"/> mph</label>
+<label><input name="g-unit" type="radio" value="kmh"/> km/h</label>
+</div>
+</fieldset>
+</div>
+</fieldset>
+<div class="calc-cols">
+<div class="calc-panel" id="g-a">
+<fieldset class="calc-group">
+<legend class="calc-panel-title">Setup A</legend>
+<div class="calc-field">
+<label for="g-a-preset">Gearbox and final drive</label>
+<select class="calc-preset" id="g-a-preset">
+<option data-fd="3.62" data-ratios="4.23 2.53 1.67 1.23 1.00 0.83" selected="" value="m3">E46 M3 6-speed, 3.62</option>
+<option data-fd="3.46" data-ratios="4.23 2.52 1.66 1.22 1.00" value="t325">US 325i Touring 5-speed, 3.46</option>
+<option value="custom">Custom</option>
+</select>
+</div>
+<fieldset class="calc-ratios">
+<legend>Gear ratios</legend>
+<div class="calc-ratio-grid">
+<div class="calc-field"><label for="g-a-r1">1st</label><input aria-describedby="g-a-ratio-err" data-err="g-a-ratio-err" id="g-a-r1" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="4.23"/></div>
+<div class="calc-field"><label for="g-a-r2">2nd</label><input aria-describedby="g-a-ratio-err" data-err="g-a-ratio-err" id="g-a-r2" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="2.53"/></div>
+<div class="calc-field"><label for="g-a-r3">3rd</label><input aria-describedby="g-a-ratio-err" data-err="g-a-ratio-err" id="g-a-r3" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="1.67"/></div>
+<div class="calc-field"><label for="g-a-r4">4th</label><input aria-describedby="g-a-ratio-err" data-err="g-a-ratio-err" id="g-a-r4" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="1.23"/></div>
+<div class="calc-field"><label for="g-a-r5">5th</label><input aria-describedby="g-a-ratio-err" data-err="g-a-ratio-err" id="g-a-r5" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="1.00"/></div>
+<div class="calc-field"><label for="g-a-r6">6th</label><input aria-describedby="g-a-ratio-err" data-err="g-a-ratio-err" id="g-a-r6" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="0.83"/></div>
+</div>
+<span class="calc-hint">Leave 6th empty for a five-speed.</span>
+<span class="calc-error" id="g-a-ratio-err"></span>
+</fieldset>
+<div class="calc-fields">
+<div class="calc-field">
+<label for="g-a-fd">Final drive</label>
+<input aria-describedby="g-a-fd-err" id="g-a-fd" inputmode="decimal" max="7" min="1.5" step="0.01" type="number" value="3.62"/>
+<span class="calc-error" id="g-a-fd-err"></span>
+</div>
+<div class="calc-field">
+<label for="g-a-tire">Tire size</label>
+<input aria-describedby="g-a-tire-hint g-a-tire-err" autocapitalize="characters" autocomplete="off" id="g-a-tire" list="calc-tire-sizes" spellcheck="false" type="text" value="255/40R18"/>
+<span class="calc-hint" id="g-a-tire-hint">Like 255/40R18</span>
+<span class="calc-error" id="g-a-tire-err"></span>
+</div>
+</div>
+</fieldset>
+<p class="calc-facts"><output aria-live="polite" for="g-a-tire" id="g-a-facts"></output></p>
+<div class="calc-table" id="g-a-table"></div>
+</div>
+<div class="calc-panel" id="g-b">
+<fieldset class="calc-group">
+<legend class="calc-panel-title">Setup B</legend>
+<div class="calc-field">
+<label for="g-b-preset">Gearbox and final drive</label>
+<select class="calc-preset" id="g-b-preset">
+<option data-fd="3.62" data-ratios="4.23 2.53 1.67 1.23 1.00 0.83" value="m3">E46 M3 6-speed, 3.62</option>
+<option data-fd="3.46" data-ratios="4.23 2.52 1.66 1.22 1.00" selected="" value="t325">US 325i Touring 5-speed, 3.46</option>
+<option value="custom">Custom</option>
+</select>
+</div>
+<fieldset class="calc-ratios">
+<legend>Gear ratios</legend>
+<div class="calc-ratio-grid">
+<div class="calc-field"><label for="g-b-r1">1st</label><input aria-describedby="g-b-ratio-err" data-err="g-b-ratio-err" id="g-b-r1" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="4.23"/></div>
+<div class="calc-field"><label for="g-b-r2">2nd</label><input aria-describedby="g-b-ratio-err" data-err="g-b-ratio-err" id="g-b-r2" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="2.52"/></div>
+<div class="calc-field"><label for="g-b-r3">3rd</label><input aria-describedby="g-b-ratio-err" data-err="g-b-ratio-err" id="g-b-r3" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="1.66"/></div>
+<div class="calc-field"><label for="g-b-r4">4th</label><input aria-describedby="g-b-ratio-err" data-err="g-b-ratio-err" id="g-b-r4" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="1.22"/></div>
+<div class="calc-field"><label for="g-b-r5">5th</label><input aria-describedby="g-b-ratio-err" data-err="g-b-ratio-err" id="g-b-r5" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value="1.00"/></div>
+<div class="calc-field"><label for="g-b-r6">6th</label><input aria-describedby="g-b-ratio-err" data-err="g-b-ratio-err" id="g-b-r6" inputmode="decimal" max="7" min="0.3" step="0.01" type="number" value=""/></div>
+</div>
+<span class="calc-hint">Leave 6th empty for a five-speed.</span>
+<span class="calc-error" id="g-b-ratio-err"></span>
+</fieldset>
+<div class="calc-fields">
+<div class="calc-field">
+<label for="g-b-fd">Final drive</label>
+<input aria-describedby="g-b-fd-err" id="g-b-fd" inputmode="decimal" max="7" min="1.5" step="0.01" type="number" value="3.46"/>
+<span class="calc-error" id="g-b-fd-err"></span>
+</div>
+<div class="calc-field">
+<label for="g-b-tire">Tire size</label>
+<input aria-describedby="g-b-tire-hint g-b-tire-err" autocapitalize="characters" autocomplete="off" id="g-b-tire" list="calc-tire-sizes" spellcheck="false" type="text" value="205/55R16"/>
+<span class="calc-hint" id="g-b-tire-hint">Like 255/40R18</span>
+<span class="calc-error" id="g-b-tire-err"></span>
+</div>
+</div>
+</fieldset>
+<p class="calc-facts"><output aria-live="polite" for="g-b-tire" id="g-b-facts"></output></p>
+<div class="calc-table" id="g-b-table"></div>
+</div>
+</div>
+<p class="calc-summary"><output aria-live="polite" for="g-rpm g-speed g-a-preset g-b-preset g-a-tire g-b-tire" id="g-compare"></output></p>
+<datalist id="calc-tire-sizes">
+<option value="205/55R16">US 325i standard</option>
+<option value="225/45R17">US 325i Sport Package</option>
+<option value="225/45R18">M3 front, 18-inch</option>
+<option value="255/40R18">M3 rear, 18-inch</option>
+<option value="225/40R19">M3 front, 19-inch</option>
+<option value="255/35R19">M3 rear, 19-inch</option>
+<option value="235/35R19">CSL front</option>
+<option value="265/30R19">CSL rear</option>
+</datalist>
+</form>
+</div>
+<p>The figures use the tire's nominal size, which Hankook defines for a tire that is inflated and carrying no load (<a href="https://www.hankooktire.com/uk/en/help-support/tire-guide/sizes-specs.html">Hankook</a>), so treat them as close estimates. The US M3 is electronically limited to 155 mph (<a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022127EN_US/41385">BMW USA</a>), so faster top-gear figures are theoretical.</p>
+<p><strong>Where the numbers come from:</strong> M3 gear ratios and the 3.62 final drive from BMW USA's <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022127EN_US/41385">2002</a> and <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022150EN_US/41463">2003</a> M3 spec sheets; BMW's <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0019121EN_US/37451">2006 sheet</a> and <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/1%20M3%20Complete%20Vehicle.pdf">ST041 training manual</a> print 3.64, about 0.6% shorter. US 325i Touring five-speed ratios and the 3.46 final drive from BMW USA's <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022131EN_US/41405">2002</a> and <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022146EN_US/41437">2003</a> spec sheets for the 325i Sport Wagon, as BMW USA called the Touring; we found no sheet for 2001, 2004 or 2005 cars, so confirm your own car's ratio. The 8,000 rpm default is the S54's maximum engine speed (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/1%20M3%20Complete%20Vehicle.pdf">BMW ST041</a>). Tire sizes come from the same BMW USA sheets, and from <a href="https://bimmertips.com/oem-bmw-e46-m3-wheel-options-specs/">BimmerTips</a> for the CSL.</p>
+</section><section id="tire-size-change"><h2>Tire size change</h2>
+<p>Compare a reference tire with a new one: diameter, circumference and the change between them. The speedometer figures assume your speedometer read true on the reference tire, and show only the effect of the tire change.</p>
+<div class="calc" id="calc-speedo">
+<p class="calc-nojs">This calculator needs JavaScript.</p>
+<form autocomplete="off" class="calc-form" novalidate="">
+<div class="calc-fields">
+<div class="calc-field">
+<label for="s-ref">Reference tire</label>
+<input aria-describedby="s-ref-hint s-ref-err" autocapitalize="characters" autocomplete="off" id="s-ref" list="calc-tire-sizes" spellcheck="false" type="text" value="205/55R16"/>
+<span class="calc-hint" id="s-ref-hint">The size your speedometer reads true on</span>
+<span class="calc-error" id="s-ref-err"></span>
+</div>
+<div class="calc-field">
+<label for="s-new">New tire</label>
+<input aria-describedby="s-new-hint s-new-err" autocapitalize="characters" autocomplete="off" id="s-new" list="calc-tire-sizes" spellcheck="false" type="text" value="255/40R18"/>
+<span class="calc-hint" id="s-new-hint">Like 255/40R18</span>
+<span class="calc-error" id="s-new-err"></span>
+</div>
+<div class="calc-field">
+<label for="s-speed">True speed (<span class="calc-unit">mph</span>)</label>
+<input aria-describedby="s-speed-err" id="s-speed" inputmode="decimal" max="250" min="1" step="1" type="number" value="60"/>
+<span class="calc-error" id="s-speed-err"></span>
+</div>
+<fieldset class="calc-field calc-choice">
+<legend>Speed in</legend>
+<div class="calc-options">
+<label><input checked="" name="s-unit" type="radio" value="mph"/> mph</label>
+<label><input name="s-unit" type="radio" value="kmh"/> km/h</label>
+</div>
+</fieldset>
+</div>
+<div class="calc-results">
+<div class="calc-summary">
+<p><output aria-live="polite" for="s-ref s-new" id="s-change"></output></p>
+<p><output aria-live="polite" for="s-ref s-new s-speed" id="s-shows"></output></p>
+<p><output aria-live="polite" for="s-ref s-new s-speed" id="s-true"></output></p>
+</div>
+<div class="calc-table" id="s-table"></div>
+</div>
+</form>
+</div>
+<p><strong>Where the numbers come from:</strong> the presets are the US 325i's standard and Sport Package sizes (<a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022131EN_US/41405">BMW USA</a>), the M3's 18- and 19-inch sizes (<a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022150EN_US/41463">BMW USA</a>) and the CSL's (<a href="https://bimmertips.com/oem-bmw-e46-m3-wheel-options-specs/">BimmerTips</a>). Diameters follow Hankook's definitions of the size code (<a href="https://www.hankooktire.com/uk/en/help-support/tire-guide/sizes-specs.html">Hankook</a>).</p>
+</section><section id="wheel-fitment"><h2>Wheel fitment</h2>
+<p>Compare a new wheel and tire with a reference wheel on the same hub: how far the rim's inner edge, the rim's outer face and the tire's sidewalls move in or out, and how the track changes. On the rear axle the M3 and the 325i Touring both have their hub faces about 788.5 mm from the car's centerline (BMW's published tracks put it between about 788 and 790 mm, so treat absolute positions as good to about 1 mm) (see <a href="./#rear-arches-and-doors">Rear arches and doors</a>), so there the calculator also gives positions from the centerline and the track. To compare with your Touring's current wheels, choose <strong>Custom</strong> and type the width and ET marked on the wheel.</p>
+<div class="calc" id="calc-fitment">
+<p class="calc-nojs">This calculator needs JavaScript.</p>
+<form autocomplete="off" class="calc-form" novalidate="">
+<div class="calc-fields calc-fields-wide">
+<div class="calc-field">
+<label for="f-axle">Axle</label>
+<select aria-describedby="f-axle-hint" id="f-axle">
+<option selected="" value="788.5">Rear: hub face at 788.5 mm</option>
+<option value="801">Front, M3 parts: hub face at 801 mm</option>
+<option value="">Any axle: from the hub face only</option>
+</select>
+<span class="calc-hint" id="f-axle-hint">Hub face distance from the car's centerline</span>
+</div>
+</div>
+<div class="calc-cols">
+<div class="calc-panel" id="f-ref">
+<fieldset class="calc-group">
+<legend class="calc-panel-title">Reference wheel</legend>
+<div class="calc-field">
+<label for="f-ref-preset">Wheel</label>
+<select class="calc-preset" id="f-ref-preset">
+<optgroup label="Rear">
+<option data-et="26" data-tire="255/40R18" data-width="9" selected="" value="s67-18-r">Style 67 18-inch rear: 9J ET26, 255/40R18</option>
+<option data-et="27" data-tire="255/35R19" data-width="9.5" value="s67-19-r">Style 67 19-inch rear: 9.5J ET27, 255/35R19</option>
+<option data-et="27" data-tire="255/35R19" data-width="9.5" value="s163-r">Style 163M rear: 9.5J ET27, 255/35R19</option>
+<option data-et="27" data-tire="265/30R19" data-width="9.5" value="csl-r">CSL rear: 9.5J ET27, 265/30R19</option>
+</optgroup>
+<optgroup label="Front">
+<option data-et="47" data-tire="225/45R18" data-width="8" value="s67-18-f">Style 67 18-inch front: 8J ET47, 225/45R18</option>
+<option data-et="47" data-tire="225/40R19" data-width="8" value="s67-19-f">Style 67 19-inch front: 8J ET47, 225/40R19</option>
+<option data-et="47" data-tire="225/40R19" data-width="8" value="s163-f">Style 163M front: 8J ET47, 225/40R19</option>
+<option data-et="44" data-tire="235/35R19" data-width="8.5" value="csl-f">CSL front: 8.5J ET44, 235/35R19</option>
+</optgroup>
+<option value="custom">Custom</option>
+</select>
+</div>
+<div class="calc-fields calc-fields-3">
+<div class="calc-field">
+<label for="f-ref-w">Rim width (in)</label>
+<input aria-describedby="f-ref-w-err" id="f-ref-w" inputmode="decimal" max="13" min="4" step="0.5" type="number" value="9"/>
+<span class="calc-error" id="f-ref-w-err"></span>
+</div>
+<div class="calc-field">
+<label for="f-ref-et">Offset (ET, mm)</label>
+<input aria-describedby="f-ref-et-err" id="f-ref-et" max="80" min="-50" step="1" type="number" value="26"/>
+<span class="calc-error" id="f-ref-et-err"></span>
+</div>
+<div class="calc-field">
+<label for="f-ref-tire">Tire size</label>
+<input aria-describedby="f-ref-tire-err" autocapitalize="characters" autocomplete="off" id="f-ref-tire" list="calc-tire-sizes" spellcheck="false" type="text" value="255/40R18"/>
+<span class="calc-error" id="f-ref-tire-err"></span>
+</div>
+</div>
+</fieldset>
+</div>
+<div class="calc-panel" id="f-new">
+<fieldset class="calc-group">
+<legend class="calc-panel-title">New wheel</legend>
+<div class="calc-field">
+<label for="f-new-preset">Wheel</label>
+<select class="calc-preset" id="f-new-preset">
+<optgroup label="Rear">
+<option data-et="26" data-tire="255/40R18" data-width="9" value="s67-18-r">Style 67 18-inch rear: 9J ET26, 255/40R18</option>
+<option data-et="27" data-tire="255/35R19" data-width="9.5" value="s67-19-r">Style 67 19-inch rear: 9.5J ET27, 255/35R19</option>
+<option data-et="27" data-tire="255/35R19" data-width="9.5" selected="" value="s163-r">Style 163M rear: 9.5J ET27, 255/35R19</option>
+<option data-et="27" data-tire="265/30R19" data-width="9.5" value="csl-r">CSL rear: 9.5J ET27, 265/30R19</option>
+</optgroup>
+<optgroup label="Front">
+<option data-et="47" data-tire="225/45R18" data-width="8" value="s67-18-f">Style 67 18-inch front: 8J ET47, 225/45R18</option>
+<option data-et="47" data-tire="225/40R19" data-width="8" value="s67-19-f">Style 67 19-inch front: 8J ET47, 225/40R19</option>
+<option data-et="47" data-tire="225/40R19" data-width="8" value="s163-f">Style 163M front: 8J ET47, 225/40R19</option>
+<option data-et="44" data-tire="235/35R19" data-width="8.5" value="csl-f">CSL front: 8.5J ET44, 235/35R19</option>
+</optgroup>
+<option value="custom">Custom</option>
+</select>
+</div>
+<div class="calc-fields calc-fields-3">
+<div class="calc-field">
+<label for="f-new-w">Rim width (in)</label>
+<input aria-describedby="f-new-w-err" id="f-new-w" inputmode="decimal" max="13" min="4" step="0.5" type="number" value="9.5"/>
+<span class="calc-error" id="f-new-w-err"></span>
+</div>
+<div class="calc-field">
+<label for="f-new-et">Offset (ET, mm)</label>
+<input aria-describedby="f-new-et-err" id="f-new-et" max="80" min="-50" step="1" type="number" value="27"/>
+<span class="calc-error" id="f-new-et-err"></span>
+</div>
+<div class="calc-field">
+<label for="f-new-tire">Tire size</label>
+<input aria-describedby="f-new-tire-err" autocapitalize="characters" autocomplete="off" id="f-new-tire" list="calc-tire-sizes" spellcheck="false" type="text" value="255/35R19"/>
+<span class="calc-error" id="f-new-tire-err"></span>
+</div>
+</div>
+</fieldset>
+</div>
+</div>
+<div class="calc-results">
+<ul class="calc-list">
+<li><output aria-live="polite" for="f-ref-w f-ref-et f-new-w f-new-et" id="f-inner"></output></li>
+<li><output aria-live="polite" for="f-ref-w f-ref-et f-new-w f-new-et" id="f-outer"></output></li>
+<li><output aria-live="polite" for="f-ref-et f-ref-tire f-new-et f-new-tire" id="f-tout"></output></li>
+<li><output aria-live="polite" for="f-ref-et f-ref-tire f-new-et f-new-tire" id="f-tin"></output></li>
+<li><output aria-live="polite" for="f-ref-et f-new-et" id="f-track"></output></li>
+</ul>
+<figure class="calc-fit">
+<div class="calc-fit-draw" id="f-draw"></div>
+<figcaption><span aria-hidden="true" class="calc-key calc-key-new"></span> New wheel and tire <span aria-hidden="true" class="calc-key calc-key-ref"></span> Reference (dashed). A section through the top of the wheel, seen from behind, drawn to scale. The rim flanges are drawn schematically.</figcaption>
+</figure>
+<div class="calc-table" id="f-table"></div>
+</div>
+</form>
+</div>
+<p>The sidewalls are placed half the tire's nominal section width either side of the rim's centerline. Hankook defines that width for a tire that is mounted, inflated and carrying no load (<a href="https://www.hankooktire.com/uk/en/help-support/tire-guide/sizes-specs.html">Hankook</a>), so check clearances with the actual tire before you cut or weld. The track figures behind those positions are given to the nearest millimeter or tenth of an inch, so treat positions from the centerline as good to a millimeter or two.</p>
+<p><strong>Where the numbers come from:</strong> wheel and tire presets from <a href="https://myair-bdr.bmwgroup.com/static/manual/RadReif/RadReif/00/M-GmbH/MJ2005/e46m3_2005.htm">BMW's wheel and tire list</a>, and from <a href="https://bimmertips.com/oem-bmw-e46-m3-wheel-options-specs/">BimmerTips</a> for the CSL. The rear hub face is half the M3's 1,525 mm rear track (<a href="https://motorsport.org.au/wpblob0fe832abcb/wp-content/uploads/docs/default-source/sporting-technical/group-3e/3-18-007-bmw-e46-m3.pdf">Motorsport Australia</a>) plus the 26 mm offset of its standard rear wheel; half the 325i Sport Wagon's 1,483 mm (<a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022146EN_US/41437">BMW USA</a>) plus a 47 mm offset gives the same. The front hub face is half the M3's 1,508 mm front track plus its 47 mm offset (<a href="https://motorsport.org.au/wpblob0fe832abcb/wp-content/uploads/docs/default-source/sporting-technical/group-3e/3-18-007-bmw-e46-m3.pdf">Motorsport Australia</a>). Offset (ET) is the distance from the rim's centerline to its mounting face, positive when the face sits outboard of the centerline (<a href="https://www.methodracewheels.com/pages/what-is-offset">Method Race Wheels</a>).</p>
+</section><section id="tire-load-check"><h2>Tire load check</h2>
+<p>Check that each axle's two tires can carry that axle's rated load. Type each tire's load index (the number after the size: the 91 in 205/55R16 91V, <a href="https://www.continental-tires.com/tire-knowledge/load-index--li-/">Continental</a>) and tick XL if the tire is marked XL, Reinforced or Extra Load. Then type the gross axle weight ratings (GAWR) from your Touring's door-jamb sticker.</p>
+<div class="calc" id="calc-load">
+<p class="calc-nojs">This calculator needs JavaScript.</p>
+<form autocomplete="off" class="calc-form" novalidate="">
+<fieldset class="calc-group calc-choice">
+<legend>Axle ratings in</legend>
+<div class="calc-options">
+<label><input checked="" name="l-unit" type="radio" value="kg"/> kg</label>
+<label><input name="l-unit" type="radio" value="lb"/> lb</label>
+</div>
+</fieldset>
+<div class="calc-cols">
+<div class="calc-panel" id="l-front">
+<fieldset class="calc-group">
+<legend class="calc-panel-title">Front axle</legend>
+<div class="calc-fields">
+<div class="calc-field">
+<label for="l-f-li">Tire load index</label>
+<input aria-describedby="l-f-li-err" id="l-f-li" inputmode="numeric" max="130" min="75" step="1" type="number"/>
+<span class="calc-error" id="l-f-li-err"></span>
+</div>
+<div class="calc-field">
+<label for="l-f-gawr">Front GAWR (<span class="calc-unit">kg</span>)</label>
+<input aria-describedby="l-f-gawr-err" id="l-f-gawr" inputmode="numeric" min="0" step="1" type="number"/>
+<span class="calc-error" id="l-f-gawr-err"></span>
+</div>
+</div>
+<div class="calc-check"><input id="l-f-xl" type="checkbox"/><label for="l-f-xl">XL (reinforced) tire</label></div>
+</fieldset>
+<p class="calc-out"><output aria-live="polite" for="l-f-li l-f-xl l-f-gawr" id="l-f-out"></output></p>
+</div>
+<div class="calc-panel" id="l-rear">
+<fieldset class="calc-group">
+<legend class="calc-panel-title">Rear axle</legend>
+<div class="calc-fields">
+<div class="calc-field">
+<label for="l-r-li">Tire load index</label>
+<input aria-describedby="l-r-li-err" id="l-r-li" inputmode="numeric" max="130" min="75" step="1" type="number"/>
+<span class="calc-error" id="l-r-li-err"></span>
+</div>
+<div class="calc-field">
+<label for="l-r-gawr">Rear GAWR (<span class="calc-unit">kg</span>)</label>
+<input aria-describedby="l-r-gawr-err" id="l-r-gawr" inputmode="numeric" min="0" step="1" type="number"/>
+<span class="calc-error" id="l-r-gawr-err"></span>
+</div>
+</div>
+<div class="calc-check"><input id="l-r-xl" type="checkbox"/><label for="l-r-xl">XL (reinforced) tire</label></div>
+</fieldset>
+<p class="calc-out"><output aria-live="polite" for="l-r-li l-r-xl l-r-gawr" id="l-r-out"></output></p>
+</div>
+</div>
+</form>
+</div>
+<aside class="callout callout-warn"><span class="callout-label">Warning</span>
+<p>A tire carries its maximum load only at the inflation pressure its maker specifies for that load (<a href="https://www.continental-tires.com/tire-knowledge/load-index--li-/">Continental</a>). XL (reinforced) tires reach theirs only at a higher reference pressure, about 0.4 bar above a standard tire (<a href="https://www.continental-tires.com/tire-knowledge/reinforced-tires/">Continental</a>). A pass here doesn't mean your pressures are right: check the tire maker's load and inflation table for your size, and the pressures on your door placard.</p>
+</aside>
+<p><strong>Where the numbers come from:</strong> the load-index table is Pirelli's, in <a href="https://www.pirelli.com/tyres/en-gb/car/driving-and-tyre-tips/how-to-read/tyre-load-index">kilograms</a> and <a href="https://www.pirelli.com/tires/en-us/car/driving-and-tire-tips/how-to-read/tire-load-index">pounds</a>, for load indexes 75 to 130. It matches <a href="https://www.hankooktire.com/uk/en/help-support/tire-guide/load-speed.html">Hankook's table</a> up to 100, the end of Hankook's chart. Nothing about your car is built in: the axle ratings and load indexes are the ones you type.</p>
+</section></div></main>
+<footer class="colophon"><div class="wrap">
+  <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
+  <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
+  <p>An independent enthusiast project, not affiliated with or endorsed by BMW AG. BMW and M3 are trademarks of BMW AG.</p>
+  <p>Source, history and diagrams: <a href="https://github.com/pniessen/e46-m3-touring">github.com/pniessen/e46-m3-touring</a>. Anything you tick or type on these pages is saved in your browser only.</p>
+</div></footer>
+<script>
+(function () {
+  "use strict";
+
+  // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
+  // Mark the chapter (and section) in view, and keep its link visible.
+  var nav = document.querySelector(".chapters");
+  var bar = document.querySelector(".chapters > ol");
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"));
+  var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
+  var byId = {};
+  chapterLinks.concat(subLinks).forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
+  function reveal(a) {
+    if (sidebarMode()) {
+      var top = a.offsetTop - nav.clientHeight / 3;
+      if (a.offsetTop < nav.scrollTop || a.offsetTop > nav.scrollTop + nav.clientHeight - 40) {
+        nav.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      }
+    } else if (bar) {
+      var left = a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2;
+      bar.scrollTo({ left: Math.max(0, left), behavior: "auto" });
+    }
+  }
+  function setCurrent(id) {
+    var a = byId[id];
+    if (!a || a.getAttribute("aria-current") === "true") return;
+    chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
+    a.setAttribute("aria-current", "true");
+    a.parentNode.classList.add("open");
+    reveal(a);
+  }
+  function setSection(id) {
+    var a = byId[id];
+    if (!a) return;
+    subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
+    a.setAttribute("aria-current", "location");
+    if (sidebarMode()) reveal(a);
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+    }, { rootMargin: "0px 0px -75% 0px" });
+    document.querySelectorAll("main section h3[id]").forEach(function (h) { io2.observe(h); });
+  }
+
+  // Worksheets and job cards: empty table cells become text fields and task lists become tick
+  // boxes. Entries are a convenience saved in this browser only; printing keeps what's typed.
+  var fillMain = document.querySelector("main[data-fill]");
+  if (fillMain) {
+    var FKEY = "e46-m3-touring-" + fillMain.getAttribute("data-page") + "-v1";
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(FKEY) || "{}") || {}; } catch (e) { store = {}; }
+    var saveStore = function () { try { localStorage.setItem(FKEY, JSON.stringify(store)); } catch (e) { /* storage blocked */ } };
+    var fields = [];
+    fillMain.querySelectorAll("table").forEach(function (table, ti) {
+      var heads = table.tHead && table.tHead.rows[0]
+        ? Array.prototype.map.call(table.tHead.rows[0].cells, function (c) { return c.textContent.trim(); }) : [];
+      Array.prototype.forEach.call(table.tBodies, function (tb) {
+        Array.prototype.forEach.call(tb.rows, function (row, ri) {
+          Array.prototype.forEach.call(row.cells, function (cell, ci) {
+            if (cell.textContent.trim() !== "" || cell.children.length) return;
+            var id = "t" + ti + "r" + ri + "c" + ci;
+            var input = document.createElement("input");
+            input.type = "text";
+            input.className = "fill";
+            var rowLabel = row.cells[0] && row.cells[0] !== cell ? row.cells[0].textContent.trim() : "";
+            input.setAttribute("aria-label", (heads[ci] || "Entry") + (rowLabel ? ", " + rowLabel : ""));
+            input.value = store[id] || "";
+            input.addEventListener("input", function () {
+              if (input.value) { store[id] = input.value; } else { delete store[id]; }
+              saveStore();
+            });
+            cell.classList.add("fill-cell");
+            cell.appendChild(input);
+            fields.push(input);
+          });
+        });
+      });
+    });
+    fillMain.querySelectorAll('li input[type="checkbox"]').forEach(function (cb, i) {
+      var id = "c" + i;
+      cb.disabled = false;
+      cb.checked = !!store[id];
+      cb.addEventListener("change", function () {
+        if (cb.checked) { store[id] = 1; } else { delete store[id]; }
+        saveStore();
+      });
+      fields.push(cb);
+    });
+    if (fields.length) {
+      var bar = document.createElement("div");
+      bar.className = "fill-tools";
+      var note = document.createElement("span");
+      note.className = "note";
+      note.textContent = "Type in the blank cells and tick the boxes. Entries are saved in this browser on this device only.";
+      var printBtn = document.createElement("button");
+      printBtn.type = "button";
+      printBtn.textContent = "Print";
+      printBtn.addEventListener("click", function () { window.print(); });
+      var clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.textContent = "Clear my entries";
+      var armed = null;
+      clearBtn.addEventListener("click", function () {
+        if (!armed) {
+          clearBtn.textContent = "Tap again to clear everything";
+          armed = setTimeout(function () { armed = null; clearBtn.textContent = "Clear my entries"; }, 4000);
+          return;
+        }
+        clearTimeout(armed);
+        armed = null;
+        clearBtn.textContent = "Clear my entries";
+        store = {};
+        saveStore();
+        fields.forEach(function (f) { if (f.type === "checkbox") { f.checked = false; } else { f.value = ""; } });
+      });
+      bar.appendChild(note);
+      bar.appendChild(printBtn);
+      bar.appendChild(clearBtn);
+      var holder = fillMain.querySelector(".wrap") || fillMain;
+      holder.insertBefore(bar, holder.firstChild);
+    }
+  }
+
+  // Parts checklist. Ticks are a convenience saved in this browser only.
+  var KEY = "e46-m3-touring-parts-v1";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage blocked */ } }
+
+  function slug(s) {
+    var h = 0;
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+    return "p" + (h >>> 0).toString(36);
+  }
+  function kindOf(text) {
+    var t = text.toLowerCase();
+    if (t.indexOf("donor") > -1) return "donor";
+    if (t.indexOf("fab") > -1 || t.indexOf("make") > -1) return "fab";
+    if (t.indexOf("keep") > -1 || t.indexOf("reuse") > -1) return "keep";
+    return "new";
+  }
+
+  var partsSection = document.querySelector('section[data-chapter="parts"]');
+  var rows = [];
+  if (partsSection) {
+    partsSection.querySelectorAll("table").forEach(function (table) {
+      var head = table.tHead && table.tHead.rows[0];
+      if (!head || !table.tBodies[0]) return;
+      var srcIdx = -1;
+      Array.prototype.forEach.call(head.cells, function (c, i) { if (/source/i.test(c.textContent)) srcIdx = i; });
+      if (srcIdx < 0) return;
+      table.classList.add("parts");
+      var th = document.createElement("th");
+      th.className = "tick-col";
+      th.textContent = "Got";
+      head.insertBefore(th, head.firstChild);
+      Array.prototype.forEach.call(table.tBodies[0].rows, function (row) {
+        var name = (row.cells[0] ? row.cells[0].textContent : "").trim();
+        var id = slug(name + "|" + (row.cells[srcIdx] ? row.cells[srcIdx].textContent : ""));
+        var srcCell = row.cells[srcIdx];
+        var kind = kindOf(srcCell ? srcCell.textContent : "");
+        row.setAttribute("data-kind", kind);
+        if (srcCell) {
+          var pill = document.createElement("span");
+          pill.className = "pill pill-" + kind;
+          pill.textContent = srcCell.textContent.trim();
+          srcCell.textContent = "";
+          srcCell.appendChild(pill);
+        }
+        var td = document.createElement("td");
+        td.className = "tick-col";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = id;
+        cb.checked = !!saved[id];
+        cb.setAttribute("aria-label", "Got it: " + name);
+        if (cb.checked) row.classList.add("done");
+        cb.addEventListener("change", function () {
+          if (cb.checked) { saved[id] = 1; } else { delete saved[id]; }
+          row.classList.toggle("done", cb.checked);
+          persist();
+          updateCount();
+        });
+        td.appendChild(cb);
+        row.insertBefore(td, row.firstChild);
+        rows.push(row);
+      });
+    });
+  }
+
+  var countEl = null;
+  function updateCount() {
+    if (!countEl) return;
+    var done = rows.filter(function (r) { return r.classList.contains("done"); }).length;
+    countEl.textContent = done + " of " + rows.length + " ticked";
+  }
+
+  if (partsSection && rows.length) {
+    var tools = document.createElement("div");
+    tools.className = "parts-tools";
+    tools.setAttribute("role", "group");
+    tools.setAttribute("aria-label", "Filter parts by where they come from");
+    var label = document.createElement("span");
+    label.className = "label";
+    label.textContent = "Show";
+    tools.appendChild(label);
+    var filters = [["all", "All"], ["donor", "From donor M3"], ["new", "Buy new"], ["fab", "Fabricate"], ["keep", "Keep"]];
+    var buttons = [];
+    filters.forEach(function (f) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = "filter-" + f[0];
+      b.textContent = f[1];
+      b.setAttribute("aria-pressed", f[0] === "all" ? "true" : "false");
+      b.addEventListener("click", function () {
+        buttons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        rows.forEach(function (r) { r.hidden = !(f[0] === "all" || r.getAttribute("data-kind") === f[0]); });
+      });
+      buttons.push(b);
+      tools.appendChild(b);
+    });
+    countEl = document.createElement("span");
+    countEl.className = "count";
+    tools.appendChild(countEl);
+    var note = document.createElement("span");
+    note.className = "note";
+    note.textContent = "Ticks are saved in this browser on this device only.";
+    tools.appendChild(note);
+    var firstTable = partsSection.querySelector(".table-wrap");
+    if (firstTable) firstTable.parentNode.insertBefore(tools, firstTable);
+    updateCount();
+  }
+})();
+
+/* Calculators page (CALCULATORS.md): gearing and road speed, tire size and speedometer,
+   wheel fitment, and tire load. Plain ES5 in one closure: no libraries, no network, nothing stored.
+   Each .calc[id] container on the page is wired up by its function in INIT, at the bottom.
+   The leading semicolon keeps this safe when it is appended straight after page.js. */
+;(function () {
+  "use strict";
+
+  var MM_PER_INCH = 25.4;          // exact
+  var KM_PER_MILE = 1.609344;      // exact
+  var LB_PER_KG = 2.2046226218;    // 1 lb = 0.45359237 kg exactly
+  var SVG_NS = "http://www.w3.org/2000/svg";
+  var MINUS = "−";
+  var DASH = "—";
+  var GEARS = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
+
+  // Maximum load per tire for load indexes 75 to 130. kg from Pirelli's chart
+  // (pirelli.com/tyres/en-gb/car/driving-and-tyre-tips/how-to-read/tyre-load-index), lb from Pirelli's US chart
+  // (pirelli.com/tires/en-us/car/driving-and-tire-tips/how-to-read/tire-load-index). Hankook's kg chart
+  // agrees up to LI 100. Checked October 2026.
+  var LI_FIRST = 75;
+  var LI_KG = [387, 400, 412, 425, 437, 450, 462, 475, 487, 500, 515, 530, 545, 560, 580, 600, 615, 630, 650,
+    670, 690, 710, 730, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000, 1030, 1060, 1090, 1120, 1150,
+    1180, 1215, 1250, 1285, 1320, 1360, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900];
+  var LI_LB = [852, 882, 908, 937, 963, 992, 1019, 1047, 1074, 1102, 1135, 1168, 1201, 1235, 1279, 1323, 1356,
+    1389, 1433, 1477, 1521, 1565, 1609, 1653, 1709, 1764, 1819, 1874, 1929, 1984, 2039, 2094, 2149, 2205, 2271,
+    2337, 2403, 2469, 2535, 2601, 2679, 2756, 2833, 2910, 2998, 3086, 3197, 3307, 3417, 3527, 3638, 3748, 3858,
+    3968, 4079, 4189];
+  var LI_LAST = LI_FIRST + LI_KG.length - 1;
+
+  /* ---------- Helpers ---------- */
+
+  function byId(id) { return document.getElementById(id); }
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function trim(s) { return String(s == null ? "" : s).replace(/^\s+|\s+$/g, ""); }
+
+  // Round half away from zero. The small nudge stops values such as 5.35, stored as 5.34999..., rounding down.
+  function round(x, dp) {
+    var f = Math.pow(10, dp || 0);
+    var r = (x < 0 ? -1 : 1) * Math.round(Math.abs(x) * f + 1e-7) / f;
+    return r === 0 ? 0 : r;
+  }
+  // 12,345.6 style, with a true minus sign.
+  function num(x, dp) {
+    dp = dp || 0;
+    var r = round(x, dp);
+    var parts = Math.abs(r).toFixed(dp).split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return (r < 0 ? MINUS : "") + parts.join(".");
+  }
+  function signed(x, dp) {
+    var r = round(x, dp);
+    return (r > 0 ? "+" : "") + num(r, dp);
+  }
+  function rpm10(x) { return num(round(x / 10) * 10); }
+  // Gear ratios show two decimals, or three when typed that way (4.227).
+  function ratioText(x) {
+    var three = round(x, 3).toFixed(3);
+    return three.charAt(three.length - 1) === "0" ? round(x, 2).toFixed(2) : three;
+  }
+  function decimals(x) {
+    var s = String(x), i = s.indexOf(".");
+    return i < 0 ? 0 : s.length - i - 1;
+  }
+
+  function setText(el, text) {
+    if (el && el.textContent !== text) { el.textContent = text; }
+  }
+  // Fill an element with text and spans. parts: [[className or null, text], ...].
+  // Only touches the DOM when the content changes, so live regions don't repeat themselves.
+  function setParts(el, parts) {
+    var key = JSON.stringify(parts);
+    if (!el || el.getAttribute("data-shown") === key) { return; }
+    el.setAttribute("data-shown", key);
+    while (el.firstChild) { el.removeChild(el.firstChild); }
+    each(parts, function (p) {
+      if (!p[0]) {
+        el.appendChild(document.createTextNode(p[1]));
+        return;
+      }
+      var span = document.createElement("span");
+      span.className = p[0];
+      span.textContent = p[1];
+      if (p[0] === "calc-mark") { span.setAttribute("aria-hidden", "true"); }
+      el.appendChild(span);
+    });
+  }
+
+  // Read a number field. An empty field is not an error (its results wait); anything outside min..max is.
+  function readNumber(input, min, max, unit) {
+    var res = { ok: false, empty: false, value: NaN, msg: "" };
+    if (input.validity && input.validity.badInput) {
+      res.msg = "Type a number, digits only.";
+      return res;
+    }
+    var raw = trim(input.value);
+    if (raw === "") {
+      res.empty = true;
+      return res;
+    }
+    var v = parseFloat(raw.replace(",", "."));
+    if (!isFinite(v)) {
+      res.msg = "Type a number.";
+      return res;
+    }
+    res.value = v;
+    if (v < min || v > max) {
+      res.msg = "Use " + num(min, decimals(min)) + " to " + num(max, decimals(max)) + (unit ? " " + unit : "") + ".";
+      return res;
+    }
+    res.ok = true;
+    return res;
+  }
+  function showError(input, msg) {
+    var el = byId(input.getAttribute("data-err") || input.id + "-err");
+    if (msg) { input.setAttribute("aria-invalid", "true"); } else { input.removeAttribute("aria-invalid"); }
+    if (el) { setText(el, msg || ""); }
+  }
+
+  // Tire sizes: 255/40R18, 255/40ZR18, 255/40 R18, 255/40-18, 255/40/18, P205/55R16, 255 40 18;
+  // a load and speed rating after a space (255/40R18 99Y XL) is ignored.
+  var TIRE_RE = /^\s*P?\s*(\d{3})\s*[\/ ]\s*(\d{2})\s*(?:Z?R|[\/\-])?\s*(\d{2})(?:\s.*)?$/i;
+  function parseTire(text) {
+    var m = TIRE_RE.exec(text);
+    if (!m) { return null; }
+    var w = +m[1], ar = +m[2], rim = +m[3];
+    if (w < 105 || w > 455 || ar < 20 || ar > 95 || rim < 10 || rim > 26) { return null; }
+    var side = w * ar / 100;                    // sidewall height, mm
+    var dia = rim * MM_PER_INCH + 2 * side;     // overall diameter, mm
+    return { w: w, ar: ar, rim: rim, side: side, dia: dia, circ: Math.PI * dia, name: w + "/" + ar + "R" + rim };
+  }
+  function readTire(input) {
+    var raw = trim(input.value);
+    if (raw === "") { return { ok: false, empty: true, msg: "" }; }
+    var t = parseTire(raw);
+    return t ? { ok: true, value: t, msg: "" } : { ok: false, msg: "Type a size like 255/40R18." };
+  }
+  function revsPerMile(t) { return KM_PER_MILE * 1e6 / t.circ; }
+  function revsPerKm(t) { return 1e6 / t.circ; }
+
+  function checkedValue(root, name) {
+    var r = root.querySelector('input[name="' + name + '"]:checked');
+    return r ? r.value : "";
+  }
+  function setUnitLabels(root, text) {
+    each(root.querySelectorAll(".calc-unit"), function (el) { setText(el, text); });
+  }
+  function headerRow(table, labels) {
+    var row = table.createTHead().insertRow(-1);
+    return labels.map(function (text) {
+      var th = document.createElement("th");
+      th.scope = "col";
+      th.textContent = text;
+      row.appendChild(th);
+      return th;
+    });
+  }
+  function bodyRow(body, label, cells) {
+    var tr = body.insertRow(-1);
+    var th = document.createElement("th");
+    th.scope = "row";
+    th.textContent = label;
+    tr.appendChild(th);
+    var out = { tr: tr, head: th, cells: [] };
+    for (var i = 0; i < cells; i++) { out.cells.push(tr.insertCell(-1)); }
+    return out;
+  }
+  // A header cell that is blank on screen but named for screen readers.
+  function srLabel(cell, text) {
+    var span = document.createElement("span");
+    span.className = "calc-sr";
+    span.textContent = text;
+    cell.appendChild(span);
+  }
+  function noSubmit(form) {
+    form.addEventListener("submit", function (e) { e.preventDefault(); });
+  }
+
+  /* ---------- 1. Gearing and road speed ---------- */
+
+  function initGearing(root) {
+    var form = root.querySelector("form");
+    var rpmIn = byId("g-rpm"), speedIn = byId("g-speed"), compare = byId("g-compare");
+    var unit = checkedValue(root, "g-unit") || "mph";
+    var setups = ["a", "b"].map(function (k) {
+      var s = {
+        name: k.toUpperCase(), preset: byId("g-" + k + "-preset"), fd: byId("g-" + k + "-fd"),
+        tire: byId("g-" + k + "-tire"), facts: byId("g-" + k + "-facts"), box: byId("g-" + k + "-table"),
+        ratioErr: byId("g-" + k + "-ratio-err"), ratios: []
+      };
+      for (var i = 1; i <= 6; i++) { s.ratios.push(byId("g-" + k + "-r" + i)); }
+      var table = document.createElement("table");
+      s.caption = table.createCaption();
+      s.caption.className = "calc-sr";
+      s.th = headerRow(table, ["Gear", "Ratio", "Overall ratio", "", ""]);
+      var body = table.createTBody();
+      s.rows = GEARS.map(function (g) { return bodyRow(body, g, 4); });
+      s.box.appendChild(table);
+      s.note = document.createElement("p");
+      s.note.className = "calc-note";
+      s.box.parentNode.insertBefore(s.note, s.box.nextSibling);
+      return s;
+    });
+
+    function applyPreset(s) {
+      var opt = s.preset.options[s.preset.selectedIndex];
+      if (!opt || !opt.getAttribute("data-ratios")) { return; }
+      var rs = trim(opt.getAttribute("data-ratios")).split(/\s+/);
+      s.ratios.forEach(function (input, i) { input.value = rs[i] || ""; });
+      s.fd.value = opt.getAttribute("data-fd") || "";
+    }
+    // Show the preset whose numbers match the fields, or Custom.
+    function matchPreset(s) {
+      var match = "custom";
+      each(s.preset.options, function (opt) {
+        if (match !== "custom" || !opt.getAttribute("data-ratios")) { return; }
+        var rs = trim(opt.getAttribute("data-ratios")).split(/\s+/);
+        var same = parseFloat(s.fd.value) === parseFloat(opt.getAttribute("data-fd"));
+        s.ratios.forEach(function (input, i) {
+          var a = trim(input.value) === "" ? null : parseFloat(input.value);
+          var b = rs[i] ? parseFloat(rs[i]) : null;
+          if (a !== b) { same = false; }
+        });
+        if (same) { match = opt.value; }
+      });
+      if (s.preset.value !== match) { s.preset.value = match; }
+    }
+    function setUnit(next) {
+      if (next === unit) { return; }
+      var r = readNumber(speedIn, 0, 1e9, "");
+      if (r.ok) { speedIn.value = String(round(next === "kmh" ? r.value * KM_PER_MILE : r.value / KM_PER_MILE)); }
+      speedIn.max = next === "kmh" ? "400" : "250";
+      unit = next;
+    }
+
+    function update() {
+      var uLabel = unit === "kmh" ? "km/h" : "mph";
+      setUnitLabels(root, uLabel);
+      var rpm = readNumber(rpmIn, 500, 10000, "rpm");
+      showError(rpmIn, rpm.msg);
+      var spd = readNumber(speedIn, 1, unit === "kmh" ? 400 : 250, uLabel);
+      showError(speedIn, spd.msg);
+      var kmh = spd.ok ? (unit === "kmh" ? spd.value : spd.value * KM_PER_MILE) : NaN;
+
+      var tops = setups.map(function (s) {
+        // Gear ratios: an empty field means the box doesn't have that gear.
+        var ratios = [], ratioMsg = "";
+        s.ratios.forEach(function (input, i) {
+          var r = readNumber(input, 0.3, 7, "");
+          ratios.push(r.ok ? r.value : (r.empty ? null : NaN));
+          if (r.msg) {
+            input.setAttribute("aria-invalid", "true");
+            if (!ratioMsg) { ratioMsg = "Check " + GEARS[i] + ": " + (isFinite(r.value) ? "use a ratio from 0.3 to 7." : "type a number."); }
+          } else {
+            input.removeAttribute("aria-invalid");
+          }
+        });
+        setText(s.ratioErr, ratioMsg);
+        var fd = readNumber(s.fd, 1.5, 7, "");
+        showError(s.fd, fd.msg);
+        var tire = readTire(s.tire);
+        showError(s.tire, tire.msg);
+        var t = tire.ok ? tire.value : null;
+
+        if (t) {
+          setParts(s.facts, [["calc-k", "Diameter "], ["calc-v", num(t.dia, 1) + " mm (" + num(t.dia / MM_PER_INCH, 2) + " in)"],
+            ["calc-k", ", circumference "], ["calc-v", num(t.circ, 1) + " mm"],
+            ["calc-k", ", "], ["calc-v", num(revsPerMile(t))], ["calc-k", " revolutions per mile"]]);
+        } else {
+          setParts(s.facts, [["calc-k", "Type a tire size to see its diameter."]]);
+        }
+
+        setText(s.th[3], uLabel + " at " + (rpm.ok ? num(rpm.value) : "…") + " rpm");
+        setText(s.th[4], "rpm at " + (spd.ok ? num(spd.value) + " " + uLabel : "…"));
+        setText(s.caption, "Setup " + s.name + ": road speed at the engine speed you set, and engine speed at the road speed you set, in each gear");
+
+        var top = null, over = false;
+        s.rows.forEach(function (row, i) {
+          var g = ratios[i];
+          row.tr.hidden = g === null;
+          var gOk = typeof g === "number" && isFinite(g);
+          var overall = gOk && fd.ok ? g * fd.value : NaN;
+          var speedAt = NaN, rpmAt = NaN;
+          if (isFinite(overall) && t) {
+            if (rpm.ok) {
+              var kmhAt = rpm.value / overall * t.circ * 60 / 1e6;
+              speedAt = unit === "kmh" ? kmhAt : kmhAt / KM_PER_MILE;
+            }
+            if (spd.ok) { rpmAt = kmh * 1e6 / 60 / t.circ * overall; }
+            top = { gear: GEARS[i], speed: speedAt, rpm: rpmAt };
+          }
+          setText(row.cells[0], gOk ? ratioText(g) : DASH);
+          setText(row.cells[1], isFinite(overall) ? num(overall, 2) : DASH);
+          setText(row.cells[2], isFinite(speedAt) ? num(speedAt) : DASH);
+          var isOver = isFinite(rpmAt) && rpm.ok && round(rpmAt / 10) * 10 > rpm.value;
+          over = over || isOver;
+          row.cells[3].className = isOver ? "calc-over" : "";
+          if (!isFinite(rpmAt)) {
+            setParts(row.cells[3], [[null, DASH]]);
+          } else if (isOver) {
+            setParts(row.cells[3], [[null, rpm10(rpmAt)], ["calc-mark", "†"], ["calc-sr", " (above " + num(rpm.value) + " rpm)"]]);
+          } else {
+            setParts(row.cells[3], [[null, rpm10(rpmAt)]]);
+          }
+        });
+        setText(s.note, over ? "† Above the " + num(rpm.value) + " rpm you set." : "");
+        return top;
+      });
+
+      var a = tops[0], b = tops[1];
+      if (a && b && isFinite(a.rpm) && isFinite(b.rpm) && isFinite(a.speed) && isFinite(b.speed)) {
+        setParts(compare, [
+          [null, "At " + num(spd.value) + " " + uLabel + " in top gear, setup A turns "], ["calc-v", rpm10(a.rpm) + " rpm"],
+          [null, " (" + a.gear + ") and setup B "], ["calc-v", rpm10(b.rpm) + " rpm"], [null, " (" + b.gear + "). "],
+          [null, "At " + num(rpm.value) + " rpm in top gear, A would reach "], ["calc-v", num(a.speed) + " " + uLabel],
+          [null, " and B "], ["calc-v", num(b.speed) + " " + uLabel], [null, "."]
+        ]);
+      } else {
+        setParts(compare, [[null, "Fill in both setups and the speeds above to compare them."]]);
+      }
+    }
+
+    noSubmit(form);
+    form.addEventListener("input", function (e) {
+      var t = e.target;
+      if (t.type === "radio" || t.tagName === "SELECT") { return; }   // handled on change
+      setups.forEach(function (s) {
+        if (t === s.fd || s.ratios.indexOf(t) > -1) { matchPreset(s); }
+      });
+      update();
+    });
+    form.addEventListener("change", function (e) {
+      var t = e.target;
+      if (t.name === "g-unit") { setUnit(t.value); }
+      setups.forEach(function (s) {
+        if (t === s.preset) { applyPreset(s); }
+      });
+      update();
+    });
+    setups.forEach(matchPreset);
+    update();
+  }
+
+  /* ---------- 2. Tire size and speedometer ---------- */
+
+  function initSpeedo(root) {
+    var form = root.querySelector("form");
+    var refIn = byId("s-ref"), newIn = byId("s-new"), speedIn = byId("s-speed");
+    var outChange = byId("s-change"), outShows = byId("s-shows"), outTrue = byId("s-true");
+    var unit = checkedValue(root, "s-unit") || "mph";
+    var DEFAULT_SPEED = { mph: 60, kmh: 100 };
+
+    var table = document.createElement("table");
+    var caption = table.createCaption();
+    caption.className = "calc-sr";
+    caption.textContent = "Reference and new tire compared";
+    var th = headerRow(table, ["", "Reference", "New", "Change"]);
+    srLabel(th[0], "Measure");
+    var body = table.createTBody();
+    var rows = {
+      dia: bodyRow(body, "Diameter, mm", 3),
+      diaIn: bodyRow(body, "Diameter, in", 3),
+      circ: bodyRow(body, "Circumference, mm", 3),
+      mile: bodyRow(body, "Revolutions per mile", 3),
+      km: bodyRow(body, "Revolutions per km", 3)
+    };
+    byId("s-table").appendChild(table);
+
+    function setRow(row, a, b, change) {
+      setText(row.cells[0], a);
+      setText(row.cells[1], b);
+      setText(row.cells[2], change);
+    }
+    function setUnit(next) {
+      if (next === unit) { return; }
+      var r = readNumber(speedIn, 0, 1e9, "");
+      if (r.ok) {
+        speedIn.value = String(r.value === DEFAULT_SPEED[unit] ? DEFAULT_SPEED[next]
+          : round(next === "kmh" ? r.value * KM_PER_MILE : r.value / KM_PER_MILE));
+      }
+      speedIn.max = next === "kmh" ? "400" : "250";
+      unit = next;
+    }
+
+    function update() {
+      var uLabel = unit === "kmh" ? "km/h" : "mph";
+      setUnitLabels(root, uLabel);
+      var a = readTire(refIn), b = readTire(newIn);
+      var v = readNumber(speedIn, 1, unit === "kmh" ? 400 : 250, uLabel);
+      showError(refIn, a.msg);
+      showError(newIn, b.msg);
+      showError(speedIn, v.msg);
+      var ta = a.ok ? a.value : null, tb = b.ok ? b.value : null;
+
+      setRow(rows.dia, ta ? num(ta.dia, 1) : DASH, tb ? num(tb.dia, 1) : DASH, ta && tb ? signed(tb.dia - ta.dia, 1) : DASH);
+      setRow(rows.diaIn, ta ? num(ta.dia / MM_PER_INCH, 2) : DASH, tb ? num(tb.dia / MM_PER_INCH, 2) : DASH,
+        ta && tb ? signed((tb.dia - ta.dia) / MM_PER_INCH, 2) : DASH);
+      setRow(rows.circ, ta ? num(ta.circ, 1) : DASH, tb ? num(tb.circ, 1) : DASH, ta && tb ? signed(tb.circ - ta.circ, 1) : DASH);
+      // Revolutions: the change is between the rounded figures shown, so the row adds up.
+      setRow(rows.mile, ta ? num(revsPerMile(ta)) : DASH, tb ? num(revsPerMile(tb)) : DASH,
+        ta && tb ? signed(round(revsPerMile(tb)) - round(revsPerMile(ta)), 0) : DASH);
+      setRow(rows.km, ta ? num(revsPerKm(ta)) : DASH, tb ? num(revsPerKm(tb)) : DASH,
+        ta && tb ? signed(round(revsPerKm(tb)) - round(revsPerKm(ta)), 0) : DASH);
+
+      if (!ta || !tb) {
+        setParts(outChange, [[null, "Type both tire sizes to compare them."]]);
+        setParts(outShows, []);
+        setParts(outTrue, []);
+        return;
+      }
+      var k = tb.dia / ta.dia;             // circumference ratio, new over reference
+      var pct = (k - 1) * 100;
+      if (round(pct, 1) === 0) {
+        setParts(outChange, [[null, "The two tires are the same diameter to within 0.05%."]]);
+      } else {
+        setParts(outChange, [[null, "The new tire is "], ["calc-v", num(Math.abs(pct), 1) + "% " + (pct > 0 ? "larger" : "smaller")],
+          [null, " in diameter than the reference (" + signed(tb.dia - ta.dia, 1) + " mm)."]]);
+      }
+      if (!v.ok) {
+        setParts(outShows, [[null, "Type a true speed to see what the speedometer shows."]]);
+        setParts(outTrue, []);
+        return;
+      }
+      var err = (1 / k - 1) * 100;
+      setParts(outShows, [[null, "At a true " + num(v.value) + " " + uLabel + " the speedometer shows "],
+        ["calc-v", num(v.value / k) + " " + uLabel],
+        [null, round(err, 1) === 0 ? "." : " (it reads " + num(Math.abs(err), 1) + "% " + (err < 0 ? "low" : "high") + ")."]]);
+      setParts(outTrue, [[null, "When it shows " + num(v.value) + " " + uLabel + ", you are doing "],
+        ["calc-v", num(v.value * k) + " " + uLabel], [null, "."]]);
+    }
+
+    noSubmit(form);
+    form.addEventListener("input", function (e) {
+      if (e.target.type === "radio") { return; }
+      update();
+    });
+    form.addEventListener("change", function (e) {
+      if (e.target.name === "s-unit") { setUnit(e.target.value); }
+      update();
+    });
+    update();
+  }
+
+  /* ---------- 3. Wheel fitment ---------- */
+
+  function initFitment(root) {
+    var form = root.querySelector("form");
+    var axle = byId("f-axle");
+    var wheels = ["ref", "new"].map(function (k) {
+      return { key: k, preset: byId("f-" + k + "-preset"), w: byId("f-" + k + "-w"), et: byId("f-" + k + "-et"), tire: byId("f-" + k + "-tire") };
+    });
+    var out = { inner: byId("f-inner"), outer: byId("f-outer"), tout: byId("f-tout"), tin: byId("f-tin"), track: byId("f-track") };
+    var draw = byId("f-draw");
+
+    var table = document.createElement("table");
+    var caption = table.createCaption();
+    var th = headerRow(table, ["", "Reference", "New", "Change"]);
+    srLabel(th[0], "Position");
+    var body = table.createTBody();
+    var rows = {
+      rimIn: bodyRow(body, "Rim inner edge", 3),
+      c: bodyRow(body, "Rim centerline", 3),
+      rimOut: bodyRow(body, "Rim outer face", 3),
+      tireIn: bodyRow(body, "Tire inner sidewall", 3),
+      tireOut: bodyRow(body, "Tire outer sidewall", 3),
+      track: bodyRow(body, "Track", 3),
+      width: bodyRow(body, "Width over the tires", 3)
+    };
+    byId("f-table").appendChild(table);
+
+    function applyPreset(wh) {
+      var opt = wh.preset.options[wh.preset.selectedIndex];
+      if (!opt || !opt.getAttribute("data-et")) { return; }
+      wh.w.value = opt.getAttribute("data-width");
+      wh.et.value = opt.getAttribute("data-et");
+      wh.tire.value = opt.getAttribute("data-tire");
+    }
+    // Show the preset whose numbers match the fields, or Custom. Two presets share the same numbers
+    // (Style 67 19-inch and Style 163M), so the one already chosen wins a tie.
+    function matchPreset(wh) {
+      var t = parseTire(trim(wh.tire.value));
+      function fits(opt) {
+        var pt = opt && opt.getAttribute("data-et") ? parseTire(opt.getAttribute("data-tire")) : null;
+        return !!(pt && t && pt.name === t.name &&
+          parseFloat(wh.w.value) === parseFloat(opt.getAttribute("data-width")) &&
+          parseFloat(wh.et.value) === parseFloat(opt.getAttribute("data-et")));
+      }
+      var match = fits(wh.preset.options[wh.preset.selectedIndex]) ? wh.preset.value : "custom";
+      each(wh.preset.options, function (opt) {
+        if (match === "custom" && fits(opt)) { match = opt.value; }
+      });
+      if (wh.preset.value !== match) { wh.preset.value = match; }
+    }
+
+    // Positions in mm from the hub face, outboard positive.
+    function readWheel(wh) {
+      var w = readNumber(wh.w, 4, 13, "in"), et = readNumber(wh.et, -50, 80, "mm"), t = readTire(wh.tire);
+      showError(wh.w, w.msg);
+      showError(wh.et, et.msg);
+      showError(wh.tire, t.msg);
+      if (!w.ok || !et.ok || !t.ok) { return null; }
+      var half = w.value * MM_PER_INCH / 2, c = -et.value, tire = t.value;
+      return {
+        width: w.value, et: et.value, tire: tire, c: c,
+        rimIn: c - half, rimOut: c + half, tireIn: c - tire.w / 2, tireOut: c + tire.w / 2,
+        r: tire.rim * MM_PER_INCH / 2, h: tire.side,
+        label: num(w.value, decimals(w.value)) + "J ET" + num(et.value) + " with " + tire.name
+      };
+    }
+    function move(label, d) {
+      var r = round(d, 1);
+      return [["calc-k", label + ": "], ["calc-v", r === 0 ? "no change" : num(Math.abs(r), 1) + " mm further " + (r > 0 ? "out" : "in")]];
+    }
+
+    function update() {
+      var hub = trim(axle.value) === "" ? NaN : parseFloat(axle.value);
+      var ref = readWheel(wheels[0]), nw = readWheel(wheels[1]);
+      var abs = isFinite(hub);
+      setText(caption, abs ? "Distance from the car's centerline, mm" : "Distance from the hub face, mm (minus is inboard)");
+      setText(rows.c.head, abs ? "Rim centerline (half the track)" : "Rim centerline");
+      rows.track.tr.hidden = !abs;
+      rows.width.tr.hidden = !abs;
+
+      ["rimIn", "c", "rimOut", "tireIn", "tireOut"].forEach(function (k) {
+        var base = abs ? hub : 0;
+        setText(rows[k].cells[0], ref ? num(base + ref[k], 1) : DASH);
+        setText(rows[k].cells[1], nw ? num(base + nw[k], 1) : DASH);
+        setText(rows[k].cells[2], ref && nw ? signed(nw[k] - ref[k], 1) : DASH);
+      });
+      setText(rows.track.cells[0], ref && abs ? num(2 * (hub + ref.c), 1) : DASH);
+      setText(rows.track.cells[1], nw && abs ? num(2 * (hub + nw.c), 1) : DASH);
+      setText(rows.track.cells[2], ref && nw && abs ? signed(2 * (nw.c - ref.c), 1) : DASH);
+      setText(rows.width.cells[0], ref && abs ? num(2 * (hub + ref.tireOut), 1) : DASH);
+      setText(rows.width.cells[1], nw && abs ? num(2 * (hub + nw.tireOut), 1) : DASH);
+      setText(rows.width.cells[2], ref && nw && abs ? signed(2 * (nw.tireOut - ref.tireOut), 1) : DASH);
+
+      if (!ref || !nw) {
+        setParts(out.inner, [[null, "Fill in both wheels to compare them."]]);
+        setParts(out.outer, []);
+        setParts(out.tout, []);
+        setParts(out.tin, []);
+        setParts(out.track, []);
+        while (draw.firstChild) { draw.removeChild(draw.firstChild); }
+        return;
+      }
+      setParts(out.inner, move("Rim inner edge", nw.rimIn - ref.rimIn));
+      setParts(out.outer, move("Rim outer face", nw.rimOut - ref.rimOut));
+      setParts(out.tout, move("Tire outer sidewall", nw.tireOut - ref.tireOut));
+      setParts(out.tin, move("Tire inner sidewall", nw.tireIn - ref.tireIn));
+      var dt = round(2 * (nw.c - ref.c), 1);
+      setParts(out.track, [["calc-k", "Track: "], ["calc-v", dt === 0 ? "no change" : num(Math.abs(dt), 1) + " mm " + (dt > 0 ? "wider" : "narrower")]]);
+      drawFitment(draw, ref, nw, hub);
+    }
+
+    noSubmit(form);
+    form.addEventListener("input", function (e) {
+      var t = e.target;
+      if (t.tagName === "SELECT") { return; }   // handled on change
+      wheels.forEach(function (wh) {
+        if (t === wh.w || t === wh.et || t === wh.tire) { matchPreset(wh); }
+      });
+      update();
+    });
+    form.addEventListener("change", function (e) {
+      wheels.forEach(function (wh) {
+        if (e.target === wh.preset) { applyPreset(wh); }
+      });
+      update();
+    });
+    wheels.forEach(matchPreset);
+    update();
+  }
+
+  function svgEl(name, attrs, parent) {
+    var el = document.createElementNS(SVG_NS, name);
+    for (var k in attrs) {
+      if (Object.prototype.hasOwnProperty.call(attrs, k)) { el.setAttribute(k, String(attrs[k])); }
+    }
+    if (parent) { parent.appendChild(el); }
+    return el;
+  }
+  function f1(x) { return String(round(x, 1)); }
+  // A point in drawing coordinates (mm, y up from the wheel axis) as SVG "x y" (y down).
+  function pt(x, y) { return f1(x) + " " + f1(-y); }
+
+  // Tire section: from the inner bead, out to the widest point at mid-height, over the shoulder,
+  // across the tread and back down to the outer bead.
+  function tirePath(p) {
+    var r = p.r, h = p.h, si = p.tireIn, so = p.tireOut, bi = p.rimIn, bo = p.rimOut;
+    var k = Math.min(0.16 * (so - si), 0.45 * h);
+    var yMid = r + 0.5 * h, yTop = r + h;
+    return "M" + pt(bi, r) +
+      " C" + pt(bi + 0.15 * (si - bi), r + 0.18 * h) + " " + pt(si, yMid - 0.25 * h) + " " + pt(si, yMid) +
+      " C" + pt(si, yMid + 0.3 * h) + " " + pt(si + 0.2 * k, yTop) + " " + pt(si + k, yTop) +
+      " L" + pt(so - k, yTop) +
+      " C" + pt(so - 0.2 * k, yTop) + " " + pt(so, yMid + 0.3 * h) + " " + pt(so, yMid) +
+      " C" + pt(so, yMid - 0.25 * h) + " " + pt(bo + 0.15 * (so - bo), r + 0.18 * h) + " " + pt(bo, r) + " Z";
+  }
+  // Rim: a U-shaped channel. The nominal width runs between the flanges' inner faces at the bead seat;
+  // the flanges (4 mm thick, 14 mm tall) and the 6 mm barrel are drawn schematically.
+  function rimPath(p) {
+    var r = p.r, a = p.rimIn, b = p.rimOut;
+    return "M" + pt(a - 4, r + 14) + " L" + pt(a, r + 14) + " L" + pt(a, r) + " L" + pt(b, r) + " L" + pt(b, r + 14) +
+      " L" + pt(b + 4, r + 14) + " L" + pt(b + 4, r - 6) + " L" + pt(a - 4, r - 6) + " Z";
+  }
+
+  // Draw the two wheels to scale (1 unit = 1 mm), seen from behind with the outboard side on the right.
+  function drawFitment(box, ref, nw, hub) {
+    var x0 = Math.min(0, ref.tireIn, ref.rimIn, nw.tireIn, nw.rimIn) - 26;
+    var x1 = Math.max(0, ref.tireOut, ref.rimOut, nw.tireOut, nw.rimOut) + 26;
+    var yb = Math.min(ref.r, nw.r) - 58;
+    var yt = Math.max(ref.r + ref.h, nw.r + nw.h) + 50;   // room for two rows: the change label, then the scale bar
+    var dOut = round(nw.tireOut - ref.tireOut, 1);
+    var svg = svgEl("svg", {
+      viewBox: [f1(x0), f1(-yt), f1(x1 - x0), f1(yt - yb)].join(" "),
+      role: "img", "aria-labelledby": "f-svg-title f-svg-desc", focusable: "false"
+    });
+    svgEl("title", { id: "f-svg-title" }, svg).textContent = "Wheel cross-section, to scale";
+    svgEl("desc", { id: "f-svg-desc" }, svg).textContent = "Reference: " + ref.label + ". New: " + nw.label +
+      ". The new tire's outer sidewall is " + (dOut === 0 ? "in the same place" : num(Math.abs(dOut), 1) + " mm further " + (dOut > 0 ? "out" : "in")) +
+      (isFinite(hub) ? ". The hub face is " + num(hub, 1) + " mm from the car's centerline." : ".");
+
+    // The wheel's mounting face on the hub: a solid line up to the lower barrel, then the plane dashed
+    // through the tire, so the offset between it and each tire's middle shows.
+    var barrel = Math.min(ref.r, nw.r) - 6;
+    svgEl("line", { "class": "fit-hub", x1: 0, y1: f1(-yb), x2: 0, y2: f1(-barrel) }, svg);
+    // New wheel filled underneath, reference dashed on top so both stay visible.
+    svgEl("path", { "class": "fit-new-tire", d: tirePath(nw) }, svg);
+    svgEl("path", { "class": "fit-new-rim", d: rimPath(nw) }, svg);
+    svgEl("path", { "class": "fit-ref-tire", d: tirePath(ref) }, svg);
+    svgEl("path", { "class": "fit-ref-rim", d: rimPath(ref) }, svg);
+    svgEl("line", { "class": "fit-plane", x1: 0, y1: f1(-barrel), x2: 0, y2: f1(-(yt - 36)) }, svg);
+
+    // Guides up from each tire's outer sidewall, with the change between them.
+    var gTop = yt - 20;
+    svgEl("line", { "class": "fit-guide", x1: f1(ref.tireOut), y1: f1(-(ref.r + 0.5 * ref.h)), x2: f1(ref.tireOut), y2: f1(-gTop) }, svg);
+    svgEl("line", { "class": "fit-guide", x1: f1(nw.tireOut), y1: f1(-(nw.r + 0.5 * nw.h)), x2: f1(nw.tireOut), y2: f1(-gTop) }, svg);
+    // The label sits just inboard of the guides, so it never runs off the outboard edge.
+    svgEl("text", { "class": "fit-strong", x: f1(Math.min(ref.tireOut, nw.tireOut) - 4), y: f1(-(yt - 12)), "text-anchor": "end" }, svg)
+      .textContent = "sidewall " + (dOut === 0 ? "±0" : signed(dOut, 1)) + " mm";
+
+    // 50 mm scale bar, top left, on the row below the label.
+    var sx = x0 + 8, sy = -(yt - 32);
+    svgEl("path", { "class": "fit-scale", d: "M" + f1(sx) + " " + f1(sy - 4) + " V" + f1(sy) + " H" + f1(sx + 50) + " V" + f1(sy - 4) }, svg);
+    svgEl("text", { x: f1(sx + 56), y: f1(sy + 1) }, svg).textContent = "50 mm";
+
+    // Direction labels along the bottom.
+    svgEl("text", { x: f1(x0 + 4), y: f1(-(yb + 8)) }, svg).textContent =
+      isFinite(hub) ? "◀ " + num(hub, 1) + " mm to centerline" : "◀ inboard";
+    svgEl("text", { x: f1(x1 - 4), y: f1(-(yb + 8)), "text-anchor": "end" }, svg).textContent = "outboard ▶";
+    svgEl("text", { x: 5, y: f1(-(yb + 27)) }, svg).textContent = "hub face";
+
+    while (box.firstChild) { box.removeChild(box.firstChild); }
+    box.appendChild(svg);
+  }
+
+  /* ---------- 4. Tire load check ---------- */
+
+  function initLoad(root) {
+    var form = root.querySelector("form");
+    var unit = checkedValue(root, "l-unit") || "kg";
+    var LIMITS = { kg: [100, 3000], lb: [220, 6600] };
+    var axles = [["f", "front"], ["r", "rear"]].map(function (a) {
+      return { name: a[1], li: byId("l-" + a[0] + "-li"), xl: byId("l-" + a[0] + "-xl"), gawr: byId("l-" + a[0] + "-gawr"), out: byId("l-" + a[0] + "-out") };
+    });
+
+    function setUnit(next) {
+      if (next === unit) { return; }
+      axles.forEach(function (a) {
+        var r = readNumber(a.gawr, 0, 1e9, "");
+        if (r.ok) { a.gawr.value = String(round(next === "lb" ? r.value * LB_PER_KG : r.value / LB_PER_KG)); }
+      });
+      unit = next;
+    }
+
+    function update() {
+      var other = unit === "kg" ? "lb" : "kg";
+      setUnitLabels(root, unit);
+      axles.forEach(function (a) {
+        var li = readNumber(a.li, LI_FIRST, LI_LAST, "");
+        if (li.msg && isFinite(li.value)) { li.msg = "This table covers load indexes " + LI_FIRST + " to " + LI_LAST + "."; }
+        if (li.ok && li.value !== Math.floor(li.value)) {
+          li.ok = false;
+          li.msg = "Load indexes are whole numbers.";
+        }
+        showError(a.li, li.msg);
+        var g = readNumber(a.gawr, LIMITS[unit][0], LIMITS[unit][1], unit);
+        showError(a.gawr, g.msg);
+        if (!li.ok || !g.ok) {
+          setParts(a.out, [[null, "Type the tire's load index and the " + a.name + " axle rating to check them."]]);
+          return;
+        }
+        var i = li.value - LI_FIRST;
+        var one = unit === "kg" ? LI_KG[i] : LI_LB[i], oneOther = unit === "kg" ? LI_LB[i] : LI_KG[i];
+        var both = 2 * one, margin = both - g.value, pass = margin >= 0;
+        var parts = [
+          [pass ? "calc-badge calc-pass" : "calc-badge calc-fail", pass ? "Pass" : "Fail"],
+          [null, " Two tires carry "], ["calc-v", num(both) + " " + unit],
+          [null, " (" + num(2 * oneOther) + " " + other + "), " + num(one) + " " + unit + " each, against a rating of " + num(g.value) + " " + unit + ": "],
+          ["calc-v", pass ? num(margin) + " " + unit + " (" + num(margin / g.value * 100) + "%) to spare" : num(-margin) + " " + unit + " short"],
+          [null, "."]
+        ];
+        if (a.xl.checked) { parts.push([null, " As an XL tire, it carries this only at its higher XL reference pressure."]); }
+        setParts(a.out, parts);
+      });
+    }
+
+    noSubmit(form);
+    form.addEventListener("input", function (e) {
+      if (e.target.type === "radio" || e.target.type === "checkbox") { return; }   // handled on change
+      update();
+    });
+    form.addEventListener("change", function (e) {
+      if (e.target.name === "l-unit") { setUnit(e.target.value); }
+      update();
+    });
+    update();
+  }
+
+  /* ---------- Start ---------- */
+
+  var INIT = { "calc-gearing": initGearing, "calc-speedo": initSpeedo, "calc-fitment": initFitment, "calc-load": initLoad };
+  function start() {
+    each(document.querySelectorAll(".calc[id]"), function (root) {
+      var init = INIT[root.id];
+      if (!init || root.getAttribute("data-ready")) { return; }
+      try {
+        init(root);
+        root.setAttribute("data-ready", "true");
+        root.className += " is-ready";
+      } catch (err) {
+        // One broken calculator shouldn't stop the others.
+        if (window.console && window.console.error) { window.console.error("Calculator " + root.id + " failed:", err); }
+      }
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+
+</script>
+</body>
+</html>

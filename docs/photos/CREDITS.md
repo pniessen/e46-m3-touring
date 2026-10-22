@@ -1,0 +1,18 @@
+# Photo credits
+
+Every photo in this folder comes from Wikimedia Commons under an open license, checked on its file page in October 2026. Each file was resized to 1280 px wide (most were already that size on Commons) and re-saved as a JPEG; nothing else was changed. The photos keep their own licenses, which are listed below. They are not covered by any license that applies to the guide's text.
+
+| File | Shows | Title and source | Author | License |
+|---|---|---|---|---|
+| prototype-front.jpg | BMW's one-off 2000 E46 M3 Touring, front three-quarter, Retro Classics Stuttgart, February 2025 | ["BMW M3 (E46) Touring Retro Classics 2025 DSC 7636"](https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46%29_Touring_Retro_Classics_2025_DSC_7636.jpg) | Alexander Migl | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| prototype-rear.jpg | The same car, rear three-quarter | ["BMW M3 (E46) Touring Retro Classics 2025 DSC 7634"](https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46%29_Touring_Retro_Classics_2025_DSC_7634.jpg) | Alexander Migl | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| target-325i-touring.jpg | E46 325i Touring (pre-facelift), Washington DC area | ["BMW 325i Touring (E46) Washington DC Metro Area, USA"](https://commons.wikimedia.org/wiki/File:BMW_325i_Touring_%28E46%29_Washington_DC_Metro_Area%2C_USA.jpg) | OWS Photography | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| touring-rear.jpg | E46 325xi Touring (facelift), rear three-quarter, showing the standard rear arch | ["'02-'05 BMW 325xi Wagon"](https://commons.wikimedia.org/wiki/File:%2702-%2705_BMW_325xi_Wagon.JPG) | Bull-Doser | Public domain |
+| donor-m3-coupe.jpg | E46 M3 coupe, Phoenix Yellow, Retro Classics 2025 | ["BMW M3 (E46-2S) Retro Classics 2025 DSC 7558"](https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46-2S%29_Retro_Classics_2025_DSC_7558.jpg) | Alexander Migl | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| donor-m3-convertible.jpg | E46 M3 convertible, Retro Classics 2026 | ["BMW M3 (E46-2CS) Retro Classics 2026 IMG 4807"](https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46-2CS%29_Retro_Classics_2026_IMG_4807.jpg) | Alexander Migl | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| m3-rear-arch.jpg | E46 M3 coupe rear: flared rear arches and quad exhaust | ["BMW M3 (E46), blue"](https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46%29%2C_blue.jpg) | Cjp24 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| s54-engine-bay.jpg | S54B32 in an E46 M3 engine bay | ["S54B32-BMW-E46-M3"](https://commons.wikimedia.org/wiki/File:S54B32-BMW-E46-M3.jpg) | melvil | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| m3-cluster.jpg | E46 M3 instrument cluster (mph) | ["BMW M3 - IMG 5105"](https://commons.wikimedia.org/wiki/File:BMW_M3_-_IMG_5105_-_Flickr_-_Adam_Woodford.jpg) | Adam Woodford | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+| m3-fender-gill.jpg | E46 M3 front fender with side gill and double-spoke wheel | ["BMW M3 E46 Cabrio detail"](https://commons.wikimedia.org/wiki/File:BMW_M3_E46_Cabrio_detail.JPG) | JanST | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/) |
+
+The prototype identification follows BMWBlog's report that the one-and-only 2000 E46 M3 Touring appeared at Retro Classics 2025 ([BMWBlog, 9 Mar 2025](https://www.bmwblog.com/2025/03/09/one-off-bmw-m3-e46-touring-concept-video/)); the Commons file pages call the car "BMW M3 (E46) Touring" and describe the show as 2024, but their date fields, EXIF data and categories all say February 2025.
