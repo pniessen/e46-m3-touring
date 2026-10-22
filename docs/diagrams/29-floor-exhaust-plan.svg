@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 554" role="img" aria-label="Plan view of the Touring's rear floor from below, front at the top, so the car's left is on the right of the drawing. Positions are approximate, within about 50 to 100 mm, in millimetres from datum O, the midpoint between the bolt centers of the rear subframe's two rear mounts, with X rearward and Y left or right; nobody publishes them, so you record the donor's first. The RACP joins the trunk floor along a seam about 20 mm behind the mounts, and the floor runs back between the two rails to the rear panel at about X 730; the bumper face is at about X 845. Your Touring's 620 mm spare-wheel well, centred about 330 mm behind O, comes out with the whole floor panel, and CMP's 120 mm access strip beside each rail, at the front of the well, lies inside it. The new M3 trunk floor 41127895619 fills the same outline on the same flanges, with reinforcement 51717894229 along its front edge. The M3 muffler 18107831783, 26.7 kg, spans about X 380 to 720 and nearly the full width, under its heat shield 51482494848, with its twin inlets at the front left and four tips at the bumper. It hangs on three stud plates: H1, front left, 41112497585, already on your Touring; H2, rear left, 41122494844, which replaces your 41118204223; and H3, 41112493931, on the right rail. The M3 pipes run back from the tunnel, under tunnel shield 51487893366, past the left of the M3 diff. Your canister and leak-test pump run fore and aft at the right rear, between the battery box and the well, where the muffler's right end will likely come within 25 mm. With the M3 floor, expect the M3 holder: if the canister is under 25 mm from the muffler or H3, fit holder 16132229735 and cover 51717893604 at the donor's position, across the car just behind the diff; at 25 mm or more, either layout works." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="554" fill="#ffffff"/>
+<text class="t-h" x="8" y="20">REAR FLOOR, SEEN FROM BELOW</text>
+<text class="t-xs" x="380" y="20" text-anchor="end">front</text>
+<line class="ln" x1="388" y1="22" x2="388" y2="9" marker-end="url(#ah)"/>
+<text class="t-xs" x="8" y="37">Front at the top, so the car's left is on your right.</text>
+<text class="t-xs t-b" x="8" y="51">All positions approximate (±50–100 mm), in mm from datum O.</text>
+<text class="t-xs t-b" x="8" y="74">RIGHT SIDE</text>
+<text class="t-xs t-b" x="392" y="74" text-anchor="end">LEFT SIDE</text>
+
+<!-- Underbody and floor, seen from below -->
+<rect class="panel" x="96" y="80" width="208" height="226"/>
+<rect class="new" x="120" y="164" width="160" height="142" stroke-width="1.5"/>
+<rect class="keep-s dash" x="104" y="184" width="32" height="60" stroke-width="1.2"/>
+<rect class="fab-f" x="120" y="164" width="24" height="24" opacity="0.16"/>
+<path class="fab-s" d="M120,166.2 L122.2,164 M120,170.8 L126.8,164 M120,175.2 L131.2,164 M120,179.8 L135.8,164 M120,184.2 L140.2,164 M120.8,188 L144,164.8 M125.2,188 L144,169.2 M129.8,188 L144,173.8 M134.2,188 L144,178.2 M138.8,188 L144,182.8 M143.2,188 L144,187.2" stroke-width="0.9"/>
+<rect class="fab-f" x="256" y="164" width="24" height="24" opacity="0.16"/>
+<path class="fab-s" d="M256,166.2 L258.2,164 M256,170.8 L262.8,164 M256,175.2 L267.2,164 M256,179.8 L271.8,164 M256,184.2 L276.2,164 M256.8,188 L280,164.8 M261.2,188 L280,169.2 M265.8,188 L280,173.8 M270.2,188 L280,178.2 M274.8,188 L280,182.8 M279.2,188 L280,187.2" stroke-width="0.9"/>
+<path class="fab-s dash" d="M138.8,236.0 A62.0,62.0 0 1 1 261.2,236.0" stroke-width="1.6"/>
+<rect class="keep" x="110" y="80" width="10" height="226" stroke-width="1"/>
+<rect class="keep" x="280" y="80" width="10" height="226" stroke-width="1"/>
+<line class="ln" x1="120" y1="164" x2="280" y2="164" stroke-width="1.5"/>
+<rect class="new-f" x="136" y="164" width="128" height="6"/>
+<rect class="keep" x="100" y="306" width="200" height="4" stroke-width="1"/>
+<circle class="shape" cx="134" cy="160" r="7"/>
+<circle class="fill-fg" cx="134" cy="160" r="1.6"/>
+<circle class="shape" cx="266" cy="160" r="7"/>
+<circle class="fill-fg" cx="266" cy="160" r="1.6"/>
+<rect class="donor" x="178" y="80" width="44" height="18" stroke-width="1.2"/>
+
+<!-- twin M3 pipes: tunnel -> past the left of the diff -> muffler's front-left inlets -->
+<path class="donor-s" d="M188.0,80.0 V84.0 C188.0,93.0 236.0,91.0 236.0,100.0 V236.0" stroke-width="2"/>
+<path class="donor-s" d="M212.0,80.0 V84.0 C212.0,93.0 245.0,91.0 245.0,100.0 V236.0" stroke-width="2"/>
+<rect class="donor" x="174" y="106" width="52" height="66" rx="8" stroke-width="1.5"/>
+<line class="ln-thin dash" x1="141" y1="160" x2="259" y2="160"/>
+<line class="ln" x1="195" y1="160" x2="205" y2="160" stroke-width="1.3"/>
+<line class="ln" x1="200" y1="155" x2="200" y2="165" stroke-width="1.3"/>
+<rect class="donor dash" x="150" y="178" width="100" height="26" rx="13" stroke-width="1.4"/>
+<rect class="keep" x="121" y="190" width="16" height="60" rx="8" stroke-width="1.4"/>
+<rect class="donor-s dash" x="96" y="232" width="208" height="76" rx="9" stroke-width="1.2"/>
+<rect class="donor" x="100" y="236" width="200" height="68" rx="8" stroke-width="1.5"/>
+<rect class="donor" x="115" y="304" width="12" height="28" rx="2" stroke-width="1"/>
+<rect class="donor" x="273" y="304" width="12" height="28" rx="2" stroke-width="1"/>
+<rect class="donor" x="101" y="304" width="12" height="28" rx="2" stroke-width="1"/>
+<rect class="donor" x="287" y="304" width="12" height="28" rx="2" stroke-width="1"/>
+<line class="ln" x1="96" y1="329" x2="304" y2="329" stroke-width="2.5"/>
+<rect class="keep" x="282" y="237.5" width="12" height="9" rx="1.5" stroke-width="1.2"/>
+<circle class="fill-fg" cx="285.2" cy="242" r="1.3"/>
+<circle class="fill-fg" cx="290.8" cy="242" r="1.3"/>
+<rect class="new" x="282" y="293.5" width="12" height="9" rx="1.5" stroke-width="1.2"/>
+<circle class="fill-fg" cx="285.2" cy="298" r="1.3"/>
+<circle class="fill-fg" cx="290.8" cy="298" r="1.3"/>
+<rect class="new" x="106" y="265.5" width="12" height="9" rx="1.5" stroke-width="1.2"/>
+<circle class="fill-fg" cx="109.2" cy="270" r="1.3"/>
+<circle class="fill-fg" cx="114.8" cy="270" r="1.3"/>
+<circle class="crit-s dash" cx="129" cy="239" r="8.5" stroke-width="1.6"/>
+<text class="t-xs donor-t" x="200" y="130" text-anchor="middle">M3 diff</text>
+<text class="t-xs t-b" x="204" y="156">O</text>
+<text class="t-xs donor-t" x="192" y="194.5" text-anchor="middle">M3 canister</text>
+<text class="t-xs fab-t" x="188" y="216" text-anchor="middle">your well, Ø 620:</text>
+<text class="t-xs fab-t" x="188" y="228.5" text-anchor="middle">comes out</text>
+<text class="t-xs donor-t" x="200" y="255" text-anchor="middle">M3 muffler <tspan class="t-mono">18107831783</tspan></text>
+<text class="t-xs donor-t" x="200" y="268.5" text-anchor="middle">26.7 kg, X ≈ +380 to +720</text>
+<text class="t-xs donor-t" x="200" y="282" text-anchor="middle">shield <tspan class="t-mono">51482494848</tspan> above it</text>
+<text class="t-xs" x="200" y="321" text-anchor="middle">rear panel, X ≈ +730</text>
+<text class="t-xs" x="200" y="342" text-anchor="middle">bumper face, X ≈ +845</text>
+<text class="t-xs donor-t" x="90" y="93" text-anchor="end">tunnel shield</text>
+<text class="t-xs donor-t t-mono" x="90" y="105.5" text-anchor="end">51487893366</text>
+<line class="ln-thin" x1="93" y1="90.3" x2="178" y2="94"/>
+<text class="t-xs" x="90" y="142" text-anchor="end">rear mount</text>
+<line class="ln-thin" x1="93" y1="139.3" x2="127" y2="158"/>
+<text class="t-xs fab-t" x="90" y="166" text-anchor="end">CMP's 120 mm</text>
+<text class="t-xs fab-t" x="90" y="178.5" text-anchor="end">access strip</text>
+<line class="ln-thin" x1="93" y1="175.8" x2="128" y2="172"/>
+<text class="t-xs" x="90" y="204" text-anchor="end">battery box</text>
+<text class="t-xs" x="90" y="216.5" text-anchor="end">(cargo side)</text>
+<line class="ln-thin" x1="93" y1="201.3" x2="106" y2="200"/>
+<text class="t-xs" x="90" y="240" text-anchor="end">your canister</text>
+<text class="t-xs" x="90" y="252.5" text-anchor="end">+ leak-test pump</text>
+<line class="ln-thin" x1="93" y1="237.3" x2="122" y2="220"/>
+<text class="t-xs crit-t" x="90" y="276" text-anchor="end">likely clash:</text>
+<text class="t-xs crit-t" x="90" y="288.5" text-anchor="end">check 25 mm</text>
+<line class="ln-thin" x1="93" y1="273.3" x2="120.5" y2="241"/>
+<text class="t-xs t-b new-t" x="90" y="310" text-anchor="end">H3, right rail</text>
+<text class="t-xs new-t t-mono" x="90" y="322.5" text-anchor="end">41112493931</text>
+<line class="ln-thin" x1="93" y1="307.3" x2="106" y2="270"/>
+<text class="t-xs donor-t" x="90" y="336" text-anchor="end">4 tips, in the</text>
+<text class="t-xs donor-t" x="90" y="348.5" text-anchor="end">bumper cut-outs</text>
+<line class="ln-thin" x1="93" y1="333.3" x2="103" y2="320"/>
+<text class="t-xs donor-t" x="310" y="98">twin M3 pipes</text>
+<line class="ln-thin" x1="307" y1="95.3" x2="246" y2="110"/>
+<text class="t-xs" x="310" y="142">rear mount</text>
+<line class="ln-thin" x1="307" y1="139.3" x2="273" y2="158"/>
+<text class="t-xs" x="310" y="166">RACP seam,</text>
+<text class="t-xs" x="310" y="178.5">X ≈ +20</text>
+<line class="ln-thin" x1="307" y1="163.3" x2="252" y2="164"/>
+<text class="t-xs new-t" x="310" y="200">reinforcement</text>
+<text class="t-xs new-t t-mono" x="310" y="212.5">51717894229</text>
+<line class="ln-thin" x1="307" y1="197.3" x2="260" y2="168"/>
+<text class="t-xs new-t" x="310" y="234">M3 floor</text>
+<text class="t-xs new-t t-mono" x="310" y="246.5">41127895619</text>
+<line class="ln-thin" x1="307" y1="231.3" x2="276" y2="203"/>
+<text class="t-xs t-b" x="310" y="268">H1, front-left</text>
+<text class="t-xs t-mono" x="310" y="280.5">41112497585</text>
+<text class="t-xs" x="310" y="293">already fitted</text>
+<line class="ln-thin" x1="307" y1="265.3" x2="294" y2="242"/>
+<text class="t-xs t-b new-t" x="310" y="304">H2, rear-left</text>
+<text class="t-xs new-t t-mono" x="310" y="316.5">41122494844</text>
+<text class="t-xs" x="310" y="329">replaces your</text>
+<text class="t-xs t-mono" x="310" y="341.5">41118204223</text>
+<line class="ln-thin" x1="307" y1="301.3" x2="294" y2="298"/>
+<line class="ln-faint" x1="8" y1="360" x2="392" y2="360"/>
+<rect class="keep" x="8" y="372" width="12" height="12" rx="2"/>
+<text class="t-sm" x="26" y="382.5">Your Touring's, kept</text>
+<rect class="new" x="206" y="372" width="12" height="12" rx="2"/>
+<text class="t-sm" x="224" y="382.5">Buy new (BMW)</text>
+<rect class="donor" x="8" y="390" width="12" height="12" rx="2"/>
+<text class="t-sm" x="26" y="400.5">M3 part, from the donor</text>
+<rect class="fab-s dash" x="206" y="390" width="12" height="12" rx="2" stroke-width="1.6"/>
+<text class="t-sm" x="224" y="400.5">Comes out</text>
+<rect class="fab-f" x="8" y="408" width="12" height="12" opacity="0.16"/>
+<path class="fab-s" d="M8,410.2 L10.2,408 M8,414.8 L14.8,408 M8,419.2 L19.2,408 M11.8,420 L20,411.8 M16.2,420 L20,416.2" stroke-width="0.9"/>
+<text class="t-sm" x="26" y="418.5">CMP's access strip</text>
+<circle class="crit-s dash" cx="212" cy="414" r="6" stroke-width="1.6"/>
+<text class="t-sm" x="224" y="418.5">Check at the mock-up</text>
+<rect class="warn-f" x="8" y="434" width="384" height="112" rx="5"/>
+<text class="t-sm fill-fg" x="18" y="451">Datum O: midway between the rear-mount bolt centers. X runs</text>
+<text class="t-sm fill-fg" x="18" y="465">rearward, Y left (+) or right (−). Nobody publishes these positions:</text>
+<text class="t-sm fill-fg" x="18" y="479">record your donor's, then set each hanger stud within ±3 mm of its</text>
+<text class="t-sm fill-fg" x="18" y="493">X and Y. Which BMW plate is which isn't confirmed, so go by position.</text>
+<text class="t-sm fill-fg" x="18" y="507">M3 floor: expect the M3 holder. Canister under 25 mm from the</text>
+<text class="t-sm fill-fg" x="18" y="521">muffler or H3: fit holder <tspan class="t-mono">16132229735</tspan> and cover <tspan class="t-mono">51717893604</tspan></text>
+<text class="t-sm fill-fg" x="18" y="535">at the donor's position; 25 mm or more: either layout works.</text>
+</svg>

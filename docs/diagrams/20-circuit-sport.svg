@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 636" role="img" aria-label="Wiring diagram of the optional Sport button circuit. The M3's switch center (61316925520 coupe, 61316925521 convertible; your 325i's is 61316925498) takes a new plug, X1869. Pin 17 runs a new 0.35 SW/RT/GE wire to DME plug X60004 pin 15, the Sport input, which the button grounds when pressed; status STAT_FDYN_EIN. The DME drives the LED from X60004 pin 16 over a new 0.35 SW/GR/GE wire to X1869 pin 18; without it the DME stores fault 110 (0x6E). The switch center also needs three feeds a base Touring lacks: pin 7, terminal 30, 4.0 RT/VI from fuse F42 (30 A); pin 22, terminal R from fuse F12, wire and rating not given; and pin 23, the K-bus, 0.35 WS/RT/GE to any K-bus point. Your existing DSC-button plug X521 plugs in as it is: pin 1 terminal 15 from F33 (5 A, 0.5 GN/BL/GE), pin 2 the DSC-off button to the DSC unit's MK60 pin 39, pin 3 panel lighting 58g (0.5 GR/RT) from the light module, pin 4 ground. Nobody has confirmed the M3 unit's fit in a Touring console. On an MS45.1 the secondary-air sensor wire (0.5 SW/RT) comes out of X60004 pin 15 on every swap, Sport or not; it is not the 0.75 SW/RT wire in pin 2, so tag both. The tire-pressure reset on pin 2 would go to DSC unit pin 40, needs DSC and cluster coding and is unproven in a Touring." color="#1b2128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 636" role="img" aria-label="Wiring diagram of the optional Sport button circuit. The M3's switch center (61316925520 coupe, 61316925521 convertible) takes the place of your Touring's DSC button 61316901592: a DSC-equipped US 325i Touring has no console switch unit; ETK's console unit 61316925498 is for cars without DSC, and its DSC console unit 61316925512 is listed for the US sedan, not the Touring. The M3 unit takes a new plug, X1869. Pin 17 runs a new 0.35 SW/RT/GE wire to DME plug X60004 pin 15, the Sport input, which the button grounds when pressed; status STAT_FDYN_EIN. The DME drives the LED from X60004 pin 16 over a new 0.35 SW/GR/GE wire to X1869 pin 18; without it the DME stores fault 110 (0x6E). The switch center also needs three feeds a base Touring lacks: pin 7, terminal 30, 4.0 RT/VI from fuse F42 (30 A); pin 22, terminal R from fuse F12, wire and rating not given; and pin 23, the K-bus, 0.35 WS/RT/GE to any K-bus point. Your existing DSC-button plug X521 plugs in as it is: pin 1 terminal 15 from F33 (5 A, 0.5 GN/BL/GE), pin 2 the DSC-off button to the DSC unit's MK60 pin 39, pin 3 panel lighting 58g (0.5 GR/RT) from the light module, pin 4 ground. Nobody has confirmed the M3 unit's fit in a Touring console. On an MS45.1 the secondary-air sensor wire (0.5 SW/RT) comes out of X60004 pin 15 on every swap, Sport or not; it is not the 0.75 SW/RT wire in pin 2, so tag both. The tire-pressure reset on pin 2 would go to DSC unit pin 40, needs DSC and cluster coding and is unproven in a Touring." color="#1b2128">
 <style>
 svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 text{fill:currentColor}
@@ -36,9 +36,8 @@ text{fill:currentColor}
 <text class="t t-b" x="343" y="104">M3 switch center</text>
 <text class="t-sm" x="343" y="119">61316925520 coupe,</text>
 <text class="t-sm" x="343" y="134">61316925521 convertible</text>
-<text class="t-sm" x="343" y="149">(your 325i's: 61316925498)</text>
-<text class="t-sm" x="343" y="164">fit in a Touring console</text>
-<text class="t-sm" x="343" y="179">unconfirmed</text>
+<text class="t-sm" x="343" y="149">fit in a Touring console</text>
+<text class="t-sm" x="343" y="164">unconfirmed</text>
 <line class="ln-faint" x1="332" y1="188" x2="504" y2="188"/>
 
 <!-- Feeds a base Touring lacks: new X1869 pins 7, 22, 23 -->
@@ -102,6 +101,11 @@ text{fill:currentColor}
 <text class="t-sm t-mono" x="227.2" y="447" text-anchor="middle">0.75 BR or 0.5 BR/SW</text>
 <text class="t-sm t-b" x="339" y="356">X521</text>
 <text class="t-sm" x="339" y="370">plugs in as it is</text>
+<text class="t-sm t-b" x="339" y="396">Replaces your DSC button</text>
+<text class="t-sm" x="339" y="410">61316901592: a DSC Touring</text>
+<text class="t-sm" x="339" y="424">has no console unit.</text>
+<text class="t-sm" x="339" y="438">61316925498 is ETK's unit</text>
+<text class="t-sm" x="339" y="452">for cars without DSC</text>
 
 <!-- Sport input X1869 17 to X60004 15; LED X60004 16 to X1869 18 -->
 <rect class="new" x="505" y="217.5" width="26" height="17" rx="2"/>

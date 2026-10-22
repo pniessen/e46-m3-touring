@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1048" role="img" aria-label="BMW's ride height and the Massachusetts baseline. One wheel in side view, the same at every corner: BMW's ride height is measured with a metric tape from the rim flange, at the bottom middle, to the lower edge of the wheel arch; hub-to-lip runs from the hub centre to the same arch edge and doesn't depend on the rim. BMW's figures from TIS, rim flange to arch edge, are plus or minus 10 mm, with left and right within 10 mm of each other, and are measured in normal position, a load. E46 M3: front 605 mm and rear 587 mm on 18-inch wheels, 619 and 600 mm on 19-inch wheels, with a full tank, 68 kg on each front seat and 14 kg in the middle of the trunk. 325i Touring, front and rear, standard suspension: 576 and 542 mm on 15-inch wheels, 589 and 555 on 16-inch, 604 and 570 on 17-inch, 617 and 583 on 18-inch; sport suspension: 561 and 526, 574 and 539, 589 and 554, 602 and 567 mm; with a full tank, 68 kg on each front seat, 68 kg in the middle of the rear seat and 21 kg in the trunk. A bigger rim raises BMW's figure by about 12.7 mm per inch with the body where it was, and BMW's rows step 13–15 mm per inch, while hub-to-lip doesn't change; M3 tyres lift the body about 14 mm at the same suspension position. Massachusetts baseline, a side view of your Touring in Phase 0 before the swap, loaded to its normal position: record BMW's ride height and hub-to-lip at each corner, the height of the four jacking points, two each side, and the roof at marks front and rear, each from the floor. BMW publishes the roof height as 1,409 mm (55.5 in), or 1,444 mm (56.8 in) with roof rails. After the build, measure the same points the same way: the roof and every jacking point must be within 50.8 mm (2 in) of Phase 0, and our target is 25 mm (1 in). Measure on a level floor with the tyres at placard pressure, bounce each corner and roll the car first, and add 3.2 kg (7 lb) in the cargo area for each US gallon short of a full tank." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="1048" fill="#ffffff"/>
+
+<!-- One wheel, side view: BMW's ride height and hub-to-lip -->
+<text class="t-h" x="8" y="22">BMW'S RIDE HEIGHT</text>
+<text class="t-xs" x="8" y="36">one wheel, side view; the same at all four corners</text>
+<path class="panel" d="M66,52 H262 V192 H247 A82.6,82.6 0 1 0 85,192 H66 Z" stroke-width="1.5"/>
+<path class="keep-s" d="M247,192 A82.6,82.6 0 1 0 85,192" stroke-width="2.5"/>
+<line class="ln-thin" x1="82" y1="251.9" x2="250" y2="251.9"/>
+<circle class="shape" cx="166" cy="176" r="75.9" stroke-width="2.5"/>
+<circle class="ln" cx="166" cy="176" r="56.6" stroke-width="1.5"/>
+<circle class="ln-thin" cx="166" cy="176" r="49.6"/>
+<line class="ln-thin" x1="173.6" y1="165.5" x2="194" y2="137.5"/>
+<line class="ln-thin" x1="178.4" y1="180" x2="211.3" y2="190.7"/>
+<line class="ln-thin" x1="166" y1="189" x2="166" y2="223.6"/>
+<line class="ln-thin" x1="153.6" y1="180" x2="120.7" y2="190.7"/>
+<line class="ln-thin" x1="158.4" y1="165.5" x2="138" y2="137.5"/>
+<circle class="ln" cx="166" cy="176" r="12"/>
+<circle class="fill-fg" cx="166" cy="93.4" r="3.2"/>
+<circle class="fill-fg" cx="166" cy="176" r="3.2"/>
+<circle class="fill-fg" cx="166" cy="232.6" r="3.2"/>
+<line class="ln-thin" x1="170" y1="93.4" x2="278.9" y2="93.4"/>
+<line class="ln-thin" x1="180" y1="176" x2="258.9" y2="176"/>
+<line class="ln-thin" x1="170" y1="232.6" x2="278.9" y2="232.6"/>
+<line class="ln" x1="253.9" y1="94.4" x2="253.9" y2="175" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<line class="ln" x1="273.9" y1="94.4" x2="273.9" y2="231.6" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t-xs t-b" x="8" y="97.4">Arch edge</text>
+<line class="ln-thin" x1="65.4" y1="93.4" x2="161" y2="93.4"/>
+<text class="t-xs t-b" x="8" y="180">Hub centre</text>
+<line class="ln-thin" x1="68.9" y1="176" x2="153" y2="176"/>
+<text class="t-xs t-b" x="8" y="223.6">Rim flange,</text>
+<text class="t-xs t-b" x="8" y="236.6">bottom middle</text>
+<line class="ln-thin" x1="86.8" y1="232.6" x2="161" y2="232.6"/>
+<line class="ln-thin" x1="280.9" y1="107.4" x2="253.9" y2="107.4"/>
+<circle class="fill-fg" cx="253.9" cy="107.4" r="2"/>
+<text class="t-xs t-b" x="283.9" y="111.4">Hub-to-lip</text>
+<text class="t-xs" x="283.9" y="124.4">hub centre to the</text>
+<text class="t-xs" x="283.9" y="137.4">same arch edge: it</text>
+<text class="t-xs" x="283.9" y="150.4">doesn't depend on the</text>
+<text class="t-xs" x="283.9" y="163.4">rim</text>
+<line class="ln-thin" x1="280.9" y1="194" x2="273.9" y2="194"/>
+<circle class="fill-fg" cx="273.9" cy="194" r="2"/>
+<text class="t-xs t-b" x="283.9" y="198">BMW's ride height</text>
+<text class="t-xs" x="283.9" y="211">tape from the rim</text>
+<text class="t-xs" x="283.9" y="224">flange to the arch</text>
+<text class="t-xs" x="283.9" y="237">edge</text>
+
+<!-- BMW's figures, TIS 31 00 and 33 00 (12/2007), at each car's normal-position load -->
+<text class="t-h" x="8" y="285.9">BMW'S FIGURES, MM</text>
+<text class="t-xs" x="8" y="299.9">TIS, rim flange to arch edge: ±10 mm (0.4 in), and left and right within 10 mm of</text>
+<text class="t-xs" x="8" y="312.9">each other. BMW measures each car in normal position, the load under its table.</text>
+<rect class="panel" x="8" y="322.9" width="384" height="100" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="339.9">E46 M3</text>
+<text class="t-xs t-b" x="206" y="339.9" text-anchor="middle">front</text>
+<text class="t-xs t-b" x="252" y="339.9" text-anchor="middle">rear</text>
+<line class="ln-faint" x1="18" y1="346.9" x2="382" y2="346.9"/>
+<text class="t-sm" x="18" y="360.9">18-inch wheels</text>
+<text class="t t-b" x="206" y="361.4" text-anchor="middle">605</text>
+<text class="t t-b" x="252" y="361.4" text-anchor="middle">587</text>
+<line class="ln-faint" x1="18" y1="365.9" x2="382" y2="365.9"/>
+<text class="t-sm" x="18" y="379.9">19-inch wheels</text>
+<text class="t t-b" x="206" y="380.4" text-anchor="middle">619</text>
+<text class="t t-b" x="252" y="380.4" text-anchor="middle">600</text>
+<text class="t-xs" x="18" y="398.9">Normal position: full tank, 68 kg (150 lb) on each front seat, 14 kg (31 lb) in</text>
+<text class="t-xs" x="18" y="411.9">the middle of the trunk</text>
+<rect class="panel" x="8" y="432.9" width="384" height="152" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="449.9">Your 325i Touring</text>
+<text class="t-xs t-b" x="229" y="449.9" text-anchor="middle">standard</text>
+<text class="t-xs t-b" x="329" y="449.9" text-anchor="middle">sport suspension</text>
+<text class="t-xs" x="206" y="463.9" text-anchor="middle">front</text>
+<text class="t-xs" x="252" y="463.9" text-anchor="middle">rear</text>
+<text class="t-xs" x="306" y="463.9" text-anchor="middle">front</text>
+<text class="t-xs" x="352" y="463.9" text-anchor="middle">rear</text>
+<line class="ln-faint" x1="279" y1="440.9" x2="279" y2="546.9"/>
+<line class="ln-faint" x1="18" y1="470.9" x2="382" y2="470.9"/>
+<text class="t-sm" x="18" y="484.9">15-inch</text>
+<text class="t" x="206" y="485.4" text-anchor="middle">576</text>
+<text class="t" x="252" y="485.4" text-anchor="middle">542</text>
+<text class="t" x="306" y="485.4" text-anchor="middle">561</text>
+<text class="t" x="352" y="485.4" text-anchor="middle">526</text>
+<line class="ln-faint" x1="18" y1="489.9" x2="382" y2="489.9"/>
+<text class="t-sm" x="18" y="503.9">16-inch</text>
+<text class="t" x="206" y="504.4" text-anchor="middle">589</text>
+<text class="t" x="252" y="504.4" text-anchor="middle">555</text>
+<text class="t" x="306" y="504.4" text-anchor="middle">574</text>
+<text class="t" x="352" y="504.4" text-anchor="middle">539</text>
+<line class="ln-faint" x1="18" y1="508.9" x2="382" y2="508.9"/>
+<text class="t-sm" x="18" y="522.9">17-inch</text>
+<text class="t" x="206" y="523.4" text-anchor="middle">604</text>
+<text class="t" x="252" y="523.4" text-anchor="middle">570</text>
+<text class="t" x="306" y="523.4" text-anchor="middle">589</text>
+<text class="t" x="352" y="523.4" text-anchor="middle">554</text>
+<line class="ln-faint" x1="18" y1="527.9" x2="382" y2="527.9"/>
+<text class="t-sm" x="18" y="541.9">18-inch</text>
+<text class="t" x="206" y="542.4" text-anchor="middle">617</text>
+<text class="t" x="252" y="542.4" text-anchor="middle">583</text>
+<text class="t" x="306" y="542.4" text-anchor="middle">602</text>
+<text class="t" x="352" y="542.4" text-anchor="middle">567</text>
+<text class="t-xs" x="18" y="560.9">Normal position: full tank, 68 kg (150 lb) on each front seat, 68 kg in the</text>
+<text class="t-xs" x="18" y="573.9">middle of the rear seat, 21 kg (46 lb) in the trunk</text>
+
+<!-- Rim size and tyres -->
+<text class="t-xs" x="8" y="602.9">A bigger rim raises BMW's figure about 12.7 mm (0.5 in) per inch with the body</text>
+<text class="t-xs" x="8" y="615.9">where it was: BMW's rows step 13–15 mm per inch, and hub-to-lip stays the</text>
+<text class="t-xs" x="8" y="628.9">same. M3 tyres also lift the body itself about 14 mm (0.6 in) at the same</text>
+<text class="t-xs" x="8" y="641.9">suspension position (our arithmetic).</text>
+
+<!-- Massachusetts baseline: your Touring in Phase 0, before the swap -->
+<text class="t-h" x="8" y="675.9">MASSACHUSETTS BASELINE</text>
+<text class="t-xs" x="8" y="689.9">your Touring in Phase 0, before the swap, loaded to its normal position</text>
+<text class="t-xs t-b" x="200" y="709.9" text-anchor="middle">Roof marks, front and rear: measure each from the floor</text>
+<text class="t-xs" x="200" y="722.9" text-anchor="middle">BMW: 1,409 mm (55.5 in); 1,444 mm (56.8 in) with roof rails</text>
+<path class="shape" d="M25.8,828.6 L22.4,822.2 L21.6,807.8 L23.4,800.6 L25.8,791 L35,745.4 L41.8,740.6 L211.4,739.9 L219.4,741.8 L285,775.4 L365,789.4 L376.2,793.8 L379.2,803 L378.6,822.2 L374.6,828.6 L347,828.6 A29.6,29.6 0 0 0 287.8,828.6 L285.4,837.4 L131.4,837.4 L129,828.6 A29.6,29.6 0 0 0 69.8,828.6 Z" stroke-width="1.5"/>
+<path class="panel" d="M41,773.8 L37.4,746.2 L213,745 L274.6,773.4 Z" stroke-width="1"/>
+<line class="ln-thin" x1="113" y1="773.8" x2="113" y2="745"/>
+<line class="ln-thin" x1="185" y1="773.8" x2="185" y2="745"/>
+<line class="ln-thin" x1="15" y1="852.6" x2="387.2" y2="852.6"/>
+<circle class="fill-fg" cx="99.4" cy="828.6" r="24"/>
+<circle class="shape" cx="99.4" cy="828.6" r="17.2" stroke-width="1"/>
+<circle class="fill-fg" cx="317.4" cy="828.6" r="24"/>
+<circle class="shape" cx="317.4" cy="828.6" r="17.2" stroke-width="1"/>
+<text class="t-xs" x="379.2" y="752.6" text-anchor="end">front →</text>
+<path class="fill-fg" d="M73,731.9 H81 L77,738.9 Z"/>
+<path class="fill-fg" d="M185,731.9 H193 L189,738.9 Z"/>
+<rect class="fill-fg" x="211.4" y="798.6" width="12" height="7" rx="1"/>
+<text class="t-xs t-b" x="217.4" y="793.6" text-anchor="middle">2 × 68 kg</text>
+<rect class="fill-fg" x="139.4" y="798.6" width="12" height="7" rx="1"/>
+<text class="t-xs t-b" x="145.4" y="793.6" text-anchor="middle">68 kg</text>
+<rect class="fill-fg" x="55.4" y="798.6" width="12" height="7" rx="1"/>
+<text class="t-xs t-b" x="61.4" y="793.6" text-anchor="middle">21 kg</text>
+<rect class="fill-fg" x="145" y="837.4" width="8" height="4"/>
+<line class="ln-thin" x1="149" y1="842.4" x2="149" y2="861.6"/>
+<rect class="fill-fg" x="263.8" y="837.4" width="8" height="4"/>
+<line class="ln-thin" x1="267.8" y1="842.4" x2="267.8" y2="861.6"/>
+<text class="t-xs t-b" x="200" y="872.6" text-anchor="middle">Jacking points, two each side: measure each from the floor</text>
+<text class="t-xs" x="8" y="894.6">Record at that load, before anything changes: BMW's ride height and hub-to-lip</text>
+<text class="t-xs" x="8" y="907.6">at each corner, the four jacking points, the roof marks and the door-pillar label.</text>
+<text class="t-xs" x="8" y="923.6">After the build, measure the same points the same way. Pass: the roof and every</text>
+<text class="t-xs" x="8" y="936.6">jacking point within 50.8 mm (2 in) of Phase 0. Our target: within 25 mm (1 in).</text>
+
+<!-- How BMW measures -->
+<rect class="warn-f" x="8" y="952.6" width="384" height="88" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="18" y="969.6">Measure the BMW way</text>
+<text class="t-xs" x="18" y="984.6">Level floor; tyres at placard pressure; a metric tape with 1 mm divisions.</text>
+<text class="t-xs" x="18" y="1000.6">Load the car as its table says. Bounce each corner and roll the car a few</text>
+<text class="t-xs" x="18" y="1013.6">feet before you read.</text>
+<text class="t-xs" x="18" y="1029.6">Short of a full tank, add 3.2 kg (7 lb) in the cargo area for each US gallon.</text>
+</svg>

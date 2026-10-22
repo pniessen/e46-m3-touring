@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1096" role="img" aria-label="Brake hydraulics and booster vacuum, schematic, front at the top. Your booster 34336779682, your master cylinder 34336785666 (the 330i's) with its reservoir, and your MK60 DSC unit 34516765453 all stay; the reservoir also feeds the clutch. Two pipes run from the master cylinder to the MK60, one per circuit: the outlet next to the booster feeds the front circuit (pressure sensor V) and the other the rear (sensor H), as inferred from BMW's photos. From the MK60 one pipe runs to each front corner and two run along the floor to the rear: a single 3,684 mm pipe to the left rear, and a 3,798 mm pipe to a union and a 1,206 mm crossover to the right rear, as inferred from BMW's ETK drawing. The MK60's port layout isn't in the sources: check it on the car. Every pipe stays, since an MK60 M3 uses the same four front pipes, 34326759218, 34326755801, 34326752405 and 34326752407, and the same rear pipes. At the front, new M3-only hoses 34322229723 replace your 34326766966 and feed the M3 calipers, 19 Nm at the caliper; at the rear your hoses 34301165174, the same part as the M3's, feed the M3 calipers. Option B, the M3's MK60, also brings the M3 master cylinder 34317838638. Fill with DOT 4 low-viscosity fluid, BMW 81220142156, about 1.5 litres; a pressure bleeder must not exceed 2 bar (29 psi). Flush each wheel until the fluid runs clear and bubble-free in the order right rear, left rear, right front, left front, and bleed the clutch last. After caliper or hose work BMW bleeds the rear circuit with the tester's routine, INPA's MK60 bleed, and each front by pumping the pedal fully at least 12 times and closing the bleeder with the pedal held down. After work on the master cylinder, the MK60 or the pipes between them, the routine runs at each wheel in the same order, restarted for every wheel, with 5 full pedal strokes after each run. Booster vacuum, with air flowing from the booster toward the engine: the S54's air shut-off valve 11617833212, which the DME switches to add vacuum with the A/C on, in gear with the clutch up or below 70 °C, controls the suction jet pump; the donor's hose, shortened or re-routed because it meets the M3's booster from the other side, runs through clamp 11151726340 to the M3 check valve 34331161300, in a new grommet 34336765316 in your booster 34336779682. Your own non-return valve 34331160183 and its elbow 34336751108 come out, and the check valve goes in their place. Air must pass the check valve only from the booster toward the engine. To check once the engine runs, pump the pedal hard with the engine off, hold about 110 N (25 lb) and start the engine: the pedal must drop slightly." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="1096" fill="#ffffff"/>
+
+<!-- Key -->
+<rect class="keep" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">Keep</text>
+<rect class="donor" x="63.4" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="80.4" y="16.5">From donor M3</text>
+<rect class="new" x="171.9" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="188.9" y="16.5">Buy new</text>
+<rect class="fab" x="244.9" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="261.9" y="16.5">Modify</text>
+<rect class="keep dash" x="308.4" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<path class="crit-s" d="M310.9,8.5 l7,7 M310.9,15.5 l7,-7" stroke-width="1.6"/>
+<text class="t-sm" x="325.4" y="16.5">Remove</text>
+
+<!-- Hydraulics: schematic, front at the top, the car's left side on the left -->
+<text class="t-h" x="8" y="46">HYDRAULICS</text>
+<text class="t-xs" x="8" y="60">schematic, front at the top</text>
+
+<!-- Booster, master cylinder and reservoir: all yours -->
+<rect class="keep" x="58" y="82" width="92" height="40" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="104" y="99.5" text-anchor="middle">Your booster</text>
+<text class="t-xs t-mono" x="104" y="112.5" text-anchor="middle">34336779682</text>
+<rect class="keep" x="150" y="78" width="112" height="48" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="206" y="93" text-anchor="middle">Master cylinder</text>
+<text class="t-xs" x="206" y="106" text-anchor="middle">yours: the 330i's</text>
+<text class="t-xs t-mono" x="206" y="119" text-anchor="middle">34336785666</text>
+<text class="t-xs" x="104" y="136" text-anchor="middle">vacuum: see below</text>
+<rect class="keep" x="170" y="54" width="72" height="24" rx="5" stroke-width="1.5"/>
+<text class="t-xs t-b" x="206" y="70" text-anchor="middle">Reservoir</text>
+
+<!-- Clutch feed from the reservoir -->
+<path class="keep-s" d="M242,66 H299" stroke-width="2"/>
+<circle class="ln" cx="310" cy="66" r="9" stroke-width="1.5"/>
+<text class="t-xs t-b" x="310" y="69.8" text-anchor="middle">5</text>
+<text class="t-xs t-b" x="325" y="70">Clutch</text>
+<text class="t-xs" x="325" y="83">bleed it last,</text>
+<text class="t-xs" x="325" y="96">at the slave</text>
+
+<!-- MK60: ports drawn generic -->
+<rect class="keep" x="156" y="182" width="100" height="62" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="206" y="197.5" text-anchor="middle">Your MK60</text>
+<text class="t-xs t-mono" x="206" y="210.5" text-anchor="middle">34516765453</text>
+<text class="t-xs crit-t" x="206" y="223.5" text-anchor="middle">ports: check</text>
+<text class="t-xs crit-t" x="206" y="236.5" text-anchor="middle">on the car</text>
+<line class="keep-s" x1="190" y1="126" x2="190" y2="182" stroke-width="2.5"/>
+<line class="keep-s" x1="222" y1="126" x2="222" y2="182" stroke-width="2.5"/>
+<text class="t-xs t-b" x="185" y="152" text-anchor="end">front</text>
+<text class="t-xs t-b" x="227" y="152">rear</text>
+<text class="t-xs" x="185" y="165" text-anchor="end">(sensor V)</text>
+<text class="t-xs" x="227" y="165">(sensor H)</text>
+<text class="t-xs" x="286" y="152">outlets inferred</text>
+<text class="t-xs" x="286" y="165">from BMW's photos</text>
+
+<!-- Front corners: new M3 hoses on your pipes, M3 calipers -->
+<rect class="donor" x="8" y="196" width="64" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-xs t-b" x="40" y="217" text-anchor="middle">M3 caliper</text>
+<path class="new-s" d="M72,213 q4.5,-5 9,0 q4.5,5 9,0 q4.5,-5 9,0 q4.5,5 9,0" stroke-width="3"/>
+<line class="keep-s" x1="108" y1="213" x2="156" y2="213" stroke-width="2.5"/>
+<circle class="shape" cx="108" cy="213" r="3.2" stroke-width="1.5"/>
+<rect class="donor" x="328" y="196" width="64" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-xs t-b" x="360" y="217" text-anchor="middle">M3 caliper</text>
+<path class="new-s" d="M292,213 q4.5,-5 9,0 q4.5,5 9,0 q4.5,-5 9,0 q4.5,5 9,0" stroke-width="3"/>
+<line class="keep-s" x1="256" y1="213" x2="292" y2="213" stroke-width="2.5"/>
+<circle class="shape" cx="292" cy="213" r="3.2" stroke-width="1.5"/>
+<text class="t-xs t-b" x="8" y="187">Left front</text>
+<circle class="ln" cx="72" cy="183" r="9" stroke-width="1.5"/>
+<text class="t-xs t-b" x="72" y="186.8" text-anchor="middle">4</text>
+<text class="t-xs t-b" x="392" y="187" text-anchor="end">Right front</text>
+<circle class="ln" cx="319" cy="183" r="9" stroke-width="1.5"/>
+<text class="t-xs t-b" x="319" y="186.8" text-anchor="middle">3</text>
+<text class="t-xs new-t t-b" x="92" y="245" text-anchor="middle">M3 hose, new</text>
+<text class="t-xs t-mono" x="92" y="258" text-anchor="middle">34322229723</text>
+<text class="t-xs new-t t-b" x="308" y="245" text-anchor="middle">M3 hose, new</text>
+<text class="t-xs t-mono" x="308" y="258" text-anchor="middle">34322229723</text>
+
+<!-- Rear: two pipes along the floor to your hoses (common) and the M3 calipers -->
+<path class="keep-s" d="M198,244 V424 H108" stroke-width="2.5"/>
+<path class="keep-s" d="M214,244 V424 H292" stroke-width="2.5"/>
+<rect class="shape" x="210" y="420" width="8" height="8" stroke-width="1.5"/>
+<text class="t-xs" x="153" y="417" text-anchor="middle">3,684 mm</text>
+<text class="t-xs" x="224" y="417">3,798 + 1,206 mm</text>
+<text class="t-xs" x="222" y="439">union</text>
+<rect class="donor" x="8" y="407" width="64" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-xs t-b" x="40" y="428" text-anchor="middle">M3 caliper</text>
+<path class="keep-s" d="M72,424 q4.5,-5 9,0 q4.5,5 9,0 q4.5,-5 9,0 q4.5,5 9,0" stroke-width="3"/>
+<circle class="shape" cx="108" cy="424" r="3.2" stroke-width="1.5"/>
+<rect class="donor" x="328" y="407" width="64" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-xs t-b" x="360" y="428" text-anchor="middle">M3 caliper</text>
+<path class="keep-s" d="M292,424 q4.5,-5 9,0 q4.5,5 9,0 q4.5,-5 9,0 q4.5,5 9,0" stroke-width="3"/>
+<circle class="shape" cx="292" cy="424" r="3.2" stroke-width="1.5"/>
+<text class="t-xs t-b" x="8" y="458">Left rear</text>
+<circle class="ln" cx="70" cy="454" r="9" stroke-width="1.5"/>
+<text class="t-xs t-b" x="70" y="457.8" text-anchor="middle">2</text>
+<text class="t-xs t-b" x="392" y="458" text-anchor="end">Right rear</text>
+<circle class="ln" cx="321" cy="454" r="9" stroke-width="1.5"/>
+<text class="t-xs t-b" x="321" y="457.8" text-anchor="middle">1</text>
+<text class="t-xs" x="92" y="388" text-anchor="middle">your hose</text>
+<text class="t-xs t-mono" x="92" y="401" text-anchor="middle">34301165174</text>
+<text class="t-xs" x="308" y="388" text-anchor="middle">your hose</text>
+<text class="t-xs t-mono" x="308" y="401" text-anchor="middle">34301165174</text>
+<text class="t-xs" x="200" y="457" text-anchor="middle">rear pipe sides and lengths inferred</text>
+<text class="t-xs" x="200" y="470" text-anchor="middle">from BMW's ETK drawing</text>
+
+<!-- Notes between the rear pipes' runs -->
+<text class="t-xs" x="8" y="290">Every pipe stays: an MK60 M3 uses</text>
+<text class="t-xs" x="8" y="303">the same four front pipes,</text>
+<text class="t-xs" x="8" y="316">34326759218, 34326755801,</text>
+<text class="t-xs" x="8" y="329">34326752405 and 34326752407,</text>
+<text class="t-xs" x="8" y="342">and the same rear pipes.</text>
+<text class="t-xs" x="226" y="290">Front hoses: 19 Nm (14 ft-lb) at</text>
+<text class="t-xs" x="226" y="303">the caliper. Yours, 34326766966,</text>
+<text class="t-xs" x="226" y="316">come off.</text>
+<text class="t-xs" x="226" y="342">Option B (the M3's MK60) also</text>
+<text class="t-xs" x="226" y="355">brings the M3's master cylinder,</text>
+<text class="t-xs" x="226" y="368">34317838638.</text>
+
+<!-- Filling and bleeding -->
+<rect class="panel" x="8" y="485" width="384" height="174" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="502">Fill and bleed</text>
+<text class="t-xs" x="18" y="517">Fluid: DOT 4 low-viscosity, BMW 81220142156, about 1.5 L (1.6 US qt).</text>
+<text class="t-xs t-b" x="18" y="533">Pressure bleeder: no more than 2 bar (29 psi), on an airtight cap.</text>
+<text class="t-xs" x="18" y="549">Flush each wheel until the fluid runs clear and bubble-free: 1 right rear,</text>
+<text class="t-xs" x="18" y="562">2 left rear, 3 right front, 4 left front. The clutch is last (5).</text>
+<text class="t-xs" x="18" y="578">After caliper or hose work (TIS 34 00 048): bleed the rear circuit with the</text>
+<text class="t-xs" x="18" y="591">tester's routine (INPA's MK60 bleed). At each front, pump the pedal fully at</text>
+<text class="t-xs" x="18" y="604">least 12 times and close the bleeder with the pedal held down.</text>
+<text class="t-xs" x="18" y="620">After work on the master cylinder, the MK60 or the pipes between them</text>
+<text class="t-xs" x="18" y="633">(TIS 34 00 050): run the routine at each wheel in the same order, restarting</text>
+<text class="t-xs" x="18" y="646">it for every wheel, with 5 full pedal strokes after each run.</text>
+
+<!-- Booster vacuum: the S54's jet pump to your booster -->
+<text class="t-h" x="8" y="691">BOOSTER VACUUM</text>
+<text class="t-xs" x="8" y="705">arrows: the way air flows, from the booster to the engine</text>
+<rect class="donor" x="8" y="719" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="733.5">Air shut-off valve</text>
+<text class="t-xs t-mono" x="17" y="746.5">11617833212</text>
+<rect class="donor" x="8" y="769" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="783.5">Suction jet pump</text>
+<text class="t-xs" x="17" y="796.5">on the S54</text>
+<line class="ln" x1="128" y1="753" x2="128" y2="769"/>
+<rect class="fab" x="8" y="819" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="833.5">Donor's hose</text>
+<text class="t-xs" x="17" y="846.5">shortened or re-routed</text>
+<line class="ln" x1="128" y1="819" x2="128" y2="804" marker-end="url(#ah)"/>
+<rect class="new" x="8" y="869" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="883.5">Clamp</text>
+<text class="t-xs t-mono" x="17" y="896.5">11151726340</text>
+<line class="ln" x1="128" y1="869" x2="128" y2="854" marker-end="url(#ah)"/>
+<rect class="donor" x="8" y="919" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="933.5">M3 check valve</text>
+<text class="t-xs t-mono" x="17" y="946.5">34331161300</text>
+<line class="ln" x1="128" y1="919" x2="128" y2="904" marker-end="url(#ah)"/>
+<rect class="new" x="8" y="969" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="983.5">New grommet</text>
+<text class="t-xs t-mono" x="17" y="996.5">34336765316</text>
+<line class="ln" x1="128" y1="969" x2="128" y2="954" marker-end="url(#ah)"/>
+<rect class="keep" x="8" y="1019" width="150" height="34" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="17" y="1033.5">Your booster</text>
+<text class="t-xs t-mono" x="17" y="1046.5">34336779682</text>
+<line class="ln" x1="128" y1="1019" x2="128" y2="1004" marker-end="url(#ah)"/>
+<text class="t-xs" x="172" y="720.2">The DME switches it to add vacuum: A/C on,</text>
+<text class="t-xs" x="172" y="733.2">in gear with the clutch up, or below 70 °C</text>
+<text class="t-xs" x="172" y="746.2">(158 °F). It clicks in the DME's valve test at</text>
+<text class="t-xs" x="172" y="759.2">first key-on.</text>
+<text class="t-xs" x="172" y="783.2">The S54's own vacuum supply: keep it, the</text>
+<text class="t-xs" x="172" y="796.2">valve and their wiring working.</text>
+<text class="t-xs" x="172" y="833.2">It meets the M3's booster from the other</text>
+<text class="t-xs" x="172" y="846.2">side: shorten or re-route it to reach yours.</text>
+<text class="t-xs" x="172" y="933.2">Blow through it first: air must pass only from</text>
+<text class="t-xs" x="172" y="946.2">the booster toward the engine.</text>
+
+<!-- Removed: your own non-return valve and elbow -->
+<rect class="keep dash" x="172" y="968" width="220" height="86" rx="5" stroke-width="1.5"/>
+<path class="crit-s" d="M182,978.0 l11,11 M182,989.0 l11,-11" stroke-width="2"/>
+<text class="t-xs t-b crit-t" x="201" y="987.5">Remove</text>
+<text class="t-xs" x="182" y="1005">Your non-return valve 34331160183 and</text>
+<text class="t-xs" x="182" y="1018">its elbow 34336751108: the M3 check</text>
+<text class="t-xs" x="182" y="1031">valve goes in their place.</text>
+<text class="t-xs" x="8" y="1073">Check once the engine runs: engine off, pump the pedal until it's hard, hold it</text>
+<text class="t-xs" x="8" y="1086">with about 110 N (25 lb) and start the engine. The pedal must drop slightly.</text>
+</svg>

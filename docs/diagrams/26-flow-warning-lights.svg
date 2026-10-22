@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 639" role="img" aria-label="A lookup chart for the warning lights. Expected, not a fault: with the key on and the engine off the red oil-pressure lamp, the charge lamp and the check-engine lamp are lit; after the start, oil and charge go out within seconds and the check-engine lamp goes out unless a fault asks for it; the DSC and ABS lamps stay on until Session 5. To tell lamp wiring from a real fault, read STAT_MIL_EIN: at 0 with the check-engine lamp lit while the engine runs, suspect the cluster or its coding; at 1, read FS_LESEN. Then each lamp with its likely causes, most likely first, and the first check. Check engine: the leak-test circuit, SMG software in the DME, the O2 sensors or their heaters, secondary air, injector circuits, throttle or pedal, misfire. No lamp but faults stored: the pump fault 1 (0x01), expected with US software on K96; possibly 130 (0x82) after an EWS delete; 110 (0x6E) if the Sport LED isn't wired. Oil pressure, out at key-on: the pin-11 wire or the cluster's CAN setting; on while running: low oil pressure or a grounded lamp wire. Charge, out at key-on: the pin-1 wire or GENERATOR_UEBER_CAN; on while running: alternator, belt, the terminal-61 wire, low voltage; with a donor built from 03/2004, if the lamp stays dark with GENERATOR_UEBER_CAN at nicht_aktiv, code it aktiv. Oil level: the pin-21 wire, TOG_UEBER_CAN, or the sensor, fault 44 (0x2C). EML: the throttle sensors, pedal, synchronization or actuator, low charging voltage, or the adaptation not done. ABS, DSC and brake: the VIN not initialized until the cluster carries your VIN, wheel-speed sensors, steering angle, an M3 MK60, or the brake test-contact wire still on pin 28. Cruise won't engage: not the M3 clutch module, the gear switch, implausible brake contacts, SMG software, the steering-wheel data line. Airbag: a seat swap or the slip-ring plugs; never bypass it, since its crash message starts the DME's pump cut-off, unverified with K96. Gearbox or SMG lamp and tamper dot: SMG software or cluster and light-module coding. Check filler cap: the cap, or a leak." color="#1b2128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 825" role="img" aria-label="A lookup chart for the warning lights. Expected, not a fault: with the key on and the engine off the red oil-pressure lamp, the charge lamp and the check-engine lamp are lit, and the red BRAKE lamp while the parking brake is on; after the start, oil and charge go out within seconds and the check-engine lamp goes out unless a fault asks for it; the DSC, ABS and yellow BRAKE lamps stay on until Session 5. To tell lamp wiring from a real fault, read STAT_MIL_EIN: at 0 with the check-engine lamp lit while the engine runs, suspect the cluster or its coding; at 1, read FS_LESEN. The two BRAKE lamps mean different things (BMW ST056): red is low brake fluid or the parking brake on, not a DSC fault; yellow is a DSC or ABS fault, lit with the ABS and DSC lamps; have all four dark before the inspection. Then each lamp with its likely causes, most likely first, and the first check. Check engine: the leak-test circuit, SMG software in the DME, the O2 sensors or their heaters, secondary air, injector circuits, throttle or pedal, misfire. No lamp but faults stored: the pump fault 1 (0x01), expected with US software on K96; possibly 130 (0x82) after an EWS delete; 110 (0x6E) if the Sport LED isn't wired. Oil pressure, out at key-on: the pin-11 wire or the cluster's CAN setting; on while running: low oil pressure or a grounded lamp wire. Charge, out at key-on: the pin-1 wire or GENERATOR_UEBER_CAN; on while running: alternator, belt, the terminal-61 wire, low voltage; with a donor built from 03/2004, if the lamp stays dark with GENERATOR_UEBER_CAN at nicht_aktiv, code it aktiv. Oil level: the pin-21 wire, TOG_UEBER_CAN, or the sensor, fault 44 (0x2C). EML: the throttle sensors, pedal, synchronization or actuator, low charging voltage, or the adaptation not done. ABS, DSC and yellow BRAKE: the VIN not initialized (5E1F; 5EF1 in PA-Soft) until the cluster carries your VIN; wheel-speed faults 5D90 to 5DC5, whose third character names the wheel, and an MK20 donor's sensors don't fit; the steering angle not calibrated; an M3 MK60 not yet coded from a session order dated 09/2002 (#0902) or later, or reset in PA-Soft instead of initialised in INPA, so write the VIN, code it, run Shift+F4 then F1, and only if it still fails refit your Touring's own unit; the yellow BRAKE lamp alone, the brake test-contact wire still on pin 28. Red BRAKE: low brake fluid, often an unbled system, which also switches DSC off, or the parking brake or its switch; check the fluid level and STATUS_SCHALTER. Cruise won't engage: not the M3 clutch module, the gear switch, implausible brake contacts, SMG software, the steering-wheel data line. Airbag: a seat swap or the slip-ring plugs; never bypass it, since its crash message starts the DME's pump cut-off, unverified with K96. Gearbox or SMG lamp and tamper dot: SMG software; after a vehicle-order change, the modules it touches not yet coded; the cluster's VIN or mileage not matching the light module's. The car's order lives in the light module (ALSZ): read it from there; the M3 cluster keeps the donor's order and is coded only from its own read-out; never use Code Car. Check filler cap: the cap, or a leak." color="#1b2128">
 <style>
 svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 text{fill:currentColor}
@@ -17,14 +17,15 @@ text{fill:currentColor}
 <defs>
   <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
 </defs>
-<rect class="bg" x="0" y="0" width="800" height="639" fill="#ffffff"/>
-<rect class="new" x="8" y="8" width="336" height="97.5" rx="4" stroke-width="1.5"/>
+<rect class="bg" x="0" y="0" width="800" height="825" fill="#ffffff"/>
+<rect class="new" x="8" y="8" width="336" height="112.5" rx="4" stroke-width="1.5"/>
 <text class="t" x="18" y="22.64"><tspan class="t-b">Expected, not a fault.</tspan> Key on, engine off: the red</text>
 <text class="t" x="18" y="37.64">oil-pressure lamp, the charge lamp and the</text>
-<text class="t" x="18" y="52.64">check-engine lamp lit. After the start, oil and charge</text>
-<text class="t" x="18" y="67.64">go out within seconds, and check engine unless a</text>
-<text class="t" x="18" y="82.64">fault asks for it. DSC and ABS lamps stay on until</text>
-<text class="t" x="18" y="97.64">Session 5.</text>
+<text class="t" x="18" y="52.64">check-engine lamp lit, and the red BRAKE lamp while</text>
+<text class="t" x="18" y="67.64">the parking brake is on. After the start, oil and charge</text>
+<text class="t" x="18" y="82.64">go out within seconds, and check engine unless a</text>
+<text class="t" x="18" y="97.64">fault asks for it. The DSC, ABS and yellow BRAKE</text>
+<text class="t" x="18" y="112.64">lamps stay on until Session 5.</text>
 <rect class="shape" x="360" y="8" width="432" height="37.5" rx="18" stroke-width="1.5"/>
 <text class="t" x="374" y="22.64">Check-engine lamp lit with the engine running: wiring or a real fault?</text>
 <text class="t" x="374" y="37.64">Read <tspan class="t-mono">STAT_MIL_EIN</tspan>.</text>
@@ -38,77 +39,97 @@ text{fill:currentColor}
 <text class="t-sm t-b" x="471" y="57.5">0</text>
 <path class="ln" d="M687,45.5 V60.5" marker-end="url(#ah)"/>
 <text class="t-sm t-b" x="693" y="57.5">1</text>
-<text class="t-h" x="8" y="128.5">LAMPS AND SYMPTOMS: LIKELY CAUSES, MOST LIKELY FIRST, AND THE FIRST CHECK</text>
-<path class="ln-thin" d="M8,135.5 H392"/>
-<path class="ln-thin" d="M408,135.5 H792"/>
-<text class="t" x="18" y="150.14"><tspan class="t-b">Check engine:</tspan> 1 Leak-test circuit: heater 14 (0x0E), valve</text>
-<text class="t" x="18" y="165.14">27 (0x1B), module 127 (0x7F), after the pin moves or with a</text>
-<text class="t" x="18" y="180.14">three-wire module. 2 SMG software in the DME (SMG bus</text>
-<text class="t" x="18" y="195.14">faults, "MIL request from SMG"). 3 O2 sensors or their</text>
-<text class="t" x="18" y="210.14">heaters, faults 37–40 (0x25–0x28): a wrong or mixed O2</text>
-<text class="t" x="18" y="225.14">harness. 4 Secondary air, faults 19, 63, 170 and 171 (0x13,</text>
-<text class="t" x="18" y="240.14">0x3F, 0xAA, 0xAB). 5 Injector circuits (an X6053 mix).</text>
-<text class="t" x="18" y="255.14">6 Throttle or pedal (the EML lamp too). 7 Misfire.</text>
-<text class="t-sm" x="18" y="271.14"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STAT_MIL_EIN</tspan>; <tspan class="t-mono">FS_LESEN</tspan> with its stored values; the</text>
-<text class="t-sm" x="18" y="285.14">leak-test triangle (step 9); <tspan class="t-mono">START_SYSTEMCHECK_DMTL</tspan> and</text>
-<text class="t-sm" x="18" y="299.14"><tspan class="t-mono">LESEN_SYSTEMCHECK_DMTL</tspan>; <tspan class="t-mono">STEUERN_SLS_CHECK</tspan></text>
-<path class="ln-faint" d="M8,306.67 H392"/>
-<text class="t" x="18" y="321.31"><tspan class="t-b">No lamp, but faults stored:</tspan> location 1 (0x01), the pump</text>
-<text class="t" x="18" y="336.31">fault, expected with US software on K96; possibly 130 (0x82)</text>
-<text class="t" x="18" y="351.31">after an EWS delete; 110 (0x6E) if the Sport LED isn't wired.</text>
-<text class="t-sm" x="18" y="367.31"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">FS_LESEN</tspan>, and confirm <tspan class="t-mono">STAT_MIL_EIN</tspan> = 0</text>
-<path class="ln-faint" d="M8,374.84 H392"/>
-<text class="t" x="18" y="389.48"><tspan class="t-b">Oil pressure (red), out at key-on:</tspan> the pin-11 wire missing or</text>
-<text class="t" x="18" y="404.48">on the wrong cluster pin, or the cluster expects oil pressure</text>
-<text class="t" x="18" y="419.48">over CAN (<tspan class="t-mono">CAN_OELDRUCKSCHALTER</tspan>). On while running: low</text>
-<text class="t" x="18" y="434.48">oil pressure, or the lamp wire grounded.</text>
-<text class="t-sm" x="18" y="450.48"><tspan class="t-b">Check:</tspan> the key-on lamp; power-up steps 3 and 4; a mechanical gauge</text>
-<path class="ln-faint" d="M8,458.01 H392"/>
-<text class="t" x="18" y="472.65"><tspan class="t-b">Charge, out at key-on:</tspan> the pin-1 wire, or</text>
-<text class="t" x="18" y="487.65"><tspan class="t-mono">GENERATOR_UEBER_CAN</tspan>; with a donor built from 03/2004, if</text>
-<text class="t" x="18" y="502.65">it stays dark at <tspan class="t-mono">nicht_aktiv</tspan>, code it <tspan class="t-mono">aktiv</tspan>. On while</text>
-<text class="t" x="18" y="517.65">running: alternator, belt, the terminal-61 wire to X60003 pin</text>
-<text class="t" x="18" y="532.65">13, low voltage.</text>
-<text class="t-sm" x="18" y="548.65"><tspan class="t-b">Check:</tspan> the key-on lamp; <tspan class="t-mono">STATUS_UBATT</tspan> running</text>
-<path class="ln-faint" d="M8,556.18 H392"/>
-<text class="t" x="18" y="570.82"><tspan class="t-b">Oil level (yellow):</tspan> the pin-21 wire to cluster pin 17, or</text>
-<text class="t" x="18" y="585.82"><tspan class="t-mono">TOG_UEBER_CAN</tspan>; the sensor itself, fault 44 (0x2C).</text>
-<text class="t-sm" x="18" y="601.82"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STATUS_OEL_TEMPERATUR</tspan> reads plausibly</text>
-<path class="ln-faint" d="M8,609.35 H392"/>
-<text class="t" x="418" y="150.14"><tspan class="t-b">EML:</tspan> throttle sensor 1 or 2, the pedal, throttle</text>
-<text class="t" x="418" y="165.14">synchronization, the actuator; low charging voltage;</text>
-<text class="t" x="418" y="180.14">adaptation not done.</text>
-<text class="t-sm" x="418" y="196.14"><tspan class="t-b">Check:</tspan> faults 118–121 (0x76–0x79), 60 and 61 (0x3C, 0x3D),</text>
-<text class="t-sm" x="418" y="210.14">111 and 112 (0x6F, 0x70), 228–230 (0xE4–0xE6);</text>
-<text class="t-sm" x="418" y="224.14"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan></text>
-<path class="ln-faint" d="M408,231.67 H792"/>
-<text class="t" x="418" y="246.31"><tspan class="t-b">ABS, DSC, brake:</tspan> 1 VIN not initialized (5EF1, 5E1F) until the</text>
-<text class="t" x="418" y="261.31">cluster carries your VIN. 2 Wheel-speed sensors: an MK20</text>
-<text class="t" x="418" y="276.31">donor's don't fit. 3 Steering angle not calibrated. 4 An M3</text>
-<text class="t" x="418" y="291.31">MK60 that won't accept the Touring. 5 The yellow brake lamp:</text>
-<text class="t" x="418" y="306.31">the brake test-contact wire still on pin 28.</text>
-<text class="t-sm" x="418" y="322.31"><tspan class="t-b">Check:</tspan> INPA's DSC fault memory and wheel speeds</text>
-<path class="ln-faint" d="M408,329.84 H792"/>
-<text class="t" x="418" y="344.48"><tspan class="t-b">Cruise won't engage:</tspan> 1 Not the M3 clutch module. 2 Gear</text>
-<text class="t" x="418" y="359.48">switch missing or open. 3 Brake contacts implausible,</text>
-<text class="t" x="418" y="374.48">fault 106 (0x6A). 4 SMG software. 5 Steering-wheel data line,</text>
-<text class="t" x="418" y="389.48">fault 81 (0x51).</text>
-<text class="t-sm" x="418" y="405.48"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STAT_KRAFTSCHLUSS_EIN</tspan> in gear; <tspan class="t-mono">STAT_BLS_EIN</tspan>,</text>
-<text class="t-sm" x="418" y="419.48"><tspan class="t-mono">STAT_BLTS_EIN</tspan>; <tspan class="t-mono">STAT_MFL1_EIN</tspan>…; faults 80 (0x50), 106 (0x6A),</text>
-<text class="t-sm" x="418" y="433.48">139 (0x8B), 194 (0xC2)</text>
-<path class="ln-faint" d="M408,441.01 H792"/>
-<text class="t" x="418" y="455.65"><tspan class="t-b">Airbag:</tspan> a seat swap (belt tensioners, occupancy mat), the</text>
-<text class="t" x="418" y="470.65">steering wheel's slip-ring plugs. Never bypass it: its crash</text>
-<text class="t" x="418" y="485.65">message starts the DME's pump cut-off (unverified with K96).</text>
-<text class="t-sm" x="418" y="501.65"><tspan class="t-b">Check:</tspan> INPA's airbag fault memory</text>
-<path class="ln-faint" d="M408,509.18 H792"/>
-<text class="t" x="418" y="523.82"><tspan class="t-b">Gearbox or SMG lamp; tamper dot:</tspan> SMG software; cluster</text>
-<text class="t" x="418" y="538.82">and light module not re-coded after a vehicle-order change;</text>
-<text class="t" x="418" y="553.82">the cluster's VIN or mileage not matching the light module's.</text>
-<text class="t-sm" x="418" y="569.82"><tspan class="t-b">Check:</tspan> the DME's software; the cluster coding</text>
-<path class="ln-faint" d="M408,577.35 H792"/>
-<text class="t" x="418" y="591.99"><tspan class="t-b">"Check filler cap":</tspan> the cap not sealing; a leak found after</text>
-<text class="t" x="418" y="606.99">refueling.</text>
-<text class="t-sm" x="418" y="622.99"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">LESEN_SYSTEMCHECK_DMTL</tspan>; fault 181 (0xB5)</text>
-<path class="ln-faint" d="M408,630.52 H792"/>
+<rect class="warn-f" x="360" y="109" width="432" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="370" y="122.47"><tspan class="t-b">Two BRAKE lamps (BMW ST056):</tspan> red is low brake fluid or the parking brake</text>
+<text class="t-sm" x="370" y="136.47">on, not a DSC fault; yellow is a DSC or ABS fault, lit with the ABS and DSC</text>
+<text class="t-sm" x="370" y="150.47">lamps. Have all four dark before the inspection.</text>
+<text class="t-h" x="8" y="181">LAMPS AND SYMPTOMS: LIKELY CAUSES, MOST LIKELY FIRST, AND THE FIRST CHECK</text>
+<path class="ln-thin" d="M8,188 H392"/>
+<path class="ln-thin" d="M408,188 H792"/>
+<text class="t" x="18" y="202.64"><tspan class="t-b">Check engine:</tspan> 1 Leak-test circuit: heater 14 (0x0E), valve</text>
+<text class="t" x="18" y="217.64">27 (0x1B), module 127 (0x7F), after the pin moves or with a</text>
+<text class="t" x="18" y="232.64">three-wire module. 2 SMG software in the DME (SMG bus</text>
+<text class="t" x="18" y="247.64">faults, "MIL request from SMG"). 3 O2 sensors or their</text>
+<text class="t" x="18" y="262.64">heaters, faults 37–40 (0x25–0x28): a wrong or mixed O2</text>
+<text class="t" x="18" y="277.64">harness. 4 Secondary air, faults 19, 63, 170 and 171 (0x13,</text>
+<text class="t" x="18" y="292.64">0x3F, 0xAA, 0xAB). 5 Injector circuits (an X6053 mix).</text>
+<text class="t" x="18" y="307.64">6 Throttle or pedal (the EML lamp too). 7 Misfire.</text>
+<text class="t-sm" x="18" y="323.64"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STAT_MIL_EIN</tspan>; <tspan class="t-mono">FS_LESEN</tspan> with its stored values; the</text>
+<text class="t-sm" x="18" y="337.64">leak-test triangle (step 9); <tspan class="t-mono">START_SYSTEMCHECK_DMTL</tspan> and</text>
+<text class="t-sm" x="18" y="351.64"><tspan class="t-mono">LESEN_SYSTEMCHECK_DMTL</tspan>; <tspan class="t-mono">STEUERN_SLS_CHECK</tspan></text>
+<path class="ln-faint" d="M8,359.17 H392"/>
+<text class="t" x="18" y="373.81"><tspan class="t-b">No lamp, but faults stored:</tspan> location 1 (0x01), the pump</text>
+<text class="t" x="18" y="388.81">fault, expected with US software on K96; possibly 130 (0x82)</text>
+<text class="t" x="18" y="403.81">after an EWS delete; 110 (0x6E) if the Sport LED isn't wired.</text>
+<text class="t-sm" x="18" y="419.81"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">FS_LESEN</tspan>, and confirm <tspan class="t-mono">STAT_MIL_EIN</tspan> = 0</text>
+<path class="ln-faint" d="M8,427.34 H392"/>
+<text class="t" x="18" y="441.98"><tspan class="t-b">Oil pressure (red), out at key-on:</tspan> the pin-11 wire missing or</text>
+<text class="t" x="18" y="456.98">on the wrong cluster pin, or the cluster expects oil pressure</text>
+<text class="t" x="18" y="471.98">over CAN (<tspan class="t-mono">CAN_OELDRUCKSCHALTER</tspan>). On while running: low</text>
+<text class="t" x="18" y="486.98">oil pressure, or the lamp wire grounded.</text>
+<text class="t-sm" x="18" y="502.98"><tspan class="t-b">Check:</tspan> the key-on lamp; power-up steps 3 and 4; a mechanical gauge</text>
+<path class="ln-faint" d="M8,510.51 H392"/>
+<text class="t" x="18" y="525.15"><tspan class="t-b">Charge, out at key-on:</tspan> the pin-1 wire, or</text>
+<text class="t" x="18" y="540.15"><tspan class="t-mono">GENERATOR_UEBER_CAN</tspan>; with a donor built from 03/2004, if</text>
+<text class="t" x="18" y="555.15">it stays dark at <tspan class="t-mono">nicht_aktiv</tspan>, code it <tspan class="t-mono">aktiv</tspan>. On while</text>
+<text class="t" x="18" y="570.15">running: alternator, belt, the terminal-61 wire to X60003 pin</text>
+<text class="t" x="18" y="585.15">13, low voltage.</text>
+<text class="t-sm" x="18" y="601.15"><tspan class="t-b">Check:</tspan> the key-on lamp; <tspan class="t-mono">STATUS_UBATT</tspan> running</text>
+<path class="ln-faint" d="M8,608.68 H392"/>
+<text class="t" x="18" y="623.32"><tspan class="t-b">Oil level (yellow):</tspan> the pin-21 wire to cluster pin 17, or</text>
+<text class="t" x="18" y="638.32"><tspan class="t-mono">TOG_UEBER_CAN</tspan>; the sensor itself, fault 44 (0x2C).</text>
+<text class="t-sm" x="18" y="654.32"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STATUS_OEL_TEMPERATUR</tspan> reads plausibly</text>
+<path class="ln-faint" d="M8,661.85 H392"/>
+<text class="t" x="18" y="676.49"><tspan class="t-b">EML:</tspan> throttle sensor 1 or 2, the pedal, throttle</text>
+<text class="t" x="18" y="691.49">synchronization, the actuator; low charging voltage;</text>
+<text class="t" x="18" y="706.49">adaptation not done.</text>
+<text class="t-sm" x="18" y="722.49"><tspan class="t-b">Check:</tspan> faults 118–121 (0x76–0x79), 60 and 61 (0x3C, 0x3D),</text>
+<text class="t-sm" x="18" y="736.49">111 and 112 (0x6F, 0x70), 228–230 (0xE4–0xE6);</text>
+<text class="t-sm" x="18" y="750.49"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan></text>
+<path class="ln-faint" d="M8,758.02 H392"/>
+<text class="t" x="418" y="202.64"><tspan class="t-b">ABS, DSC, yellow BRAKE:</tspan> 1 VIN not initialized (5E1F; 5EF1</text>
+<text class="t" x="418" y="217.64">in PA-Soft) until the cluster carries your VIN. 2 Wheel-speed</text>
+<text class="t" x="418" y="232.64">faults 5D90–5DC5, which name the wheel: 5D9x front left,</text>
+<text class="t" x="418" y="247.64">5DAx front right, 5DBx rear left, 5DCx rear right; an MK20</text>
+<text class="t" x="418" y="262.64">donor's sensors don't fit. 3 Steering angle not calibrated. 4 An</text>
+<text class="t" x="418" y="277.64">M3 MK60 not yet coded from a session order dated 09/2002</text>
+<text class="t" x="418" y="292.64">(#0902) or later, or reset in PA-Soft instead of initialised in</text>
+<text class="t" x="418" y="307.64">INPA: write the VIN, code it, then Shift+F4 → F1; only if it still</text>
+<text class="t" x="418" y="322.64">fails, refit your Touring's MK60. 5 The yellow BRAKE lamp</text>
+<text class="t" x="418" y="337.64">alone: the brake test-contact wire still on pin 28.</text>
+<text class="t-sm" x="418" y="353.64"><tspan class="t-b">Check:</tspan> INPA's DSC fault memory and wheel speeds</text>
+<path class="ln-faint" d="M408,361.17 H792"/>
+<text class="t" x="418" y="375.81"><tspan class="t-b">Red BRAKE:</tspan> low brake fluid, often an unbled system, which</text>
+<text class="t" x="418" y="390.81">also switches DSC off; or the parking brake on, or its switch.</text>
+<text class="t" x="418" y="405.81">Not a DSC or ABS fault (BMW ST056).</text>
+<text class="t-sm" x="418" y="421.81"><tspan class="t-b">Check:</tspan> the fluid level; <tspan class="t-mono">DSC_MK60.PRG</tspan> → <tspan class="t-mono">STATUS_SCHALTER</tspan>:</text>
+<text class="t-sm" x="418" y="435.81"><tspan class="t-mono">STAT_HANDBREMSE_SCHALTER_EIN</tspan> and</text>
+<text class="t-sm" x="418" y="449.81"><tspan class="t-mono">STAT_BREMSFLUESSIGKEIT_SCHALTER_EIN</tspan> follow the lever and</text>
+<text class="t-sm" x="418" y="463.81">the fluid switch</text>
+<path class="ln-faint" d="M408,471.34 H792"/>
+<text class="t" x="418" y="485.98"><tspan class="t-b">Cruise won't engage:</tspan> 1 Not the M3 clutch module. 2 Gear</text>
+<text class="t" x="418" y="500.98">switch missing or open. 3 Brake contacts implausible,</text>
+<text class="t" x="418" y="515.98">fault 106 (0x6A). 4 SMG software. 5 Steering-wheel data line,</text>
+<text class="t" x="418" y="530.98">fault 81 (0x51).</text>
+<text class="t-sm" x="418" y="546.98"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STAT_KRAFTSCHLUSS_EIN</tspan> in gear; <tspan class="t-mono">STAT_BLS_EIN</tspan>,</text>
+<text class="t-sm" x="418" y="560.98"><tspan class="t-mono">STAT_BLTS_EIN</tspan>; <tspan class="t-mono">STAT_MFL1_EIN</tspan>…; faults 80 (0x50), 106 (0x6A),</text>
+<text class="t-sm" x="418" y="574.98">139 (0x8B), 194 (0xC2)</text>
+<path class="ln-faint" d="M408,582.51 H792"/>
+<text class="t" x="418" y="597.15"><tspan class="t-b">Airbag:</tspan> a seat swap (belt tensioners, occupancy mat), the</text>
+<text class="t" x="418" y="612.15">steering wheel's slip-ring plugs. Never bypass it: its crash</text>
+<text class="t" x="418" y="627.15">message starts the DME's pump cut-off (unverified with K96).</text>
+<text class="t-sm" x="418" y="643.15"><tspan class="t-b">Check:</tspan> INPA's airbag fault memory</text>
+<path class="ln-faint" d="M408,650.68 H792"/>
+<text class="t" x="418" y="665.32"><tspan class="t-b">Gearbox or SMG lamp; tamper dot:</tspan> SMG software; after a</text>
+<text class="t" x="418" y="680.32">gearbox-type change in the vehicle order, the modules it</text>
+<text class="t" x="418" y="695.32">touches not yet coded; the cluster's VIN or mileage not</text>
+<text class="t" x="418" y="710.32">matching the light module's. Read the car's order from ALSZ,</text>
+<text class="t" x="418" y="725.32">the light module; the M3 cluster keeps the donor's order and</text>
+<text class="t" x="418" y="740.32">is coded only from its own read-out. Never Code Car.</text>
+<text class="t-sm" x="418" y="756.32"><tspan class="t-b">Check:</tspan> the DME's software; the order in ALSZ; the cluster's VIN</text>
+<path class="ln-faint" d="M408,763.85 H792"/>
+<text class="t" x="418" y="778.49"><tspan class="t-b">"Check filler cap":</tspan> the cap not sealing; a leak found after</text>
+<text class="t" x="418" y="793.49">refueling.</text>
+<text class="t-sm" x="418" y="809.49"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">LESEN_SYSTEMCHECK_DMTL</tspan>; fault 181 (0xB5)</text>
+<path class="ln-faint" d="M408,817.02 H792"/>
 </svg>

@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 882" role="img" aria-label="The S54 coolant circuit in your Touring, as a schematic with the radiator at the top, and the points used to fill and bleed it, numbered as in the steps of Fill and bleed the cooling system. The water pump, 11517838118, pushes coolant into the block, through the cylinder head and back through the return pipe to the 80 °C thermostat, 11531318274, which is new. While the thermostat is shut during warm-up, the coolant goes straight back to the pump through the bypass. Once it opens at 80 °C, the coolant runs through hose 11537830716 to the M3 radiator, 17102228941, which has no drain plug, and back through the lower hose, past the radiator-outlet sensor 13621433077, to the pump. The heater circuit takes coolant from the return pipe through the heater valve to your Touring's heater core and back to the pump: either your plain valve 64118369805 with the CSL hose 64212282548, the recommended option, with no wiring or coding, or the M3 valve with its pump, 64118369807, with hose 64216902679, two wires and coding; both use the donor's hoses 64216902678 and 64216902680. A line from the radiator vents to the new expansion tank, 17112283344, with its 2.0 bar cap 17117639022, and a line from the tank feeds the pump. Step 1 is the block drain plug, 24 Nm by one owner's figure, with a new 14 mm washer, and the lower hose. Steps 4, 6, 10 and 13 are at the vent screw 17111712788 in hose 11537830716, under the intake ducting, plastic, 2.5 Nm. Steps 5, 7, 8, 10, 11 and 14 are at the tank neck. Step 9 is at the heater valve: with the ignition on, the blower low and the heat at maximum it opens fully and the M3 valve's pump runs (with manual climate control, blower at 1, not 0, and the dial fully right); with the ignition off in Phase 10 it rests open. Step 12 reads the radiator-outlet temperature in Tool32. Steps 1 to 8 are in Phase 10 with the engine cold and the ignition off, 9 and 10 in Phase 12 before the first start with the ignition on, and 11 to 14 at the first start and heat cycles, repeating 11 to 13 until no air hisses out." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="aht" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="3.6" markerHeight="3.6" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="882" fill="#ffffff"/>
+
+<!-- Key -->
+<rect class="keep" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">Keep</text>
+<rect class="donor" x="67.9" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="84.9" y="16.5">From donor M3</text>
+<rect class="new" x="179.7" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="196.7" y="16.5">Buy new</text>
+<line class="ln" x1="8" y1="33" x2="36" y2="33" style="stroke-width:3" marker-end="url(#aht)"/>
+<text class="t-sm" x="42" y="37">Hot: thermostat open</text>
+<line class="ln dash" x1="172.7" y1="33" x2="200.7" y2="33" marker-end="url(#ah)"/>
+<text class="t-sm" x="206.7" y="37">Warm-up: thermostat shut</text>
+<line class="ln" x1="8" y1="55" x2="36" y2="55" marker-end="url(#ah)"/>
+<text class="t-sm" x="42" y="59">Hot and warm-up</text>
+<line class="ln-thin" x1="152.6" y1="55" x2="180.6" y2="55" marker-end="url(#ah)"/>
+<text class="t-sm" x="186.6" y="59">Tank lines</text>
+
+<!-- Expansion tank (new) with the 2.0 bar cap: steps 5, 7, 8, 11 and 14 at the neck -->
+<rect class="new" x="110" y="98" width="180" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="120" y="116">Expansion tank</text>
+<text class="t-xs" x="120" y="131"><tspan class="t-mono">17112283344</tspan>, new</text>
+<rect class="keep" x="124" y="90" width="22" height="8" rx="2" stroke-width="1.5"/>
+<text class="t-xs" x="152" y="93">cap <tspan class="t-mono">17117639022</tspan>: 2.0 bar</text>
+<rect class="fill-fg" x="28.1" y="79" width="87.8" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="72" y="93" text-anchor="middle">5 7 8 10 11 14</text>
+<text class="t-xs" x="72" y="113" text-anchor="middle">tank neck</text>
+
+<!-- Radiator (donor); the vent line to the tank and the tank's line to the pump -->
+<rect class="donor" x="40" y="164" width="300" height="38" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="50" y="181">Radiator <tspan class="t-mono">17102228941</tspan></text>
+<text class="t-xs" x="50" y="195">the M3's: no drain plug</text>
+<line class="ln-thin" x1="230" y1="164" x2="230" y2="143" marker-end="url(#ah)"/>
+<path class="ln-thin" d="M290,120 H384 V300"/>
+
+<!-- Thermostat 80 °C (new) and water pump (donor); the bypass between them -->
+<rect class="new" x="40" y="286" width="110" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="50" y="304">80 °C thermostat</text>
+<text class="t-xs" x="50" y="318"><tspan class="t-mono">11531318274</tspan>, new</text>
+<rect class="donor" x="250" y="286" width="90" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="260" y="304">Water pump</text>
+<text class="t-xs t-mono" x="260" y="318">11517838118</text>
+<line class="ln dash" x1="151" y1="308" x2="249" y2="308" marker-end="url(#ah)"/>
+<text class="t-xs" x="200" y="302" text-anchor="middle">bypass</text>
+
+<!-- Hose 11537830716 with the vent screw: steps 4, 6, 10 and 13 -->
+<line class="ln" x1="95" y1="285" x2="95" y2="204" style="stroke-width:3" marker-end="url(#aht)"/>
+<circle class="new" cx="95" cy="246" r="5" stroke-width="1.5"/>
+<rect class="fill-fg" x="19.2" y="236" width="61.6" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="50" y="250" text-anchor="middle">4 6 10 13</text>
+<text class="t-xs t-b" x="106" y="230">Vent screw <tspan class="t-mono">17111712788</tspan></text>
+<text class="t-xs" x="106" y="243">in hose <tspan class="t-mono">11537830716</tspan></text>
+<text class="t-xs" x="106" y="255.5">under the intake ducting;</text>
+<text class="t-xs" x="106" y="268">plastic: 2.5 Nm</text>
+
+<!-- Lower hose to the pump with the radiator-outlet sensor: steps 1 and 12 -->
+<line class="ln" x1="295" y1="203" x2="295" y2="285" style="stroke-width:3" marker-end="url(#aht)"/>
+<circle class="keep" cx="295" cy="222" r="5" stroke-width="1.5"/>
+<text class="t-xs t-b" x="305" y="220">outlet sensor</text>
+<text class="t-xs t-mono" x="305" y="232.5">13621433077</text>
+<rect class="fill-fg" x="303" y="239" width="36" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="321" y="253" text-anchor="middle">12</text>
+<text class="t-xs" x="343" y="253">Tool32</text>
+<rect class="fill-fg" x="303" y="262" width="36" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="321" y="276" text-anchor="middle">1</text>
+<text class="t-xs" x="343" y="276">hose on</text>
+<circle class="fill-fg" cx="384" cy="300" r="2.5"/>
+<line class="ln-thin" x1="384" y1="300" x2="341" y2="300" marker-end="url(#ah)"/>
+
+<!-- Block and cross-flow head (donor); the return pipe up to the thermostat -->
+<rect class="donor" x="40" y="372" width="110" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="50" y="390">Cylinder head</text>
+<text class="t-xs" x="50" y="404">S54</text>
+<rect class="donor" x="250" y="372" width="90" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="260" y="390">Block</text>
+<text class="t-xs" x="260" y="404">S54</text>
+<line class="ln" x1="295" y1="330" x2="295" y2="371" marker-end="url(#ah)"/>
+<text class="t-xs" x="303" y="354">into the block</text>
+<line class="ln" x1="250" y1="394" x2="151" y2="394" marker-end="url(#ah)"/>
+<text class="t-xs" x="200" y="388" text-anchor="middle">into the head</text>
+<line class="ln" x1="95" y1="372" x2="95" y2="331" marker-end="url(#ah)"/>
+<text class="t-xs" x="103" y="360">return pipe</text>
+
+<!-- Block drain plug: step 1 -->
+<rect class="fill-fg" x="206" y="427" width="36" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="224" y="441" text-anchor="middle">1</text>
+<text class="t-xs" x="250" y="434">block drain plug in: 24 Nm</text>
+<text class="t-xs" x="250" y="446.5">(one owner's figure), with a</text>
+<text class="t-xs" x="250" y="459">new 14 mm washer</text>
+
+<!-- Heater: from the return pipe through the valve and your heater core, back to the pump -->
+<circle class="fill-fg" cx="95" cy="350" r="2.5"/>
+<path class="ln" d="M95,350 H20 V488 H39" marker-end="url(#ah)"/>
+<rect class="shape" x="40" y="466" width="110" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="50" y="484">Heater valve</text>
+<text class="t-xs" x="50" y="498">two options: below</text>
+<line class="ln" x1="151" y1="488" x2="249" y2="488" marker-end="url(#ah)"/>
+<rect class="keep" x="250" y="466" width="90" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="260" y="484">Heater core</text>
+<text class="t-xs" x="260" y="498">yours, kept</text>
+<path class="ln" d="M341,488 H384 V302"/>
+<rect class="fill-fg" x="40" y="518" width="36" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="58" y="532" text-anchor="middle">9</text>
+<text class="t-xs" x="82" y="532">ignition on, blower low, heat at maximum:</text>
+<text class="t-xs" x="82" y="544.5">the valve opens fully; the M3 valve's pump runs.</text>
+<text class="t-xs" x="82" y="557">IHKR: blower at 1, not 0, and the dial fully right.</text>
+<text class="t-xs" x="82" y="569.5">In Phase 10, ignition off, it rests open.</text>
+
+<!-- The steps by phase -->
+<text class="t-sm t-b" x="8" y="596">Numbered points: the steps below, by phase</text>
+<rect class="fill-fg" x="8" y="604" width="36" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="26" y="618" text-anchor="middle">1–8</text>
+<text class="t-xs" x="50" y="618">Phase 10: engine cold, ignition off</text>
+<rect class="fill-fg" x="8" y="626" width="39.6" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="27.8" y="640" text-anchor="middle">9–10</text>
+<text class="t-xs" x="53.6" y="640">Phase 12, before the first start: ignition on, engine off</text>
+<rect class="fill-fg" x="8" y="648" width="46.5" height="20" rx="10"/>
+<text class="t-sm t-b fill-bg" x="31.2" y="662" text-anchor="middle">11–14</text>
+<text class="t-xs" x="60.5" y="662">First start and heat cycles: repeat 11–13 until no hiss</text>
+
+<!-- Heater valve: two options -->
+<rect class="panel" x="8" y="688" width="188" height="154" rx="6" stroke-width="1"/>
+<rect class="panel" x="204" y="688" width="188" height="154" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="706">1  Your plain valve</text>
+<text class="t-xs t-b" x="18" y="719">recommended</text>
+<rect class="keep" x="18" y="727" width="10" height="10" rx="2" stroke-width="1"/>
+<text class="t-xs" x="33" y="736">valve <tspan class="t-mono">64118369805</tspan>, yours</text>
+<rect class="new" x="18" y="743" width="10" height="10" rx="2" stroke-width="1"/>
+<text class="t-xs" x="33" y="752">to the core: CSL hose</text>
+<text class="t-xs t-mono" x="33" y="764.5">64212282548</text>
+<text class="t-xs" x="18" y="782">No wiring, no coding. The engine's</text>
+<text class="t-xs" x="18" y="794.5">own pump vents the heater circuit</text>
+<text class="t-xs" x="18" y="807">(our inference): allow two heat</text>
+<text class="t-xs" x="18" y="819.5">cycles.</text>
+<text class="t-sm t-b" x="214" y="706">2  The M3 valve and its pump</text>
+<rect class="donor" x="214" y="727" width="10" height="10" rx="2" stroke-width="1"/>
+<text class="t-xs" x="229" y="736">valve <tspan class="t-mono">64118369807</tspan></text>
+<rect class="donor" x="214" y="743" width="10" height="10" rx="2" stroke-width="1"/>
+<text class="t-xs" x="229" y="752">to the core: hose <tspan class="t-mono">64216902679</tspan></text>
+<text class="t-xs" x="214" y="782">Two wires, and the coding</text>
+<text class="t-xs" x="214" y="794.5"><tspan class="t-mono">ZUSATZWASSERPUMPE</tspan> = <tspan class="t-mono">aktiv</tspan>.</text>
+<text class="t-xs" x="214" y="807">Wire it before you fill: BMW's fill</text>
+<text class="t-xs" x="214" y="819.5">runs the pump to vent the heater</text>
+<text class="t-xs" x="214" y="832">circuit.</text>
+<text class="t-xs" x="8" y="860">Both options: the donor's hoses <tspan class="t-mono">64216902678</tspan>, engine to valve,</text>
+<text class="t-xs" x="8" y="872.5">and <tspan class="t-mono">64216902680</tspan>, heater core to engine. Schematic, not to scale.</text>
+</svg>

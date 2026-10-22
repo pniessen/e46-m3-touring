@@ -45,6 +45,7 @@ NAV_LABELS = {
 }
 # Sidebar labels for headings that are whole sentences (the research notes), by how they start.
 NAV_TEXT_LABELS = [
+    ("A fourth round in October 2026", "Round 4: what changed"),
     ("Five jobs on X60004", "Wiring: five jobs on X60004"),
     ("The 325i's own pump relay", "Fuel pump and lines"),
     ("BMW's documents settle the torque", "Torque values"),

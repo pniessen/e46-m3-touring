@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1214" role="img" aria-label="Driveline of a 325xi Touring with the S54, seen from above with the front at the top; schematic, not to scale. Keeping all-wheel drive: the donor's S54 sits on your xi oil pan 11137519432, which has the right axle tube welded through its front. That front zone is the hazard: the S54's two-stage pump has its scavenge pickup there, so both documented builds fitted an M50-family single-stage pump and machined or re-made the pan, and on one the pump chain ground into the pan and wrecked the bottom end. Prove every clearance with clay and the oil pressure against the donor's. The front diff, type 174, bolts to the pan's left side; the right shaft runs through the tube to a support bracket on the pan's right side; the S54 headers' clearance to that shaft and bracket is unknown: check on the car. Behind the engine come the 330xi six-speed 23007563053, from 03/2003, on the M3 flywheel with a Z4 M clutch as in BMW's Z4 M, then the NV 124 transfer case 27107530812, which splits torque 38:62 at the same speed front and rear and is rated by BMW at 300 Nm, against the US S54's 355 Nm. The front prop shaft 26207525970, 723 mm, runs forward on the left to the front diff; the rear prop shaft runs to the rear diff, type 188. The front and rear diff ratios must match: both builds used an X3 3.91 pair (the X3 2.5i's ratio), a 325xi/330xi automatic 3.46 pair gives near-M3 gearing, and X3 rear flanges don't fit the xi rear shafts. Your front axle, knuckles, shafts and rack, the Bosch DSC 5.7 and its four sensors, the crossmember and the rear prop shaft stay. Converting to rear drive instead: the transfer case, front diff, front shafts and front prop shaft, the xi front subframe, knuckles and rack, and the Bosch DSC 5.7 with its sensors come out. In go the M3 front subframe and axle, trial-fitted first; the M3 gearbox on a custom crossmember bracket; the M3 lower steering joint and coupling; and an MK60 with an adapter loom, because the xi's plug is 42-pin with CAN on pins 24 and 40 and the MK60's is 47-pin with CAN on pins 11 and 15, so it is wired signal by signal. Everything behind the front seats is the same as on a 325i Touring." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahn" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="new-f"/></marker>
+  <marker id="ahk" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="keep-f"/></marker>
+  <marker id="ahd" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="donor-f"/></marker>
+  <marker id="ahc" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="crit-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="1214" fill="#ffffff"/>
+<rect class="keep" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">Keep</text>
+<rect class="donor" x="65.9" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="82.9" y="16.5">From donor M3</text>
+<rect class="new" x="175.7" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="192.7" y="16.5">Buy, used or new</text>
+<rect class="fab" x="8" y="26" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="36.5">Modify</text>
+<rect class="crit-s dash" x="74.2" y="26" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="91.2" y="36.5">Hazard, or check on the car</text>
+<rect class="keep dash" x="246.6" y="26" width="12" height="12" rx="2" stroke-width="1"/>
+<path class="crit-s" d="M249.1,28.5 l7,7 M249.1,35.5 l7,-7" stroke-width="1.6"/>
+<text class="t-sm" x="263.6" y="36.5">Comes out</text>
+
+<!-- Panel A: keep all-wheel drive -->
+<text class="t-h" x="8" y="66">KEEP ALL-WHEEL DRIVE</text>
+<text class="t-sm" x="8" y="83">Seen from above, front at the top. Schematic, not to scale.</text>
+<rect class="warn-f" x="8" y="96" width="384" height="110" rx="5" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="18" y="115">Hazard: the front of the oil pan</text>
+<text class="t-sm" x="18" y="132">Your xi pan 11137519432 has the right axle tube welded</text>
+<text class="t-sm" x="18" y="146">through its front, the zone where the S54's two-stage pump</text>
+<text class="t-sm" x="18" y="160">has its scavenge pickup. Both builds fitted an M50-family</text>
+<text class="t-sm" x="18" y="174">single-stage pump instead. On one, the pump chain ground</text>
+<text class="t-sm" x="18" y="188">into the pan and wrecked the bottom end. Prove every</text>
+<text class="t-sm" x="18" y="202">clearance with clay, and oil pressure against the donor's.</text>
+<text class="t-xs" x="8" y="222">left (driver's side)</text>
+<text class="t-xs" x="392" y="222" text-anchor="end">right</text>
+<rect class="keep" x="14" y="232" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="keep" x="14" y="714" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="keep" x="366" y="232" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="keep" x="366" y="714" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="donor" x="168" y="218" width="64" height="180" rx="6" stroke-width="1.5"/>
+<rect class="fab" x="174" y="236" width="52" height="136" rx="4" stroke-width="1.5"/>
+<text class="t-sm t-b donor-t" x="200" y="389" text-anchor="middle">S54</text>
+<text class="t-sm t-b fab-t" x="200" y="330" text-anchor="middle">xi pan</text>
+<path class="donor-s" d="M232,244 c12,0 18,6 18,24" stroke-width="1.5"/>
+<path class="donor-s" d="M232,268 c12,0 18,6 18,24" stroke-width="1.5"/>
+<path class="donor-s" d="M232,292 c12,0 18,6 18,24" stroke-width="1.5"/>
+<line class="keep-s" x1="34" y1="258" x2="122" y2="258" stroke-width="3"/>
+<rect class="keep" x="158" y="253" width="80" height="10" rx="2" stroke-width="1.2"/>
+<line class="keep-s" x1="158" y1="258" x2="366" y2="258" stroke-width="3"/>
+<rect class="keep" x="238" y="250" width="12" height="16" rx="2" stroke-width="1.5"/>
+<rect class="new" x="122" y="244" width="36" height="28" rx="4" stroke-width="2"/>
+<rect class="crit-s dash" x="165" y="215" width="70" height="65" rx="8" stroke-width="2"/>
+<line class="crit-s" x1="200" y1="206" x2="200" y2="215" stroke-width="1.5"/>
+<ellipse class="crit-s dash" cx="252" cy="262" rx="14" ry="21" stroke-width="1.5"/>
+<path class="new" d="M172,398 L228,398 L222,422 L222,498 L178,498 L178,422 Z" stroke-width="2"/>
+<rect class="new" x="128" y="498" width="94" height="30" rx="4" stroke-width="2"/>
+<line class="new-s" x1="140" y1="498" x2="140" y2="274" stroke-width="3" marker-end="url(#ahn)"/>
+<line class="keep-s" x1="200" y1="528" x2="200" y2="722" stroke-width="3" marker-end="url(#ahk)"/>
+<line class="keep-s" x1="34" y1="740" x2="182" y2="740" stroke-width="3"/>
+<line class="keep-s" x1="218" y1="740" x2="366" y2="740" stroke-width="3"/>
+<rect class="new" x="182" y="724" width="36" height="32" rx="4" stroke-width="2"/>
+<text class="t-sm t-b" x="8" y="300">Front diff, type 174</text>
+<text class="t-sm" x="8" y="314">bolted to the pan's</text>
+<text class="t-sm" x="8" y="328">left side</text>
+<line class="ln-thin" x1="92" y1="289" x2="128" y2="273"/>
+<text class="t-sm t-b" x="8" y="380">Front prop shaft</text>
+<text class="t-xs t-mono" x="8" y="394">26207525970</text>
+<text class="t-sm" x="8" y="408">723 mm, from</text>
+<text class="t-sm" x="8" y="422">03/2003</text>
+<text class="t-sm crit-t" x="258" y="304">Headers to the right</text>
+<text class="t-sm crit-t" x="258" y="318">shaft and bracket:</text>
+<text class="t-sm crit-t" x="258" y="332">check on the car</text>
+<line class="crit-s" x1="256" y1="293" x2="257" y2="281" stroke-width="1"/>
+<text class="t-sm" x="258" y="362">Pan machined or</text>
+<text class="t-sm" x="258" y="376">re-made on both builds</text>
+<line class="ln-thin" x1="254" y1="358" x2="226" y2="358"/>
+<text class="t-sm t-b" x="258" y="416">330xi six-speed</text>
+<text class="t-xs t-mono" x="258" y="430">23007563053</text>
+<text class="t-sm" x="258" y="444">from 03/2003, on the M3</text>
+<text class="t-sm" x="258" y="458">flywheel with a Z4 M</text>
+<text class="t-sm" x="258" y="472">clutch, as in BMW's Z4 M</text>
+<line class="ln-thin" x1="254" y1="412" x2="223" y2="412"/>
+<text class="t-sm t-b" x="258" y="504">NV 124 transfer case</text>
+<text class="t-xs t-mono" x="258" y="518">27107530812</text>
+<text class="t-sm" x="258" y="532">38:62 torque, 1:1 speed</text>
+<text class="t-sm crit-t" x="258" y="546">BMW: 300 Nm max;</text>
+<text class="t-sm crit-t" x="258" y="560">US S54: 355 Nm</text>
+<line class="ln-thin" x1="254" y1="500" x2="222" y2="500"/>
+<rect class="panel" x="8" y="578" width="184" height="124" rx="5" stroke-width="1"/>
+<text class="t-sm t-b" x="16" y="596">Diff ratios must match</text>
+<text class="t-sm" x="16" y="612">Both prop shafts turn at the</text>
+<text class="t-sm" x="16" y="626">same speed. Both builds used</text>
+<text class="t-sm" x="16" y="640">an X3 3.91 pair; the</text>
+<text class="t-sm" x="16" y="654">325xi/330xi automatic 3.46</text>
+<text class="t-sm" x="16" y="668">pair gives near-M3 gearing.</text>
+<text class="t-sm" x="16" y="682">X3 rear flanges don't fit</text>
+<text class="t-sm" x="16" y="696">the xi rear shafts.</text>
+<rect class="panel" x="208" y="578" width="184" height="96" rx="5" stroke-width="1"/>
+<text class="t-sm t-b" x="216" y="596">Stays</text>
+<text class="t-sm" x="216" y="612">Your front axle, knuckles,</text>
+<text class="t-sm" x="216" y="626">shafts and rack; your</text>
+<text class="t-sm" x="216" y="640">Bosch DSC 5.7 and its four</text>
+<text class="t-sm" x="216" y="654">sensors; the crossmember</text>
+<text class="t-sm" x="216" y="668">and rear prop shaft.</text>
+<text class="t-sm" x="200" y="780" text-anchor="middle">Rear diff, type 188: same ratio as the front</text>
+
+<!-- Panel B: convert to rear drive -->
+<line class="ln-faint" x1="8" y1="802" x2="392" y2="802"/>
+<text class="t-h" x="8" y="828">OR CONVERT TO REAR DRIVE</text>
+<text class="t-sm" x="8" y="845">The same view, smaller: the car after the conversion.</text>
+<rect class="keep dash" x="8" y="858" width="384" height="72" rx="5" stroke-width="1.5"/>
+<path class="crit-s" d="M18,867 l10,10 M18,877 l10,-10" stroke-width="2"/>
+<text class="t-sm t-b crit-t" x="36" y="876.5">Comes out</text>
+<text class="t-sm" x="18" y="894">Transfer case, front diff, front shafts and front prop shaft;</text>
+<text class="t-sm" x="18" y="908">the xi front subframe, knuckles and rack; the Bosch DSC 5.7</text>
+<text class="t-sm" x="18" y="922">with its sensors.</text>
+<rect class="donor" x="136" y="944" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm t-b" x="154" y="954">Goes in</text>
+<text class="t-sm" x="136" y="970">M3 front subframe and axle:</text>
+<text class="t-sm" x="136" y="984"><tspan class="crit-t">trial-fit it first</tspan></text>
+<text class="t-sm" x="136" y="1002">M3 gearbox on a <tspan class="fab-t">custom</tspan></text>
+<text class="t-sm" x="136" y="1016"><tspan class="fab-t">crossmember bracket</tspan></text>
+<text class="t-sm" x="136" y="1034">M3 lower steering joint and coupling</text>
+<text class="t-sm" x="136" y="1052">MK60 with an <tspan class="fab-t">adapter loom</tspan></text>
+<text class="t-sm" x="136" y="1066">xi: 42-pin plug, CAN pins 24/40</text>
+<text class="t-sm" x="136" y="1080">MK60: 47-pin plug, CAN pins 11/15</text>
+<text class="t-sm" x="136" y="1094">Wire it signal by signal</text>
+<line class="ln dash" x1="8" y1="1110" x2="392" y2="1110" stroke-width="1.5"/>
+<text class="t-xs" x="392" y="1124" text-anchor="end">front seats</text>
+<rect class="keep" x="136" y="1124" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm t-b" x="154" y="1134">Stays</text>
+<text class="t-sm" x="136" y="1150">Everything behind the front seats</text>
+<text class="t-sm" x="136" y="1164">is the same as on a 325i Touring</text>
+<rect class="keep" x="10" y="1110" width="116" height="88" rx="10" stroke-width="1"/>
+<rect class="ln-faint" x="10" y="944" width="116" height="254" rx="18"/>
+<rect class="keep" x="12" y="960" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="keep" x="114" y="960" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="keep" x="12" y="1158" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="keep" x="114" y="1158" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="donor" x="28" y="969" width="80" height="10" rx="2" stroke-width="1.5"/>
+<rect class="crit-s dash" x="25" y="965" width="86" height="18" rx="4" stroke-width="1.5"/>
+<rect class="donor" x="55" y="952" width="26" height="106" rx="4" stroke-width="1.5"/>
+<text class="t-xs" x="68" y="1048" text-anchor="middle">S54</text>
+<path class="donor" d="M58,1058 L78,1058 L75,1068 L75,1098 L61,1098 L61,1068 Z" stroke-width="1.5"/>
+<text class="t-xs" x="56" y="1080" text-anchor="end">420G</text>
+<rect class="fab" x="50" y="1090" width="36" height="7" rx="2" stroke-width="1.5"/>
+<line class="donor-s" x1="68" y1="1098" x2="68" y2="1164" stroke-width="2.5"/>
+<rect class="donor" x="60" y="1164" width="16" height="16" rx="3" stroke-width="1.5"/>
+<line class="donor-s" x1="22" y1="1172" x2="60" y2="1172" stroke-width="2"/>
+<line class="donor-s" x1="76" y1="1172" x2="114" y2="1172" stroke-width="2"/>
+<rect class="donor" x="26" y="1004" width="20" height="14" rx="2" stroke-width="1.5"/>
+<text class="t-xs" x="36" y="999" text-anchor="middle">MK60</text>
+<rect class="keep dash" x="94" y="1004" width="20" height="14" rx="2" stroke-width="1.2"/>
+<path class="crit-s" d="M100.5,1007.5 l7,7 M100.5,1014.5 l7,-7" stroke-width="1.6"/>
+<text class="t-xs" x="122" y="999" text-anchor="end">DSC 5.7</text>
+</svg>

@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 752" role="img" aria-label="Side view of the Touring's right rear quarter, drawn to scale from BMW drawings with the rear hub center as datum, and below it a top-view strip of how far the M3 skin stands out at each station along the car. The M3 flare stands about 21 to 23 mm proud of the Touring's skin from 300 mm ahead of the axle to 100 mm behind it, about 25 mm at 150 mm behind, 29 to 32 mm from 200 to 350 mm behind, then about 22, 13 and 10 mm at 400, 450 and 500 mm behind, and 7 mm at 600 mm behind. From about 150 to 220 mm behind the axle, below the bumper's top line at about 305 mm above the hub, the arch edge is the bumper cover, so the larger figures behind the axle are mostly the M3 bumper corner, not steel (inferred). The flare starts 380 to 420 mm ahead of the axle. The rear door meets the arch about 300 to 350 mm ahead of the axle and 150 to 250 mm above the hub, so the first part of the flare's ramp falls on the door, and with a stock door the M3 surface stands about 11 to 20 mm proud at the shut line: the M3 nose is beaten in over its last 60 to 100 mm. BMW's gap from rear door to side wall is 4 plus or minus 0.75 mm. The bulge's edge peaks about 475 mm above the hub over the axle, ends at the front about 315 mm ahead of the axle and 375 mm above the hub, and meets the bumper line about 300 mm behind the axle. The bulge blends in 470 to 530 mm above the hub, under the shoulder crease at about 540 mm; the arch edge is 340 to 350 mm above the hub at the top. Seam lines, our inference rather than a BMW procedure: top 500 to 515 mm above the hub; rear 550 to 600 mm behind the axle, down to about 250 mm above the hub behind the bumper; front 25 to 40 mm behind the shut line, parallel to it, down to the sill flange. The tail lamp starts about 700 mm behind the axle; the filler flap's position is approximate. Template stations: 400, 300 and 150 mm ahead, the axle, and 150, 300 and 450 mm behind. Figures are good to about 5 to 10 mm; confirm them with templates on both cars." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="800" height="752" fill="#ffffff"/>
+<text class="t-h" x="8" y="20">RIGHT REAR QUARTER, SIDE VIEW</text>
+<text class="t-xs" x="776" y="20" text-anchor="end">front</text>
+<line class="ln" x1="780" y1="16" x2="794" y2="16" marker-end="url(#ah)"/>
+<text class="t-sm" x="8" y="38">Datum: the rear hub center. Sizes in mm, scaled from BMW drawings, ±5–10 mm: confirm with templates on both cars.</text>
+<rect class="keep" x="8" y="50" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="28" y="60">Your Touring</text>
+<rect class="donor" x="108.7" y="50" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="128.7" y="60">M3 section and flare (donor)</text>
+<rect class="panel" x="290.2" y="50" width="14" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="310.2" y="60">Bumper, lamp, glass</text>
+<rect class="fab-f" x="430.6" y="51.5" width="22" height="7" opacity="0.35"/>
+<line class="fab-s dash" x1="430.6" y1="55" x2="452.6" y2="55" stroke-width="1.5"/>
+<text class="t-sm" x="458.6" y="60">Seam band (our inference)</text>
+<line class="crit-s" x1="611.6" y1="56" x2="627.6" y2="56" stroke-width="3"/>
+<text class="t-sm" x="633.6" y="60">Step at a stock door</text>
+
+<!-- Glass above the beltline -->
+<rect class="panel" x="142" y="84" width="492" height="12"/>
+
+<!-- Quarter panel (yours): shut line, beltline, bumper line, arch, lip band in front of the arch -->
+<path class="keep" d="M580,96 L142,96 L142,230 L375.6,230 L398.4,221.2 L421.6,214.4 L446,212.8 L470.4,214.4 L494,220.4 L516,230.8 L537.2,243.2 L555.6,260 L568.8,281.2 L579.6,303.2 L591.6,352 L592.4,368 L611.9,368 L611.9,368 L612,361.2 L611.8,354.3 L611.3,347.5 L610.5,340.7 L609.4,333.9 L608,327.2 L606.4,320.5 L604.5,314 L602.4,307.5 L599.9,301 L597.2,294.8 L594.3,288.6 L591.1,282.5 L587.6,276.6 L583.9,270.8 L580,265.2 Z" stroke-width="1.2"/>
+
+<!-- Rear door (stock) -->
+<path class="shape" d="M580,96 L634,96 L634,368 L611.9,368 L611.9,368 L612,361.2 L611.8,354.3 L611.3,347.5 L610.5,340.7 L609.4,333.9 L608,327.2 L606.4,320.5 L604.5,314 L602.4,307.5 L599.9,301 L597.2,294.8 L594.3,288.6 L591.1,282.5 L587.6,276.6 L583.9,270.8 L580,265.2 Z" stroke-width="1.2"/>
+
+<!-- Side skirt and rear bumper cover -->
+<path class="panel" d="M592.8,368 L634,368 L634,404 L593.6,404 Z" stroke-width="1"/>
+<path class="panel" d="M375.6,230 L142,230 L142,404 L292.8,404 L294.4,352 L301.2,326.4 L310.4,302.8 L322.8,280.8 L336.8,260.4 L355.2,243.6 L375.6,230 Z" stroke-width="1.2"/>
+
+<!-- Tail lamp: starts about 700 mm behind the axle -->
+<path class="panel" d="M142.0,208.0 H161.0 Q166.0,208.0 166.0,203.0 V137.8 Q166.0,132.8 161.0,132.8 H142.0 Z" stroke-width="1.2"/>
+
+<!-- Shoulder crease, about 540 mm above the hub -->
+<line class="ln-thin" x1="166" y1="136" x2="634" y2="136"/>
+
+<!-- M3 section: inside the seam centre lines, above the bumper line (tinted) -->
+<path class="donor" d="M216,149 L216,230 L375.6,230 L398.4,221.2 L421.6,214.4 L446,212.8 L470.4,214.4 L494,220.4 L516,230.8 L537.2,243.2 L555.6,260 L568.8,281.2 L579.6,303.2 L591.6,352 L592.4,368 L598.9,368 L599,361.4 L598.8,354.8 L598.3,348.2 L597.5,341.7 L596.4,335.2 L595.1,328.7 L593.4,322.3 L591.5,316 L589.4,309.8 L586.9,303.6 L584.2,297.6 L581.3,291.7 L578.1,286 L574.6,280.3 L570.9,274.9 L567,269.6 L567,149 Z" stroke-width="0" opacity="0.75"/>
+
+<!-- M3 bulge: between the arch edge and its styling line (notes C1); ends on the bumper line -->
+<path class="donor" d="M572,201.6 C567.3,198.5 553.6,188.4 543.6,183.2 C533.6,178 522.7,173.8 512,170.4 C501.3,167 490.2,164.2 479.2,162.8 C468.2,161.4 457,161.3 446,162 C435,162.7 423.7,164.1 413.2,166.8 C402.7,169.5 392.5,173.3 382.8,178 C373.1,182.7 363.7,188.4 355.2,194.8 C346.7,201.2 337.3,210.6 332,216.4 C326.7,222.2 325,227.4 323.6,229.6 L375.6,230 C379.4,228.5 390.7,223.8 398.4,221.2 C406.1,218.6 413.7,215.8 421.6,214.4 C429.5,213 437.9,212.8 446,212.8 C454.1,212.8 462.4,213.1 470.4,214.4 C478.4,215.7 486.4,217.7 494,220.4 C501.6,223.1 508.8,227 516,230.8 C523.2,234.6 530.6,238.3 537.2,243.2 C543.8,248.1 550.3,253.7 555.6,260 C560.9,266.3 566.6,277.7 568.8,281.2 Z" stroke-width="0"/>
+<path class="donor-s dash" d="M572,201.6 C567.3,198.5 553.6,188.4 543.6,183.2 C533.6,178 522.7,173.8 512,170.4 C501.3,167 490.2,164.2 479.2,162.8 C468.2,161.4 457,161.3 446,162 C435,162.7 423.7,164.1 413.2,166.8 C402.7,169.5 392.5,173.3 382.8,178 C373.1,182.7 363.7,188.4 355.2,194.8 C346.7,201.2 337.3,210.6 332,216.4 C326.7,222.2 325,227.4 323.6,229.6" stroke-width="1.5"/>
+<rect class="donor" x="274" y="164" width="40" height="40" rx="6" stroke-width="1.2"/>
+
+<!-- Arch edge (both cars), wheel and hub datum -->
+<path class="ln" d="M591.6,352 C589.6,343.9 583.4,315 579.6,303.2 C575.8,291.4 572.8,288.4 568.8,281.2 C564.8,274 560.9,266.3 555.6,260 C550.3,253.7 543.8,248.1 537.2,243.2 C530.6,238.3 523.2,234.6 516,230.8 C508.8,227 501.6,223.1 494,220.4 C486.4,217.7 478.4,215.7 470.4,214.4 C462.4,213.1 454.1,212.8 446,212.8 C437.9,212.8 429.5,213 421.6,214.4 C413.7,215.8 406.1,218.6 398.4,221.2 C390.7,223.8 382.8,226.3 375.6,230 C368.4,233.7 361.7,238.5 355.2,243.6 C348.7,248.7 342.2,254.2 336.8,260.4 C331.4,266.6 327.2,273.7 322.8,280.8 C318.4,287.9 314,295.2 310.4,302.8 C306.8,310.4 303.9,318.2 301.2,326.4 C298.5,334.6 295.5,347.7 294.4,352" stroke-width="2"/>
+<path class="ln" d="M591.6,352 L592.4,368 L593.6,404" stroke-width="2"/>
+<path class="ln" d="M294.4,352 L292.8,404" stroke-width="2"/>
+<circle class="ln" cx="446" cy="352" r="132" stroke-width="1.5"/>
+<circle class="ln-thin" cx="446" cy="352" r="91.6"/>
+<line class="ln-thin" x1="434" y1="352" x2="458" y2="352"/>
+<line class="ln-thin" x1="446" y1="340" x2="446" y2="364"/>
+<circle class="fill-fg" cx="446" cy="352" r="3"/>
+<text class="t-sm t-b" x="446" y="378" text-anchor="middle">datum: hub center</text>
+
+<!-- Seams: top 500-515 above the hub; rear 550-600 behind; front 25-40 behind the shut line -->
+<rect class="fab-f" x="226" y="146" width="338" height="6" opacity="0.35"/>
+<rect class="fab-f" x="206" y="146" width="20" height="84" opacity="0.35"/>
+<rect class="fab-f" x="206" y="230" width="20" height="22" opacity="0.15"/>
+<path class="fab-f" d="M570,146 L570,268.5 L573.9,273.9 L577.6,279.5 L581.1,285.1 L584.3,291 L587.2,296.9 L589.9,303 L592.4,309.2 L594.5,315.5 L596.4,321.9 L598.1,328.4 L599.4,334.9 L600.5,341.4 L601.3,348.1 L601.8,354.7 L602,361.3 L601.9,368 L595.9,368 L596,361.5 L595.8,354.9 L595.3,348.4 L594.5,341.9 L593.4,335.5 L592.1,329.1 L590.4,322.7 L588.5,316.5 L586.4,310.3 L583.9,304.3 L581.2,298.3 L578.3,292.5 L575.1,286.8 L571.6,281.2 L567.9,275.8 L564,270.6 L564,146 Z" opacity="0.35"/>
+<path class="fab-s dash" d="M567,149 L216,149 L216,230" stroke-width="2"/>
+<path class="fab-s dash" d="M216,230 L216,252" stroke-width="1.2"/>
+<path class="fab-s dash" d="M567,149 L567,269.6 L570.9,274.9 L574.6,280.3 L578.1,286 L581.3,291.7 L584.2,297.6 L586.9,303.6 L589.4,309.8 L591.5,316 L593.4,322.3 L595.1,328.7 L596.4,335.2 L597.5,341.7 L598.3,348.2 L598.8,354.8 L599,361.4 L598.9,368" stroke-width="2"/>
+
+<!-- Door shut line: vertical, then round the arch (door's cut edge, drawn generically) -->
+<path class="ln" d="M580,96 L580,265.2 L583.9,270.8 L587.6,276.6 L591.1,282.5 L594.3,288.6 L597.2,294.8 L599.9,301 L602.4,307.5 L604.5,314 L606.4,320.5 L608,327.2 L609.4,333.9 L610.5,340.7 L611.3,347.5 L611.8,354.3 L612,361.2 L611.9,368" stroke-width="1.5"/>
+<path class="crit-s" d="M580,263.6 L580,200" stroke-width="3"/>
+<line class="crit-s" x1="540" y1="171.2" x2="580" y2="171.2" stroke-width="1.5"/>
+<line class="crit-s" x1="540" y1="167.2" x2="540" y2="175.2" stroke-width="1.5"/>
+<line class="crit-s" x1="556" y1="167.2" x2="556" y2="175.2" stroke-width="1.5"/>
+<circle class="ln-thin dash" cx="580" cy="265.2" r="7"/>
+
+<!-- Heights above the hub -->
+<line class="ln-thin" x1="646" y1="352" x2="646" y2="112"/>
+<text class="t-xs" x="644" y="104">mm above the hub</text>
+<line class="ln-thin" x1="641" y1="352" x2="646" y2="352"/>
+<line class="ln-thin" x1="641" y1="230" x2="646" y2="230"/>
+<line class="ln-thin" x1="641" y1="214" x2="646" y2="214"/>
+<line class="ln-thin" x1="641" y1="136" x2="646" y2="136"/>
+<rect class="fab-f" x="643" y="146" width="6" height="6" opacity="0.7"/>
+<line class="donor-s" x1="651" y1="164" x2="651" y2="140" stroke-width="3"/>
+<line class="ln-thin" x1="653" y1="136" x2="660" y2="130.4"/>
+<text class="t-sm" x="663" y="134.4">540  shoulder crease</text>
+<line class="ln-thin" x1="653" y1="149" x2="660" y2="144.4"/>
+<text class="t-sm" x="663" y="148.4">500–515  top seam</text>
+<line class="ln-thin" x1="653" y1="152" x2="660" y2="158.4"/>
+<text class="t-sm" x="663" y="162.4">470–530  bulge blends in</text>
+<line class="ln-thin" x1="653" y1="214" x2="660" y2="211.2"/>
+<text class="t-sm" x="663" y="215.2">340–350  arch edge, top</text>
+<line class="ln-thin" x1="653" y1="230" x2="660" y2="230.4"/>
+<text class="t-sm" x="663" y="234.4">305  bumper top line</text>
+
+<!-- Door labels -->
+<text class="t-xs" x="607" y="112" text-anchor="middle">rear door</text>
+<text class="t-sm crit-t t-b" x="652" y="256">Stock door: M3 surface</text>
+<text class="t-sm crit-t" x="652" y="270">≈11–20 mm proud at the</text>
+<text class="t-sm crit-t" x="652" y="284">shut line; beat the nose in</text>
+<text class="t-sm crit-t" x="652" y="298">over its last 60–100 mm</text>
+<path class="ln-thin" d="M649,252 L583,232"/>
+<text class="t-sm" x="652" y="318">Door meets the arch</text>
+<text class="t-sm" x="652" y="332">≈300–350 ahead, 150–250</text>
+<text class="t-sm" x="652" y="346">up (±50 mm: measure)</text>
+<path class="ln-thin" d="M649,314 L587,267.2"/>
+<text class="t-sm" x="652" y="366">Shut line: BMW gap</text>
+<text class="t-sm" x="652" y="380">4 ± 0.75 mm, parallel</text>
+<text class="t-sm" x="652" y="394">within 1 mm</text>
+<path class="ln-thin" d="M649,362 L603.1,304"/>
+<text class="t-sm fab-t" x="652" y="414">Front seam: 25–40 mm</text>
+<text class="t-sm fab-t" x="652" y="428">behind the shut line and</text>
+<text class="t-sm fab-t" x="652" y="442">parallel to it, down to</text>
+<text class="t-sm fab-t" x="652" y="456">the sill flange</text>
+<path class="ln-thin" d="M649,410 L601.6,352"/>
+
+<!-- Rear labels -->
+<text class="t-sm" x="8" y="108">Tail lamp starts</text>
+<text class="t-sm" x="8" y="122">≈700 mm behind</text>
+<path class="ln-thin" d="M100,114 L163,144"/>
+<text class="t-sm fab-t" x="8" y="164">Rear seam: 550–600</text>
+<text class="t-sm fab-t" x="8" y="178">behind the axle, to</text>
+<text class="t-sm fab-t" x="8" y="192">≈250 above the hub</text>
+<path class="ln-thin" d="M122,160 L213,176"/>
+<text class="t-sm" x="8" y="218">Bulge meets the</text>
+<text class="t-sm" x="8" y="232">bumper line ≈300</text>
+<text class="t-sm" x="8" y="246">mm behind the axle</text>
+<path class="ln-thin" d="M114,214 L320.6,228.6"/>
+<text class="t-sm" x="8" y="272">Bumper cover forms</text>
+<text class="t-sm" x="8" y="286">the arch edge from</text>
+<text class="t-sm" x="8" y="300">≈150–220 mm behind</text>
+<text class="t-sm" x="8" y="314">the axle (inferred)</text>
+<path class="ln-thin" d="M122,268 L318,284"/>
+<text class="t-sm" x="222" y="109.2">Filler flap, right side: position approx. Where the top seam would</text>
+<text class="t-sm" x="222" y="123.2">cross its surround, step the seam up round it.</text>
+<path class="ln-thin" d="M294,128.2 L294,163"/>
+<text class="t-sm donor-t" x="454" y="190" text-anchor="middle">M3 bulge, edge ≈475</text>
+<text class="t-sm donor-t" x="454" y="204" text-anchor="middle">(front end ≈375 up, 315 ahead)</text>
+
+<!-- Stations along the car -->
+<line class="ln-thin" x1="166" y1="502" x2="606" y2="502"/>
+<line class="ln-thin" x1="166" y1="502" x2="166" y2="506"/>
+<line class="ln-thin" x1="206" y1="502" x2="206" y2="506"/>
+<line class="ln-thin" x1="246" y1="502" x2="246" y2="506"/>
+<line class="ln-thin" x1="286" y1="502" x2="286" y2="506"/>
+<line class="ln-thin" x1="326" y1="502" x2="326" y2="506"/>
+<line class="ln-thin" x1="366" y1="502" x2="366" y2="506"/>
+<line class="ln-thin" x1="406" y1="502" x2="406" y2="506"/>
+<line class="ln-thin" x1="446" y1="502" x2="446" y2="506"/>
+<line class="ln-thin" x1="486" y1="502" x2="486" y2="506"/>
+<line class="ln-thin" x1="526" y1="502" x2="526" y2="506"/>
+<line class="ln-thin" x1="566" y1="502" x2="566" y2="506"/>
+<line class="ln-thin" x1="606" y1="502" x2="606" y2="506"/>
+<text class="t-xs" x="166" y="517" text-anchor="middle">700</text>
+<text class="t-xs" x="206" y="517" text-anchor="middle">600</text>
+<text class="t-xs" x="246" y="517" text-anchor="middle">500</text>
+<text class="t-xs" x="286" y="517" text-anchor="middle">400</text>
+<text class="t-xs" x="326" y="517" text-anchor="middle">300</text>
+<text class="t-xs" x="366" y="517" text-anchor="middle">200</text>
+<text class="t-xs" x="406" y="517" text-anchor="middle">100</text>
+<text class="t-xs" x="486" y="517" text-anchor="middle">100</text>
+<text class="t-xs" x="526" y="517" text-anchor="middle">200</text>
+<text class="t-xs" x="566" y="517" text-anchor="middle">300</text>
+<text class="t-xs" x="606" y="517" text-anchor="middle">400</text>
+<text class="t-xs t-b" x="446" y="517" text-anchor="middle">axle</text>
+<text class="t-xs" x="152" y="517" text-anchor="end">← behind</text>
+<text class="t-xs" x="620" y="517">ahead →</text>
+<path class="fill-fg" d="M606.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M566.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M506.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M446.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M386.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M326.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M266.0,501.0 l-3.5,-6 h7 Z"/>
+<path class="fill-fg" d="M12.0,501.0 l-3.5,-6 h7 Z"/>
+<text class="t-xs" x="20" y="501">template station</text>
+
+<!-- Plan view: M3 skin proud of the Touring's, offsets drawn 6x -->
+<text class="t-sm t-b" x="8" y="558">Seen from above:</text>
+<text class="t-sm" x="8" y="572">M3 skin proud of the</text>
+<text class="t-sm" x="8" y="586">Touring's, mm</text>
+<text class="t-sm" x="8" y="600">(offsets drawn 6×)</text>
+<line class="keep-s" x1="166" y1="542" x2="634" y2="542" stroke-width="2"/>
+<text class="t-xs" x="634" y="537" text-anchor="end">Touring skin, stock door</text>
+<path class="donor" d="M580,542 L580,584.7 L566,594.8 L526,592.4 L486,592.4 L446,597.2 L406,597.2 L386,602 L372,608.7 L372,542 Z" stroke-width="0"/>
+<path class="panel" d="M372,542 L372,608.7 L366,611.6 L346,611.6 L326,616.4 L306,618.8 L286,594.8 L266,573.2 L246,566 L206,558.8 L206,542 Z" stroke-width="0"/>
+<path class="donor-s" d="M580,584.7 L566,594.8 L526,592.4 L486,592.4 L446,597.2 L406,597.2 L386,602 L372,608.7" stroke-width="2"/>
+<path class="donor-s dash" d="M372,608.7 L366,611.6 L346,611.6 L326,616.4 L306,618.8 L286,594.8 L266,573.2 L246,566 L206,558.8" stroke-width="2"/>
+<path class="donor-s dash" d="M614,542 L586,580.4 L580,584.7" stroke-width="1.2"/>
+<circle class="donor-f" cx="586" cy="580.4" r="2.2"/>
+<circle class="donor-f" cx="566" cy="594.8" r="2.2"/>
+<circle class="donor-f" cx="526" cy="592.4" r="2.2"/>
+<circle class="donor-f" cx="486" cy="592.4" r="2.2"/>
+<circle class="donor-f" cx="446" cy="597.2" r="2.2"/>
+<circle class="donor-f" cx="406" cy="597.2" r="2.2"/>
+<circle class="donor-f" cx="386" cy="602" r="2.2"/>
+<circle class="donor-f" cx="366" cy="611.6" r="2.2"/>
+<circle class="donor-f" cx="346" cy="611.6" r="2.2"/>
+<circle class="donor-f" cx="326" cy="616.4" r="2.2"/>
+<circle class="donor-f" cx="306" cy="618.8" r="2.2"/>
+<circle class="donor-f" cx="286" cy="594.8" r="2.2"/>
+<circle class="donor-f" cx="266" cy="573.2" r="2.2"/>
+<circle class="donor-f" cx="246" cy="566" r="2.2"/>
+<circle class="donor-f" cx="206" cy="558.8" r="2.2"/>
+<line class="crit-s" x1="580" y1="542" x2="580" y2="584.7" stroke-width="3"/>
+<text class="t-sm" x="642" y="558">Flare starts 380–420</text>
+<text class="t-sm" x="642" y="572">ahead: its first</text>
+<text class="t-sm" x="642" y="586">50–100 mm is on</text>
+<text class="t-sm" x="642" y="600">the door</text>
+<path class="ln-thin" d="M639,554 L617,544"/>
+<text class="t-sm crit-t" x="642" y="620">Step ≈11–20 mm</text>
+<path class="ln-thin" d="M639,616 L583,576.7"/>
+<text class="t-sm" x="586" y="640.8" text-anchor="middle">16</text>
+<text class="t-sm" x="386" y="640.8" text-anchor="middle">25</text>
+<text class="t-sm" x="286" y="640.8" text-anchor="middle">22</text>
+<text class="t-sm" x="266" y="640.8" text-anchor="middle">13</text>
+<text class="t-sm" x="246" y="640.8" text-anchor="middle">10</text>
+<text class="t-sm" x="206" y="640.8" text-anchor="middle">7</text>
+<text class="t-sm" x="610" y="640.8" text-anchor="middle">0–9</text>
+<text class="t-sm t-b" x="486" y="640.8" text-anchor="middle">21–23</text>
+<text class="t-sm t-b" x="336" y="640.8" text-anchor="middle">29–32</text>
+<text class="t-xs" x="8" y="640.8">mm proud:</text>
+<path class="donor-s" d="M580.0,657.8 V661.8 H373.2 V657.8" stroke-width="1.2"/>
+<text class="t-sm" x="476.6" y="675.8" text-anchor="middle">M3 steel flare: over the axle</text>
+<text class="t-sm" x="476.6" y="689.8" text-anchor="middle">the lip moves out ≈21 mm</text>
+<path class="ln-thin" d="M370.8,657.8 V661.8 H206.0 V657.8" stroke-width="1.2"/>
+<text class="t-sm" x="288.4" y="675.8" text-anchor="middle">Mostly the M3 bumper corner,</text>
+<text class="t-sm" x="288.4" y="689.8" text-anchor="middle">not steel (inferred)</text>
+<text class="t-xs" x="8" y="716.8">BMW has no arch section: it replaces a Touring's whole side wall (TIS 41 35 101). These seam lines are our inference from the drawings: move one where the</text>
+<text class="t-xs" x="8" y="729.8">two cars' templates disagree by more than 1 mm. The door/arch junction (±50 mm) and the filler flap's position are estimates: measure them on the car.</text>
+<text class="t-xs" x="8" y="742.8">The front seam's path round the arch is drawn generically.</text>
+</svg>

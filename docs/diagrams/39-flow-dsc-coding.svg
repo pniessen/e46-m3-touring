@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1437" role="img" aria-label="Flowchart of Session 5, DSC coding and VIN. Before you start, the cluster carries your VIN (Session 4), the charger is on, and your DSC unit's part number and coding index are saved (Session 1). Option A, recommended: your Touring's own MK60, left coded as it is, a 325i Touring's, with the M54 engine, 325i brakes and rack and an open differential. A panel shows what one non-M unit offers, a 2002 318i's at coding index C05: no M3 body type (coupe_m) and no M3 rack curve (wert_05, only wert_10 and wert_02), but the M3's brake-pressure models, front typ_0 and rear typ_2; no MK60 has a tire-size code, so with the flat-tire warning on, set the pressures after fitting the M3 wheels and run RPA_RESET. Still set for the Touring's quicker rack, your unit may step in early, which is our inference. Option B, the M3's MK60, from an M3 built from 09/2002: 1, write your VIN (PA-Soft Write FGSTNR with the 14 characters after WBA, or Tool32 IDENT_VIN_SCHREIBEN, read back with IDENT_VIN); 2, set up a session-only vehicle order read from ALSZ, the light module, with the production date #0902 or later and the donor's type code, so it says S54B32, and no FA_WRITE; 3, code only the MK60 with SG_CODIEREN, never Process Car or Code Car; 4, if NCS doesn't list the MK60 or says Codierindex nicht zulaessig, the date is too early or the type key isn't the donor's M3 one, so fix both and retry; 5, check the values, set the rack curve and brake models for your parts in FSW_PSW.MAN and write it, leaving the body type at coupe_m; 6, save the final coding file and trace, and never write a blank coding file or run Code Car on it again. Both options then initialise in INPA (A steps 1 to 4, B step 7): read the DSC fault memory, where 5E1F (5EF1 in some tools), VIN not initialized, is expected after a cluster change; run the three compensation routines with Shift+F4 in this order: 1, steering angle and VIN, F1, LENKWINKEL_DSC_ABGLEICHEN, with the wheel dead straight and the car level, a fault being flagged more than 30 degrees off center, checked by 0 degrees in INPA's status page or STAT_LENKWINKEL_WERT about 0; 2, pressure sensors, DRUCKSENSOR_DSC_ABGLEICHEN, foot off the brake, checked in STATUS_SENSOREN by both pressures near 0 bar with the pedal released and never over 5 bar with the brake-light switch off; 3, lateral acceleration, QUERBESCHLEUNIGUNG_DSC_ABGLEICHEN, car level and stationary, checked by lateral acceleration near 0 g. With option A only the first is strictly due; option B needs all three. Then clear and re-read the faults in every module. If 5E1F (5EF1 in some tools) is gone, expect the DSC and yellow BRAKE lamps out and about 0 degrees with the wheel straight, provisional until Session 7 after the alignment. If not: with option A, the cluster must carry your VIN; with option B, redo steps 1 to 7 in order, and if the M3 unit still won't initialise, refit your Touring's own MK60, the documented cure, and follow option A." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="1437" fill="#ffffff"/>
+<rect class="keep" x="8" y="6" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="34" y="16.5">Your Touring's MK60</text>
+<rect class="donor" x="156.89" y="6" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="182.89" y="16.5">The M3's MK60</text>
+<rect class="crit-s" x="279.84" y="6" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="305.84" y="16.5">If it fails</text>
+<rect class="panel" x="8" y="28" width="384" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="41.47"><tspan class="t-b">Before you start:</tspan> the cluster carries your VIN (Session 4); the charger</text>
+<text class="t-sm" x="18" y="55.47">is on; your DSC unit's part number and coding index are saved</text>
+<text class="t-sm" x="18" y="69.47">(Session 1).</text>
+<rect class="shape" x="8" y="89" width="384" height="34" rx="18" stroke-width="1.5"/>
+<text class="t" x="24" y="109.39">Which MK60 is in the car?</text>
+<path class="ln" d="M101.5,123 V144" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="108.5" y="137.5">yours</text>
+<path class="ln" d="M298.5,123 V144" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="305.5" y="137.5">the M3's</text>
+<rect class="keep" x="8" y="145" width="187" height="613.67" rx="6" stroke-width="1.5"/>
+<rect class="donor" x="205" y="145" width="187" height="613.67" rx="6" stroke-width="1.5"/>
+<text class="t" x="18" y="161.14"><tspan class="t-b">A  Your Touring's MK60</tspan></text>
+<text class="t-sm" x="18" y="175.14"><tspan class="t-b">recommended</tspan></text>
+<rect class="shape" x="14" y="183.67" width="175" height="119" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="22" y="197.14"><tspan class="t-b">Leave it coded as it is:</tspan> a</text>
+<text class="t-sm" x="22" y="211.14">325i Touring's, with the M54</text>
+<text class="t-sm" x="22" y="225.14">engine, 325i brakes and rack,</text>
+<text class="t-sm" x="22" y="239.14">open differential. It's a safety</text>
+<text class="t-sm" x="22" y="253.14">system, and nobody has</text>
+<text class="t-sm" x="22" y="267.14">documented hand-set values</text>
+<text class="t-sm" x="22" y="281.14">in a Touring with M3 brakes</text>
+<text class="t-sm" x="22" y="295.14">and rack.</text>
+<rect class="shape" x="14" y="308.67" width="175" height="259" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="22" y="322.14"><tspan class="t-b">What a non-M unit offers</tspan></text>
+<text class="t-sm" x="22" y="336.14">read from a 2002 318i's unit,</text>
+<text class="t-sm" x="22" y="350.14">coding index C05; check your</text>
+<text class="t-sm" x="22" y="364.14">own unit's coding file in NCS</text>
+<text class="t-sm" x="22" y="378.14">Dummy</text>
+<text class="t-sm" x="22" y="397.14"><tspan class="t-b">No</tspan> M3 body type: no</text>
+<text class="t-sm" x="22" y="411.14">coupe_m</text>
+<text class="t-sm" x="22" y="428.14"><tspan class="t-b">No</tspan> M3 rack curve: wert_10 or</text>
+<text class="t-sm" x="22" y="442.14">wert_02, not wert_05</text>
+<text class="t-sm" x="22" y="459.14"><tspan class="t-b">Yes:</tspan> the M3's brake-pressure</text>
+<text class="t-sm" x="22" y="473.14">models, front typ_0, rear</text>
+<text class="t-sm" x="22" y="487.14">typ_2</text>
+<text class="t-sm" x="22" y="504.14"><tspan class="t-b">No</tspan> tire-size code on any</text>
+<text class="t-sm" x="22" y="518.14">MK60. With its flat-tire</text>
+<text class="t-sm" x="22" y="532.14">warning on, set the pressures</text>
+<text class="t-sm" x="22" y="546.14">on the M3 wheels, then</text>
+<text class="t-sm" x="22" y="560.14"><tspan class="t-mono">RPA_RESET</tspan> (Tool32)</text>
+<rect class="shape" x="14" y="573.67" width="175" height="63" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="22" y="587.14">Still set for the Touring's</text>
+<text class="t-sm" x="22" y="601.14">quicker rack, it may step in</text>
+<text class="t-sm" x="22" y="615.14">early: watch for it on the</text>
+<text class="t-sm" x="22" y="629.14">shakedown (our inference).</text>
+<text class="t" x="215" y="161.14"><tspan class="t-b">B  The M3's MK60</tspan></text>
+<text class="t-sm" x="215" y="175.14"><tspan class="t-b">an M3 from 09/2002</tspan></text>
+<rect class="shape" x="211" y="183.67" width="175" height="91" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="219" y="197.14"><tspan class="t-b">1  Write your VIN.</tspan> PA-Soft →</text>
+<text class="t-sm" x="219" y="211.14">Write FGSTNR, the 14</text>
+<text class="t-sm" x="219" y="225.14">characters after "WBA"; or</text>
+<text class="t-sm" x="219" y="239.14">Tool32</text>
+<text class="t-sm" x="219" y="253.14"><tspan class="t-mono">IDENT_VIN_SCHREIBEN</tspan>,</text>
+<text class="t-sm" x="219" y="267.14">read back with <tspan class="t-mono">IDENT_VIN</tspan>.</text>
+<path class="ln" d="M298.5,274.67 V283.67" marker-end="url(#ah)"/>
+<rect class="shape" x="211" y="284.67" width="175" height="91" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="219" y="298.14"><tspan class="t-b">2  A session order from</tspan></text>
+<text class="t-sm" x="219" y="312.14"><tspan class="t-b">ALSZ.</tspan> Enter FA: date #0902</text>
+<text class="t-sm" x="219" y="326.14">or later, not earlier than the</text>
+<text class="t-sm" x="219" y="340.14">unit; the donor's type code, so</text>
+<text class="t-sm" x="219" y="354.14">it says S54B32. No</text>
+<text class="t-sm" x="219" y="368.14"><tspan class="t-mono">FA_WRITE</tspan>.</text>
+<path class="ln" d="M298.5,375.67 V384.67" marker-end="url(#ah)"/>
+<rect class="shape" x="211" y="385.67" width="175" height="151" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="219" y="399.14"><tspan class="t-b">3  Code the MK60 only.</tspan></text>
+<text class="t-sm" x="219" y="413.14">Process ECU → MK60 →</text>
+<text class="t-sm" x="219" y="427.14"><tspan class="t-mono">SG_CODIEREN</tspan>. Never Process</text>
+<text class="t-sm" x="219" y="441.14">Car or Code Car.</text>
+<text class="t-sm" x="219" y="459.14"><tspan class="t-b crit-t">4  Not listed, or "Codierindex</tspan></text>
+<text class="t-sm" x="219" y="473.14"><tspan class="t-b crit-t">… nicht zulässig"?</tspan> The date</text>
+<text class="t-sm" x="219" y="487.14">is too early, or the type key</text>
+<text class="t-sm" x="219" y="501.14">isn't the donor's M3 one</text>
+<text class="t-sm" x="219" y="515.14">(BL93, BR93): fix both in 2</text>
+<text class="t-sm" x="219" y="529.14">and retry.</text>
+<path class="ln" d="M298.5,536.67 V545.67" marker-end="url(#ah)"/>
+<rect class="shape" x="211" y="546.67" width="175" height="105" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="219" y="560.14"><tspan class="t-b">5  Check the values.</tspan></text>
+<text class="t-sm" x="219" y="574.14"><tspan class="t-mono">CODIERDATEN_LESEN</tspan>; set</text>
+<text class="t-sm" x="219" y="588.14">the rack curve and brake</text>
+<text class="t-sm" x="219" y="602.14">models for your parts in</text>
+<text class="t-sm" x="219" y="616.14">FSW_PSW.MAN;</text>
+<text class="t-sm" x="219" y="630.14"><tspan class="t-mono">SG_CODIEREN</tspan>. Body type</text>
+<text class="t-sm" x="219" y="644.14">stays coupe_m.</text>
+<path class="ln" d="M298.5,651.67 V660.67" marker-end="url(#ah)"/>
+<rect class="shape" x="211" y="661.67" width="175" height="91" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="219" y="675.14"><tspan class="t-b">6  Keep the final coding.</tspan></text>
+<text class="t-sm" x="219" y="689.14">Re-read: only your lines differ.</text>
+<text class="t-sm" x="219" y="703.14">Save the trace and</text>
+<text class="t-sm" x="219" y="717.14">FSW_PSW.MAN. Never a</text>
+<text class="t-sm" x="219" y="731.14">blank coding file or Code Car</text>
+<text class="t-sm" x="219" y="745.14">again.</text>
+<path class="ln" d="M101.5,758.67 V783.67" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="108.5" y="774.67">A: steps 1–4</text>
+<path class="ln" d="M298.5,758.67 V783.67" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="305.5" y="774.67">B: step 7</text>
+<rect class="shape" x="8" y="784.67" width="384" height="376.5" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="797.64"><tspan class="t-b">INPA → E46 (F3) → Chassis → DSC MK60.</tspan> First read the fault</text>
+<text class="t-sm" x="18" y="811.64">memory, F4 → F1: after a cluster change, expect 5E1F (5EF1 in some</text>
+<text class="t-sm" x="18" y="825.64">tools), "VIN not initialized".</text>
+<path class="ln-faint" d="M9,832.17 H391"/>
+<text class="t-sm" x="18" y="845.14"><tspan class="t-b">Then the three compensation routines, in this order:</tspan> Shift+F4. In</text>
+<text class="t-sm" x="18" y="859.14">Tool32, <tspan class="t-mono">DSC_MK60.PRG</tspan> and the job named.</text>
+<path class="ln-faint" d="M9,865.67 H391"/>
+<text class="t-sm" x="18" y="878.64"><tspan class="t-b">1  Steering angle and VIN</tspan></text>
+<text class="t-sm" x="18" y="892.64"><tspan class="t-mono">LENKWINKEL_DSC_ABGLEICHEN</tspan></text>
+<text class="t-sm" x="18" y="906.64"><tspan class="t-b">When:</tspan> wheel dead straight, car level; a fault is flagged if it's more</text>
+<text class="t-sm" x="18" y="920.64">than 30° off center.</text>
+<text class="t-sm" x="18" y="934.64"><tspan class="t-b">Check:</tspan> 0° in INPA status (F5) → analog → DSC sensor (F2), or</text>
+<text class="t-sm" x="18" y="948.64"><tspan class="t-mono">STATUS_CAN_LWS_1_LESEN</tspan> → <tspan class="t-mono">STAT_LENKWINKEL_WERT</tspan> about 0.</text>
+<text class="t-sm" x="382" y="878.64" text-anchor="end">INPA F1</text>
+<path class="ln-faint" d="M9,955.17 H391"/>
+<text class="t-sm" x="18" y="968.14"><tspan class="t-b">2  Pressure sensors</tspan></text>
+<text class="t-sm" x="18" y="982.14"><tspan class="t-mono">DRUCKSENSOR_DSC_ABGLEICHEN</tspan></text>
+<text class="t-sm" x="18" y="996.14"><tspan class="t-b">When:</tspan> foot off the brake.</text>
+<text class="t-sm" x="18" y="1010.14"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STATUS_SENSOREN</tspan>: both pressures near 0 bar with the pedal</text>
+<text class="t-sm" x="18" y="1024.14">released. BMW: never over 5 bar while the brake-light switch is off.</text>
+<text class="t-sm" x="382" y="968.14" text-anchor="end">"Pressure Sensors"</text>
+<path class="ln-faint" d="M9,1030.67 H391"/>
+<text class="t-sm" x="18" y="1043.64"><tspan class="t-b">3  Lateral acceleration</tspan></text>
+<text class="t-sm" x="18" y="1057.64"><tspan class="t-mono">QUERBESCHLEUNIGUNG_DSC_ABGLEICHEN</tspan></text>
+<text class="t-sm" x="18" y="1071.64"><tspan class="t-b">When:</tspan> car level and stationary.</text>
+<text class="t-sm" x="18" y="1085.64"><tspan class="t-b">Check:</tspan> <tspan class="t-mono">STATUS_SENSOREN</tspan>: lateral acceleration near 0 g (our check).</text>
+<text class="t-sm" x="382" y="1043.64" text-anchor="end">"Lateral Acceleration Sensor"</text>
+<path class="ln-faint" d="M9,1092.17 H391"/>
+<text class="t-sm" x="18" y="1105.14"><tspan class="t-b">Last, clear and read again:</tspan> F4 → F2, then F1: no faults. Clear the</text>
+<text class="t-sm" x="18" y="1119.14">faults in every module, cycle the ignition, read again.</text>
+<path class="ln-faint" d="M9,1125.67 H391"/>
+<text class="t-sm" x="18" y="1138.64"><tspan class="t-b">A:</tspan> only the first routine is strictly due, since your unit and its sensors</text>
+<text class="t-sm" x="18" y="1152.64">stay; all three take a minute. <tspan class="t-b">B:</tspan> all three, as the unit is new to the car.</text>
+<path class="ln" d="M200,1161.17 V1172.17" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="1173.17" width="384" height="34" rx="18" stroke-width="1.5"/>
+<text class="t" x="24" y="1193.56">5E1F (or 5EF1) gone?</text>
+<path class="ln" d="M140,1207.17 V1228.17" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="147" y="1221.67">no</text>
+<rect class="crit-s" x="52" y="1229.17" width="340" height="127" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="62" y="1242.64"><tspan class="t-b crit-t">Still "VIN not initialized".</tspan> A: the cluster must carry your VIN</text>
+<text class="t-sm" x="62" y="1256.64">(Session 4); then initialise again.</text>
+<text class="t-sm" x="62" y="1274.64"><tspan class="t-b">B:</tspan> do 1–7 in order: the VIN, a late session order with an M3</text>
+<text class="t-sm" x="62" y="1288.64">type key, set up from ALSZ, the coding, then Shift+F4 → F1.</text>
+<text class="t-sm" x="62" y="1302.64">The failed Touring had only a blank coding file and a PA-Soft</text>
+<text class="t-sm" x="62" y="1316.64">reset.</text>
+<text class="t-sm" x="62" y="1334.64"><tspan class="t-b crit-t">Still failing:</tspan> refit your Touring's own MK60, the cure in that</text>
+<text class="t-sm" x="62" y="1348.64">Touring, and follow A.</text>
+<path class="ln" d="M22,1207.17 V1379.17" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="29" y="1221.67">yes</text>
+<rect class="new" x="8" y="1380.17" width="384" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="1393.64"><tspan class="t-b">Expect:</tspan> the DSC and yellow BRAKE lamps out; no 5EF1 or 5E1F;</text>
+<text class="t-sm" x="18" y="1407.64">about 0° with the wheel straight, provisional until Session 7, after the</text>
+<text class="t-sm" x="18" y="1421.64">alignment.</text>
+</svg>

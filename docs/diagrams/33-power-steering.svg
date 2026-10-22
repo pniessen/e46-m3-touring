@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 663" role="img" aria-label="The power-steering circuit, schematic, with arrows in the direction of flow: from the reservoir through the suction hose to the pump, through the pressure hose to the rack, then through the return pipe to the cooling coil in front of the radiator, and through the return line back to the reservoir. The pump, the suction and pressure hoses, the rack (32132229397, 15.4:1), the return pipe, the cooling coil and its return line are M3 parts from the donor. The M3's ZF pump makes up to 120 bar and 11 litres a minute, and the M3 rack has no hydraulic end stops, so don't hold the wheel at full lock. The reservoir 32416851217 with its lid and bracket, the steering column, the lower joint, the flexible coupling and the steering-angle sensor 32306793632 are the same parts on both cars, so they stay; the lower joint changed from 32301094700 to 32306764006 at 11/2003 on both cars. Torques, each with new sealing rings: the M16 hollow bolts at the pump outlet and at the rack, 40 Nm (30 ft-lb); the M14 banjo with its check valve at the rack, 35 Nm (26 ft-lb). If the pump comes off, its M8 by 80 mounting bolts take 21 Nm (15 ft-lb) and its pulley bolts 27 Nm (20 ft-lb). Keep the lines clear of the anti-roll bar and oil pan. The fluid is ATF of the Dexron III type, not Pentosin CHF 11S, and the two must not be mixed; BMW's catalog pairs the reservoir with label 71246798132, listed for ATF, and green fluid in the donor's reservoir means the system must be flushed to one fluid. The capacity wasn't found: fill to the mark on the lid. Fill before the first start; with the engine off fill to about 25 mm below the edge, start and top up, turn to full lock each way twice without holding it there, then switch off and top up to the mark. Check for no foaming or groaning, no weeps at the hollow bolts or the banjo, and a steady level after a drive." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahd" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="donor-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="663" fill="#ffffff"/>
+
+<!-- Key -->
+<rect class="keep" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">Shared: keep yours</text>
+<rect class="donor" x="138.7" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="155.7" y="16.5">From donor M3</text>
+<rect class="new" x="248.3" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="265.3" y="16.5">New sealing rings</text>
+<text class="t-h" x="8" y="42">POWER-STEERING CIRCUIT</text>
+<text class="t-xs" x="8" y="56">schematic; arrows show the flow</text>
+
+<!-- Reservoir: the same part on both cars -->
+<rect class="keep" x="152" y="70" width="124" height="50" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="214" y="86" text-anchor="middle">Reservoir</text>
+<text class="t-xs t-mono" x="214" y="99" text-anchor="middle">32416851217</text>
+<text class="t-xs" x="214" y="112" text-anchor="middle">lid and bracket too</text>
+
+<!-- M3 pump -->
+<rect class="donor" x="16" y="152" width="118" height="50" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="75" y="168" text-anchor="middle">M3 pump, ZF</text>
+<text class="t-xs" x="75" y="181" text-anchor="middle">up to 120 bar,</text>
+<text class="t-xs" x="75" y="194" text-anchor="middle">11 L/min</text>
+
+<!-- Cooling coil, in front of the radiator -->
+<rect class="donor" x="272" y="214" width="120" height="40" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="332" y="231.5" text-anchor="middle">Cooling coil</text>
+<text class="t-xs" x="332" y="244.5" text-anchor="middle">in front of the radiator</text>
+
+<!-- M3 rack -->
+<rect class="donor" x="16" y="338" width="368" height="44" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="200" y="357.5" text-anchor="middle">M3 rack 32132229397</text>
+<text class="t-xs" x="200" y="370.5" text-anchor="middle">15.4:1, no hydraulic end stops: don't hold the wheel at full lock</text>
+
+<!-- Lines: M3 parts, arrows in the direction of flow -->
+<path class="donor-s" d="M152,95.0 H74 V151" stroke-width="2.5" marker-end="url(#ahd)"/>
+<line class="donor-s" x1="74" y1="202" x2="74" y2="337" stroke-width="2.5" marker-end="url(#ahd)"/>
+<line class="donor-s" x1="330" y1="338" x2="330" y2="255" stroke-width="2.5" marker-end="url(#ahd)"/>
+<path class="donor-s" d="M330,214 V95.0 H277" stroke-width="2.5" marker-end="url(#ahd)"/>
+<text class="t-xs donor-t t-b" x="82" y="88">suction hose</text>
+<text class="t-xs donor-t t-b" x="83" y="268">pressure hose</text>
+<text class="t-xs donor-t t-b" x="321" y="296" text-anchor="end">return pipe</text>
+<text class="t-xs donor-t t-b" x="339" y="150">return line</text>
+
+<!-- Joints: new sealing rings and torques -->
+<rect class="new" x="67" y="211.5" width="14" height="7" rx="2" stroke-width="1.5"/>
+<text class="t-xs t-b" x="86" y="219">M16 hollow bolt, 40 Nm (30 ft-lb)</text>
+<rect class="new" x="67" y="323.5" width="14" height="7" rx="2" stroke-width="1.5"/>
+<text class="t-xs t-b" x="86" y="331">M16 hollow bolt, 40 Nm</text>
+<rect class="new" x="323" y="323.5" width="14" height="7" rx="2" stroke-width="1.5"/>
+<text class="t-xs t-b" x="318" y="318" text-anchor="end">M14 banjo with check valve,</text>
+<text class="t-xs t-b" x="318" y="331" text-anchor="end">35 Nm (26 ft-lb)</text>
+<text class="t-xs" x="146" y="162">If the pump comes off:</text>
+<text class="t-xs" x="146" y="175">mounting bolts M8×80</text>
+<text class="t-xs" x="146" y="188">21 Nm (15 ft-lb), pulley</text>
+<text class="t-xs" x="146" y="201">bolts 27 Nm (20 ft-lb).</text>
+
+<!-- Steering column parts: the same on both cars -->
+<line class="ln" x1="100" y1="382" x2="100" y2="394"/>
+<rect class="keep" x="16" y="394" width="368" height="69" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="26" y="411">Column, lower joint, coupling, steering-angle sensor</text>
+<text class="t-xs" x="26" y="426">The same parts on both cars, so keep yours; the angle sensor is</text>
+<text class="t-xs" x="26" y="439">32306793632. The lower joint changed from 32301094700 to</text>
+<text class="t-xs" x="26" y="452">32306764006 at 11/2003 on both: keep whichever you have.</text>
+
+<!-- Fluid -->
+<rect class="warn-f" x="8" y="477" width="384" height="87" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="18" y="495">ATF (Dexron III type), not Pentosin CHF 11S</text>
+<text class="t-xs" x="18" y="511">Don't mix the two. BMW's catalog pairs the reservoir with label</text>
+<text class="t-xs" x="18" y="524">71246798132, listed for ATF. Green fluid in the donor's reservoir means it</text>
+<text class="t-xs" x="18" y="537">was converted: flush the whole system to one fluid.</text>
+<text class="t-xs crit-t" x="18" y="553">Capacity: not found. Fill to the mark on the lid.</text>
+
+<!-- Fill and bleed -->
+<text class="t-xs" x="8" y="582">Keep the lines clear of the anti-roll bar and the oil pan.</text>
+<text class="t-xs" x="8" y="598">Fill before the first start: a dry pump rattles. Engine off, fill to about 25 mm (1 in)</text>
+<text class="t-xs" x="8" y="611">below the edge; start and top up; turn to full lock each way twice, without</text>
+<text class="t-xs" x="8" y="624">holding it there; switch off and top up to the mark.</text>
+<text class="t-xs" x="8" y="640">Check: no foaming or groaning after a short run, no weeps at the hollow bolts or</text>
+<text class="t-xs" x="8" y="653">the rack banjo, and the level steady after a drive.</text>
+</svg>

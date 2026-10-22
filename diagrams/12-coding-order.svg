@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 696" role="img" aria-label="The coding sessions in the manual's order, with their tools. 1: back up the vehicle order, every module's coding and the cluster and light-module memories (NCS Expert, PA-Soft, INPA) in Phase 0. 2: the DME's VIN and EWS work (Tool32 and a vendor), read in Phase 1 with the vendor work in Phase 3. Decision: an EWS delete bought as a service, recommended, or a virginized DME that you sync, which no Touring build has documented working. Then wire and check in Phase 11. 3: the EWS in Tool32, with nothing to code after a delete, or a sync for a virgin DME. 4: the cluster and light module (PA-Soft, NCS Expert); the cluster gets your VIN and true mileage from the light module. 5: the DSC (PA-Soft, NCS Expert, INPA), after the cluster because the DSC checks its VIN against it. Decision: keep your MK60 and initialise it, recommended, or fit the M3's MK60 from a 09/2002-on donor, code M3 values by hand and initialise it. 6: first start with the adaptations cleared (Tool32). Then the wheel alignment, then 7: the steering-angle calibration (INPA or Tool32). 8: vehicle-order changes and body modules, and 9, last: the light module and headlights (NCS Expert)." color="#1b2128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 782" role="img" aria-label="The coding sessions in the manual's order, with their tools. 1: back up the vehicle order, every module's coding and the cluster and light-module memories (NCS Expert, PA-Soft, INPA, Tool32) in Phase 0. 2: the DME's VIN and EWS work (Tool32 and a vendor), read in Phase 1 with the vendor work in Phase 3. Decision: an EWS delete bought as a service, recommended, or a used DME matched to your EWS by a vendor, or virginized and synced by you, which no Touring build has documented working. Then wire and check in Phase 11. 3: the EWS in Tool32: a check, with nothing to code, after a delete or a vendor's match, or a sync for a DME you virginized. 4: the cluster and light module (PA-Soft, NCS Expert): the M3 cluster gets your VIN and true mileage through a service or a new chip, keeps the donor's vehicle order, and is coded only from its own read-out. 5: the DSC (PA-Soft, NCS Expert, INPA), after the cluster because the DSC checks its VIN against it. Decision: keep your MK60 and initialise it, recommended, or fit the M3's MK60 from a 09/2002-on donor: write your VIN, code it from a session order with the donor's type key and #0902 or later, set values for your parts, then initialise it. 6: first start with the adaptations cleared (Tool32). Then the wheel alignment, in BMW's design position at the M3 load, then 7: the steering-angle calibration (INPA or Tool32). 8: vehicle-order changes and body modules (NCS Expert): read the order from the light module (ALSZ), code only the modules a change touches, one at a time, and never use Code Car. 9, last: the light module and headlights (NCS Expert)." color="#1b2128">
 <style>
 svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 text{fill:currentColor}
@@ -17,7 +17,8 @@ text{fill:currentColor}
 <defs>
   <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
 </defs>
-<rect class="bg" x="0" y="0" width="400" height="696" fill="#ffffff"/>
+<rect class="bg" x="0" y="0" width="400" height="782" fill="#ffffff"/>
+
 <!-- Key -->
 <rect class="donor" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
 <text class="t-sm" x="25" y="16.5">From donor M3</text>
@@ -27,96 +28,102 @@ text{fill:currentColor}
 <text class="t-sm" x="203" y="16.5">Not coding</text>
 
 <!-- 1: backups -->
-<rect class="shape" x="8" y="26" width="384" height="38" rx="5" stroke-width="1.5"/>
+<rect class="shape" x="8" y="26" width="384" height="52" rx="5" stroke-width="1.5"/>
 <text class="t t-b" x="18" y="42">1  Back up everything</text>
-<text class="t-sm t-mono" x="382" y="42" text-anchor="end">NCS Expert, PA-Soft, INPA</text>
-<text class="t-xs" x="18" y="56">Phase 0: vehicle order, codings, cluster and light-module memories</text>
-<line class="ln" x1="200" y1="64" x2="200" y2="75" marker-end="url(#ah)"/>
+<text class="t-sm t-mono" x="382" y="56" text-anchor="end">NCS Expert, PA-Soft, INPA, Tool32</text>
+<text class="t-xs" x="18" y="56">Phase 0: vehicle order,</text>
+<text class="t-xs" x="18" y="70">codings, cluster and light-module memories</text>
+<line class="ln" x1="200" y1="78" x2="200" y2="89" marker-end="url(#ah)"/>
 
 <!-- 2: DME, and the immobilizer decision -->
-<rect class="shape" x="8" y="76" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="92">2  DME VIN and EWS</text>
-<text class="t-sm t-mono" x="382" y="92" text-anchor="end">Tool32, a vendor</text>
-<text class="t-xs" x="18" y="106">Read in Phase 1; vendor work in Phase 3</text>
-<line class="ln" x1="102" y1="114" x2="102" y2="125" marker-end="url(#ah)"/>
-<line class="ln" x1="298" y1="114" x2="298" y2="125" marker-end="url(#ah)"/>
-<rect class="donor" x="8" y="126" width="188" height="62" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="143">EWS delete</text>
-<text class="t-xs t-b" x="18" y="157">recommended</text>
-<text class="t-xs" x="18" y="170">bought as a service, with</text>
-<text class="t-xs" x="18" y="183">your VIN written in</text>
-<rect class="donor" x="204" y="126" width="188" height="62" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="214" y="143">Virginized DME</text>
-<text class="t-xs" x="214" y="157">a vendor clears it, then</text>
-<text class="t-xs" x="214" y="170">you sync it to your EWS</text>
-<text class="t-xs crit-t" x="214" y="183">no documented Touring success</text>
-<line class="ln" x1="102" y1="188" x2="102" y2="199" marker-end="url(#ah)"/>
-<line class="ln" x1="298" y1="188" x2="298" y2="199" marker-end="url(#ah)"/>
-<rect class="panel" x="8" y="200" width="384" height="26" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="217.5">Wire, then check</text>
-<text class="t-xs" x="128" y="217.5">Phase 11: re-pin, ohm-check, then power up</text>
-<line class="ln" x1="102" y1="226" x2="102" y2="237" marker-end="url(#ah)"/>
-<line class="ln" x1="298" y1="226" x2="298" y2="237" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="90" width="384" height="38" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="106">2  DME VIN and EWS</text>
+<text class="t-sm t-mono" x="382" y="106" text-anchor="end">Tool32, a vendor</text>
+<text class="t-xs" x="18" y="120">Read in Phase 1; vendor work in Phase 3</text>
+<line class="ln" x1="102" y1="128" x2="102" y2="139" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="128" x2="298" y2="139" marker-end="url(#ah)"/>
+<rect class="donor" x="8" y="140" width="188" height="62" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="157">EWS delete</text>
+<text class="t-xs t-b" x="18" y="171">recommended</text>
+<text class="t-xs" x="18" y="184">bought as a service, with</text>
+<text class="t-xs" x="18" y="197">your VIN written in</text>
+<rect class="donor" x="204" y="140" width="188" height="62" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="214" y="157">Matched used DME</text>
+<text class="t-xs" x="214" y="171">matched to your EWS by a vendor,</text>
+<text class="t-xs" x="214" y="184">or virginized and synced by you</text>
+<text class="t-xs crit-t" x="214" y="197">no documented Touring success</text>
+<line class="ln" x1="102" y1="202" x2="102" y2="213" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="202" x2="298" y2="213" marker-end="url(#ah)"/>
+<rect class="panel" x="8" y="214" width="384" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="231.5">Wire, then check</text>
+<text class="t-xs" x="128" y="231.5">Phase 11: re-pin, ohm-check, then power up</text>
+<line class="ln" x1="102" y1="240" x2="102" y2="251" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="240" x2="298" y2="251" marker-end="url(#ah)"/>
 
 <!-- 3: EWS, depending on the route -->
-<rect class="shape" x="8" y="238" width="188" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="254">3  EWS check</text>
-<text class="t-sm t-mono" x="186" y="254" text-anchor="end">Tool32</text>
-<text class="t-xs" x="18" y="268">nothing to code after a delete</text>
-<rect class="shape" x="204" y="238" width="188" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="214" y="254">3  EWS sync</text>
-<text class="t-sm t-mono" x="382" y="254" text-anchor="end">Tool32</text>
-<text class="t-xs" x="214" y="268">sync the virgin DME to your EWS</text>
-<line class="ln" x1="102" y1="276" x2="102" y2="287" marker-end="url(#ah)"/>
-<line class="ln" x1="298" y1="276" x2="298" y2="287" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="252" width="188" height="52" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="268">3  EWS check</text>
+<text class="t-sm t-mono" x="186" y="268" text-anchor="end">Tool32</text>
+<text class="t-xs" x="18" y="282">nothing to code after a delete</text>
+<rect class="shape" x="204" y="252" width="188" height="52" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="214" y="268">3  Check or sync</text>
+<text class="t-sm t-mono" x="382" y="268" text-anchor="end">Tool32</text>
+<text class="t-xs" x="214" y="282">a check after a vendor's match;</text>
+<text class="t-xs" x="214" y="296">sync a DME you virginized</text>
+<line class="ln" x1="102" y1="304" x2="102" y2="315" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="304" x2="298" y2="315" marker-end="url(#ah)"/>
 
-<!-- 4: cluster, then 5: the DSC and its decision -->
-<rect class="shape" x="8" y="288" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="304">4  Cluster and light module</text>
-<text class="t-sm t-mono" x="382" y="304" text-anchor="end">PA-Soft, NCS Expert</text>
-<text class="t-xs" x="18" y="318">Phase 11: the cluster gets your VIN and true mileage from the light module</text>
-<line class="ln" x1="200" y1="326" x2="200" y2="337" marker-end="url(#ah)"/>
-<rect class="shape" x="8" y="338" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="354">5  DSC coding and VIN</text>
-<text class="t-sm t-mono" x="382" y="354" text-anchor="end">PA-Soft, NCS Expert, INPA</text>
-<text class="t-xs" x="18" y="368">Phase 11, after session 4: the DSC checks its VIN against the cluster's</text>
-<line class="ln" x1="102" y1="376" x2="102" y2="387" marker-end="url(#ah)"/>
-<line class="ln" x1="298" y1="376" x2="298" y2="387" marker-end="url(#ah)"/>
-<rect class="keep" x="8" y="388" width="188" height="62" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="405">A  Keep your MK60</text>
-<text class="t-xs t-b" x="18" y="419">recommended</text>
-<text class="t-xs" x="18" y="432">initialise its VIN and</text>
-<text class="t-xs" x="18" y="445">steering angle</text>
-<rect class="donor" x="204" y="388" width="188" height="62" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="214" y="405">B  The M3's MK60</text>
-<text class="t-xs t-b" x="214" y="419">09/2002-on donors only</text>
-<text class="t-xs" x="214" y="432">write your VIN, code M3 values</text>
-<text class="t-xs" x="214" y="445">by hand, then initialise</text>
-<line class="ln" x1="102" y1="450" x2="102" y2="461" marker-end="url(#ah)"/>
-<line class="ln" x1="298" y1="450" x2="298" y2="461" marker-end="url(#ah)"/>
+<!-- 4: cluster (it keeps the donor's vehicle order), then 5: the DSC and its decision -->
+<rect class="shape" x="8" y="316" width="384" height="52" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="332">4  Cluster and light module</text>
+<text class="t-sm t-mono" x="382" y="332" text-anchor="end">PA-Soft, NCS Expert</text>
+<text class="t-xs" x="18" y="346">Phase 11: your VIN and true mileage, by a service or new chip;</text>
+<text class="t-xs" x="18" y="360">the cluster keeps the donor's vehicle order: code it from its own read-out</text>
+<line class="ln" x1="200" y1="368" x2="200" y2="379" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="380" width="384" height="38" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="396">5  DSC coding and VIN</text>
+<text class="t-sm t-mono" x="382" y="396" text-anchor="end">PA-Soft, NCS Expert, INPA</text>
+<text class="t-xs" x="18" y="410">Phase 11, after session 4: the DSC checks its VIN against the cluster's</text>
+<line class="ln" x1="102" y1="418" x2="102" y2="429" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="418" x2="298" y2="429" marker-end="url(#ah)"/>
+<rect class="keep" x="8" y="430" width="188" height="92" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="447">A  Keep your MK60</text>
+<text class="t-xs t-b" x="18" y="461">recommended</text>
+<text class="t-xs" x="18" y="474">initialise its VIN and</text>
+<text class="t-xs" x="18" y="487">steering angle</text>
+<rect class="donor" x="204" y="430" width="188" height="92" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="214" y="447">B  The M3's MK60</text>
+<text class="t-xs t-b" x="214" y="461">09/2002-on donors only</text>
+<text class="t-xs" x="214" y="474">write your VIN, code from a</text>
+<text class="t-xs" x="214" y="487">session order (donor's type key,</text>
+<text class="t-xs" x="214" y="500">#0902+), set values for your parts,</text>
+<text class="t-xs" x="214" y="513">then initialise</text>
+<line class="ln" x1="102" y1="522" x2="102" y2="533" marker-end="url(#ah)"/>
+<line class="ln" x1="298" y1="522" x2="298" y2="533" marker-end="url(#ah)"/>
 
 <!-- 6: first start; alignment; 7: steering angle; 8 and 9 -->
-<rect class="shape" x="8" y="462" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="478">6  First start, adaptations, throttle check</text>
-<text class="t-sm t-mono" x="382" y="478" text-anchor="end">Tool32</text>
-<text class="t-xs" x="18" y="492">Phase 12: adaptations cleared, the throttles relearn</text>
-<line class="ln" x1="200" y1="500" x2="200" y2="511" marker-end="url(#ah)"/>
-<rect class="panel" x="8" y="512" width="384" height="26" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="529.5">Wheel alignment</text>
-<text class="t-xs" x="128" y="529.5">at the car's loaded ride height</text>
-<line class="ln" x1="200" y1="538" x2="200" y2="549" marker-end="url(#ah)"/>
-<rect class="shape" x="8" y="550" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="566">7  Steering angle after the alignment</text>
-<text class="t-sm t-mono" x="382" y="566" text-anchor="end">INPA or Tool32</text>
-<text class="t-xs" x="18" y="580">Phase 12: wheel straight, car level, no brake pressure</text>
-<line class="ln" x1="200" y1="588" x2="200" y2="599" marker-end="url(#ah)"/>
-<rect class="shape" x="8" y="600" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="616">8  Vehicle-order changes and body modules</text>
-<text class="t-sm t-mono" x="382" y="616" text-anchor="end">NCS Expert</text>
-<text class="t-xs" x="18" y="630">Phase 12, after session 7, and whenever you change the vehicle order</text>
-<line class="ln" x1="200" y1="638" x2="200" y2="649" marker-end="url(#ah)"/>
-<rect class="shape" x="8" y="650" width="384" height="38" rx="5" stroke-width="1.5"/>
-<text class="t t-b" x="18" y="666">9  Light module and headlights</text>
-<text class="t-sm t-mono" x="382" y="666" text-anchor="end">NCS Expert</text>
-<text class="t-xs" x="18" y="680">Phase 12, last, with the front end on</text>
+<rect class="shape" x="8" y="534" width="384" height="38" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="550">6  First start, adaptations, throttle check</text>
+<text class="t-sm t-mono" x="382" y="550" text-anchor="end">Tool32</text>
+<text class="t-xs" x="18" y="564">Phase 12: adaptations cleared, the throttles relearn</text>
+<line class="ln" x1="200" y1="572" x2="200" y2="583" marker-end="url(#ah)"/>
+<rect class="panel" x="8" y="584" width="384" height="26" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="601.5">Wheel alignment</text>
+<text class="t-xs" x="128" y="601.5">in BMW's design position, at the M3 load</text>
+<line class="ln" x1="200" y1="610" x2="200" y2="621" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="622" width="384" height="38" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="638">7  Steering angle after the alignment</text>
+<text class="t-sm t-mono" x="382" y="638" text-anchor="end">INPA or Tool32</text>
+<text class="t-xs" x="18" y="652">Phase 12: wheel straight, car level, no brake pressure</text>
+<line class="ln" x1="200" y1="660" x2="200" y2="671" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="672" width="384" height="52" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="688">8  Vehicle-order changes and body modules</text>
+<text class="t-sm t-mono" x="382" y="688" text-anchor="end">NCS Expert</text>
+<text class="t-xs" x="18" y="702">Phase 12, after session 7, whenever you change the order: read it from ALSZ;</text>
+<text class="t-xs" x="18" y="716">code only the modules a change touches, one at a time; never Code Car</text>
+<line class="ln" x1="200" y1="724" x2="200" y2="735" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="736" width="384" height="38" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="752">9  Light module and headlights</text>
+<text class="t-sm t-mono" x="382" y="752" text-anchor="end">NCS Expert</text>
+<text class="t-xs" x="18" y="766">Phase 12, last, with the front end on</text>
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 514" role="img" aria-label="Two charts for the no-start tree. Left, starts then dies: that isn't the immobilizer's signature, because BMW describes a mismatch as crank-no-start and a deleted DME ignores the code, so look at the EWS only if 130 (0x82) or 66 (0x42) is stored, and after a confirmed delete not for a leftover 130 on its own. If it dies within about 3 seconds with the EML lamp on and won't restart, it's a throttle fault shutdown: read the faults 118 to 121 (0x76 to 0x79) for the throttle sensors, 60 and 61 (0x3C, 0x3D) for the pedal and 228 to 230 (0xE4 to 0xE6) for throttle control. If it dies when the prime would end, the pump isn't being held: the DME needs the engine-speed signal to keep K96 on, so check STAT_EKP_EIN with the engine running. If it dies at idle with no EML lamp: the idle actuator, leaks at the idle-air pipe, the adaptation, fuel pressure. If it runs only with the pump fuse pulled, then floods: an unseated terminal, so tug-test. Right, fault numbers: INPA prints decimal and the job documentation hex; 130 (0x82) is the immobilizer fault and 1 (0x01) the pump-relay fault that US software stores when K96 replaces the pump module. The harmless and the real fault 1 carry the same number, so tell them apart by what the car does: one prime with K96 clicking, 5.0 plus or minus 0.2 bar (BMW), the engine starting and running and STAT_MIL_EIN at 0 means the expected fault, so record it and do nothing; no prime, no pressure and K96 silent means a real pump-circuit fault; cranks without starting with all six injectors disabled is usually not the pump: in the 2002 325iT case it followed an immobilizer problem, so read 130 (0x82), 66 (0x42) and STAT_EWS3_FREIGABE first." color="#1b2128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 528" role="img" aria-label="Two charts for the no-start tree. Left, starts then dies: that isn't the immobilizer's signature, because BMW describes a mismatch as crank-no-start and a deleted DME ignores the code. Exception: a brief fire while cranking that never catches is an EWS-to-DME refusal (question 4). So look at the EWS only if 130 (0x82) or 66 (0x42) is stored, and after a confirmed delete not for a leftover 130 on its own. If it dies within about 3 seconds with the EML lamp on and won't restart, it's a throttle fault shutdown: read the faults 118 to 121 (0x76 to 0x79) for the throttle sensors, 60 and 61 (0x3C, 0x3D) for the pedal and 228 to 230 (0xE4 to 0xE6) for throttle control. If it dies when the prime would end, the pump isn't being held: the DME needs the engine-speed signal to keep K96 on, so check STAT_EKP_EIN with the engine running. If it dies at idle with no EML lamp: the idle actuator, leaks at the idle-air pipe, the adaptation, fuel pressure. If it runs only with the pump fuse pulled, then floods: an unseated terminal, so tug-test. Right, fault numbers: INPA prints decimal and the job documentation hex; 130 (0x82) is the immobilizer fault and 1 (0x01) the pump-relay fault that US software stores when K96 replaces the pump module. The harmless and the real fault 1 carry the same number, so tell them apart by what the car does: one prime with K96 clicking, 5.0 plus or minus 0.2 bar (BMW), the engine starting and running and STAT_MIL_EIN at 0 means the expected fault, so record it and do nothing; no prime, no pressure and K96 silent means a real pump-circuit fault; cranks without starting with all six injectors disabled is usually not the pump: in the 2002 325iT case it followed an immobilizer problem, so read 130 (0x82), 66 (0x42) and STAT_EWS3_FREIGABE first." color="#1b2128">
 <style>
 svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 text{fill:currentColor}
@@ -17,7 +17,7 @@ text{fill:currentColor}
 <defs>
   <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
 </defs>
-<rect class="bg" x="0" y="0" width="800" height="514" fill="#ffffff"/>
+<rect class="bg" x="0" y="0" width="800" height="528" fill="#ffffff"/>
 <rect class="shape" x="8" y="7" width="20" height="12" rx="6" stroke-width="1.2"/>
 <text class="t-sm" x="34" y="17.5">Question</text>
 <rect class="new" x="102.39" y="7" width="20" height="12" rx="1.5" stroke-width="1.2"/>
@@ -26,46 +26,47 @@ text{fill:currentColor}
 <text class="t-sm" x="274.48" y="17.5">Stop: fix before going on</text>
 <rect class="panel" x="422.83" y="7" width="20" height="12" rx="1.5" stroke-width="1.2"/>
 <text class="t-sm" x="448.83" y="17.5">Note</text>
-<path class="ln-faint" d="M400,30 V506"/>
+<path class="ln-faint" d="M400,30 V520"/>
 <text class="t-h" x="8" y="42">STARTS, THEN DIES</text>
-<rect class="panel" x="8" y="52" width="384" height="82.5" rx="4" stroke-width="1.5"/>
+<rect class="panel" x="8" y="52" width="384" height="97.5" rx="4" stroke-width="1.5"/>
 <text class="t" x="18" y="66.64"><tspan class="t-b">Not the immobilizer's signature:</tspan> BMW describes a</text>
 <text class="t" x="18" y="81.64">mismatch as crank-no-start, and a deleted DME ignores the</text>
-<text class="t" x="18" y="96.64">code. Look at the EWS only if 130 (0x82) or 66 (0x42) is</text>
-<text class="t" x="18" y="111.64">stored, and after a confirmed delete not for a leftover 130 on</text>
-<text class="t" x="18" y="126.64">its own.</text>
-<path class="ln" d="M68,134.5 V147.5" marker-end="url(#ah)"/>
-<rect class="shape" x="8" y="148.5" width="384" height="34" rx="18" stroke-width="1.5"/>
-<text class="t" x="22" y="168.89">How does it die?</text>
-<rect class="crit-s" x="48" y="196.5" width="344" height="127.5" rx="4" stroke-width="1.5"/>
-<text class="t" x="58" y="211.14"><tspan class="t-b crit-t">Within about 3 seconds, EML lamp on, won't restart:</tspan></text>
-<text class="t" x="58" y="226.14">a throttle fault shutdown. Read the faults:</text>
-<text class="t" x="58" y="241.14">118–121 (0x76–0x79) throttle sensors,</text>
-<text class="t" x="58" y="256.14">60 and 61 (0x3C, 0x3D) pedal, 228–230 (0xE4–0xE6)</text>
-<text class="t" x="58" y="271.14">throttle control. MotoIQ worked through throttle</text>
-<text class="t" x="58" y="286.14">sensor 1, the pedal, throttle sensor 2, the</text>
-<text class="t" x="58" y="301.14">synchronization and the actuator, suspecting low</text>
-<text class="t" x="58" y="316.14">charging voltage too.</text>
-<rect class="crit-s" x="48" y="332" width="344" height="67.5" rx="4" stroke-width="1.5"/>
-<text class="t" x="58" y="346.64"><tspan class="t-b crit-t">When the prime would end:</tspan> the pump isn't being</text>
-<text class="t" x="58" y="361.64">held. The DME needs the engine-speed signal to keep</text>
-<text class="t" x="58" y="376.64">K96 on; check <tspan class="t-mono">STAT_EKP_EIN</tspan> with the engine</text>
-<text class="t" x="58" y="391.64">running.</text>
-<rect class="crit-s" x="48" y="407.5" width="344" height="37.5" rx="4" stroke-width="1.5"/>
-<text class="t" x="58" y="422.14"><tspan class="t-b crit-t">At idle, no EML lamp:</tspan> the idle actuator, leaks at the</text>
-<text class="t" x="58" y="437.14">idle-air pipe, the adaptation, fuel pressure.</text>
-<rect class="crit-s" x="48" y="453" width="344" height="52.5" rx="4" stroke-width="1.5"/>
-<text class="t" x="58" y="467.64"><tspan class="t-b crit-t">Runs only with the pump fuse pulled, then floods:</tspan></text>
-<text class="t" x="58" y="482.64">an unseated terminal (in an E36 S54 swap, a ground at</text>
-<text class="t" x="58" y="497.64">X60003 pin 25). Tug-test.</text>
-<path class="ln" d="M30,182.5 V479.25"/>
-<path class="ln" d="M30,260.25 H47" marker-end="url(#ah)"/>
-<circle class="fill-fg" cx="30" cy="260.25" r="2.6"/>
-<path class="ln" d="M30,365.75 H47" marker-end="url(#ah)"/>
-<circle class="fill-fg" cx="30" cy="365.75" r="2.6"/>
-<path class="ln" d="M30,426.25 H47" marker-end="url(#ah)"/>
-<circle class="fill-fg" cx="30" cy="426.25" r="2.6"/>
-<path class="ln" d="M30,479.25 H47" marker-end="url(#ah)"/>
+<text class="t" x="18" y="96.64">code. Exception: a brief fire while cranking that never catches</text>
+<text class="t" x="18" y="111.64">is an EWS-to-DME refusal (question 4). Look at the EWS only</text>
+<text class="t" x="18" y="126.64">if 130 (0x82) or 66 (0x42) is stored, and after a confirmed</text>
+<text class="t" x="18" y="141.64">delete not for a leftover 130 on its own.</text>
+<path class="ln" d="M68,149.5 V162.5" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="163.5" width="384" height="34" rx="18" stroke-width="1.5"/>
+<text class="t" x="22" y="183.89">How does it die?</text>
+<rect class="crit-s" x="48" y="211.5" width="344" height="127.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="58" y="226.14"><tspan class="t-b crit-t">Within about 3 seconds, EML lamp on, won't restart:</tspan></text>
+<text class="t" x="58" y="241.14">a throttle fault shutdown. Read the faults:</text>
+<text class="t" x="58" y="256.14">118–121 (0x76–0x79) throttle sensors,</text>
+<text class="t" x="58" y="271.14">60 and 61 (0x3C, 0x3D) pedal, 228–230 (0xE4–0xE6)</text>
+<text class="t" x="58" y="286.14">throttle control. MotoIQ worked through throttle</text>
+<text class="t" x="58" y="301.14">sensor 1, the pedal, throttle sensor 2, the</text>
+<text class="t" x="58" y="316.14">synchronization and the actuator, suspecting low</text>
+<text class="t" x="58" y="331.14">charging voltage too.</text>
+<rect class="crit-s" x="48" y="347" width="344" height="67.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="58" y="361.64"><tspan class="t-b crit-t">When the prime would end:</tspan> the pump isn't being</text>
+<text class="t" x="58" y="376.64">held. The DME needs the engine-speed signal to keep</text>
+<text class="t" x="58" y="391.64">K96 on; check <tspan class="t-mono">STAT_EKP_EIN</tspan> with the engine</text>
+<text class="t" x="58" y="406.64">running.</text>
+<rect class="crit-s" x="48" y="422.5" width="344" height="37.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="58" y="437.14"><tspan class="t-b crit-t">At idle, no EML lamp:</tspan> the idle actuator, leaks at the</text>
+<text class="t" x="58" y="452.14">idle-air pipe, the adaptation, fuel pressure.</text>
+<rect class="crit-s" x="48" y="468" width="344" height="52.5" rx="4" stroke-width="1.5"/>
+<text class="t" x="58" y="482.64"><tspan class="t-b crit-t">Runs only with the pump fuse pulled, then floods:</tspan></text>
+<text class="t" x="58" y="497.64">an unseated terminal (in an E36 S54 swap, a ground at</text>
+<text class="t" x="58" y="512.64">X60003 pin 25). Tug-test.</text>
+<path class="ln" d="M30,197.5 V494.25"/>
+<path class="ln" d="M30,275.25 H47" marker-end="url(#ah)"/>
+<circle class="fill-fg" cx="30" cy="275.25" r="2.6"/>
+<path class="ln" d="M30,380.75 H47" marker-end="url(#ah)"/>
+<circle class="fill-fg" cx="30" cy="380.75" r="2.6"/>
+<path class="ln" d="M30,441.25 H47" marker-end="url(#ah)"/>
+<circle class="fill-fg" cx="30" cy="441.25" r="2.6"/>
+<path class="ln" d="M30,494.25 H47" marker-end="url(#ah)"/>
 <text class="t-h" x="408" y="42">FAULT 1: EXPECTED OR REAL?</text>
 <rect class="panel" x="408" y="52" width="384" height="82.5" rx="4" stroke-width="1.5"/>
 <text class="t" x="418" y="66.64"><tspan class="t-b">Fault numbers:</tspan> INPA prints decimal, the job documentation</text>

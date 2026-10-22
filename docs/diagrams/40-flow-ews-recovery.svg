@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1212" role="img" aria-label="Flowchart: what to do when the engine won't start after EWS work. Question 1, clutch down and key to start: does the starter crank? If not, the cause is on the EWS side, and a delete in the DME changes none of it. In EWS3.prg, STATUS_LESEN, the key should be sending and not barred, the key-check bits STAT_SCHLUESSEL_NIO_ID, STAT_SCHLUESSEL_NIO_PW and STAT_SCHLUESSEL_NIO_WC (ID, password and rolling code not OK) should read 0, and with the clutch down STAT_ANLASSER_AUS_P_N should read 0; the EWS coding keeps PARK/NEUTRAL_EINGANG at aktiv. Then check the battery, the clutch input at EWS pin 8 and the starter feed (Won't start, question 2), and never jumper EWS pins. Question 2, it cranks, perhaps firing once or twice: is fault 130 (0x82) or 66 (0x42) stored, or does STAT_EWS3_FREIGABE read 0? If not, or if only a leftover 130 remains after a delete the vendor has confirmed, the immobilizer isn't what stops the engine: go on with Won't start, question 5. If so, read the fault's type and act on it. Start value empty (Startwert leer), a virgin DME that hasn't received the code table: run the sync. Rolling code lost (Wechselcode verloren), an ordinary loss of sync: re-run the alignment, which BMW allows any number of times. Manipulation, the DME married to another EWS: delete, virginize, or use the donor EWS. Fault 66, the EWS interface, meaning the EWS-to-DME line or a module unplugged with the key on: check the wire in X60004 pin 33, the EWS data line, and re-run the alignment. After a delete, re-read the DME or ask the vendor to confirm the delete took. Question 3: released, with 130 gone and STAT_EWS3_FREIGABE showing the release? If not, fit the donor's EWS and key and re-align, or send the DME away for a delete; if so, key off for at least 10 seconds, then start. A panel lists the alignment in Tool32, with the charger on and the ignition at position 2: WECHSELCODE_SYNC_DME in EWS3.prg, then EWS3_INITIALISIEREN with 0x01 in the Arguments box, EWS3_SYNC and EWS3_GET_STATUS in MSS54DS0.PRG, the first three returning OKAY, then FS_LESEN with 130 gone and STAT_EWS3_FREIGABE showing the release, and the key off for 10 seconds. It worked once, on one owner's CSL-clone MSS54; no Touring build has confirmed it." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="1212" fill="#ffffff"/>
+<rect class="shape" x="8" y="6" width="20" height="12" rx="6" stroke-width="1.2"/>
+<text class="t-sm" x="34" y="16.5">Question</text>
+<rect class="crit-s" x="96.39" y="6" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="122.39" y="16.5">Fix, then retry</text>
+<rect class="panel" x="211" y="6" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="237" y="16.5">Elsewhere</text>
+<rect class="new" x="306.84" y="6" width="20" height="12" rx="1.5" stroke-width="1.2"/>
+<text class="t-sm" x="332.84" y="16.5">Released</text>
+<rect class="shape" x="8" y="28" width="384" height="36" rx="18" stroke-width="1.5"/>
+<text class="t" x="24" y="49.39"><tspan class="t-b">1  </tspan> Clutch down, key to start: does the starter crank?</text>
+<path class="ln" d="M140,64 V85" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="147" y="78.5">no</text>
+<rect class="crit-s" x="52" y="86" width="340" height="191" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="62" y="99.47"><tspan class="t-b crit-t">No crank: the EWS side.</tspan> A delete in the DME changes none</text>
+<text class="t-sm" x="62" y="113.47">of it.</text>
+<text class="t-sm" x="62" y="131.47"><tspan class="t-mono">EWS3.prg</tspan> → <tspan class="t-mono">STATUS_LESEN</tspan>: the key sending and not</text>
+<text class="t-sm" x="62" y="145.47">barred; <tspan class="t-mono">STAT_SCHLUESSEL_NIO_ID</tspan>,</text>
+<text class="t-sm" x="62" y="159.47"><tspan class="t-mono">STAT_SCHLUESSEL_NIO_PW</tspan> and</text>
+<text class="t-sm" x="62" y="173.47"><tspan class="t-mono">STAT_SCHLUESSEL_NIO_WC</tspan> (ID, password, rolling code not</text>
+<text class="t-sm" x="62" y="187.47">OK) at 0; with the clutch down, <tspan class="t-mono">STAT_ANLASSER_AUS_P_N</tspan></text>
+<text class="t-sm" x="62" y="201.47">at 0.</text>
+<text class="t-sm" x="62" y="219.47">EWS coding: PARK/NEUTRAL_EINGANG = aktiv.</text>
+<text class="t-sm" x="62" y="237.47">Then the battery, the clutch input at EWS pin 8 and the</text>
+<text class="t-sm" x="62" y="251.47">starter feed (Won't start, question 2).</text>
+<text class="t-sm" x="62" y="269.47"><tspan class="t-b crit-t">Never jumper EWS pins.</tspan></text>
+<path class="ln" d="M22,64 V300" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="29" y="78.5">yes</text>
+<rect class="shape" x="8" y="301" width="384" height="68.17" rx="18" stroke-width="1.5"/>
+<text class="t" x="24" y="315.64"><tspan class="t-b">2  </tspan> It cranks, perhaps firing once or twice: is</text>
+<text class="t" x="24" y="330.64">fault 130 (0x82) or 66 (0x42) stored, or does</text>
+<text class="t" x="24" y="345.64"><tspan class="t-mono">STAT_EWS3_FREIGABE</tspan> read 0?</text>
+<text class="t-sm" x="24" y="361.64"><tspan class="t-mono">MSS54DS0.PRG</tspan> → <tspan class="t-mono">FS_LESEN</tspan> and <tspan class="t-mono">STATUS_DIGITAL</tspan></text>
+<path class="ln" d="M140,369.17 V390.17" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="147" y="383.67">no</text>
+<rect class="panel" x="52" y="391.17" width="340" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="62" y="404.64"><tspan class="t-b">No, or only a leftover 130 (0x82) after a delete the vendor</tspan></text>
+<text class="t-sm" x="62" y="418.64"><tspan class="t-b">has confirmed:</tspan> the immobilizer isn't what stops the engine.</text>
+<text class="t-sm" x="62" y="432.64">Go on with Won't start, question 5.</text>
+<path class="ln" d="M22,369.17 V477.17" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="29" y="383.67">yes</text>
+<text class="t-sm t-b" x="34" y="472.17">Read the fault's type, and do what it says:</text>
+<rect class="shape" x="8" y="478.17" width="176" height="63" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="491.64"><tspan class="t-b">130 (0x82), "Startwert leer"</tspan></text>
+<text class="t-sm" x="18" y="505.64">(start value empty): a virgin</text>
+<text class="t-sm" x="18" y="519.64">DME that hasn't received the</text>
+<text class="t-sm" x="18" y="533.64">code table</text>
+<rect class="crit-s" x="204" y="478.17" width="188" height="63" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="214" y="512.64">Run the sync (panel below).</text>
+<path class="ln" d="M184,509.67 H203" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="547.17" width="176" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="560.64"><tspan class="t-b">130 (0x82), "Wechselcode</tspan></text>
+<text class="t-sm" x="18" y="574.64"><tspan class="t-b">verloren"</tspan> (rolling code lost):</text>
+<text class="t-sm" x="18" y="588.64">an ordinary loss of sync</text>
+<rect class="crit-s" x="204" y="547.17" width="188" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="214" y="560.64">Re-run the alignment (panel</text>
+<text class="t-sm" x="214" y="574.64">below); BMW allows it any</text>
+<text class="t-sm" x="214" y="588.64">number of times.</text>
+<path class="ln" d="M184,571.67 H203" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="602.17" width="176" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="615.64"><tspan class="t-b">130 (0x82), "Manipulation":</tspan></text>
+<text class="t-sm" x="18" y="629.64">the DME is married to</text>
+<text class="t-sm" x="18" y="643.64">another EWS</text>
+<rect class="crit-s" x="204" y="602.17" width="188" height="49" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="214" y="622.64">Delete, virginize, or use the</text>
+<text class="t-sm" x="214" y="636.64">donor EWS (under question 3).</text>
+<path class="ln" d="M184,626.67 H203" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="657.17" width="176" height="63" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="670.64"><tspan class="t-b">66 (0x42), EWS interface:</tspan></text>
+<text class="t-sm" x="18" y="684.64">the EWS–DME line, or the</text>
+<text class="t-sm" x="18" y="698.64">key was on with a module</text>
+<text class="t-sm" x="18" y="712.64">unplugged</text>
+<rect class="crit-s" x="204" y="657.17" width="188" height="63" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="214" y="677.64">Check the wire in X60004 pin</text>
+<text class="t-sm" x="214" y="691.64">33, the EWS data line; re-run</text>
+<text class="t-sm" x="214" y="705.64">the alignment.</text>
+<path class="ln" d="M184,688.67 H203" marker-end="url(#ah)"/>
+<rect class="warn-f" x="8" y="726.17" width="384" height="35" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="739.64"><tspan class="t-b">After a delete:</tspan> re-read the DME, or ask the vendor, to confirm the</text>
+<text class="t-sm" x="18" y="753.64">delete took. With a virginized DME, run the alignment again.</text>
+<path class="ln" d="M22,761.17 V778.17" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="779.17" width="384" height="37.5" rx="18" stroke-width="1.5"/>
+<text class="t" x="24" y="793.81"><tspan class="t-b">3  </tspan> Released: 130 (0x82) gone, and <tspan class="t-mono">STAT_EWS3_FREIGABE</tspan></text>
+<text class="t" x="24" y="808.81">showing the release?</text>
+<path class="ln" d="M140,816.67 V837.67" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="147" y="831.17">no</text>
+<rect class="crit-s" x="52" y="838.67" width="340" height="109" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="62" y="852.14"><tspan class="t-b crit-t">Still not released:</tspan> fit the donor's EWS and key and re-align,</text>
+<text class="t-sm" x="62" y="866.14">or send the DME away for a delete.</text>
+<text class="t-sm" x="62" y="884.14"><tspan class="t-b">Donor EWS:</tspan> save your own EWS's coding file first. Fit the</text>
+<text class="t-sm" x="62" y="898.14">donor's EWS with its DME, and put the donor key's</text>
+<text class="t-sm" x="62" y="912.14">transponder near the ring antenna. Code it to match your file</text>
+<text class="t-sm" x="62" y="926.14">(PARK/NEUTRAL_EINGANG = aktiv), re-align it, and check</text>
+<text class="t-sm" x="62" y="940.14"><tspan class="t-mono">STATUS_LESEN</tspan>.</text>
+<path class="ln" d="M22,816.67 V970.67" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="29" y="831.17">yes</text>
+<rect class="new" x="8" y="971.67" width="384" height="21" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="985.14"><tspan class="t-b">Released:</tspan> key off for at least 10 seconds, then start.</text>
+<rect class="panel" x="8" y="1006.67" width="384" height="197" rx="6" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="1020.14"><tspan class="t-b">The sync, or alignment, in Tool32:</tspan> charger on, ignition at position 2,</text>
+<text class="t-sm" x="18" y="1034.14">engine off. Jobs 1 to 3 should each return OKAY.</text>
+<text class="t-sm" x="18" y="1052.14"><tspan class="t-b">1</tspan> <tspan class="t-mono">EWS3.prg</tspan> → <tspan class="t-mono">WECHSELCODE_SYNC_DME</tspan></text>
+<text class="t-sm" x="18" y="1066.14"><tspan class="t-b">2</tspan> <tspan class="t-mono">MSS54DS0.PRG</tspan> → <tspan class="t-mono">EWS3_INITIALISIEREN</tspan>, with 0x01 in the</text>
+<text class="t-sm" x="18" y="1080.14">Arguments box</text>
+<text class="t-sm" x="18" y="1094.14"><tspan class="t-b">3</tspan> <tspan class="t-mono">EWS3_SYNC</tspan></text>
+<text class="t-sm" x="18" y="1108.14"><tspan class="t-b">4</tspan> <tspan class="t-mono">EWS3_GET_STATUS</tspan>: the failed Touring showed <tspan class="t-mono">EWS3_STATUS</tspan> =</text>
+<text class="t-sm" x="18" y="1122.14">Invalid and <tspan class="t-mono">EWS3_STATUS_WERT</tspan> = 3</text>
+<text class="t-sm" x="18" y="1136.14"><tspan class="t-b">5</tspan> <tspan class="t-mono">FS_LESEN</tspan>: 130 (0x82) gone; <tspan class="t-mono">STATUS_DIGITAL</tspan> →</text>
+<text class="t-sm" x="18" y="1150.14"><tspan class="t-mono">STAT_EWS3_FREIGABE</tspan> shows the release</text>
+<text class="t-sm" x="18" y="1164.14"><tspan class="t-b">6</tspan> Key off for at least 10 seconds, then start</text>
+<text class="t-sm" x="18" y="1182.14">It worked once, on one owner's CSL-clone MSS54. No Touring build</text>
+<text class="t-sm" x="18" y="1196.14">has confirmed it.</text>
+</svg>

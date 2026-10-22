@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 605" role="img" aria-label="The checks before first power-up, part 2: from the first key-on to the oil-priming crank. Steps 20 to 29, battery connected with the charger on, the DME plugged in, key at position 2, engine off: K6300 clicks at key-on and stays on a few seconds after key-off (BMW); INPA reaches the DME, cluster, light module, EWS and DSC and Tool32 IDENT returns OKAY; the supplies, temperatures, pedal and throttles, switch bits, EWS and outputs read as steps 21, 24 to 27 and 29 say; the only faults are 1 (0x01), possibly 130 (0x82) after an EWS delete, and the DSC unit's VIN faults until Session 5; the oil-pressure, charge and check-engine lamps are lit; and the pump primes once, STEUERN_EKP clicks K96, and the pressure is 5.0 plus or minus 0.2 bar with under 0.5 bar lost (BMW). Fix anything else before you crank. Then Sessions 3 to 5. Steps 30 to 32, in Phase 12 with K96 and K6327 pulled and the coils unplugged: with the clutch up it doesn't crank and with the clutch down it cranks; the DME sees engine speed; and oil pressure shows and holds on the mechanical gauge while the red lamp goes out. With no oil pressure, stop. Step 33: refit K96, K6327 and the coils and run Session 6 steps 2 to 4; STATUS_ADAPTIONSBLOCK_06, STAT_WDK_ADAPT_WERT must read 0, or repeat with the charger on and check the throttle wiring. Then the first start, Session 6 step 6." color="#1b2128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 621" role="img" aria-label="The checks before first power-up, part 2: from the first key-on to the oil-priming crank. Steps 20 to 29, battery connected with the charger on, the DME plugged in, key at position 2, engine off: K6300 clicks at key-on and stays on a few seconds after key-off (BMW); INPA reaches the DME, cluster, light module, EWS and DSC and Tool32 IDENT returns OKAY; the supplies, temperatures, pedal and throttles, switch bits, EWS and outputs read as steps 21, 24 to 27 and 29 say; the only faults are 1 (0x01), possibly 130 (0x82) after an EWS delete, and the DSC unit's VIN faults until Session 5; the oil-pressure, charge and check-engine lamps are lit, and the DSC, ABS and yellow BRAKE lamps stay on until Session 5; and the pump primes once, STEUERN_EKP clicks K96, and the pressure is 5.0 plus or minus 0.2 bar with under 0.5 bar lost (BMW). Fix anything else before you crank. Then Sessions 3 to 5. Steps 30 to 32, in Phase 12 with K96 and K6327 pulled and the coils unplugged: with the clutch up it doesn't crank and with the clutch down it cranks; the DME sees engine speed; and oil pressure shows and holds on the mechanical gauge while the red lamp goes out. With no oil pressure, stop. Step 33: refit K96, K6327 and the coils and run Session 6 steps 2 to 5; STATUS_ADAPTIONSBLOCK_06, STAT_WDK_ADAPT_WERT must read 0, and the clutch, brake and Sport bits respond, or repeat with the charger on and check the throttle wiring. Then the first start, Session 6 step 6." color="#1b2128">
 <style>
 svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 text{fill:currentColor}
@@ -17,7 +17,7 @@ text{fill:currentColor}
 <defs>
   <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
 </defs>
-<rect class="bg" x="0" y="0" width="800" height="605" fill="#ffffff"/>
+<rect class="bg" x="0" y="0" width="800" height="621" fill="#ffffff"/>
 <rect class="shape" x="8" y="7" width="20" height="12" rx="6" stroke-width="1.2"/>
 <text class="t-sm" x="34" y="17.5">Question</text>
 <rect class="new" x="98.39" y="7" width="20" height="12" rx="1.5" stroke-width="1.2"/>
@@ -50,7 +50,7 @@ text{fill:currentColor}
 <text class="t-sm t-b" x="584" y="98.75" text-anchor="middle">no</text>
 <path class="ln" d="M375,148 V162" marker-end="url(#ah)"/>
 <text class="t-sm t-b" x="382" y="159">yes</text>
-<rect class="panel" x="8" y="163" width="156" height="173.5" rx="4" stroke-width="1.5"/>
+<rect class="panel" x="8" y="163" width="156" height="188.5" rx="4" stroke-width="1.5"/>
 <text class="t-sm" x="18" y="176.47">Steps 20–29: first key-on</text>
 <text class="t t-b" x="18" y="192.47">Battery connected</text>
 <text class="t" x="18" y="207.47">Charger on, DME</text>
@@ -58,7 +58,7 @@ text{fill:currentColor}
 <text class="t" x="18" y="237.47">position 2, engine off</text>
 <text class="t-sm" x="18" y="255.47">BMW: run the pump only</text>
 <text class="t-sm" x="18" y="269.47">in the tank, in fuel</text>
-<rect class="shape" x="176" y="163" width="398" height="173.5" rx="18" stroke-width="1.5"/>
+<rect class="shape" x="176" y="163" width="398" height="188.5" rx="18" stroke-width="1.5"/>
 <text class="t t-b" x="188" y="177.64">Every step passes?</text>
 <text class="t" x="188" y="193.64">K6300 clicks; stays on a few seconds after key-off (BMW)</text>
 <text class="t-sm" x="562" y="193.64" text-anchor="end">20</text>
@@ -72,68 +72,70 @@ text{fill:currentColor}
 <text class="t" x="188" y="268.64">Faults: only 1 (0x01); possibly 130 (0x82) after an EWS</text>
 <text class="t-sm" x="562" y="268.64" text-anchor="end">22</text>
 <text class="t" x="188" y="283.64">delete; the DSC unit's VIN faults until Session 5</text>
-<text class="t" x="188" y="298.64">Oil-pressure, charge and check-engine lamps lit</text>
+<text class="t" x="188" y="298.64">Oil-pressure, charge and check-engine lamps lit; DSC,</text>
 <text class="t-sm" x="562" y="298.64" text-anchor="end">23</text>
-<text class="t" x="188" y="313.64">One prime; <tspan class="t-mono">STEUERN_EKP</tspan> clicks K96</text>
-<text class="t-sm" x="562" y="313.64" text-anchor="end">28</text>
-<text class="t" x="188" y="328.64">5.0 ± 0.2 bar, under 0.5 bar lost (BMW)</text>
+<text class="t" x="188" y="313.64">ABS and yellow BRAKE lamps on until Session 5</text>
+<text class="t" x="188" y="328.64">One prime; <tspan class="t-mono">STEUERN_EKP</tspan> clicks K96</text>
 <text class="t-sm" x="562" y="328.64" text-anchor="end">28</text>
-<rect class="crit-s" x="594" y="163" width="198" height="173.5" rx="4" stroke-width="1.5"/>
-<text class="t t-b crit-t" x="604" y="230.64">Stop: fix before you crank</text>
-<text class="t" x="604" y="245.64">Plug and unplug the DME only</text>
-<text class="t" x="604" y="260.64">with the ignition off; or that</text>
-<text class="t" x="604" y="275.64">step's "If it fails".</text>
-<path class="ln" d="M574,249.75 H593" marker-end="url(#ah)"/>
-<text class="t-sm t-b" x="584" y="241.75" text-anchor="middle">no</text>
-<path class="ln" d="M375,336.5 V350.5" marker-end="url(#ah)"/>
-<text class="t-sm t-b" x="382" y="347.5">yes: Sessions 3–5, then</text>
-<rect class="panel" x="8" y="351.5" width="156" height="112.5" rx="4" stroke-width="1.5"/>
-<text class="t-sm" x="18" y="364.97">Steps 30–32: oil-priming</text>
-<text class="t-sm" x="18" y="378.97">crank</text>
-<text class="t t-b" x="18" y="394.97">Phase 12</text>
-<text class="t" x="18" y="409.97">K96 and K6327 pulled,</text>
-<text class="t" x="18" y="424.97">the six coils unplugged</text>
-<rect class="shape" x="176" y="351.5" width="398" height="112.5" rx="18" stroke-width="1.5"/>
-<text class="t t-b" x="188" y="380.64">Every step passes?</text>
-<text class="t" x="188" y="396.64">Clutch up: no crank; clutch down: cranks</text>
-<text class="t-sm" x="562" y="396.64" text-anchor="end">30</text>
-<text class="t" x="188" y="411.64">Engine speed above 0; the tachometer moves</text>
-<text class="t-sm" x="562" y="411.64" text-anchor="end">31</text>
-<text class="t" x="188" y="426.64">Oil pressure shows and holds on the mechanical gauge</text>
-<text class="t-sm" x="562" y="426.64" text-anchor="end">32</text>
-<text class="t" x="188" y="441.64">The red lamp goes out</text>
+<text class="t" x="188" y="343.64">5.0 ± 0.2 bar, under 0.5 bar lost (BMW)</text>
+<text class="t-sm" x="562" y="343.64" text-anchor="end">28</text>
+<rect class="crit-s" x="594" y="163" width="198" height="188.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="604" y="238.14">Stop: fix before you crank</text>
+<text class="t" x="604" y="253.14">Plug and unplug the DME only</text>
+<text class="t" x="604" y="268.14">with the ignition off; or that</text>
+<text class="t" x="604" y="283.14">step's "If it fails".</text>
+<path class="ln" d="M574,257.25 H593" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="584" y="249.25" text-anchor="middle">no</text>
+<path class="ln" d="M375,351.5 V365.5" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="382" y="362.5">yes: Sessions 3–5, then</text>
+<rect class="panel" x="8" y="366.5" width="156" height="112.5" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="379.97">Steps 30–32: oil-priming</text>
+<text class="t-sm" x="18" y="393.97">crank</text>
+<text class="t t-b" x="18" y="409.97">Phase 12</text>
+<text class="t" x="18" y="424.97">K96 and K6327 pulled,</text>
+<text class="t" x="18" y="439.97">the six coils unplugged</text>
+<rect class="shape" x="176" y="366.5" width="398" height="112.5" rx="18" stroke-width="1.5"/>
+<text class="t t-b" x="188" y="395.64">Every step passes?</text>
+<text class="t" x="188" y="411.64">Clutch up: no crank; clutch down: cranks</text>
+<text class="t-sm" x="562" y="411.64" text-anchor="end">30</text>
+<text class="t" x="188" y="426.64">Engine speed above 0; the tachometer moves</text>
+<text class="t-sm" x="562" y="426.64" text-anchor="end">31</text>
+<text class="t" x="188" y="441.64">Oil pressure shows and holds on the mechanical gauge</text>
 <text class="t-sm" x="562" y="441.64" text-anchor="end">32</text>
-<rect class="crit-s" x="594" y="351.5" width="198" height="112.5" rx="4" stroke-width="1.5"/>
-<text class="t t-b crit-t" x="604" y="366.14">Stop</text>
-<text class="t" x="604" y="381.14">No oil pressure: oil level,</text>
-<text class="t" x="604" y="396.14">pickup O-ring, pump. Clutch</text>
-<text class="t" x="604" y="411.14">interlock: EWS pin 8 input,</text>
-<text class="t" x="604" y="426.14">EWS coding. No engine</text>
-<text class="t" x="604" y="441.14">speed: crankshaft sensor. Or</text>
-<text class="t" x="604" y="456.14">that step's "If it fails".</text>
-<path class="ln" d="M574,407.75 H593" marker-end="url(#ah)"/>
-<text class="t-sm t-b" x="584" y="399.75" text-anchor="middle">no</text>
-<path class="ln" d="M375,464 V478" marker-end="url(#ah)"/>
-<text class="t-sm t-b" x="382" y="475">yes</text>
-<rect class="panel" x="8" y="479" width="156" height="82.33" rx="4" stroke-width="1.5"/>
-<text class="t-sm" x="18" y="492.47">Step 33: reset</text>
-<text class="t t-b" x="18" y="508.47">Refit K96, K6327 and</text>
-<text class="t t-b" x="18" y="523.47">the coils</text>
-<text class="t" x="18" y="538.47">Then Session 6</text>
-<text class="t" x="18" y="553.47">steps 2–4</text>
-<rect class="shape" x="176" y="479" width="398" height="82.33" rx="18" stroke-width="1.5"/>
-<text class="t t-b" x="188" y="500.56"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan> = 0 after the reset?</text>
-<text class="t" x="188" y="516.55"><tspan class="t-mono">ADAPT_LOESCHEN</tspan> and <tspan class="t-mono">FS_LOESCHEN</tspan>, key off at least 15 s,</text>
-<text class="t" x="188" y="531.55">key on; then <tspan class="t-mono">STATUS_ADAPTIONSBLOCK_06</tspan> →</text>
-<text class="t" x="188" y="546.55"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan></text>
-<rect class="crit-s" x="594" y="479" width="198" height="82.33" rx="4" stroke-width="1.5"/>
-<text class="t t-b crit-t" x="604" y="508.56">Stop: fix, then re-test</text>
-<text class="t" x="604" y="523.56">Repeat with the charger on;</text>
-<text class="t" x="604" y="538.56">the throttle wiring.</text>
-<path class="ln" d="M574,520.16 H593" marker-end="url(#ah)"/>
-<text class="t-sm t-b" x="584" y="512.16" text-anchor="middle">no</text>
-<path class="ln" d="M375,561.33 V575.33" marker-end="url(#ah)"/>
-<text class="t-sm t-b" x="382" y="572.33">yes</text>
-<rect class="new" x="176" y="576.33" width="398" height="22.5" rx="4" stroke-width="1.5"/>
-<text class="t t-b" x="375" y="590.97" text-anchor="middle">First start: Session 6 step 6</text>
+<text class="t" x="188" y="456.64">The red lamp goes out</text>
+<text class="t-sm" x="562" y="456.64" text-anchor="end">32</text>
+<rect class="crit-s" x="594" y="366.5" width="198" height="112.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="604" y="381.14">Stop</text>
+<text class="t" x="604" y="396.14">No oil pressure: oil level,</text>
+<text class="t" x="604" y="411.14">pickup O-ring, pump. Clutch</text>
+<text class="t" x="604" y="426.14">interlock: EWS pin 8 input,</text>
+<text class="t" x="604" y="441.14">EWS coding. No engine</text>
+<text class="t" x="604" y="456.14">speed: crankshaft sensor. Or</text>
+<text class="t" x="604" y="471.14">that step's "If it fails".</text>
+<path class="ln" d="M574,422.75 H593" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="584" y="414.75" text-anchor="middle">no</text>
+<path class="ln" d="M375,479 V493" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="382" y="490">yes</text>
+<rect class="panel" x="8" y="494" width="156" height="83.5" rx="4" stroke-width="1.5"/>
+<text class="t-sm" x="18" y="507.47">Step 33: reset</text>
+<text class="t t-b" x="18" y="523.47">Refit K96, K6327 and</text>
+<text class="t t-b" x="18" y="538.47">the coils</text>
+<text class="t" x="18" y="553.47">Then Session 6</text>
+<text class="t" x="18" y="568.47">steps 2–5</text>
+<rect class="shape" x="176" y="494" width="398" height="83.5" rx="18" stroke-width="1.5"/>
+<text class="t t-b" x="188" y="508.64"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan> = 0 after the reset, and the clutch,</text>
+<text class="t t-b" x="188" y="523.64">brake and Sport bits respond?</text>
+<text class="t" x="188" y="539.64"><tspan class="t-mono">ADAPT_LOESCHEN</tspan> and <tspan class="t-mono">FS_LOESCHEN</tspan>, key off at least 15 s,</text>
+<text class="t" x="188" y="554.64">key on; then <tspan class="t-mono">STATUS_ADAPTIONSBLOCK_06</tspan> →</text>
+<text class="t" x="188" y="569.64"><tspan class="t-mono">STAT_WDK_ADAPT_WERT</tspan>; <tspan class="t-mono">STATUS_DIGITAL</tspan> for the bits</text>
+<rect class="crit-s" x="594" y="494" width="198" height="83.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="604" y="524.14">Stop: fix, then re-test</text>
+<text class="t" x="604" y="539.14">Repeat with the charger on;</text>
+<text class="t" x="604" y="554.14">the throttle wiring.</text>
+<path class="ln" d="M574,535.75 H593" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="584" y="527.75" text-anchor="middle">no</text>
+<path class="ln" d="M375,577.5 V591.5" marker-end="url(#ah)"/>
+<text class="t-sm t-b" x="382" y="588.5">yes</text>
+<rect class="new" x="176" y="592.5" width="398" height="22.5" rx="4" stroke-width="1.5"/>
+<text class="t t-b" x="375" y="607.14" text-anchor="middle">First start: Session 6 step 6</text>
 </svg>

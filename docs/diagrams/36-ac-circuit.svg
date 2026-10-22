@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 610" role="img" aria-label="The A/C refrigerant circuit after the swap, high side solid and low side dashed. The donor's compressor, on the S54, pumps refrigerant through the M3 pressure hose 64536902681, the only line that changes (your Touring's 64536984883 comes out), to the condenser 64538377614, through hose 64536904013 to a new receiver-drier 64538377330 in your bracket 64536917658, then through hose 64536909448 past the pressure sensor 64539181464 to the expansion valve 64503452759 and the evaporator 64119135744 in your heater box, and back through the double pipe 64536908907 and the suction pipe 64536923956 to the compressor. Every other part has the same part number on the US M3 and the US 325i Touring, so your Touring's stay, apart from the drier. A shop with Section 609-certified staff recovers the refrigerant before any line is opened, and nobody may vent it. Charge R-134a by weight to your Touring's underhood label, about 0.74 kg; MAHLE, a vendor source, lists 715 to 765 g for every E46 petrol engine, with about 150 ml of PAG oil for the whole system. BMW's pass values: the evaporator at 15 °C or less within 3 to 4 minutes, the low side at 1 to 2 bar and the high side at 10 to 15 bar with the engine at 1,500 to 2,000 rpm." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahd" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="donor-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="610" fill="#ffffff"/>
+
+<!-- Key -->
+<rect class="donor" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">From donor M3</text>
+<rect class="keep" x="119.8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="136.8" y="16.5">Keep yours: same part on both cars</text>
+<rect class="new" x="335.2" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="352.2" y="16.5">Buy new</text>
+<line class="ln" x1="8" y1="31" x2="34" y2="31" marker-end="url(#ah)"/>
+<text class="t-sm" x="40" y="35">High side</text>
+<line class="ln dash" x1="106" y1="31" x2="132" y2="31" marker-end="url(#ah)"/>
+<text class="t-sm" x="138" y="35">Low side</text>
+
+<!-- Recovery before any line is opened -->
+<rect class="crit-s" x="8" y="46" width="384" height="54" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b crit-t" x="18" y="63">Never open a line until the refrigerant is recovered</text>
+<text class="t-xs" x="18" y="78">A shop with Section 609-certified staff recovers it before any line is</text>
+<text class="t-xs" x="18" y="90.5">opened. Nobody may vent it (EPA).</text>
+
+<!-- Condenser (keep) -->
+<rect class="keep" x="8" y="116" width="138" height="52" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="135">Condenser</text>
+<text class="t-xs t-mono" x="18" y="150">64538377614</text>
+<text class="t-xs" x="18" y="162">keep yours</text>
+
+<!-- Receiver-drier (new) -->
+<rect class="new" x="242" y="116" width="150" height="64" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="252" y="135">Receiver-drier, new</text>
+<text class="t-xs t-mono" x="252" y="150">64538377330</text>
+<text class="t-xs" x="252" y="162.5">fit it on the day of the charge</text>
+<text class="t-xs" x="252" y="175">keep bracket <tspan class="t-mono">64536917658</tspan></text>
+
+<!-- Condenser to drier: 64536904013, high side -->
+<line class="ln" x1="146" y1="142" x2="241" y2="142" marker-end="url(#ah)"/>
+<text class="t-xs t-mono" x="194" y="134" text-anchor="middle">64536904013</text>
+<text class="t-xs t-b" x="194" y="157" text-anchor="middle">high side</text>
+
+<!-- Drier to expansion valve: 64536909448 with the pressure sensor, high side -->
+<line class="ln" x1="372" y1="180" x2="372" y2="267" marker-end="url(#ah)"/>
+<circle class="keep" cx="372" cy="222" r="6" stroke-width="1.5"/>
+<text class="t-xs t-mono" x="362" y="199" text-anchor="end">64536909448</text>
+<text class="t-sm t-b" x="360" y="219" text-anchor="end">Pressure sensor</text>
+<text class="t-xs t-mono" x="360" y="232" text-anchor="end">64539181464</text>
+<text class="t-xs" x="360" y="244.5" text-anchor="end">keep yours</text>
+
+<!-- Your heater box: expansion valve and evaporator (keep) -->
+<rect class="panel" x="226" y="254" width="168" height="150" rx="6" stroke-width="1"/>
+<text class="t-xs t-b" x="234" y="268">In your heater box</text>
+<rect class="keep" x="234" y="276" width="154" height="36" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="244" y="292">Expansion valve</text>
+<text class="t-xs t-mono" x="244" y="305">64503452759</text>
+<line class="ln dash" x1="372" y1="312" x2="372" y2="329" marker-end="url(#ah)"/>
+<rect class="keep" x="234" y="330" width="154" height="36" rx="5" stroke-width="1.5"/>
+<text class="t-sm t-b" x="244" y="346">Evaporator</text>
+<text class="t-xs t-mono" x="244" y="359">64119135744</text>
+<text class="t-xs" x="262" y="382">double pipe <tspan class="t-mono">64536908907</tspan></text>
+<text class="t-xs" x="262" y="395">carries both lines</text>
+
+<!-- Suction: evaporator to compressor, low side -->
+<path class="ln dash" d="M250,366 V412 H83 V387" marker-end="url(#ah)"/>
+<text class="t-xs t-b" x="166" y="406" text-anchor="middle">low side</text>
+<text class="t-xs" x="166" y="427" text-anchor="middle">suction pipe <tspan class="t-mono">64536923956</tspan>, keep yours</text>
+
+<!-- Compressor (donor, on the S54) -->
+<rect class="donor" x="8" y="330" width="150" height="56" rx="5" stroke-width="1.5"/>
+<text class="t t-b" x="18" y="349">Compressor</text>
+<text class="t-xs" x="18" y="364">the donor's, on the S54,</text>
+<text class="t-xs" x="18" y="376.5">with its bracket; a new belt</text>
+
+<!-- Compressor to condenser: the M3 pressure hose, the only M3-only line, high side -->
+<line class="donor-s" x1="40" y1="329" x2="40" y2="170" stroke-width="2.5" marker-end="url(#ahd)"/>
+<text class="t-sm t-b donor-t" x="50" y="196">M3 pressure hose</text>
+<text class="t-xs t-mono donor-t" x="50" y="210">64536902681</text>
+<text class="t-xs" x="50" y="224">the only line that changes:</text>
+<text class="t-xs" x="50" y="236.5">your Touring's <tspan class="t-mono">64536984883</tspan></text>
+<text class="t-xs" x="50" y="249">comes out</text>
+<text class="t-xs" x="50" y="261.5">new O-rings at both ends;</text>
+<text class="t-xs" x="50" y="274">flange screws 20 Nm</text>
+
+<!-- Charge and oil -->
+<rect class="panel" x="8" y="442" width="384" height="82" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="459">Charge and oil</text>
+<text class="t-xs" x="18" y="474">R-134a by weight, to your Touring's underhood label: the label decides.</text>
+<text class="t-xs" x="18" y="486.5">Expect about 0.74 kg (26 oz). MAHLE, a vendor source, lists 715–765 g</text>
+<text class="t-xs" x="18" y="499">for every E46 petrol engine, the S54 included.</text>
+<text class="t-xs" x="18" y="511.5">Oil: PAG, about 150 ml (5.1 US fl oz) for the whole system (MAHLE).</text>
+
+<!-- Pass checks -->
+<rect class="panel" x="8" y="532" width="384" height="70" rx="6" stroke-width="1"/>
+<text class="t-sm t-b" x="18" y="549">Pass checks (BMW)</text>
+<text class="t-xs" x="18" y="564">Evaporator, in BMW's efficiency test: 15 °C (59 °F) or less in 3–4 minutes</text>
+<text class="t-xs" x="18" y="576.5">Low side: 1–2 bar (15–30 psi); up to about 3 bar (45 psi) on a hot day</text>
+<text class="t-xs" x="18" y="589">High side: 10–15 bar (150–225 psi), engine at 1,500–2,000 rpm</text>
+</svg>

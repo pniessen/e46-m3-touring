@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1324" role="img" aria-label="How to fit, tack and weld the M3 skin section into one rear quarter, in order, with the check that ends each step; repeat on the other side between passes. A side view numbers the joints: the top seam first, then the rear seam, then the front seam, then the lip. The skin seams are butt joints with a 0.8 to 1.0 mm gap, about one skin thickness, over a backing strip of skin-thickness steel plug-welded or bonded to one side only; BMW's own strips are about 60 mm wide, about 30 mm into each side. Step 8, fit: clamps or clecos every 75 to 100 mm; check that every seam is flush within 0.5 mm, the lip is at its target within 3 mm, the door opens and closes and the bumper corner fits. Step 9, tack: the top seam's center, then its ends, then halve the gaps down to a 25 to 30 mm pitch, about 30 tacks; then the rear seam, ends then middle; then the front seam, top, bottom, middle, then halves; check gap, flush, door and templates again and adjust before any stitching. Step 10, the lip: plug welds through 6 mm holes at the factory spot positions, every second position first, from the crown outward, alternately forward and back, then the rest; or bond it and plug every second position. First pass a coupon: each plug 8 to 10 mm across and no more than 3 mm high, tearing a 3 to 8 mm hole when broken. Step 11, stitch: 10 to 15 mm welds between the tacks, in a skip order: gaps 1, 5, 9 on the top seam, then the rear seam's odd gaps, then the front seam's 1, 5, 9, then the other side of the car; later passes 3, 7, 11, then 2, 6, 10, then 4, 8, 12, each only when the area is hand-warm, no more than about 150 mm of weld per seam per pass, until the seam is continuous, as BMW welds its own seams. Check for penetration on the back of every seam and grind and planish each seam as you finish it. After dressing, every template fits within 1 mm, the station offsets match side to side within 3 mm, the body diagonals are within 2 mm of your earlier figures and the door gaps and flush are back." color="#1b2128">
+<style>
+svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+text{fill:currentColor}
+.t{font-size:13px}.t-sm{font-size:11.5px;fill:#55606c}.t-xs{font-size:10.5px;fill:#55606c}
+.t-b{font-weight:600}.t-h{font-size:13px;font-weight:700;letter-spacing:.08em}
+.t-mono{font-family:"IBM Plex Mono",Menlo,monospace}
+.ln{stroke:currentColor;fill:none;stroke-width:1.5}.ln-thin{stroke:#8a95a1;fill:none;stroke-width:1}.ln-faint{stroke:#d2d9e0;fill:none;stroke-width:1}
+.dash{stroke-dasharray:5 4}.fill-fg{fill:currentColor}.fill-bg{fill:#fff}
+.shape{fill:#fff;stroke:currentColor;stroke-width:1.5}.panel{fill:#eef2f6;stroke:#d2d9e0}
+.donor{fill:#dce8f6;stroke:#1d5fa6}.new{fill:#dff0e6;stroke:#1f6e45}.fab{fill:#fbe5d9;stroke:#b9440f}.keep{fill:#e9edf1;stroke:#66727e}
+.donor-s{stroke:#1d5fa6;fill:none}.new-s{stroke:#1f6e45;fill:none}.fab-s{stroke:#b9440f;fill:none}.keep-s{stroke:#66727e;fill:none}.crit-s{stroke:#ad2a22;fill:none}
+.donor-t{fill:#1d5fa6}.new-t{fill:#1f6e45}.fab-t{fill:#b9440f}.crit-t{fill:#ad2a22}
+.donor-f{fill:#1d5fa6}.new-f{fill:#1f6e45}.fab-f{fill:#b9440f}.crit-f{fill:#ad2a22}.keep-f{fill:#66727e}
+.warn-f{fill:#fff3cf;stroke:#e0a800}
+</style>
+<defs>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahf" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fab-f"/></marker>
+</defs>
+<rect class="bg" x="0" y="0" width="400" height="1324" fill="#ffffff"/>
+<text class="t-h" x="8" y="20">ARCH SKIN: FIT, TACK, WELD</text>
+<text class="t-sm" x="8" y="38">One side shown. Weld the other side between passes.</text>
+<path class="keep" d="M339.5,58 L22,58 L22,131.9 L191.4,131.9 L207.9,125.6 L224.7,120.6 L242.4,119.5 L260.1,120.6 L277.2,125 L293.1,132.5 L308.5,141.5 L321.9,153.7 L331.4,169.1 L339.3,185 L348,220.4 L348.5,232 L362.7,232 L362.7,232 L362.7,227 L362.6,222.1 L362.2,217.1 L361.6,212.2 L360.9,207.3 L359.9,202.4 L358.7,197.6 L357.3,192.8 L355.8,188.1 L354,183.5 L352,178.9 L349.9,174.4 L347.6,170 L345.1,165.7 L342.4,161.6 L339.5,157.5 Z" stroke-width="1"/>
+<path class="shape" d="M339.5,58 L378.7,58 L378.7,232 L362.7,232 L362.7,232 L362.7,227 L362.6,222.1 L362.2,217.1 L361.6,212.2 L360.9,207.3 L359.9,202.4 L358.7,197.6 L357.3,192.8 L355.8,188.1 L354,183.5 L352,178.9 L349.9,174.4 L347.6,170 L345.1,165.7 L342.4,161.6 L339.5,157.5 Z" stroke-width="1"/>
+<path class="panel" d="M191.4,131.9 L22,131.9 L22,237.8 L131.9,237.8 L132.5,220.4 L137.4,201.8 L144.1,184.7 L153.1,168.8 L163.2,154 L176.6,141.8 L191.4,131.9 Z" stroke-width="1"/>
+<line class="ln-thin" x1="39.4" y1="63.8" x2="378.7" y2="63.8"/>
+<path class="donor" d="M75.6,73.2 L75.6,131.9 L191.4,131.9 L207.9,125.6 L224.7,120.6 L242.4,119.5 L260.1,120.6 L277.2,125 L293.1,132.5 L308.5,141.5 L321.9,153.7 L331.4,169.1 L339.3,185 L348,220.4 L348.5,232 L353.3,232 L353.3,227.2 L353.2,222.4 L352.8,217.7 L352.2,212.9 L351.4,208.2 L350.5,203.5 L349.3,198.9 L347.9,194.3 L346.3,189.8 L344.6,185.3 L342.6,181 L340.5,176.7 L338.2,172.5 L335.6,168.4 L333,164.5 L330.1,160.6 L330.1,73.2 Z" stroke-width="0" opacity="0.75"/>
+<path class="ln-thin" d="M148.8,240.3 A95.7,95.7 0 1 1 336.0,240.3"/>
+<path class="ln" d="M348,220.4 C346.5,214.5 342,193.6 339.3,185 C336.5,176.5 334.3,174.3 331.4,169.1 C328.5,163.8 325.7,158.3 321.9,153.7 C318,149.1 313.3,145 308.5,141.5 C303.7,138 298.4,135.3 293.1,132.5 C287.9,129.8 282.7,127 277.2,125 C271.7,123 265.9,121.6 260.1,120.6 C254.3,119.7 248.3,119.5 242.4,119.5 C236.5,119.5 230.5,119.6 224.7,120.6 C219,121.7 213.4,123.7 207.9,125.6 C202.3,127.5 196.6,129.2 191.4,131.9 C186.1,134.7 181.3,138.1 176.6,141.8 C171.9,145.5 167.1,149.5 163.2,154 C159.3,158.5 156.3,163.7 153.1,168.8 C149.9,173.9 146.7,179.2 144.1,184.7 C141.5,190.2 139.4,195.9 137.4,201.8 C135.5,207.8 133.3,217.3 132.5,220.4" stroke-width="1.8"/>
+<path class="ln" d="M348,220.4 L348.5,232" stroke-width="1.8"/>
+<path class="ln" d="M132.5,220.4 L131.9,237.8" stroke-width="1.8"/>
+<path class="ln" d="M339.5,58 L339.5,157.5 L342.4,161.6 L345.1,165.7 L347.6,170 L349.9,174.4 L352,178.9 L354,183.5 L355.8,188.1 L357.3,192.8 L358.7,197.6 L359.9,202.4 L360.9,207.3 L361.6,212.2 L362.2,217.1 L362.6,222.1 L362.7,227 L362.7,232" stroke-width="1.2"/>
+<path class="fab-s dash" d="M330.1,73.2 L75.6,73.2" stroke-width="2.5"/>
+<path class="fab-s dash" d="M75.6,73.2 L75.6,147.9" stroke-width="2.5"/>
+<path class="fab-s dash" d="M330.1,73.2 L330.1,160.6 L333,164.5 L335.6,168.4 L338.2,172.5 L340.5,176.7 L342.6,181 L344.6,185.3 L346.3,189.8 L347.9,194.3 L349.3,198.9 L350.5,203.5 L351.4,208.2 L352.2,212.9 L352.8,217.7 L353.2,222.4 L353.3,227.2 L353.3,232" stroke-width="2.5"/>
+<circle class="fab-s" cx="348" cy="212.8" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="345.5" cy="201.5" r="2.6"/>
+<circle class="fab-s" cx="341.8" cy="190.5" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="336.9" cy="180" r="2.6"/>
+<circle class="fab-s" cx="330.9" cy="170.1" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="323.9" cy="160.9" r="2.6"/>
+<circle class="fab-s" cx="315.9" cy="152.5" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="307.1" cy="145" r="2.6"/>
+<circle class="fab-s" cx="297.5" cy="138.5" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="287.3" cy="133.1" r="2.6"/>
+<circle class="fab-s" cx="276.5" cy="128.8" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="265.4" cy="125.7" r="2.6"/>
+<circle class="fab-s" cx="254" cy="123.9" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="242.4" cy="123.2" r="2.6"/>
+<circle class="fab-s" cx="230.8" cy="123.9" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="219.4" cy="125.7" r="2.6"/>
+<circle class="fab-s" cx="208.3" cy="128.8" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="197.5" cy="133.1" r="2.6"/>
+<circle class="fab-s" cx="187.3" cy="138.5" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="177.7" cy="145" r="2.6"/>
+<circle class="fab-s" cx="168.9" cy="152.5" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="160.9" cy="160.9" r="2.6"/>
+<circle class="fab-s" cx="153.9" cy="170.1" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="147.9" cy="180" r="2.6"/>
+<circle class="fab-s" cx="143" cy="190.5" r="2.2" stroke-width="1.2"/>
+<circle class="fab-f" cx="139.3" cy="201.5" r="2.6"/>
+<circle class="fab-s" cx="136.8" cy="212.8" r="2.2" stroke-width="1.2"/>
+<path class="fab-s" d="M230.8,109.6 H198.9" stroke-width="1.2" marker-end="url(#ahf)"/>
+<path class="fab-s" d="M254.0,109.6 H285.9" stroke-width="1.2" marker-end="url(#ahf)"/>
+<circle class="fab-s" cx="198.9" cy="89.2" r="9" stroke-width="1.5"/>
+<text class="t-sm t-b fab-t" x="198.9" y="93.2" text-anchor="middle">1</text>
+<circle class="fab-s" cx="61.6" cy="104.4" r="9" stroke-width="1.5"/>
+<text class="t-sm t-b fab-t" x="61.6" y="108.4" text-anchor="middle">2</text>
+<circle class="fab-s" cx="354.1" cy="95.7" r="9" stroke-width="1.5"/>
+<text class="t-sm t-b fab-t" x="354.1" y="99.7" text-anchor="middle">3</text>
+<circle class="fab-s" cx="242.4" cy="109.6" r="9" stroke-width="1.5"/>
+<text class="t-sm t-b fab-t" x="242.4" y="113.6" text-anchor="middle">4</text>
+<text class="t-xs" x="376.7" y="54" text-anchor="end">front →</text>
+<text class="t-sm" x="8" y="253.8">Joint order: 1 top seam, 2 rear seam, 3 front seam, 4 the lip.</text>
+<circle class="fab-f" cx="12" cy="263.8" r="2.8"/>
+<text class="t-sm" x="20" y="267.8">first round: every second spot, from the crown out;</text>
+<circle class="fab-s" cx="292.3" cy="263.8" r="2.4" stroke-width="1.2"/>
+<text class="t-sm" x="300.3" y="267.8">then the rest.</text>
+<text class="t-sm" x="8" y="281.8">Seam lines: our inference from BMW drawings.</text>
+<line class="ln-faint" x1="8" y1="291.8" x2="392" y2="291.8"/>
+<text class="t-h" x="8" y="311.8">SKIN SEAM: BUTT JOINT OVER A STRIP</text>
+<text class="t-xs" x="392" y="311.8" text-anchor="end">Section, not to scale</text>
+<rect class="keep" x="8" y="361.8" width="188.5" height="5" stroke-width="1"/>
+<rect class="donor" x="203.5" y="361.8" width="188.5" height="5" stroke-width="1"/>
+<rect class="fab" x="140" y="367.8" width="120" height="5" stroke-width="1"/>
+<rect class="fab-f" x="153" y="360.3" width="6" height="12.5" rx="1"/>
+<rect class="fab-f" x="175" y="360.3" width="6" height="12.5" rx="1"/>
+<path class="fab-f" d="M195.5,359.79999999999995 h9 v8 h-9 Z"/>
+<text class="t-sm" x="8" y="353.8">your Touring</text>
+<text class="t-sm" x="392" y="353.8" text-anchor="end">M3 section</text>
+<text class="t-sm t-b" x="200" y="331.8" text-anchor="middle">Gap 0.8–1.0 mm,</text>
+<text class="t-sm" x="200" y="345.8" text-anchor="middle">about one skin thickness</text>
+<line class="ln-thin" x1="200" y1="349.8" x2="200" y2="357.8"/>
+<line class="ln-thin" x1="140" y1="377.8" x2="140" y2="385.8"/>
+<line class="ln-thin" x1="260" y1="377.8" x2="260" y2="385.8"/>
+<line class="ln" x1="140" y1="381.8" x2="260" y2="381.8" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t-sm fab-t" x="200" y="399.8" text-anchor="middle">Backing strip ≈60 mm wide, ≈30 mm into each side (BMW)</text>
+<text class="t-sm" x="200" y="413.8" text-anchor="middle">Skin-thickness steel, plug-welded or bonded to one side only.</text>
+<text class="t-sm" x="200" y="427.8" text-anchor="middle">Skin ≈0.7–0.8 mm; flush within 0.5 mm across the seam.</text>
+<line class="ln-faint" x1="8" y1="439.8" x2="392" y2="439.8"/>
+<text class="t-h" x="8" y="461.8">ORDER OF WORK</text>
+<text class="t-xs" x="392" y="461.8" text-anchor="end">Graft steps 8–11</text>
+<rect class="shape" x="8" y="471.8" width="384" height="58" rx="6" stroke-width="1.5"/>
+<circle class="ln" cx="27" cy="489.8" r="11" stroke-width="1.5"/>
+<text class="t-sm t-b" x="27" y="493.8" text-anchor="middle">8</text>
+<text class="t t-b" x="45" y="493.8">Fit the skin</text>
+<text class="t-sm" x="45" y="509.8">Trim to the butt gap; fit the backing strips.</text>
+<text class="t-sm" x="45" y="523.8">Clamps or clecos every 75–100 mm.</text>
+<line class="ln" x1="27" y1="529.8" x2="27" y2="541.8" marker-end="url(#ah)"/>
+<rect class="crit-s" x="38" y="541.8" width="354" height="42" rx="4" stroke-width="1.5"/>
+<text class="t-sm crit-t t-b" x="48" y="557.8">Check:</text>
+<text class="t-sm" x="92.4" y="557.8">every seam flush within 0.5 mm; lip at its</text>
+<text class="t-sm" x="92.4" y="571.8">target within 3 mm; door shuts; bumper fits</text>
+<line class="ln" x1="27" y1="583.8" x2="27" y2="595.8" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="595.8" width="384" height="72" rx="6" stroke-width="1.5"/>
+<circle class="ln" cx="27" cy="613.8" r="11" stroke-width="1.5"/>
+<text class="t-sm t-b" x="27" y="617.8" text-anchor="middle">9</text>
+<text class="t t-b" x="45" y="617.8">Tack, top seam first</text>
+<text class="t-sm" x="45" y="633.8">Center, ends, then halve the gaps to a 25–30 mm</text>
+<text class="t-sm" x="45" y="647.8">pitch (≈30 tacks). Then the rear seam (ends,</text>
+<text class="t-sm" x="45" y="661.8">middle), then the front (top, bottom, middle, halves).</text>
+<text class="t-sm" x="44" y="693.8">top seam:</text>
+<line class="fab-s" x1="112" y1="689.8" x2="384" y2="689.8" stroke-width="2"/>
+<line class="fab-s" x1="129" y1="686.8" x2="129" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="146" y1="686.8" x2="146" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="163" y1="686.8" x2="163" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="197" y1="686.8" x2="197" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="214" y1="686.8" x2="214" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="231" y1="686.8" x2="231" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="265" y1="686.8" x2="265" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="282" y1="686.8" x2="282" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="299" y1="686.8" x2="299" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="333" y1="686.8" x2="333" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="350" y1="686.8" x2="350" y2="692.8" stroke-width="1.5"/>
+<line class="fab-s" x1="367" y1="686.8" x2="367" y2="692.8" stroke-width="1.5"/>
+<circle class="fab-f" cx="248" cy="689.8" r="3.6"/>
+<text class="t-xs t-b" x="248" y="681.8" text-anchor="middle">1</text>
+<circle class="fab-f" cx="112" cy="689.8" r="3.6"/>
+<text class="t-xs t-b" x="112" y="681.8" text-anchor="middle">2</text>
+<circle class="fab-f" cx="384" cy="689.8" r="3.6"/>
+<text class="t-xs t-b" x="384" y="681.8" text-anchor="middle">3</text>
+<circle class="fab-f" cx="180" cy="689.8" r="3.6"/>
+<text class="t-xs t-b" x="180" y="681.8" text-anchor="middle">4</text>
+<circle class="fab-f" cx="316" cy="689.8" r="3.6"/>
+<text class="t-xs t-b" x="316" y="681.8" text-anchor="middle">5</text>
+<line class="ln" x1="27" y1="667.8" x2="27" y2="709.8" marker-end="url(#ah)"/>
+<rect class="crit-s" x="38" y="709.8" width="354" height="42" rx="4" stroke-width="1.5"/>
+<text class="t-sm crit-t t-b" x="48" y="725.8">Check:</text>
+<text class="t-sm" x="92.4" y="725.8">gap, flush, door and templates again.</text>
+<text class="t-sm" x="92.4" y="739.8">Adjust now, before any stitching.</text>
+<line class="ln" x1="27" y1="751.8" x2="27" y2="763.8" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="763.8" width="384" height="114" rx="6" stroke-width="1.5"/>
+<circle class="ln" cx="27" cy="781.8" r="11" stroke-width="1.5"/>
+<text class="t-sm t-b" x="27" y="785.8" text-anchor="middle">10</text>
+<text class="t t-b" x="45" y="785.8">Plug-weld the lip</text>
+<text class="t-sm" x="45" y="801.8">6 mm holes at the factory spot positions (your</text>
+<text class="t-sm" x="45" y="815.8">count from step 5), or bond and plug every second.</text>
+<text class="t-sm" x="45" y="829.8">Every second hole first, from the crown outward,</text>
+<text class="t-sm" x="45" y="843.8">alternately forward and back; then the rest.</text>
+<text class="t-sm" x="45" y="857.8">Pass a coupon first: plug 8–10 mm across, ≤3 mm</text>
+<text class="t-sm" x="45" y="871.8">high; broken apart, it tears a 3–8 mm hole.</text>
+<line class="ln" x1="27" y1="877.8" x2="27" y2="889.8" marker-end="url(#ah)"/>
+<rect class="shape" x="8" y="889.8" width="384" height="100" rx="6" stroke-width="1.5"/>
+<circle class="ln" cx="27" cy="907.8" r="11" stroke-width="1.5"/>
+<text class="t-sm t-b" x="27" y="911.8" text-anchor="middle">11</text>
+<text class="t t-b" x="45" y="911.8">Stitch, skip, cool</text>
+<text class="t-sm" x="45" y="927.8">10–15 mm welds between the tacks, never a long</text>
+<text class="t-sm" x="45" y="941.8">bead; at most ≈150 mm per seam per pass (our</text>
+<text class="t-sm" x="45" y="955.8">suggestion). Each pass: top seam, rear seam (odd</text>
+<text class="t-sm" x="45" y="969.8">gaps first), front seam, then the other side of</text>
+<text class="t-sm" x="45" y="983.8">the car. Weld beside a stitch only when hand-warm.</text>
+<text class="t-xs" x="44" y="1011.8">gap</text>
+<text class="t-xs" x="96.5" y="1011.8" text-anchor="middle">1</text>
+<text class="t-xs" x="121.5" y="1011.8" text-anchor="middle">2</text>
+<text class="t-xs" x="146.5" y="1011.8" text-anchor="middle">3</text>
+<text class="t-xs" x="171.5" y="1011.8" text-anchor="middle">4</text>
+<text class="t-xs" x="196.5" y="1011.8" text-anchor="middle">5</text>
+<text class="t-xs" x="221.5" y="1011.8" text-anchor="middle">6</text>
+<text class="t-xs" x="246.5" y="1011.8" text-anchor="middle">7</text>
+<text class="t-xs" x="271.5" y="1011.8" text-anchor="middle">8</text>
+<text class="t-xs" x="296.5" y="1011.8" text-anchor="middle">9</text>
+<text class="t-xs" x="321.5" y="1011.8" text-anchor="middle">10</text>
+<text class="t-xs" x="346.5" y="1011.8" text-anchor="middle">11</text>
+<text class="t-xs" x="371.5" y="1011.8" text-anchor="middle">12</text>
+<line class="ln-thin" x1="84" y1="1024.8" x2="384" y2="1024.8"/>
+<rect class="fab-f" x="90.5" y="1021.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="190.5" y="1021.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="290.5" y="1021.8" width="12" height="6" rx="1.5"/>
+<circle class="fill-fg" cx="84" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="109" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="134" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="159" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="184" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="209" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="234" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="259" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="284" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="309" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="334" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="359" cy="1024.8" r="2.2"/>
+<circle class="fill-fg" cx="384" cy="1024.8" r="2.2"/>
+<text class="t-sm t-b" x="44" y="1028.8">1st</text>
+<line class="ln-thin" x1="84" y1="1041.8" x2="384" y2="1041.8"/>
+<rect class="fab" x="90.5" y="1038.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="190.5" y="1038.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="290.5" y="1038.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab-f" x="140.5" y="1038.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="240.5" y="1038.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="340.5" y="1038.8" width="12" height="6" rx="1.5"/>
+<circle class="fill-fg" cx="84" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="109" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="134" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="159" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="184" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="209" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="234" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="259" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="284" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="309" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="334" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="359" cy="1041.8" r="2.2"/>
+<circle class="fill-fg" cx="384" cy="1041.8" r="2.2"/>
+<text class="t-sm t-b" x="44" y="1045.8">2nd</text>
+<line class="ln-thin" x1="84" y1="1058.8" x2="384" y2="1058.8"/>
+<rect class="fab" x="90.5" y="1055.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="190.5" y="1055.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="290.5" y="1055.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="140.5" y="1055.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="240.5" y="1055.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="340.5" y="1055.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab-f" x="115.5" y="1055.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="215.5" y="1055.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="315.5" y="1055.8" width="12" height="6" rx="1.5"/>
+<circle class="fill-fg" cx="84" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="109" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="134" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="159" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="184" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="209" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="234" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="259" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="284" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="309" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="334" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="359" cy="1058.8" r="2.2"/>
+<circle class="fill-fg" cx="384" cy="1058.8" r="2.2"/>
+<text class="t-sm t-b" x="44" y="1062.8">3rd</text>
+<line class="ln-thin" x1="84" y1="1075.8" x2="384" y2="1075.8"/>
+<rect class="fab" x="90.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="190.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="290.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="140.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="240.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="340.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="115.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="215.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab" x="315.5" y="1072.8" width="12" height="6" rx="1.5" stroke-width="1"/>
+<rect class="fab-f" x="165.5" y="1072.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="265.5" y="1072.8" width="12" height="6" rx="1.5"/>
+<rect class="fab-f" x="365.5" y="1072.8" width="12" height="6" rx="1.5"/>
+<circle class="fill-fg" cx="84" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="109" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="134" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="159" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="184" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="209" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="234" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="259" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="284" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="309" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="334" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="359" cy="1075.8" r="2.2"/>
+<circle class="fill-fg" cx="384" cy="1075.8" r="2.2"/>
+<text class="t-sm t-b" x="44" y="1079.8">4th</text>
+<line class="fab-s" x1="84" y1="1092.8" x2="384" y2="1092.8" stroke-width="5"/>
+<circle class="fill-fg" cx="84" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="109" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="134" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="159" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="184" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="209" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="234" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="259" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="284" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="309" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="334" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="359" cy="1092.8" r="2.2"/>
+<circle class="fill-fg" cx="384" cy="1092.8" r="2.2"/>
+<text class="t-sm t-b" x="44" y="1096.8">fill</text>
+<text class="t-sm" x="44" y="1114.8">Fill until the seam is continuous, as BMW</text>
+<text class="t-sm" x="44" y="1128.8">welds its own seams.</text>
+<line class="ln" x1="27" y1="989.8" x2="27" y2="1138.8" marker-end="url(#ah)"/>
+<rect class="crit-s" x="38" y="1138.8" width="354" height="42" rx="4" stroke-width="1.5"/>
+<text class="t-sm crit-t t-b" x="48" y="1154.8">Check:</text>
+<text class="t-sm" x="92.4" y="1154.8">penetration visible on the back of every</text>
+<text class="t-sm" x="92.4" y="1168.8">seam; grind and planish each one as it's done</text>
+<line class="ln" x1="27" y1="1180.8" x2="27" y2="1192.8" marker-end="url(#ah)"/>
+<rect class="crit-s" x="38" y="1192.8" width="354" height="56" rx="4" stroke-width="1.5"/>
+<text class="t-sm crit-t t-b" x="48" y="1208.8">After dressing:</text>
+<text class="t-sm" x="135.8" y="1208.8">every template within 1 mm; offsets left to</text>
+<text class="t-sm" x="135.8" y="1222.8">right within 3 mm; body diagonals within</text>
+<text class="t-sm" x="135.8" y="1236.8">±2 mm; door gaps and flush back</text>
+<rect class="warn-f" x="8" y="1262.8" width="384" height="54" rx="4" stroke-width="1.2"/>
+<text class="t-sm t-b" x="18" y="1280.8">Heat: overhead, turn the settings down 10–15%.</text>
+<text class="t-sm" x="18" y="1294.8">Gas: 75/25 argon/CO2 (BMW uses 82/18), never</text>
+<text class="t-sm" x="18" y="1308.8">pure argon.</text>
+</svg>

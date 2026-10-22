@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 396" role="img" aria-label="Rear view section through the right rear arch at 0.9 pixels per millimetre. Your Touring's rear hub face and the M3's sit in the same place. A 325i wheel (8J ET47) puts its outer rim edge 54.6 mm outboard of the hub face; the M3 Style 67 rear wheel (9J ET26) puts it 88.3 mm out, with the wheel centreline 21 mm further out. The wider tire passes the Touring's original arch lip, so the new M3 outer skin sits about 25 to 30 mm further out and a fill strip extends the inner arch to meet it." color="#1b2128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 795" role="img" aria-label="Rear view of a section through the right rear arch at the axle line, drawn to scale, with an enlarged schematic of the arch lip below. Both cars' rear hub faces sit in the same place, about 788 mm from the car's center line. The 325i's 8J ET47 wheel puts its outer rim edge 54.6 mm outboard of the hub face; the M3's 9J ET26 wheel puts it 88.3 mm out, with the wheel centerline 21 mm further out. The M3 skin replaces the Touring's below a top seam 500 to 515 mm above the hub, which is our inference, and stands out by about 21 mm at the lip, 345 mm above the hub, then 16 mm at 385, 12 at 435, 6 at 465, 2 at 500 and 0 from about 525 mm up to the shoulder crease at about 540 mm. The top seam is a butt joint over a backing strip; BMW's own sectioning joints use strips about 60 mm wide, about 30 mm into each side. The M3 tire's widest point, about 892 mm from the center line, sits about flush with the M3 skin at about 890 mm, and about 22 mm outside a stock Touring's skin. The lip is a double skin about 15 mm deep: the skin turns in under the inner wheelhouse flange, the two are spot-welded at the factory, and the channel above them is sealed. For the graft, a fill strip extends your flange out by the move-out, about 21 mm at the crown, or you graft the donor's flange; the lip is plug-welded through 6 mm holes at the factory spot positions, and seam sealer fills the channel. BMW crimps a new side wall's arch edge over the inner flange and seals it. The skin is about 0.7 to 0.8 mm thick." color="#1b2128">
 <style>
 svg{color:#1b2128;font-family:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 text{fill:currentColor}
@@ -15,70 +15,158 @@ text{fill:currentColor}
 .warn-f{fill:#fff3cf;stroke:#e0a800}
 </style>
 <defs>
-  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="ahk" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="keep-f"/></marker>
 </defs>
-<rect class="bg" x="0" y="0" width="400" height="396" fill="#ffffff"/>
+<rect class="bg" x="0" y="0" width="400" height="795" fill="#ffffff"/>
+<text class="t-h" x="8" y="18">SECTION AT THE AXLE, LOOKING FORWARD</text>
+<text class="t-sm" x="8" y="36">Right side, to scale. Widths: mm from the car's center line.</text>
+<text class="t-xs" x="8" y="54">← inboard</text>
+<text class="t-xs" x="220" y="54" text-anchor="end">outboard →</text>
 
-<text class="t-xs" x="8" y="14">← inboard</text>
-<text class="t-xs" x="392" y="14" text-anchor="end">outboard →</text>
+<!-- Heights above the hub (the C2 stations) -->
+<line class="ln-thin" x1="18" y1="88" x2="18" y2="283"/>
+<line class="ln-thin" x1="18" y1="283" x2="23" y2="283"/>
+<text class="t-xs" x="26" y="286.5">345</text>
+<line class="ln-thin" x1="18" y1="243" x2="23" y2="243"/>
+<text class="t-xs" x="26" y="246.5">385</text>
+<line class="ln-thin" x1="18" y1="193" x2="23" y2="193"/>
+<text class="t-xs" x="26" y="196.5">435</text>
+<line class="ln-thin" x1="18" y1="163" x2="23" y2="163"/>
+<text class="t-xs" x="26" y="166.5">465</text>
+<line class="ln-thin" x1="18" y1="128" x2="23" y2="128"/>
+<text class="t-xs" x="26" y="131.5">500</text>
+<line class="ln-thin" x1="18" y1="103" x2="23" y2="103"/>
+<text class="t-xs" x="26" y="106.5">525</text>
+<line class="ln-thin" x1="18" y1="88" x2="23" y2="88"/>
+<text class="t-xs" x="26" y="91.5">540</text>
+<text class="t-xs" x="8" y="75">mm above the hub</text>
 
-<!-- Inner wheelhouse (yours) -->
-<path class="keep-s" d="M250,120 V104 Q250,90 234,88 H30" stroke-width="2.5"/>
-<text class="t-xs" x="34" y="80">inner wheelhouse</text>
+<!-- Inner wheelhouse: your outer half's flange runs down to the lip -->
+<path class="keep-s" d="M8.0,230.0 H140.0 Q160.0,230.0 160.0,250.0 V279.0" stroke-width="2"/>
+<text class="t-sm" x="56" y="223">your wheelhouse</text>
 
-<!-- Original Touring outer skin and lip -->
-<path class="keep-s dash" d="M260,30 V120 H250" stroke-width="2.5"/>
+<!-- Touring skin: kept above the top seam, cut away below it (dashed), with its old lip -->
+<path class="keep-s" d="M147.6,120.5 C146.7,117.6 143.8,108.4 142,103 C140.2,97.6 138.3,93.2 137,88 C135.7,82.8 134.5,74.7 134,72" stroke-width="2.5"/>
+<path class="keep-s dash" d="M176,283 C174.8,276.3 171.8,258 169,243 C166.2,228 161.3,206.3 159,193 C156.7,179.7 156.5,173.8 155,163 C153.5,152.2 151.2,135.1 150,128 C148.8,120.9 148,121.8 147.6,120.5 M176.0,283.0 V285.0 H161.0" stroke-width="1.8"/>
 
-<!-- New M3 outer skin, lip and fill strip -->
-<path class="fab-s" d="M260,30 V46 C260,62 286,60 286,78 V120 H276" stroke-width="2.5"/>
-<rect class="fab" x="250" y="117" width="26" height="6" stroke-width="1.5"/>
+<!-- Backing strip behind the top seam (BMW: about 60 mm wide, about 30 mm into each side) -->
+<path class="fab-s" d="M150.2,150.5 C150,149.2 149.7,146.8 149.1,143 C148.6,139.2 147.8,131.8 147,128 C146.2,124.2 145.4,123 144.6,120.5 C143.8,118 143.1,115.9 142.2,113 C141.3,110.1 140.2,106.8 139,103 C137.8,99.2 135.5,92.6 134.8,90.5" stroke-width="3.5"/>
 
-<!-- Flare offset -->
-<line class="ln" x1="260" y1="24" x2="286" y2="24" marker-start="url(#ah)" marker-end="url(#ah)"/>
-<text class="t-sm fab-t t-b" x="292" y="28">≈ 25–30 mm</text>
+<!-- M3 skin (donor) from the top seam down to its lip -->
+<path class="donor-s" d="M149,120.5 C149.5,121.8 150,120.9 152,128 C154,135.1 157.8,152.2 161,163 C164.2,173.8 167,179.7 171,193 C175,206.3 180.7,228 185,243 C189.3,258 195,276.3 197,283 V285.0 H182.0" stroke-width="2.5"/>
 
-<!-- 325i wheel and tire (8J ET47, 225 section), dashed -->
-<rect class="keep-s dash" x="37.5" y="146" width="202.5" height="200" rx="22" stroke-width="2"/>
-<rect class="keep-s dash" x="47.3" y="216" width="182.9" height="130" stroke-width="1.5"/>
+<!-- Fill strip: extends your flange by the move-out, into the M3 lip -->
+<rect class="fab" x="160" y="279" width="36" height="4" stroke-width="1"/>
+<line class="fab-s" x1="140.6" y1="120.5" x2="154.6" y2="120.5" stroke-width="2"/>
+<circle class="ln-thin dash" cx="188" cy="284" r="10"/>
 
-<!-- M3 wheel and tire (Style 67 rear, 9J ET26, 255 section) -->
-<rect class="ln" x="42.9" y="140" width="229.5" height="206" rx="24" style="stroke-width:2.5"/>
-<rect class="donor" x="54.7" y="210" width="205.7" height="136" stroke-width="1.5" opacity="0.55"/>
+<!-- 325i wheel and tire (8J ET47, 225/45R17), dashed -->
+<path class="keep-s dash" d="M8.0,412.0 H150.60000000000002 V395.0 H156.0" stroke-width="1.5"/>
+<path class="keep-s dash" d="M156.0,395.0 C166.0,380.0 166.0,343.0 160.0,325.0 Q156.0,311.0 142.0,311.0 H8.0" stroke-width="1.5"/>
 
-<!-- Shared hub face -->
-<line class="ln" x1="181" y1="200" x2="181" y2="380" style="stroke-width:2.5"/>
-<text class="t-xs t-b" x="186" y="392">hub face: same on both</text>
+<!-- M3 wheel and tire (9J ET26, 255/40R18): rim, disc on the hub face, tire -->
+<path class="donor" d="M8,406 L190,406 L190,382 L184.3,382 L184.3,399 L8,399 Z" stroke-width="1.2"/>
+<rect class="donor" x="96" y="406" width="11" height="74" stroke-width="1.2"/>
+<path class="ln" d="M190.0,382.0 C202.0,366.0 202.0,328.0 196.0,310.0 Q192.0,297.0 176.0,297.0 H8.0" stroke-width="2"/>
 
-<!-- Wheel centrelines and the 21 mm shift -->
-<line class="keep-s dash" x1="138.7" y1="226" x2="138.7" y2="284" stroke-width="1.5"/>
-<line class="donor-s dash" x1="157.6" y1="226" x2="157.6" y2="284" stroke-width="1.5"/>
-<line class="ln" x1="138.7" y1="240" x2="157.6" y2="240" marker-start="url(#ah)" marker-end="url(#ah)"/>
-<text class="t-xs t-b" x="133" y="236" text-anchor="end">ET47 → ET26:</text>
-<text class="t-xs t-b" x="133" y="248" text-anchor="end">21 mm out</text>
+<!-- Hub face: the same on both cars -->
+<line class="ln" x1="96" y1="480" x2="96" y2="406" stroke-width="2.5"/>
 
-<!-- Outer rim edge offsets from the hub face -->
-<line class="keep-s" x1="181" y1="300" x2="230.2" y2="300" stroke-width="1.5" marker-end="url(#ah)"/>
-<text class="t-xs t-b" x="176" y="304" text-anchor="end">325i rim edge: 54.6 mm</text>
-<line class="ln" x1="181" y1="330" x2="260.4" y2="330" marker-end="url(#ah)"/>
-<text class="t-xs t-b" x="176" y="334" text-anchor="end">M3 rim edge: 88.3 mm</text>
+<!-- Wheel centerlines: ET47 -> ET26 moves the wheel 21 mm out -->
+<line class="keep-s dash" x1="49" y1="480" x2="49" y2="416" stroke-width="1.5"/>
+<line class="donor-s dash" x1="70" y1="480" x2="70" y2="408" stroke-width="1.5"/>
+<line class="ln" x1="49" y1="452" x2="70" y2="452" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t-sm" x="59.5" y="444" text-anchor="middle">21</text>
 
-<!-- Labels -->
-<g class="ln-thin">
-  <path d="M302,70 L287,74"/>
-  <path d="M302,104 L261,104"/>
-  <path d="M302,146 L270,123"/>
-  <path d="M302,196 L274,196"/>
-</g>
-<text class="t fab-t" x="306" y="66">New M3</text>
-<text class="t fab-t" x="306" y="82">outer skin</text>
-<text class="t" x="306" y="104">Old lip</text>
-<text class="t fab-t" x="306" y="146">Fill strip</text>
-<text class="t fab-t" x="306" y="162">extends the</text>
-<text class="t fab-t" x="306" y="178">inner arch</text>
-<text class="t" x="306" y="200">M3 tire passes</text>
-<text class="t" x="306" y="216">the old lip</text>
-<text class="t-sm" x="306" y="250">Solid: M3</text>
-<text class="t-sm" x="306" y="266">255/40R18</text>
-<text class="t-sm" x="306" y="286">Dashed: 325i</text>
-<text class="t-sm" x="306" y="302">225/45R17</text>
+<!-- Outer rim edges from the hub face, with extension lines -->
+<line class="ln-thin dash" x1="150.6" y1="414" x2="150.6" y2="470"/>
+<line class="ln-thin dash" x1="184.3" y1="408" x2="184.3" y2="436"/>
+<line class="keep-s" x1="107" y1="466" x2="150.6" y2="466" stroke-width="1.5" marker-end="url(#ahk)"/>
+<line class="ln" x1="107" y1="432" x2="184.3" y2="432" marker-end="url(#ah)"/>
+<text class="t-sm" x="158.6" y="470">325i rim edge: 54.6 mm</text>
+<text class="t-sm" x="192.3" y="436">M3 rim edge: 88.3 mm</text>
+
+<!-- Move-out at each height (README table) -->
+<text class="t-sm donor-t" x="191" y="247">16</text>
+<text class="t-sm donor-t" x="177" y="197">12</text>
+<text class="t-sm donor-t" x="167" y="167">6</text>
+<text class="t-sm donor-t" x="158" y="132">2</text>
+<text class="t-sm donor-t" x="148" y="107">0</text>
+<line class="ln" x1="173" y1="266" x2="191.9" y2="266" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t-sm donor-t t-b" x="197.9" y="270">21</text>
+
+<!-- Tire flush with the M3 skin -->
+<line class="ln-thin dash" x1="199" y1="344" x2="199" y2="287"/>
+<text class="t-sm" x="232" y="76">Shoulder crease ≈540:</text>
+<text class="t-sm" x="232" y="90">the skins meet</text>
+<path class="ln-thin" d="M229,72 L140,87"/>
+<text class="t-sm fab-t t-b" x="232" y="106">Top seam, 500–515 above</text>
+<text class="t-sm fab-t" x="232" y="120">the hub (our inference):</text>
+<text class="t-sm fab-t" x="232" y="134">butt joint over a backing</text>
+<text class="t-sm fab-t" x="232" y="148">strip; BMW's are ≈60 mm</text>
+<text class="t-sm fab-t" x="232" y="162">wide, ≈30 mm each side</text>
+<path class="ln-thin" d="M229,102 L155.6,120.5"/>
+<text class="t-sm donor-t t-b" x="232" y="176">M3 skin (donor)</text>
+<text class="t-sm" x="232" y="190">Blue figures: mm it stands</text>
+<text class="t-sm" x="232" y="204">out at each height</text>
+<path class="ln-thin" d="M229,172 L170.7,186"/>
+<text class="t-sm" x="232" y="234">Touring skin below the</text>
+<text class="t-sm" x="232" y="248">seam: cut away</text>
+<path class="ln-thin" d="M229,230 L166.6,226"/>
+<text class="t-sm fab-t t-b" x="232" y="288">Fill strip</text>
+<text class="t-sm" x="232" y="302">extends your flange ≈21 mm</text>
+<text class="t-sm" x="232" y="316">into the M3 lip (or graft</text>
+<text class="t-sm" x="232" y="330">the donor's flange)</text>
+<path class="ln-thin" d="M229,284 L178,281"/>
+<text class="t-sm t-b" x="232" y="348">M3 tire: widest ≈892</text>
+<text class="t-sm" x="232" y="362">About flush with the M3 skin</text>
+<text class="t-sm" x="232" y="376">(≈890); ≈22 mm outside a</text>
+<text class="t-sm" x="232" y="390">stock Touring's skin</text>
+<path class="ln-thin" d="M229,344 L203,344"/>
+<text class="t-sm t-b" x="101" y="495" text-anchor="middle">hub face ≈788:</text>
+<text class="t-sm t-b" x="101" y="509" text-anchor="middle">same on both cars</text>
+<text class="t-sm" x="8" y="530">ET47 → ET26: the M3 wheel sits 21 mm further out.</text>
+<line class="ln" x1="8" y1="544" x2="30" y2="544" stroke-width="2"/>
+<text class="t-sm" x="36" y="548">M3 255/40R18 on 9J ET26</text>
+<line class="keep-s dash" x1="206" y1="544" x2="228" y2="544" stroke-width="1.5"/>
+<text class="t-sm" x="234" y="548">325i 225/45R17 on 8J ET47</text>
+<line class="ln-faint" x1="8" y1="566" x2="392" y2="566"/>
+<text class="t-h" x="8" y="588">THE LIP, ENLARGED</text>
+<text class="t-xs" x="392" y="588" text-anchor="end">Schematic, not to scale</text>
+
+<!-- Seam sealer fills the channel between skin and wheelhouse -->
+<path class="panel" d="M72,676.0 H146 V694.0 H72 Z" stroke-width="1"/>
+
+<!-- Your wheelhouse wall and old flange (keep), fill strip (fab), M3 skin (donor) -->
+<path class="keep" d="M46,610.0 H50 V694.0 H76 V698.0 H46 Z" stroke-width="1"/>
+<path class="fab" d="M68,694.0 H146 V698.0 H68 Z" stroke-width="1"/>
+<path class="donor" d="M146,610.0 H150 V702.0 H86 Q78,702.0 78,694.0 Q78,692.0 84,692.0 H88 V694.0 Q82,694.0 82,694.0 Q82,698.0 86,698.0 H146 Z" stroke-width="1"/>
+
+<!-- 6 mm plug welds through the double skin -->
+<rect class="fab-f" x="97" y="693" width="6" height="10" rx="1"/>
+<rect class="fab-f" x="117" y="693" width="6" height="10" rx="1"/>
+<rect class="fab-f" x="135" y="693" width="6" height="10" rx="1"/>
+
+<!-- Depth of the double skin -->
+<line class="ln-thin" x1="78" y1="708" x2="78" y2="716"/>
+<line class="ln-thin" x1="150" y1="708" x2="150" y2="716"/>
+<line class="ln" x1="78" y1="712" x2="150" y2="712" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text class="t-sm" x="114" y="729" text-anchor="middle">≈15 mm</text>
+<text class="t-xs" x="48" y="604">wheelhouse</text>
+<text class="t-xs" x="154" y="604">skin</text>
+<text class="t-sm donor-t t-b" x="182" y="614">M3 skin, ≈0.7–0.8 mm</text>
+<text class="t-sm" x="182" y="628">turns in under the flange</text>
+<path class="ln-thin" d="M179,610 L151,640"/>
+<text class="t-sm t-b" x="182" y="652">Seam sealer</text>
+<text class="t-sm" x="182" y="666">brushed in to fill the channel</text>
+<path class="ln-thin" d="M179,648 L126,680"/>
+<text class="t-sm fab-t t-b" x="182" y="690">Fill strip on your flange</text>
+<text class="t-sm" x="182" y="704">≈21 mm out at the crown</text>
+<path class="ln-thin" d="M179,686 L110,694"/>
+<text class="t-sm fab-t t-b" x="182" y="728">6 mm plug welds</text>
+<text class="t-sm" x="182" y="742">at the factory spot positions</text>
+<path class="ln-thin" d="M179,724 L138,703"/>
+<text class="t-xs" x="8" y="770">Double skin ≈15 mm deep. BMW crimps a new side wall's edge over</text>
+<text class="t-xs" x="8" y="783">the flange, then seals it.</text>
 </svg>
