@@ -13,6 +13,7 @@ Print these sheets and fill them in by hand, or fill them in here on a phone or 
 | Build date | From 09/2001: facelift, vehicle order (FA). Before: ZCS | |
 | Option codes | — | |
 | Engine code | M54B25, not M56 SULEV; a manual gearbox doesn't prove an M54 | |
+| Emissions (VECI) label, under the hood | Test group and category: LER = LEV, the S54's category; UL2 or SMG = ULEV; M56 = SULEV. Photograph it ([Massachusetts](README.md#massachusetts)) | |
 | Fuel tank | Plastic, not the M56's sealed metal tank | |
 | DME family and part number | E-box label: MS43 to 02/2003, MS45.1 from 03/2003 ([how to tell](WIRING-AND-CODING.md#which-dme-your-touring-has)) | |
 | Leak-test heater wire (0.75 SW/RT) | In X60004 pin 2: MS45.1. In the body side of X6011 pin 7: MS43 from 09/2001 | |

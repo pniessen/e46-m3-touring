@@ -10,7 +10,7 @@ One card per phase of the build, in the guide's order; the longer phases take tw
 **Tools:** Windows 10 or 11 laptop, run natively; K+DCAN cable (FTDI chip, pins 7 and 8 bridged, COM1, 1 ms latency timer); Standard Tools 2.12 with E46 data files; PA-Soft and its interface; a charger of at least 10 A.
 
 - [ ] <span>VIN decoded: build date (facelift and FA from 09/2001), options, rear-drive 325i ([if it's an xi](README.md#if-your-car-is-a-325xi))</span>
-- [ ] <span>Engine code M54B25 and a plastic tank, not the M56 SULEV: a manual doesn't prove it ([checks](README.md#check-your-own-touring-first))</span>
+- [ ] <span>Engine code M54B25 and a plastic tank, not the M56 SULEV: a manual doesn't prove it ([checks](README.md#check-your-own-touring-first)); VECI label's test group photographed</span>
 - [ ] <span>DME label (MS43 to 02/2003, MS45.1 from 03/2003); DSC, not ASC only; IHKA or IHKR; switch panel</span>
 - [ ] <span>Wiring drawings for both cars: WDS by build date, or ISTA by VIN ([manual](WIRING-AND-CODING.md#engine-harness-and-dme))</span>
 - [ ] <span>Your state asked what an engine change needs, in writing ([questions](README.md#questions-for-your-state-program))</span>
