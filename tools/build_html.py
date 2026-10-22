@@ -5,11 +5,14 @@
     python3 tools/build_html.py --standalone OUT.html  # full HTML document to open locally
     --photos=inline|link|omit  embed photos as data URIs (default), keep photos/ paths, or drop them
 
-The GitHub Pages website is built by tools/build_site.py, which reuses build_page() below.
+That one-file version holds the whole guide. The website, built by tools/build_site.py, splits the
+guide into a home page and one page per chapter (build_guide() below) and adds a search box.
 Needs pandoc (GitHub-flavoured Markdown -> HTML) and BeautifulSoup.
 Diagrams referenced as ![...](diagrams/*.svg) are inlined so they follow the page theme.
 """
 import base64
+import html
+import json
 import pathlib
 import re
 import subprocess
@@ -75,6 +78,59 @@ PAGES = [
      "eyebrow": "Research notes &middot; companion to the build guide"},
 ]
 
+# On the website the guide (README.md) is a home page plus one page per chapter, in reading order.
+# "h2" lists the H2 sections a page holds. "h3" instead moves H3 sections, each with everything under
+# it, out of their chapter onto a page of their own; with "promote", a single moved H3 becomes the
+# page title and its H4s the page's sections.
+GUIDE_CHAPTERS = [
+    {"key": "overview", "html": "overview.html", "title": "Overview", "short": "Overview",
+     "h2": ["overview"],
+     "blurb": "What you're building, the recipe documented builds follow, how hard each job is, "
+              "what to decide before you spend money, and the builds compared."},
+    {"key": "plan", "html": "plan-and-budget.html", "title": "Plan and budget", "short": "Plan",
+     "h2": ["plan-and-budget"],
+     "blurb": "Check your own Touring, choose the donor, then budget and time, factory documents and "
+              "coding kit, tools, space, shop briefs and safety."},
+    {"key": "parts", "html": "parts-list.html", "title": "Parts list", "short": "Parts",
+     "h2": ["parts-list"],
+     "blurb": "Every part by system: from the donor, buy new, fabricate or keep. "
+              "Tick them off as you go; the ticks stay in your browser."},
+    {"key": "steps", "html": "step-by-step-build.html", "title": "Step-by-step build", "short": "Steps",
+     "h2": ["step-by-step-build"],
+     "blurb": "The build in 14 phases, from paperwork and the donor to first start, shakedown and "
+              "inspection, with the checks that prove each step."},
+    {"key": "chassis", "html": "chassis-and-drivetrain.html", "title": "Chassis and drivetrain",
+     "short": "Chassis", "h2": ["deep-dive-chassis-and-drivetrain"], "kind": "deep dive",
+     "blurb": "Subframe mounts, trunk floor and exhaust, welding, the S54 refresh, front and rear axles, "
+              "suspension, brakes and bleeding."},
+    {"key": "fuel", "html": "fuel-cooling-and-ac.html", "title": "Fuel, cooling and A/C",
+     "short": "Fuel & cooling", "h3": ["fuel-system", "cooling-and-oil-cooler", "air-conditioning"],
+     "kind": "deep dive",
+     "blurb": "The M3 fuel system from tank to rail, then cooling, fans and the oil cooler, "
+              "and the air conditioning."},
+    {"key": "xi", "html": "325xi.html", "title": "325xi: rear drive or all-wheel drive", "short": "325xi",
+     "h3": ["325xi-rear-drive-or-all-wheel-drive"], "promote": True, "kind": "deep dive",
+     "blurb": "Only if your car is a 325xi: converting it to rear drive, which we recommend, "
+              "or keeping all-wheel drive.",
+     "tag": "Only for a 325xi"},
+    {"key": "electronics", "html": "electronics-and-coding.html", "title": "Electronics and coding",
+     "short": "Electronics", "h2": ["deep-dive-electronics-and-coding"], "kind": "deep dive",
+     "blurb": "Harness re-pinning, fuel-pump control, the immobilizer, cluster and mileage, DSC, "
+              "inspection readiness and troubleshooting."},
+    {"key": "body", "html": "bodywork-and-fitment.html", "title": "Bodywork and fitment", "short": "Body",
+     "h2": ["deep-dive-bodywork-and-fitment"], "kind": "deep dive",
+     "blurb": "The M3 front end, the rear-arch graft step by step, rear doors, wheels and offsets, "
+              "bumper and trim."},
+    {"key": "legal", "html": "registration-and-legal.html", "title": "Registration and legal (US)",
+     "short": "Legal", "h2": ["registration-and-legal-us"],
+     "blurb": "What Massachusetts and California require of an engine swap, plus A/C, odometer, "
+              "title and insurance."},
+    {"key": "reference", "html": "sources-and-appendix.html", "title": "Sources and appendix",
+     "short": "Sources", "h2": ["sources", "appendix"],
+     "blurb": "Where the guide's claims come from, then torques, fluids, alignment, key numbers, "
+              "glossary and open questions."},
+]
+
 
 def page_links(guide_href: str = "index.html") -> dict:
     """Map each page's Markdown file name to the HTML file that links should point at."""
@@ -93,6 +149,22 @@ ALERTS = {
 COLOPHON = """  <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
   <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
   <p>An independent enthusiast project, not affiliated with or endorsed by BMW AG. BMW and M3 are trademarks of BMW AG.</p>"""
+
+SEARCH_ICON = ('<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" '
+               'fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" '
+               'stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>')
+SEARCH_BUTTON = (f'<li class="search-item"><button type="button" class="search-open" aria-label="Search the site">'
+                 f'{SEARCH_ICON}<span class="lbl-full">Search</span></button></li>')
+SEARCH_PANEL = """<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>"""
 
 
 def md_to_html(md_text: str) -> str:
@@ -158,37 +230,60 @@ def chapter_labels(sid: str, text: str) -> tuple:
     return short, full
 
 
-def build_page(md_path: pathlib.Path, *, standalone: bool, title: str = GUIDE_TITLE,
-               eyebrow: str = GUIDE_EYEBROW, spec_strip: bool = True, artifact_meta: bool = True,
-               head_extra: str = "", site_nav=None, footer_extra: str = "",
-               photo_mode: str = "inline", page_key: str = "guide", fill: bool = False,
-               link_map=None, extra_css: str = "", extra_js: str = "") -> str:
-    """Render one Markdown file as a themed page.
+def guide_anchors(soup) -> dict:
+    """Map every id in the rendered guide to the chapter page (GUIDE_CHAPTERS) that will hold it."""
+    by_h2 = {sid: ch["html"] for ch in GUIDE_CHAPTERS for sid in ch.get("h2", [])}
+    moves = {hid: ch["html"] for ch in GUIDE_CHAPTERS for hid in ch.get("h3", [])}
+    anchors, page, moved = {}, None, None
+    for el in soup.find_all(True):  # document order
+        if el.name == "h2":
+            page, moved = by_h2.get(el.get("id")), None
+        elif el.name == "h3":
+            moved = moves.get(el.get("id"))
+        here = moved or page
+        if here and el.get("id"):
+            anchors[el["id"]] = here
+    return anchors
 
-    site_nav is an optional list of (label, href, is_current) links shown above the title.
-    photo_mode is "inline" (embed photos as data URIs), "link" (keep photos/ paths) or "omit".
-    link_map rewrites links to other pages' Markdown files (e.g. WIRING-AND-CODING.md#x) to their HTML.
-    fill marks the page so page.js turns empty table cells and task lists into saved fields.
+
+def rewrite_links(soup, md_name: str, links: dict, anchors=None) -> None:
+    """Point links at the right HTML page.
+
+    Links to another page's Markdown file (WIRING-AND-CODING.md#x) go to its HTML. When the guide is
+    split (anchors maps each guide id to its chapter page), links into the guide go straight to the
+    chapter page that holds the target; other links within a page keep only their anchor.
+    """
+    for a in soup.find_all("a", href=True):
+        path, _, frag = a["href"].partition("#")
+        path = path[2:] if path.startswith("./") else path
+        into_guide = path == "README.md" or (path == "" and md_name == "README.md")
+        if anchors is not None and into_guide and frag in anchors:
+            a["href"] = anchors[frag] + "#" + frag
+        elif path == md_name:
+            a["href"] = "#" + frag if frag else "#"
+        elif path in links:
+            a["href"] = links[path] + ("#" + frag if frag else "")
+
+
+def render(md_path: pathlib.Path, *, photo_mode: str, link_map: dict, spec_strip: bool,
+           anchors=None, split: bool = False) -> dict:
+    """Markdown -> the page body as soup, sectioned on H2, plus the masthead pieces.
+
+    split=True (the guide on the website) works out which chapter page holds each id first, so that
+    every link, including those in the masthead, points at the right page.
     """
     md = md_path.read_text(encoding="utf-8")
     base = md_path.parent  # diagram paths resolve relative to the Markdown file
     portrait = {m.group(1) for m in
                 re.finditer(r"!\[[^\]]*\]\((diagrams/[^)]+\.svg)\)\s*<!-- portrait -->", md)}
     soup = BeautifulSoup(md_to_html(md), "html.parser")
-
-    # Links to other pages' Markdown files point at their HTML; a link to this page keeps only its anchor.
-    links = page_links() if link_map is None else link_map
-    for a in soup.find_all("a", href=True):
-        path, _, frag = a["href"].partition("#")
-        path = path[2:] if path.startswith("./") else path
-        if path == md_path.name:
-            a["href"] = "#" + frag if frag else "#"
-        elif path in links:
-            a["href"] = links[path] + ("#" + frag if frag else "")
+    if split:
+        anchors = guide_anchors(soup)
+    rewrite_links(soup, md_path.name, link_map, anchors)
 
     # Masthead pieces: H1, intro paragraphs and (for the guide) the first table ("at a glance").
     h1 = soup.find("h1")
-    title_text = h1.get_text(" ", strip=True) if h1 else title
+    title_text = h1.get_text(" ", strip=True) if h1 else GUIDE_TITLE
     intro, spec_rows = [], []
     in_intro = True  # only the paragraphs right under the H1 go in the masthead
     node = h1.next_sibling if h1 else None
@@ -343,27 +438,28 @@ def build_page(md_path: pathlib.Path, *, standalone: bool, title: str = GUIDE_TI
         else:
             section.append(el.extract())
 
-    # Section links under each chapter, shown in the sidebar on wide screens.
-    subs = {}
-    for sec in main.find_all("section", recursive=False):
-        subs[sec.get("id", "")] = [(h.get("id"), h.get_text(" ", strip=True))
-                                   for h in sec.find_all("h3") if h.get("id")]
+    return {"soup": soup, "main": main, "nav": nav, "title_text": title_text, "intro": intro,
+            "spec_rows": spec_rows, "placeholders": placeholders, "anchors": anchors}
 
-    body_html = str(main)
+
+def sub_links(sections) -> list:
+    """(id, text) for the H3 headings of the given sections: the sidebar's section links."""
+    return [(h.get("id"), h.get_text(" ", strip=True)) for sec in sections for h in sec.find_all("h3") if h.get("id")]
+
+
+def fill_svgs(body_html: str, placeholders: dict) -> str:
     for key, svg in placeholders.items():
         body_html = body_html.replace(key, svg)
+    return body_html
 
+
+def assemble(*, title: str, eyebrow: str, title_text: str, body_html: str, nav_html: str,
+             intro_html: str = "", spec_block: str = "", site_nav=None, page_key: str = "guide",
+             fill: bool = False, artifact_meta: bool = True, head_extra: str = "", footer_extra: str = "",
+             extra_css: str = "", extra_js: str = "", standalone: bool = True, search: bool = False) -> str:
+    """Wrap a page body in the site's masthead, navigation, footer, styles and scripts."""
     css = (TOOLS / "page.css").read_text(encoding="utf-8")
     js = (TOOLS / "page.js").read_text(encoding="utf-8")
-    nav_html = ""
-    for sid, short, full in nav:
-        sub_html = "".join(f'<li><a href="#{hid}">{text}</a></li>' for hid, text in subs.get(sid, []))
-        sub_html = f'<ol class="sub">{sub_html}</ol>' if sub_html else ""
-        label = short if short == full else f'<span class="lbl-short">{short}</span><span class="lbl-full">{full}</span>'
-        nav_html += f'<li><a href="#{sid}">{label}</a>{sub_html}</li>'
-    intro_html = "".join(f'<p class="lede">{p.decode_contents()}</p>' for p in intro)
-    spec_html = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in spec_rows)
-    spec_block = f'<dl class="spec">{spec_html}</dl>' if spec_html else ""
     site_nav_html = ""
     if site_nav:
         links = ""
@@ -372,6 +468,8 @@ def build_page(md_path: pathlib.Path, *, standalone: bool, title: str = GUIDE_TI
             links += f'<li><a href="{href}"{cur}>{label}</a></li>'
         site_nav_html = f'<nav class="sitenav" aria-label="Site"><ul>{links}</ul></nav>'
     meta = '<meta name="claude:viewport-fit-sides" content="cover">\n' if artifact_meta else ""
+    search_btn = SEARCH_BUTTON if search else ""
+    search_panel = SEARCH_PANEL + "\n" if search else ""
 
     page = f"""<title>{title}</title>
 {meta}{head_extra}<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -389,9 +487,9 @@ def build_page(md_path: pathlib.Path, *, standalone: bool, title: str = GUIDE_TI
     {spec_block}
   </div>
 </header>
-<nav class="chapters" aria-label="Chapters"><ol>{nav_html}</ol></nav>
+<nav class="chapters" aria-label="Chapters"><ol>{search_btn}{nav_html}</ol></nav>
 <main data-page="{page_key}"{' data-fill' if fill else ''}>{body_html}</main>
-<footer class="colophon"><div class="wrap">
+{search_panel}<footer class="colophon"><div class="wrap">
 {COLOPHON}
 {footer_extra}</div></footer>
 <script>
@@ -405,8 +503,254 @@ def build_page(md_path: pathlib.Path, *, standalone: bool, title: str = GUIDE_TI
     return page
 
 
+def in_page_nav(nav: list, subs: dict) -> str:
+    """Chapter navigation for a page whose chapters are its own H2 sections."""
+    out = ""
+    for sid, short, full in nav:
+        sub_html = "".join(f'<li><a href="#{hid}">{text}</a></li>' for hid, text in subs.get(sid, []))
+        sub_html = f'<ol class="sub">{sub_html}</ol>' if sub_html else ""
+        label = short if short == full else f'<span class="lbl-short">{short}</span><span class="lbl-full">{full}</span>'
+        out += f'<li><a href="#{sid}">{label}</a>{sub_html}</li>'
+    return out
+
+
+def build_page(md_path: pathlib.Path, *, standalone: bool, title: str = GUIDE_TITLE,
+               eyebrow: str = GUIDE_EYEBROW, spec_strip: bool = True, artifact_meta: bool = True,
+               head_extra: str = "", site_nav=None, footer_extra: str = "",
+               photo_mode: str = "inline", page_key: str = "guide", fill: bool = False,
+               link_map=None, extra_css: str = "", extra_js: str = "", anchors=None,
+               search: bool = False, index=None) -> str:
+    """Render one Markdown file as a themed page.
+
+    site_nav is an optional list of (label, href, is_current) links shown above the title.
+    photo_mode is "inline" (embed photos as data URIs), "link" (keep photos/ paths) or "omit".
+    link_map rewrites links to other pages' Markdown files (e.g. WIRING-AND-CODING.md#x) to their HTML;
+    anchors (from build_guide) sends links into the guide to the chapter page that holds the target.
+    fill marks the page so page.js turns empty table cells and task lists into saved fields.
+    search adds the search button and panel; index, a list, collects the page's search entries.
+    """
+    r = render(md_path, photo_mode=photo_mode, link_map=page_links() if link_map is None else link_map,
+               spec_strip=spec_strip, anchors=anchors)
+    main = r["main"]
+    subs = {sec.get("id", ""): sub_links([sec]) for sec in main.find_all("section", recursive=False)}
+    if index is not None:
+        lead = " ".join(t for t in (_text(el) for el in main.children
+                                     if getattr(el, "name", None) not in (None, "section")) if t)
+        if lead:
+            index.append(["", r["title_text"], lead])
+        index.extend(search_entries(main.find_all("section", recursive=False), "", None))
+    body_html = fill_svgs(str(main), r["placeholders"])
+    intro_html = "".join(f'<p class="lede">{p.decode_contents()}</p>' for p in r["intro"])
+    spec_html = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in r["spec_rows"])
+    return assemble(
+        title=title, eyebrow=eyebrow, title_text=r["title_text"], body_html=body_html,
+        nav_html=in_page_nav(r["nav"], subs), intro_html=intro_html,
+        spec_block=f'<dl class="spec">{spec_html}</dl>' if spec_html else "", site_nav=site_nav,
+        page_key=page_key, fill=fill, artifact_meta=artifact_meta, head_extra=head_extra,
+        footer_extra=footer_extra, extra_css=extra_css, extra_js=extra_js, standalone=standalone,
+        search=search)
+
+
+# --- Search -------------------------------------------------------------------------------------
+
+def _text(el) -> str:
+    """Readable text of an element for the search index (diagram placeholders dropped)."""
+    if isinstance(el, NavigableString):
+        s = str(el)
+    else:
+        s = el.get_text(" ", strip=True)
+    s = re.sub(r"@@SVG\d+@@", " ", s)
+    s = re.sub(r"\s+", " ", s)
+    s = re.sub(r"\s+([,.;:!?)\]])", r"\1", s)  # get_text's separator also lands before punctuation
+    return re.sub(r"([(\[])\s+", r"\1", s).strip()
+
+
+def search_entries(sections, page_href: str, page_title) -> list:
+    """Search entries for a page: one per H2 section intro and per H3 or H4, as [anchor, heading, text].
+
+    page_title, when given, names a section whose own H2 was moved into the masthead.
+    """
+    out = []
+    for sec in sections:
+        sid = sec.get("id", "")
+        h2 = sec.find("h2", recursive=False)
+        cur = [sid, h2.get_text(" ", strip=True) if h2 else (page_title or sid), []]
+        out.append(cur)
+        for el in sec.children:
+            name = getattr(el, "name", None)
+            if name in ("h3", "h4") and el.get("id"):
+                cur = [el["id"], el.get_text(" ", strip=True), []]
+                out.append(cur)
+            elif name == "h2":
+                continue
+            else:
+                t = _text(el)
+                if t:
+                    cur[2].append(t)
+    return [[a, h, " ".join(t)] for a, h, t in out if t]
+
+
+def search_index_js(groups: list) -> str:
+    """groups: [(href, page label, entries)] -> search-index.js, loaded by page.js on first search."""
+    pages, items = [], []
+    for i, (href, label, entries) in enumerate(groups):
+        pages.append([href, label])
+        for anchor, head, text in entries:
+            items.append([i, anchor, head, text])
+    data = json.dumps({"pages": pages, "items": items}, ensure_ascii=False, separators=(",", ":"))
+    return "window.E46_SEARCH=" + data + ";\n"
+
+
+# --- The guide as a home page plus chapter pages ------------------------------------------------
+
+def build_guide(md_path: pathlib.Path, *, link_map: dict, home_href: str, site_nav, standalone_home: bool,
+                artifact_meta: bool, head_extra_for, footer_extra: str, photo_mode: str = "link",
+                companions=()) -> dict:
+    """Split the guide into index.html (home) and one page per chapter.
+
+    head_extra_for(key, title, html_name) gives each page's <head> extras (website meta tags).
+    companions: [(label, href, description)] for the home page's list of the other pages.
+    Returns {"pages": {html name: page}, "anchors": {id: html name}, "index": [(href, label, entries)]}.
+    """
+    r = render(md_path, photo_mode=photo_mode, link_map=link_map, spec_strip=True, split=True)
+    soup, main, anchors = r["soup"], r["main"], r["anchors"]
+    sections = {sec.get("id", ""): sec for sec in main.find_all("section", recursive=False)}
+
+    # Pull each moved H3 section out of its chapter, with everything up to the next H3 or H2.
+    page_sections = {}
+    for ch in GUIDE_CHAPTERS:
+        if ch.get("h3"):
+            promote = ch.get("promote") and len(ch["h3"]) == 1
+            sec = soup.new_tag("section", attrs={"id": ch["h3"][0] if promote else ch["html"][:-len(".html")]})
+            for hid in ch["h3"]:
+                h3 = main.find("h3", id=hid)
+                node = h3.next_sibling
+                if promote:
+                    h3.decompose()  # the masthead carries it
+                else:
+                    sec.append(h3.extract())
+                while node is not None and getattr(node, "name", None) not in ("h2", "h3"):
+                    nxt = node.next_sibling
+                    sec.append(node.extract())
+                    node = nxt
+            if promote:
+                for h in sec.find_all(["h4", "h5", "h6"]):  # its H4s are the new page's sections
+                    h.name = "h" + str(int(h.name[1]) - 1)
+            page_sections[ch["key"]] = [sec]
+        else:
+            page_sections[ch["key"]] = [sections[sid] for sid in ch["h2"]]
+    for ch in GUIDE_CHAPTERS:
+        secs = page_sections[ch["key"]]
+        if len(secs) == 1 and not ch.get("h3"):
+            h2 = secs[0].find("h2", recursive=False)
+            if h2:
+                h2.decompose()  # the masthead carries the chapter title
+
+    n = len(GUIDE_CHAPTERS)
+    out_pages, index = {}, []
+
+    def nav_item(href: str, label: str, current: bool, subs_html: str) -> str:
+        li = '<li class="open">' if current else "<li>"
+        cur = ' aria-current="page"' if current else ""
+        return f'{li}<a href="{href}"{cur}>{label}</a>{subs_html if current else ""}</li>'
+
+    def chapter_nav(current_key, subs_html: str) -> str:
+        items = [nav_item(home_href, '<span class="lbl-short">Home</span><span class="lbl-full">Guide home</span>',
+                          current_key is None, subs_html)]
+        for ch in GUIDE_CHAPTERS:
+            label = (ch["short"] if ch["short"] == ch["title"] else
+                     f'<span class="lbl-short">{ch["short"]}</span><span class="lbl-full">{ch["title"]}</span>')
+            items.append(nav_item(ch["html"], label, ch["key"] == current_key, subs_html))
+        return "".join(items)
+
+    for i, ch in enumerate(GUIDE_CHAPTERS):
+        secs = page_sections[ch["key"]]
+        wrap = soup.new_tag("div", attrs={"class": "wrap"})
+        for sec in secs:
+            wrap.append(sec.extract() if sec.parent is not None else sec)
+        # Links to this page keep only their anchor, so they scroll instead of reloading.
+        for a in wrap.find_all("a", href=True):
+            if a["href"].startswith(ch["html"] + "#"):
+                a["href"] = a["href"][len(ch["html"]):]
+        # Section links for the sidebar: H3s, and on a two-chapter page the H2s as well.
+        sub = []
+        for sec in secs:
+            h2 = sec.find("h2", recursive=False)
+            if h2 is not None and len(secs) > 1:
+                sub.append(f'<li class="sub-h2"><a href="#{sec.get("id")}">{h2.get_text(" ", strip=True)}</a></li>')
+            sub += [f'<li><a href="#{hid}">{text}</a></li>' for hid, text in sub_links([sec])]
+        subs_html = f'<ol class="sub">{"".join(sub)}</ol>' if sub else ""
+        prev_ch = GUIDE_CHAPTERS[i - 1] if i > 0 else None
+        next_ch = GUIDE_CHAPTERS[i + 1] if i + 1 < n else None
+        prev_html = (f'<a class="prev" href="{prev_ch["html"]}"><span>Previous</span>{prev_ch["title"]}</a>'
+                     if prev_ch else f'<a class="prev" href="{home_href}"><span>Previous</span>Guide home</a>')
+        next_html = (f'<a class="next" href="{next_ch["html"]}"><span>Next</span>{next_ch["title"]}</a>'
+                     if next_ch else f'<a class="next" href="{home_href}"><span>Back to</span>Guide home</a>')
+        pager = BeautifulSoup(f'<nav class="pager" aria-label="Guide chapters">{prev_html}{next_html}</nav>',
+                              "html.parser")
+        wrap.append(pager)
+        index.append((ch["html"], ch["title"], search_entries(secs, ch["html"], ch["title"])))
+        kind = f' &middot; {ch["kind"]}' if ch.get("kind") else ""
+        eyebrow = f'Build guide{kind} &middot; part {i + 1} of {n}'
+        title = f'{ch["title"]} · {GUIDE_TITLE}'
+        out_pages[ch["html"]] = assemble(
+            title=title, eyebrow=eyebrow, title_text=html.escape(ch["title"]),
+            body_html=fill_svgs(str(wrap), r["placeholders"]), nav_html=chapter_nav(ch["key"], subs_html),
+            site_nav=site_nav, page_key="guide", artifact_meta=artifact_meta,
+            head_extra=head_extra_for(ch["key"], title, ch["html"]), footer_extra=footer_extra,
+            standalone=True, search=True)
+
+    # Home: the masthead (title, intro, "at a glance"), a search field, where to start, the chapters.
+    def chapter_link(ch, i):
+        tag = f'<span class="tag">{ch["tag"]}</span>' if ch.get("tag") else ""
+        return (f'<li><a href="{ch["html"]}"><span class="n">Part {i + 1}</span><strong>{ch["title"]}</strong>'
+                f'{tag}<span class="d">{ch["blurb"]}</span></a></li>')
+
+    by_key = {ch["key"]: ch for ch in GUIDE_CHAPTERS}
+    hrefs = {k: by_key[k]["html"] for k in by_key}
+    comp = {label: href for label, href, _ in companions}
+    cards = comp.get("Job cards", "job-cards.html")
+    sheets = comp.get("Worksheets", "worksheets.html")
+    start = f"""<section id="home-start"><h2>Where to start</h2>
+<ol class="start">
+<li><strong>New to the project?</strong> Read the <a href="{hrefs['overview']}">Overview</a>, then <a href="{hrefs['plan']}">Plan and budget</a>. Together they show what the build involves and what to decide first.</li>
+<li><strong>Is your car a 325xi?</strong> Read <a href="{hrefs['xi']}">the 325xi chapter</a> before you buy a donor: it changes which donor you want.</li>
+<li><strong>Ready to build?</strong> Work through the <a href="{hrefs['steps']}">Step-by-step build</a> phase by phase. Each phase links to the deep dives for detail, and to its printable <a href="{cards}">job card</a> and <a href="{sheets}">worksheet</a>.</li>
+<li><strong>Registering the car?</strong> <a href="{hrefs['legal']}">Registration and legal</a> covers what Massachusetts and California require of an engine swap.</li>
+</ol>
+</section>"""
+    chapters = "".join(chapter_link(ch, i) for i, ch in enumerate(GUIDE_CHAPTERS))
+    comp_html = "".join(f'<li><a href="{href}"><strong>{label}</strong><span class="d">{desc}</span></a></li>'
+                        for label, href, desc in companions)
+    home_body = f"""<div class="wrap">
+<button type="button" class="search-open home-search">{SEARCH_ICON}<span>Search the guide, manual, cards and sheets</span></button>
+{start}
+<section id="home-chapters"><h2>The guide, part by part</h2>
+<ol class="chapter-list">{chapters}</ol>
+</section>
+{'<section id="home-companions"><h2>Companion pages</h2><ul class="chapter-list companions">' + comp_html + '</ul></section>' if comp_html else ''}
+</div>"""
+    intro_html = "".join(f'<p class="lede">{p.decode_contents()}</p>' for p in r["intro"])
+    spec_html = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in r["spec_rows"])
+    # Old links to the one-page guide (index.html#phase-7-...) forward to the chapter page.
+    order = [ch["html"] for ch in GUIDE_CHAPTERS]
+    ids = {k: order.index(v) for k, v in anchors.items()}
+    forward = ("\n(function () {\n  var pages = " + json.dumps(order) + ", ids = "
+               + json.dumps(ids, separators=(",", ":")) + ";\n"
+               "  var h = location.hash ? decodeURIComponent(location.hash.slice(1)) : \"\";\n"
+               "  if (h && !document.getElementById(h) && Object.prototype.hasOwnProperty.call(ids, h)) {\n"
+               "    location.replace(pages[ids[h]] + \"#\" + encodeURIComponent(h));\n  }\n})();\n")
+    out_pages["index.html"] = assemble(
+        title=GUIDE_TITLE, eyebrow=GUIDE_EYEBROW, title_text=r["title_text"], body_html=home_body,
+        nav_html=chapter_nav(None, ""), intro_html=intro_html,
+        spec_block=f'<dl class="spec">{spec_html}</dl>' if spec_html else "", site_nav=site_nav,
+        page_key="guide", artifact_meta=artifact_meta, head_extra=head_extra_for("guide", GUIDE_TITLE, ""),
+        footer_extra=footer_extra, extra_js=forward, standalone=standalone_home, search=True)
+    return {"pages": out_pages, "anchors": anchors, "index": index}
+
+
 def build(standalone: bool, photo_mode: str = "inline") -> str:
-    """The guide page, as used for the Artifact and the local guide.html."""
+    """The whole guide as one page, as used for a local guide.html."""
     return build_page(ROOT / "README.md", standalone=standalone, photo_mode=photo_mode)
 
 

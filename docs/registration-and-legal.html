@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Registration and legal (US) · E46 M3 Touring Conversion</title>
+<meta name="description" content="E46 M3 Touring conversion guide, registration and legal (us): What Massachusetts and California require of an engine swap, plus A/C, odometer, title and insurance.">
+<link rel="canonical" href="https://pniessen.github.io/e46-m3-touring/registration-and-legal.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="E46 M3 Touring Conversion">
+<meta property="og:title" content="Registration and legal (US) · E46 M3 Touring Conversion">
+<meta property="og:description" content="E46 M3 Touring conversion guide, registration and legal (us): What Massachusetts and California require of an engine swap, plus A/C, odometer, title and insurance.">
+<meta property="og:url" content="https://pniessen.github.io/e46-m3-touring/registration-and-legal.html">
+<meta property="og:image" content="https://pniessen.github.io/e46-m3-touring/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: workshop-manual reading column (~70ch); figures and tables scroll in place;
+   sticky chapter bar; risk is shown by callout stripes, part origin by colored pills. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --panel: #e7ecf1;
+  --fg: #151a20;
+  --muted: #55606c;
+  --line: #d2d9e0;
+  --accent: #1d5fa6;
+  --accent-soft: #e0eaf6;
+  --warn: #8a5a00;
+  --warn-fill: #fff3cf;
+  --warn-edge: #e0a800;
+  --crit: #ad2a22;
+  --crit-fill: #fbe9e7;
+  --ok: #1f6e45;
+  --ok-fill: #e3f2ea;
+  --c-donor: #1d5fa6;
+  --c-donor-soft: #dce8f6;
+  --c-new: #1f6e45;
+  --c-new-soft: #dff0e6;
+  --c-fab: #b9440f;
+  --c-fab-soft: #fbe5d9;
+  --c-keep: #66727e;
+  --c-keep-soft: #e9edf1;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --measure: 70ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1114;
+    --surface: #161a1f;
+    --panel: #1d232a;
+    --fg: #e5e9ed;
+    --muted: #9ba6b1;
+    --line: #2b333b;
+    --accent: #7cb0ea;
+    --accent-soft: #182a3e;
+    --warn: #f0c75a;
+    --warn-fill: #2c2410;
+    --warn-edge: #c99a1c;
+    --crit: #ff8a80;
+    --crit-fill: #321a19;
+    --ok: #6fd19c;
+    --ok-fill: #142a1f;
+    --c-donor: #7cb0ea;
+    --c-donor-soft: #18283a;
+    --c-new: #6fd19c;
+    --c-new-soft: #15291e;
+    --c-fab: #ff9a62;
+    --c-fab-soft: #33200f;
+    --c-keep: #a3adb7;
+    --c-keep-soft: #222930;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1114;
+  --surface: #161a1f;
+  --panel: #1d232a;
+  --fg: #e5e9ed;
+  --muted: #9ba6b1;
+  --line: #2b333b;
+  --accent: #7cb0ea;
+  --accent-soft: #182a3e;
+  --warn: #f0c75a;
+  --warn-fill: #2c2410;
+  --warn-edge: #c99a1c;
+  --crit: #ff8a80;
+  --crit-fill: #321a19;
+  --ok: #6fd19c;
+  --ok-fill: #142a1f;
+  --c-donor: #7cb0ea;
+  --c-donor-soft: #18283a;
+  --c-new: #6fd19c;
+  --c-new-soft: #15291e;
+  --c-fab: #ff9a62;
+  --c-fab-soft: #33200f;
+  --c-keep: #a3adb7;
+  --c-keep-soft: #222930;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+code, kbd { font-family: var(--font-mono); font-size: 0.88em; background: var(--panel); padding: 0.08em 0.35em; border-radius: 3px; }
+strong { font-weight: 600; }
+
+.wrap {
+  max-width: calc(var(--measure) + 2rem);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Masthead */
+.masthead { border-bottom: 1px solid var(--line); background: var(--surface); }
+.masthead .wrap { padding-block: 2.2rem 1.6rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0;
+}
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 8vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+.masthead h1 .from { color: var(--muted); display: block; font-size: 0.48em; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+.lede { margin: 0; font-size: 1.06rem; color: var(--fg); max-width: var(--measure); }
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  margin: 0.4rem 0 0;
+  border-top: 2px solid var(--fg);
+}
+.spec div { padding: 0.55rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spec dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.35; }
+
+/* Photos */
+figure.photo { margin: 1.4rem 0 1.6rem; }
+figure.photo img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--panel); }
+figure.photo figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--muted); margin-top: 0.45rem; }
+figure.photo figcaption a { color: inherit; }
+.photo-pair { display: grid; gap: 1.1rem; margin: 1.4rem 0 1.6rem; }
+.photo-pair figure.photo { margin: 0; }
+@media (min-width: 720px) {
+  .photo-pair { grid-template-columns: 1fr 1fr; align-items: start; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+}
+
+/* Site links (website build only) */
+.sitenav ul { list-style: none; margin: 0 0 0.2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; }
+.sitenav li { margin: 0; }
+.sitenav a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; }
+.sitenav a:hover { color: var(--fg); text-decoration: underline; }
+.sitenav a[aria-current="page"] { color: var(--fg); font-weight: 500; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Chapter bar */
+.chapters {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.chapters ol {
+  list-style: none;
+  margin: 0 auto;
+  max-width: calc(var(--measure) + 2rem);
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.chapters ol::-webkit-scrollbar { display: none; }
+.chapters a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.chapters a:hover { color: var(--fg); background: var(--panel); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
+.chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
+
+/* Body copy */
+main .wrap { padding-block: 0.5rem 3rem; }
+main section { padding-top: 1.5rem; }
+main section + section { border-top: 2px solid var(--fg); margin-top: 2.5rem; }
+h2, h3, h4 { text-wrap: balance; line-height: 1.2; }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5.5vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0.8rem;
+}
+h3 { font-size: 1.28rem; font-weight: 600; margin: 2.1rem 0 0.6rem; }
+h4 { font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 0.9rem; }
+li { margin: 0.2rem 0; }
+li > ul, li > ol { margin: 0.2rem 0 0.4rem; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+/* Step lists inside the procedure read like a manual */
+section[data-chapter="steps"] ol > li::marker { font-family: var(--font-mono); font-weight: 500; color: var(--muted); }
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.8rem 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line); }
+th {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+table.parts td:first-child { font-weight: 400; }
+table.parts td:nth-child(2) { font-weight: 500; min-width: 11rem; }
+table.parts td:last-child { min-width: 14rem; }
+tr.done td { color: var(--muted); }
+tr.done td:nth-child(2) { text-decoration: line-through; text-decoration-color: var(--muted); }
+.tick-col { width: 2.4rem; text-align: center; }
+.tick-col input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); margin: 0.1rem 0 0; cursor: pointer; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.pill-donor { color: var(--c-donor); background: var(--c-donor-soft); }
+.pill-new { color: var(--c-new); background: var(--c-new-soft); }
+.pill-fab { color: var(--c-fab); background: var(--c-fab-soft); }
+.pill-keep { color: var(--c-keep); background: var(--c-keep-soft); }
+
+/* Parts toolbar */
+.parts-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0.6rem 0 1rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.parts-tools .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-right: 0.2rem; }
+.parts-tools button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.parts-tools button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.parts-tools .count { margin-left: auto; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.parts-tools .note { flex-basis: 100%; font-size: 0.78rem; color: var(--muted); }
+
+/* Long inline code (file names, coding parameters) wraps instead of widening the page. */
+p code, li code, td code, dd code { overflow-wrap: anywhere; }
+
+/* Worksheets and job cards */
+.fill-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.5rem;
+  margin: 1.2rem 0 0.4rem; padding: 0.6rem 0.7rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+}
+.fill-tools .note { flex: 1 1 16rem; font-size: 0.82rem; color: var(--muted); }
+.fill-tools button {
+  font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer;
+}
+td.fill-cell { padding: 0.1rem 0.35rem; min-width: 5.5rem; }
+input.fill {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95em; color: var(--fg);
+  background: transparent; border: 0; border-bottom: 1px dashed var(--line); padding: 0.35rem 0.15rem;
+}
+input.fill:focus { background: var(--accent-soft); border-bottom-color: var(--accent); outline: none; }
+ul.task-list { list-style: none; padding-left: 0.1rem; }
+ul.task-list li { position: relative; margin: 0.3rem 0; padding-left: 1.75rem; }
+ul.task-list li label { cursor: pointer; }
+ul.task-list input[type="checkbox"] { position: absolute; left: 0; top: 0.18rem; width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--accent); }
+tr[hidden] { display: none !important; }
+
+/* Callouts (GitHub alert syntax in the Markdown source) */
+.callout {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0.75rem 0.95rem 0.8rem;
+  border-left: 4px solid var(--edge, var(--accent));
+  background: var(--fill, var(--accent-soft));
+  border-radius: 0 6px 6px 0;
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout .callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--edge-text, var(--accent));
+  margin-bottom: 0.25rem;
+}
+.callout-note { --edge: var(--accent); --fill: var(--accent-soft); --edge-text: var(--accent); }
+.callout-tip { --edge: var(--ok); --fill: var(--ok-fill); --edge-text: var(--ok); }
+.callout-key { --edge: var(--fg); --fill: var(--panel); --edge-text: var(--fg); }
+.callout-warn { --edge: var(--warn-edge); --fill: var(--warn-fill); --edge-text: var(--warn); }
+.callout-crit { --edge: var(--crit); --fill: var(--crit-fill); --edge-text: var(--crit); }
+
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+
+/* Deep dives */
+details {
+  margin: 1rem 0 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  width: 1ch;
+  flex: none;
+}
+details[open] > summary::before { content: "\2212"; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > :not(summary) { margin-left: 0.9rem; margin-right: 0.9rem; }
+details > :nth-child(2) { margin-top: 0.8rem; }
+details > :last-child { margin-bottom: 0.9rem; }
+
+/* Figures */
+figure.diagram { margin: 1.4rem 0 1.8rem; }
+.diagram-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 0.6rem;
+}
+.diagram-scroll svg { display: block; width: 100%; height: auto; min-width: 600px; color: var(--fg); }
+.diagram-scroll.portrait svg { min-width: 340px; max-width: 540px; margin: 0 auto; }
+figure.diagram figcaption { font-size: 0.86rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
+figure.diagram figcaption strong { color: var(--fg); }
+.scroll-hint { display: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem; }
+@media (max-width: 640px) { .diagram-scroll:not(.portrait) + .scroll-hint, .scroll-hint.show { display: block; } }
+
+/* Diagram kit: classes used inside the SVG files */
+.diagram svg text { font-family: var(--font-body); fill: currentColor; }
+.diagram svg .t { font-size: 13px; }
+.diagram svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+.diagram svg .t-xs { font-size: 10.5px; fill: var(--muted); }
+.diagram svg .t-b { font-weight: 600; }
+.diagram svg .t-h { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; }
+.diagram svg .t-mono { font-family: var(--font-mono); }
+.diagram svg .ln { stroke: currentColor; fill: none; stroke-width: 1.5; }
+.diagram svg .ln-thin { stroke: var(--muted); fill: none; stroke-width: 1; }
+.diagram svg .ln-faint { stroke: var(--line); fill: none; stroke-width: 1; }
+.diagram svg .dash { stroke-dasharray: 5 4; }
+.diagram svg .fill-fg { fill: currentColor; }
+.diagram svg .fill-bg { fill: var(--surface); }
+.diagram svg .panel { fill: var(--panel); stroke: var(--line); }
+.diagram svg .donor { fill: var(--c-donor-soft); stroke: var(--c-donor); }
+.diagram svg .new { fill: var(--c-new-soft); stroke: var(--c-new); }
+.diagram svg .fab { fill: var(--c-fab-soft); stroke: var(--c-fab); }
+.diagram svg .keep { fill: var(--c-keep-soft); stroke: var(--c-keep); }
+.diagram svg .donor-s { stroke: var(--c-donor); fill: none; }
+.diagram svg .new-s { stroke: var(--c-new); fill: none; }
+.diagram svg .fab-s { stroke: var(--c-fab); fill: none; }
+.diagram svg .crit-s { stroke: var(--crit); fill: none; }
+.diagram svg .donor-t { fill: var(--c-donor); }
+.diagram svg .new-t { fill: var(--c-new); }
+.diagram svg .fab-t { fill: var(--c-fab); }
+.diagram svg .crit-t { fill: var(--crit); }
+.diagram svg .crit-f { fill: var(--crit); }
+.diagram svg .donor-f { fill: var(--c-donor); }
+.diagram svg .fab-f { fill: var(--c-fab); }
+.diagram svg .new-f { fill: var(--c-new); }
+.diagram svg .warn-f { fill: var(--warn-fill); stroke: var(--warn-edge); }
+.diagram svg .shape { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; }
+.diagram svg .keep-s { stroke: var(--c-keep); fill: none; }
+.diagram svg .keep-f { fill: var(--c-keep); }
+.diagram svg .t-h { font-size: 15px; }
+
+/* Footer */
+.colophon { border-top: 1px solid var(--line); background: var(--surface); }
+.colophon .wrap { padding-block: 1.4rem 2rem; font-size: 0.85rem; color: var(--muted); }
+.colophon p { margin: 0 0 0.5rem; }
+
+@media (max-width: 480px) {
+  body { font-size: 15.5px; }
+  h3 { font-size: 1.18rem; }
+  .spec { grid-template-columns: 1fr 1fr; }
+}
+
+/* Section links in the chapter navigation appear only in the wide-screen sidebar */
+.chapters .sub { display: none; }
+
+/* Wide screens: sidebar contents, text at reading width, tables and figures use the full column */
+@media (min-width: 1100px) {
+  html { scroll-padding-top: 1.5rem; }
+  body { font-size: 17px; display: grid; grid-template-columns: 17.5rem minmax(0, 1fr); }
+  body > .masthead { grid-column: 2; grid-row: 1; }
+  body > main { grid-column: 2; grid-row: 2; }
+  body > .colophon { grid-column: 2; grid-row: 3; }
+  body > nav.chapters {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    scrollbar-width: thin;
+  }
+  .chapters > ol {
+    flex-direction: column;
+    overflow: visible;
+    max-width: none;
+    gap: 0.05rem;
+    padding: 1.4rem 0.9rem 3rem 1.1rem;
+  }
+  .chapters a { white-space: normal; }
+  .chapters .lbl-short { display: none; }
+  .chapters .lbl-full { display: inline; }
+  .chapters li.open > .sub { display: block; }
+  .chapters .sub {
+    list-style: none;
+    margin: 0.2rem 0 0.7rem 0.55rem;
+    padding: 0 0 0 0.55rem;
+    border-left: 1px solid var(--line);
+  }
+  .chapters .sub a {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.22rem 0.45rem;
+    color: var(--muted);
+  }
+  .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
+  .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
+  .masthead .wrap { padding-block: 3rem 2rem; }
+  .masthead .lede,
+  main section > :is(p, ul, ol, h2, h3, h4, blockquote, aside, details),
+  main .wrap > :is(p, ul, ol, blockquote, aside, details) { max-width: 47rem; }
+  .diagram-scroll.portrait svg { max-width: 620px; }
+  figure.photo, .photo-pair { max-width: 58rem; }
+  table { font-size: 0.88rem; }
+}
+
+/* Printing: garage-ready pages without navigation or tick boxes */
+@media print {
+  :root:not([data-theme="print"]), :root[data-theme] {
+    --bg: #fff; --surface: #fff; --panel: #eef1f4; --fg: #000; --muted: #444; --line: #bbb;
+    --accent: #1d5fa6; --accent-soft: #eef3fa; --warn: #6b4600; --warn-fill: #fff7dc; --warn-edge: #c99a1c;
+    --crit: #9a1f18; --crit-fill: #fdeeec; --ok: #1f6e45; --ok-fill: #ecf7f0;
+    --c-donor: #1d5fa6; --c-donor-soft: #e6eef9; --c-new: #1f6e45; --c-new-soft: #e8f4ec;
+    --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
+  }
+  body { display: block !important; font-size: 10.5pt; background: #fff; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
+  input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
+  main[data-fill] ~ .colophon { display: none; }
+  td.fill-cell { min-width: 0; }
+  .wrap { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .masthead, .colophon { border: 0; }
+  main section { break-before: page; border-top: 0 !important; margin-top: 0 !important; padding-top: 0; }
+  main section:first-child { break-before: auto; }
+  h2, h3, h4 { break-after: avoid; }
+  tr, figure, aside, .callout { break-inside: avoid; }
+  .table-wrap { overflow: visible; border: 0; }
+  table { font-size: 8.5pt; }
+  th { white-space: normal; }
+  .diagram-scroll { border: 0; padding: 0; overflow: visible; }
+  .diagram-scroll svg { min-width: 0 !important; max-width: 100%; }
+  .diagram-scroll.portrait svg { max-width: 13cm; }
+  figure.photo img { width: auto; max-width: 100%; max-height: 9cm; }
+  .photo-pair { grid-template-columns: 1fr 1fr; break-inside: avoid; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+  a { color: inherit; text-decoration: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <nav class="sitenav" aria-label="Site"><ul><li><a href="./" aria-current="page">Guide</a></li><li><a href="wiring-and-coding.html">Wiring and coding</a></li><li><a href="job-cards.html">Job cards</a></li><li><a href="worksheets.html">Worksheets</a></li><li><a href="calculators.html">Calculators</a></li><li><a href="research.html">Research notes</a></li><li><a href="https://github.com/pniessen/e46-m3-touring">Source on GitHub</a></li></ul></nav>
+    <p class="eyebrow">Build guide &middot; part 10 of 11</p>
+    <h1>Registration and legal (US)</h1>
+    
+    
+  </div>
+</header>
+<nav class="chapters" aria-label="Chapters"><ol><li class="search-item"><button type="button" class="search-open" aria-label="Search the site"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lbl-full">Search</span></button></li><li><a href="./"><span class="lbl-short">Home</span><span class="lbl-full">Guide home</span></a></li><li><a href="overview.html">Overview</a></li><li><a href="plan-and-budget.html"><span class="lbl-short">Plan</span><span class="lbl-full">Plan and budget</span></a></li><li><a href="parts-list.html"><span class="lbl-short">Parts</span><span class="lbl-full">Parts list</span></a></li><li><a href="step-by-step-build.html"><span class="lbl-short">Steps</span><span class="lbl-full">Step-by-step build</span></a></li><li><a href="chassis-and-drivetrain.html"><span class="lbl-short">Chassis</span><span class="lbl-full">Chassis and drivetrain</span></a></li><li><a href="fuel-cooling-and-ac.html"><span class="lbl-short">Fuel & cooling</span><span class="lbl-full">Fuel, cooling and A/C</span></a></li><li><a href="325xi.html"><span class="lbl-short">325xi</span><span class="lbl-full">325xi: rear drive or all-wheel drive</span></a></li><li><a href="electronics-and-coding.html"><span class="lbl-short">Electronics</span><span class="lbl-full">Electronics and coding</span></a></li><li><a href="bodywork-and-fitment.html"><span class="lbl-short">Body</span><span class="lbl-full">Bodywork and fitment</span></a></li><li class="open"><a href="registration-and-legal.html" aria-current="page"><span class="lbl-short">Legal</span><span class="lbl-full">Registration and legal (US)</span></a><ol class="sub"><li><a href="#massachusetts">Massachusetts</a></li><li><a href="#california">California</a></li><li><a href="#ac-odometer-title-and-insurance">A/C, odometer, title and insurance</a></li><li><a href="#questions-for-your-state-program">Questions for your state program</a></li></ol></li><li><a href="sources-and-appendix.html"><span class="lbl-short">Sources</span><span class="lbl-full">Sources and appendix</span></a></li></ol></nav>
+<main data-page="guide"><div class="wrap"><section id="registration-and-legal-us">
+<aside class="callout callout-note"><span class="callout-label">Note</span>
+<p>Practical notes, not legal advice. Rules vary by state and county. The car this guide follows is registered in Massachusetts: read the federal picture, then <a href="#massachusetts">Massachusetts</a>. For another state, read California's rules as an example and put the questions at the end of this chapter to your own state program before you buy the donor.</p>
+</aside>
+<p><strong>Federal.</strong> EPA's 2020 tampering enforcement policy replaced its 1991 Engine Switching Fact Sheet (<a href="https://www.epa.gov/sites/default/files/2020-12/documents/epatamperingpolicy-enforcementpolicyonvehicleandenginetampering.pdf">EPA</a>). It treats an engine switch as acceptable when the result matches a certified configuration of the same or a newer model year. For anything else it expects a documented "reasonable basis", such as emissions testing showing the vehicle complies for its full useful life, prepared before the work. BMW never certified an S54 Touring, so read the policy and talk to your state program early. In practice, keep everything that made the donor M3 compliant:</p>
+<ol type="1">
+<li>An S54 the same model year as your Touring or newer.</li>
+<li>The complete M3 emissions system: catalysts, all four O2 sensors, secondary air injection, evaporative system connections (including the DM-TL leak-test pump) and crankcase ventilation.</li>
+<li>The M3 DME with its emissions calibration, and working OBD-II: check-engine lamp, diagnostic port and readiness monitors. Getting the monitors to set is covered in <a href="electronics-and-coding.html#inspection-readiness">Inspection readiness</a>.</li>
+</ol>
+<p><strong>Engine-computer software.</strong> Every immobilizer route touches the DME (see <a href="electronics-and-coding.html#immobilizer-ews">Immobilizer (EWS)</a>), and some inspections now check the software itself.</p>
+<ul>
+<li><strong>VIN.</strong> Have your Touring's full 17-character VIN written into the DME. Plug-in tests read the VIN from the OBD port (<a href="https://www.e46fanatics.com/threads/chassis-vin-dme-ews-vin-lcm-ike-vin-all-mismatched-help.1253491/">e46fanatics</a>), and BMW issued a bulletin about E46s failing state tests because the DME reported an incomplete VIN (<a href="https://static.nhtsa.gov/odi/tsbs/2013/MC-10150160-9999.pdf">BMW SI B12 09 13</a>).</li>
+<li><strong>EWS delete.</strong> Order the delete only, with every emissions function kept. Vendors carry their own warnings: Severn's delete page says "Recommended for off-road use only!" (<a href="https://www.severntuning.com/products/bmw-mss54-hp-ews-delete-2001-2006-e46-m3">Severn</a>).</li>
+<li><strong>No Euro or CSL software.</strong> Euro-market M3s have no DM-TL leak-test pump (<a href="https://www.youtube.com/watch?v=YfJyE9DU5OE&amp;t=168s">M3projekts – Ep6 (2023), 02:48</a>), so a Euro or CSL flash may drop US emissions functions such as the EVAP leak test, and a plug-in test may then show monitors that never set.</li>
+</ul>
+<p><strong>State inspections.</strong> Nevada's Engine Swap Fact Sheet (form EC-054, revised 02/2026) is a good model of what inspectors ask for (<a href="https://dmv.nv.gov/pdfforms/ec054.pdf">Nevada DMV</a>):</p>
+<ul>
+<li>an engine the same model year or newer;</li>
+<li>all emission devices fitted and working;</li>
+<li>a federally certified highway engine, with verifiable proof of its year and configuration;</li>
+<li>OBD-II compliance, including monitors that can be "commanded to incomplete" and then set to completion;</li>
+<li>contact with the emissions lab before the swap.</li>
+</ul>
+<p>New York's OBD test fails model-year 2001-and-later vehicles with more than one monitor not ready (<a href="https://www.nyvip3.com/OBDII/ReadyVSNotReady">NYVIP3</a>). Some programs only test cars of certain ages: Ohio's E-Check now covers vehicles 6 through 26 years old (<a href="https://epa.ohio.gov/divisions-and-offices/air-pollution-control/e-check">Ohio EPA</a>), so check how your state treats a 2001–05 car.</p>
+<p><strong>If your car is an M56 SULEV.</strong> From the 2003 model year BMW sold some US 325is with the low-emission M56 engine in California, New York and Massachusetts (Vermont from 2004), with a stainless-steel tank, filler neck and canister (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%202%29/08_SULEV.pdf">BMW B11 75 02</a>) and a fuel-pump controller (<a href="https://bmwfans.info/parts-catalog/16146912019/">ETK</a>). BMW's bulletin introduced it with automatics, and the only gearbox-module harness BMW's catalog lists for the M56 is for automatics (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/browse/engine_electrical_system/wiring_harness_engine_trans_module/">ETK</a>). Yet the catalog's pages for the US 325i M56 Touring also list a five-speed gearbox and clutch, in groups shared with other engines (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/L-N/browse/manual_transmission/manual_transmission_s5d_g/">ETK: gearbox</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/L-N/browse/clutch/clutch/">ETK: clutch</a>). A manual M56 is probably a conversion, but check the engine code in Phase 0 even on a manual car. Tenza Motorsports replaced a 2004 SULEV Touring's tank and evaporative parts with an M54/S54-type tank and the M3 charcoal canister (<a href="https://www.youtube.com/watch?v=PgW1oWs7cfk&amp;t=20s">Tenza Motorsports – No more SULEV (2021), 00:20</a>). That changes a certified evaporative system, so ask your state program how it treats it before you change anything, especially in California.</p>
+<h3 id="massachusetts">Massachusetts</h3>
+<aside class="callout callout-key"><span class="callout-label">Key point</span>
+<p>This build's Touring, a 2003, is registered in Massachusetts. A 2001–05 car gets no emissions test there in 2026, but the state's anti-tampering rules still apply, its engine-switch rule can't be met to the letter by any S54 Touring, and grafting steel from the donor may bring a "reconstructed" title. Get written answers from MassDEP and the RMV before you buy the donor. The rules below were checked in October 2026; several mass.gov pages blocked automated reading, so confirm anything marked "(unverified)".</p>
+</aside>
+<p><strong>Inspection: safety only.</strong> Massachusetts exempts gasoline cars "15 or more model years old" from the emissions test, so in 2026 only model year 2012 and newer get the OBD plug-in test. The station's computer decides from your Touring's VIN, not from the engine (<a href="https://www.law.cornell.edu/regulations/massachusetts/310-CMR-60-02">310 CMR 60.02(3)(b)4</a>, <a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter111/Section142M">c. 111 §142M</a>, <a href="https://www.mavehiclecheck.com/motorists-vehicles">Vehicles Tested</a>, <a href="https://www.mavehiclecheck.com/s/Module-1-Vehicle-Inspection-Requirements-v12026.pdf">Vehicle Check Module 1 (2026)</a>). The program's site is now <a href="https://www.mavehiclecheck.com/">mavehiclecheck.com</a>. The car still needs the annual safety inspection: $35, 14 items, filmed by bay cameras (<a href="https://www.mavehiclecheck.com/motorists-basicinfo">Basic Inspection Information</a>, <a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-4-04">540 CMR 4.04</a>, amended 3 January 2025). No public inspector's manual exists: the program posts <a href="https://www.mavehiclecheck.com/s/540cmr4.pdf">540 CMR 4.00</a> as the procedure, and its inspector training modules cover emissions only. The items this build can fail:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>The rule</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ride height</td>
+<td>No more than 2 inches above or below "the original manufacturer's specified height", which means your Touring's, not the M3's (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90/Section7P">c. 90 §7P</a>, 540 CMR 4.04(13)). The state publishes no way to measure it; BMW's TIS ride height for your Touring is the clearest published figure (our inference)</td>
+<td>In Phase 0, load the Touring to BMW's normal position (full tank; 68 kg in each front seat, 68 kg in the middle of the rear seat, 21 kg in the trunk), tires at placard pressure, and measure it BMW's way, rim flange to arch edge. Compare with BMW's figure for the suspension named on the front-strut label: "6Z Serie" on 16-inch wheels, front 589 mm (23.2 in) and rear 555 mm (21.9 in); "6Z Sport" on 17-inch wheels, 589 and 554 mm; ±10 mm (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/31__front_axle/0__general/1_td__front_axle_ride_height_e46___rear_end/">TIS front</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/33__rear_axle/0__general/2_td__rear_axle_ride_height_e46___rear_end/">TIS rear</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/11_ra__identification_on_volume_production_suspension_sports_suspension_etc/">strut label</a>; other sizes in <a href="sources-and-appendix.html#key-numbers">Key numbers</a>). The arches will change, so at the same load also record the sill height at each jacking point and the roof height at marked points (BMW publishes 1,409 mm (55.5 in), or 1,444 mm (56.8 in) with roof rails; a 325xi stands 20 mm higher: <a href="325xi.html#emissions-and-massachusetts-for-an-xi">325xi</a>). Finish within 50.8 mm (2 in) of those, ideally within 25 mm (1 in, our target); the M3's 18-inch tires alone add about 14 mm (0.6 in) (<a href="chassis-and-drivetrain.html#massachusetts-ride-height-baseline">Massachusetts ride-height baseline</a>)</td>
+</tr>
+<tr class="even">
+<td>Tires</td>
+<td>The same size on each side of an axle; front and rear may differ only "as determined by vehicle manufacturer"; tires that stick out past the body need flaps (540 CMR 4.04(11), (12)(c)). On M3 wheels, an unflared Touring's rear tires would stand about 22 mm (0.9 in) proud of the body; the M3 flares bring the body out to them (our estimate; <a href="bodywork-and-fitment.html#rear-arches-and-doors">Rear arches and doors</a>)</td>
+<td>BMW's MY2003 wheel and tire list gives the 325i Touring staggered 17-inch (225/45ZR17 front, 245/40ZR17 rear) and 18-inch (225/40ZR18 front, 255/35ZR18 rear) sizes, but not the M3's 225/45R18 and 255/40R18, so ask your station about the M3's sizes before the appointment (<a href="https://myair-bdr.bmwgroup.com/static/manual/RadReif/RadReif/00/mj2003/e46touring3_2003.htm">BMW wheel and tire list: Touring</a>, <a href="bodywork-and-fitment.html#wheels-track-and-offsets">Wheels, track and offsets</a>)</td>
+</tr>
+<tr class="odd">
+<td>Exhaust</td>
+<td>Tight, leak-free, "securely fastened with fasteners in place and undamaged", discharging "beyond operator, passenger, and/or trunk compartment", and no louder than "the vehicle when equipped with the original manufacturer's equipment"; the inspector revs the engine to check (540 CMR 4.04(5)). No muffler "cut-out or by-pass", no muffler whose "baffle plates, screens or other original internal parts have been removed and not replaced", and no exhaust "modified in a manner which will amplify or increase the noise" (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90/Section16">c. 90 §16</a>)</td>
+<td>Fit the stock M3 system with the muffler intact, no valved, gutted or "delete" section, and every hanger nut and bolt in place. Keep the receipts and part numbers that show an unaltered BMW M3 system, and ask the station how it judges an M3 system on a 325i (<a href="chassis-and-drivetrain.html#exhaust-and-the-spare-wheel-well">Exhaust and the spare-wheel well</a>). Three S54 swaps on the non-M floor, two of them Tourings, ran a US E36 M3 muffler (<a href="https://nam3forum.com/forums/forum/main-forum/member-build-journals/4337-obioban-s-2004-jr-black-m3-wagon">NAM3</a>, <a href="https://nam3forum.com/forums/forum/main-forum/member-build-journals/173296-trent-s-s54-rebuild-and-sedan-swap/page4">NAM3</a>, <a href="https://nam3forum.com/forums/forum/main-forum/member-build-journals/195928-black-tan-332it/page2">NAM3</a>); whatever you fit must be no louder than the car's original equipment</td>
+</tr>
+<tr class="even">
+<td>Lights</td>
+<td>US-spec (FMVSS 108) lamps only, all working and aimed (540 CMR 4.04(10); <a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-22-07">540 CMR 22.07</a>)</td>
+<td>Keep BMW US-spec lamps and every reflector and side marker</td>
+</tr>
+<tr class="odd">
+<td>Brakes</td>
+<td>The inspector tests the service brake at 4–8 mph for pull, the parking brake against the engine in the lowest gear at 1,200–1,300 rpm, and a stop from 20 mph within 30 ft on the foot brake or 80 ft on the parking brake. With the car stopped, about 125 lb on the pedal for 10 s must hold, with at least 20% of the travel left and the brake failure warning lamp off; the booster must assist when the engine starts; and the lines and hoses must be secure and free of leaks and chafing (540 CMR 4.04(4))</td>
+<td>Run the same tests first (<a href="chassis-and-drivetrain.html#brakes-and-bleeding">Brakes and bleeding</a>). BMW's red BRAKE lamp means low fluid or the parking brake on; DSC and ABS faults light the yellow BRAKE lamp, the ABS lamp and the DSC lamp (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>). Get all four dark before the appointment</td>
+</tr>
+<tr class="even">
+<td>Suspension and steering</td>
+<td>The front end is jacked and inspected; ball joints are checked "in accordance with the applicable manufacturer's specifications"; the steering must reach full lock both ways without "binding or interference"; excessive play, or broken, bent or missing shocks or springs, fail; and the suspension must not upset headlamp aim (540 CMR 4.04(1), (6))</td>
+<td>Check the ball joints, dampers and full lock before the appointment, and aim the headlights at the final ride height</td>
+</tr>
+<tr class="odd">
+<td>Structure</td>
+<td>No "modified" structure that causes "a hazard or structural weakness" (540 CMR 4.04(12)(f))</td>
+<td>Sound, sealed and corrosion-protected welds, with photos of the work</td>
+</tr>
+<tr class="even">
+<td>Floor pans</td>
+<td>No "holes or cracks, due to rust or otherwise, in the floor pans or other body panels which would permit the passage of exhaust gases into the passenger or trunk compartments" (540 CMR 4.04(12)(d))</td>
+<td>Seal every seam of the trunk floor on both faces, fit a plug in every hole, and check the floor with a light or smoke before the carpet goes back (<a href="step-by-step-build.html#phase-5-metalwork-1-subframe-mounts-and-floor">Phase 5</a>)</td>
+</tr>
+<tr class="odd">
+<td>Fuel cap and bumpers</td>
+<td>The cap must fit and the fuel system be tight; bumpers fitted (540 CMR 4.04)</td>
+<td>Check after the filler-flap work in Phase 6</td>
+</tr>
+</tbody>
+</table></div>
+<p>The airbag-lamp check applies only to cars ten or fewer model years old (540 CMR 4.04).</p>
+<p><strong>Untested still means regulated.</strong> None of the state's anti-tampering rules has an age limit (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90/Section7O">c. 90 §7O</a>; <a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter111/Section142M">c. 111 §142M(f)</a>, with fines up to $25,000 a day; <a href="https://www.law.cornell.edu/regulations/massachusetts/310-CMR-60-02">310 CMR 60.02(23)</a>; <a href="https://www.law.cornell.edu/regulations/massachusetts/310-CMR-7-40">310 CMR 7.40(2)(h)</a>), and the federal ban applies for a car's whole life (<a href="https://www.epa.gov/sites/default/files/2020-12/documents/epatamperingpolicy-enforcementpolicyonvehicleandenginetampering.pdf">EPA tampering policy</a>). Keep every M3 emissions part fitted and working, keep the US emissions calibration and every OBD monitor, and order the DME work as an immobilizer-only change.</p>
+<p><strong>The engine-switch rule.</strong> <a href="https://www.law.cornell.edu/regulations/massachusetts/310-CMR-60-02">310 CMR 60.02(12)(d)</a> expects a car with a switched engine to be a "certified configuration" in "the same emissions certification category", with no switching between California- and federally-certified cars or between vehicle classes; the program's 2026 inspector training repeats the rule (<a href="https://www.mavehiclecheck.com/s/Module-1-Vehicle-Inspection-Requirements-v12026.pdf">Module 1</a>). BMW never certified an S54 Touring, so no build matches it to the letter. How far off yours is depends on the category on your Touring's underhood emissions (VECI) label (<a href="https://www.epa.gov/compliance-and-fuel-economy-data/annual-certification-data-vehicles-engines-and-equipment">EPA certification data</a>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Your Touring</th>
+<th>Category</th>
+<th>Against the S54 (LEV; federal Bin 9 from 2004)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2001–02, and 2003 cars in test group "LER"</td>
+<td>LEV</td>
+<td>Same category</td>
+</tr>
+<tr class="even">
+<td>A 325xi, any year 2001–05 (test group "LER", or "M54" for some 2001 cars)</td>
+<td>LEV; for 2004–05, California LEV and federal Bin 9</td>
+<td>Same category in every year (<a href="325xi.html#emissions-and-massachusetts-for-an-xi">325xi</a>)</td>
+</tr>
+<tr class="odd">
+<td>Other 2003–05 325i cars (test groups "UL2" and "SMG")</td>
+<td>ULEV</td>
+<td>The S54 is less stringent</td>
+</tr>
+<tr class="even">
+<td>M56 cars (sold in Massachusetts)</td>
+<td>SULEV</td>
+<td>The S54 is much less stringent</td>
+</tr>
+</tbody>
+</table></div>
+<p>Every S54 test group was certified for both California and federal sale, so choose a donor whose VECI label shows a US 50-state certification. Massachusetts adopted California's new-vehicle standards but not California's engine-change referee, so there's no approval route like California's. The nearest formal step is a MassDEP "finding" that the altered car meets the standards for its model year (<a href="https://www.law.cornell.edu/regulations/massachusetts/310-CMR-7-40">310 CMR 7.40(9)(b)2</a>). Nobody has documented whether MassDEP gives one to a private owner, so ask. EPA expects any "reasonable basis" for an engine switch to be documented before the work. Note that the "same model year or newer" rule comes from EPA's policy; the Massachusetts rule has no model-year test for cars.</p>
+<p><strong>This build's 2003.</strong> Both 2003 test groups for an M54 325i Sport Wagon, LER (LEV) and UL2 (LEV-II ULEV), were certified for California and for all 50 states, so where the car was first sold doesn't tell you which one yours is; its VECI label does (<a href="https://www.epa.gov/compliance-and-fuel-economy-data/annual-certification-data-vehicles-engines-and-equipment">EPA certification data</a>). Read two labels before anything else: the build month on the driver's door pillar and the test group under the hood. UL2 is the M54 Touring's first LEV-II certification, and the MS45.1 with its secondary-air air-mass sensor arrived in 03/2003, so a car built before 03/2003 is probably an MS43 in LER and a later one an MS45.1 in UL2. That pairing is our inference, so go by the labels. A 2003 in LER matches the S54's LEV category, the best case this rule allows; one in UL2 would drop from ULEV to LEV, so put that question to MassDEP before you buy a donor. To meet EPA's "same or newer model year" test, choose a 2003–06 M3 as the donor.</p>
+<p><strong>Title: the "reconstructed" question.</strong> Massachusetts titles record cylinders, transmission type, fuel, colour and odometer, not the engine number, and no rule was found that requires reporting an engine change. But anyone who "reassembles a motor vehicle by means of welding together ... the frames or unit bodies of two or more motor vehicles" needs a new title application, an RMV-appointed inspection and a "reconstructed" title (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90D/Section20F">c. 90D §20F</a>). Ask the RMV Title Division whether grafting the donor's arch steel or trunk floor counts: the statute's affidavit asks for "the location of the point of connection or weld joint of the two or more vehicle frames" (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90D/Section20F">c. 90D §20F</a>). New BMW panels avoid the question. For the arches, the M3 convertible quarter 41357894541/542 plus its inner lateral trim panel 41217894553/554 make a complete new set, about $2,230 per side at BMWPartsDeal (about €2,120 at eStore-Central) in October 2026 (<a href="bodywork-and-fitment.html#rear-arches-and-doors">Rear arches and doors</a>). For the floor, the new M3 trunk floor 41127895619 and its front reinforcement 51717894229 are listed in the US at $763.61 and $88.22 (BMWPartsDeal, October 2026; <a href="chassis-and-drivetrain.html#exhaust-and-the-spare-wheel-well">Exhaust and the spare-wheel well</a>). A "reconstructed" brand would cut the finished car's value.</p>
+<p><strong>The donor's title.</strong> Whoever takes a car to be junked or scrapped must surrender its title within 10 days, and the record is branded JUNK for good (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90D/Section20E">c. 90D §20E</a>); a salvage-titled donor has its own 10-day rule (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90D/Section20C">§20C</a>). Run the donor's VIN through an <a href="https://vehiclehistory.bja.ojp.gov/nmvtis_vehiclehistory">NMVTIS</a> provider before you buy, buy only with the title (or salvage title) and a bill of sale listing the VIN, and leave every VIN plate and stamping with the donor's shell (<a href="https://malegislature.gov/Laws/GeneralLaws/PartIV/TitleI/Chapter266/Section139">c. 266 §139</a>). Scrap the shell through a licensed recycler and keep the junking paperwork.</p>
+<p><strong>While the car is off the road.</strong> Either keep the Touring registered and insured and file the Off-the-Road Verification form before its sticker expires (renewed after 12 months), or cancel the plates (<a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-4-03">540 CMR 4.03</a>, <a href="https://www.mavehiclecheck.com/s/Off-the-Road-Verification-Inspection-Form_VSC123_1119.pdf">form VSC123</a>). When it returns to the road, get it inspected straight away; after a new registration you have 7 days. A failed car gets a free re-test at the same station within 60 days (<a href="https://www.mavehiclecheck.com/motorists-testresults">Test Results</a>).</p>
+<p><strong>Insurance and plates.</strong> Tell your insurer about the swap in writing: a misrepresentation that "increased the risk of loss" can void a policy (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter175/Section186">c. 175 §186</a>). Agreed-value collector cover exists in Massachusetts but rules out daily use. From 1 July 2025 the compulsory minimums are $25,000/$50,000 bodily injury, $30,000 property damage and $8,000 PIP (<a href="https://www.insurancejournal.com/news/east/2025/01/10/807563.htm">Insurance Journal</a>). Antique plates need a car "over twenty-five years old" and limit use to shows and club events, and Year of Manufacture plates must not look like current plates, so neither suits this car (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90/Section1">c. 90 §1</a>, <a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-2-07">540 CMR 2.07</a>).</p>
+<p><strong>A/C and odometer.</strong> Massachusetts adds nothing to the federal A/C rules in the next section. Its odometer law matches the federal one (<a href="https://malegislature.gov/Laws/GeneralLaws/PartIV/TitleI/Chapter266/Section141">c. 266 §141</a>): program the M3 cluster to your Touring's true mileage.</p>
+<p><strong>Ask in writing before you buy the donor</strong> (enclose photos of both cars' VECI labels):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Ask</th>
+<th>Questions</th>
+<th>Contact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MassDEP, Bureau of Air and Waste</td>
+<td>Does 310 CMR 60.02(12)(d), c. 90 §7O or c. 111 §142M(f) treat this swap as a violation in an emissions-exempt car, if every M3 emissions part, the US calibration and OBD are kept? Do you make findings under 310 CMR 7.40(9)(b)2 for one vehicle, and on what evidence? Does the answer change for a ULEV or SULEV Touring, or for a 325xi converted from all-wheel to rear-wheel drive? Is an immobilizer-only DME change treated as tampering?</td>
+<td>100 Cambridge Street, Suite 900, Boston MA 02114; 617-292-5500 (<a href="https://www.mavehiclecheck.com/s/2025-EPA-Annual-Report-Cover-Letter-a11y.pdf">MassDEP letter, October 2026</a>)</td>
+</tr>
+<tr class="even">
+<td>RMV Title Division</td>
+<td>Does welding M3 arch or trunk-floor sections cut from a donor into my Touring count under c. 90D §20F? Would new BMW panels avoid it? Must I surrender the donor's title under §20E, or apply for a salvage title under §20C? Must I amend the registration after the engine change?</td>
+<td>857-368-8050 (unverified)</td>
+</tr>
+<tr class="odd">
+<td>Vehicle Check or your inspection station</td>
+<td>Is my VIN decoded as emissions-exempt whatever engine is fitted? How do you judge staggered M3 tire sizes on a Touring, ride height against the original (I'll bring roof and jacking-point heights measured before the build), and a stock M3 exhaust on a 325i?</td>
+<td>1-844-358-0135 (<a href="https://www.mavehiclecheck.com/motorists-testresults">Test Results</a>); <a href="https://www.mavehiclecheck.com/motorists-testinglocations">station locator</a></td>
+</tr>
+<tr class="even">
+<td>Your insurer</td>
+<td>Agreed-value cover for the modified car, with what use limits? Cover while it's off the road? What records do you need?</td>
+<td>Your agent</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep the replies in the car's file with the donor's title or junking receipt, the bills of sale, the VECI label photos and the odometer records.</p>
+<h3 id="california">California</h3>
+<p>California's Bureau of Automotive Repair (BAR) runs the strictest program, and its rules show what a careful state will ask (<a href="https://www.bar.ca.gov/engine-changes">BAR</a>):</p>
+<ul>
+<li><strong>Referee first.</strong> Every vehicle with an engine change must pass an initial inspection at a BAR Referee center and carry a BAR Referee label inside the engine compartment. After that, regular Smog Check stations do the inspections, based on the label. Appointments: (800) 622-7733.</li>
+<li><strong>Donor rules apply.</strong> The initial Referee inspection follows the Smog Check requirements of the engine's donor vehicle, and bringing the donor's VIN to the appointment simplifies the process.</li>
+<li><strong>Tampering law.</strong> State and federal anti-tampering laws prohibit changes to the emission control system as the manufacturer certified it (California Vehicle Code section 27156; 16 CCR 3362.1). BAR's Engine Change Guidelines are in its Smog Check Reference Guide.</li>
+<li><strong>Modified software.</strong> Since 19 July 2021, Smog Check has failed vehicles whose OBD data doesn't match an OEM or CARB-approved software configuration, reported as "Modified Software". BAR counts a vehicle's software as part of its emissions control system, and a failed car's software must be restored to an OEM or CARB-approved version (<a href="https://www.bar.ca.gov/pdf/bag/202107/bar-ois-modified-software.pdf">BAR</a>).</li>
+</ul>
+<p>So before you choose between an EWS-delete flash, syncing a virgin DME and fitting the donor's EWS and keys (see <a href="electronics-and-coding.html#immobilizer-ews">Immobilizer (EWS)</a>), ask the Referee whether a VIN-matched EWS-delete flash will pass. California has reportedly failed cars for detected DME tunes (<a href="https://www.e46fanatics.com/threads/s54-swap-california-bar-certification.1307461/page-2">e46fanatics</a>). One San Diego E46 M3 wagon passed as "a totally legal California swap" after "like five trips to the BAR referee" (<a href="https://www.youtube.com/watch?v=7pAmQ4KDDYM&amp;t=140s">Driving Cody – The E46 M3 wagon BMW should have made (2020), 02:20</a>).</p>
+<h3 id="ac-odometer-title-and-insurance">A/C, odometer, title and insurance</h3>
+<p><strong>A/C refrigerant.</strong> Under the Clean Air Act, nobody may vent refrigerant. Anyone who services a car's A/C for pay must be certified under Section 609 and use approved equipment; certified equipment must remove the refrigerant before the system is opened; and recovered refrigerant must be recycled or reclaimed before it goes back into a car (<a href="https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing">EPA</a>). Refrigerant in containers over 0.9 kg (2 lb) is sold only to technicians certified under Section 608 or 609. Small cans of R-134a, 0.9 kg (2 lb) or less with a self-sealing valve, can still be sold for DIY use (<a href="https://www.epa.gov/section608/refrigerant-sales-restriction">EPA</a>, <a href="https://www.epa.gov/section608/section-608-and-section-609-overlap">EPA</a>), but they don't change the order of work: recovery by a certified shop comes first. EPA's approved Section 609 programs include ASE, ESCO Institute and MACS (<a href="https://www.epa.gov/mvac/section-609-technician-training-and-certification-programs">EPA</a>). In practice, have a certified shop recover the refrigerant from both cars before you open any A/C line, cap every open fitting, and after the first start have a shop evacuate the system and charge it by weight to the underhood label. The shop brief is in <a href="plan-and-budget.html#shop-briefs">Shop briefs</a>, and the job in <a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>.</p>
+<p><strong>Odometer.</strong> Program the M3 cluster to your car's true mileage. The light module (LCM) holds the car's mileage record, and a cluster with the matching VIN takes its mileage from it (<a href="https://www.e46fanatics.com/threads/e46-m3-cluster-coding.1278842/">e46fanatics</a>), so make the cluster match the LCM, never the reverse (see <a href="electronics-and-coding.html#instrument-cluster-and-mileage">Instrument cluster and mileage</a>). Federal law lets you fit a replacement odometer if it shows the same mileage (<a href="https://www.law.cornell.edu/uscode/text/49/32704">49 U.S.C. §32704</a>), so the cluster keeps your Touring's true mileage. The federal written mileage disclosure on sale no longer applies to model-year 2010 and older vehicles (<a href="https://www.law.cornell.edu/cfr/text/49/580.17">49 CFR 580.17</a>), but your state may still require it. Keep screenshots and photos of the cluster and LCM mileage before and after.</p>
+<p><strong>Title and paperwork.</strong> Keep the donor's title or salvage bill of sale, its VIN, photos of the engine number, receipts, and your state's written guidance. Nevada, for example, wants "verifiable proof" of the engine's year and configuration (<a href="https://dmv.nv.gov/pdfforms/ec054.pdf">Nevada DMV</a>). Some states record engine changes on the title or registration; ask your DMV. Plan how you'll dispose of the donor shell and its title; see <a href="plan-and-budget.html#space-storage-and-logistics">Space, storage and logistics</a>.</p>
+<p><strong>Insurance.</strong> Use an agreed-value policy, backed by receipts, photos and an appraisal, which costs about $250–$500 (June 2026). Insurers have paid out modified cars as stock when the owner couldn't document the work (<a href="https://www.automotiveaddicts.com/117260/dont-let-crash-ruin-your-build-essential-documentation-tips-las-vegas-drivers">Automotive Addicts</a>). Recent prices make useful comparables: one finished conversion was bid to $59,250 on Bring a Trailer in August 2024 without meeting its reserve (<a href="https://bringatrailer.com/listing/2001-bmw-e46-m3-wagon/">BaT</a>), and an all-wheel-drive S54 Touring was listed at $65,000 (<a href="https://www.builtforbackroads.com/listing/2004-bmw-325xit-touring-awd-s54-swap">Built for Backroads</a>).</p>
+<h3 id="questions-for-your-state-program">Questions for your state program</h3>
+<p>Ask before you buy the donor, and get the answers in writing if you can:</p>
+<ol type="1">
+<li>Does an engine change need a referee or special inspection, and what must I bring (donor VIN and title, engine-number photos, receipts)?</li>
+<li>Must the engine be the same model year as the car or newer? Must it come from a vehicle certified for this state?</li>
+<li>Which emissions parts must be fitted and working: catalysts, all O2 sensors, secondary air, the evaporative system with its DM-TL leak-test pump, crankcase ventilation?</li>
+<li>Does the test check DME software (calibration ID and CVN)? Will a VIN-matched EWS-delete flash pass, or must the software be OEM or state-approved?</li>
+<li>How many readiness monitors may be "not ready" for my model year?</li>
+<li>If my car is an M56 SULEV, which fuel tank and evaporative system must it keep?</li>
+<li>Is the engine change recorded on the title or registration, and is there a form to file?</li>
+<li>Does the state require any mileage disclosure when the instrument cluster is replaced with one set to the car's true mileage?</li>
+</ol>
+</section><nav aria-label="Guide chapters" class="pager"><a class="prev" href="bodywork-and-fitment.html"><span>Previous</span>Bodywork and fitment</a><a class="next" href="sources-and-appendix.html"><span>Next</span>Sources and appendix</a></nav></div></main>
+<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>
+<footer class="colophon"><div class="wrap">
+  <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
+  <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
+  <p>An independent enthusiast project, not affiliated with or endorsed by BMW AG. BMW and M3 are trademarks of BMW AG.</p>
+  <p>Source, history and diagrams: <a href="https://github.com/pniessen/e46-m3-touring">github.com/pniessen/e46-m3-touring</a>. Anything you tick or type on these pages is saved in your browser only.</p>
+</div></footer>
+<script>
+(function () {
+  "use strict";
+
+  // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
+  var nav = document.querySelector(".chapters");
+  var bar = document.querySelector(".chapters > ol");
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
+  var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
+  function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
+  function reveal(a) {
+    if (sidebarMode()) {
+      var top = a.offsetTop - nav.clientHeight / 3;
+      if (a.offsetTop < nav.scrollTop || a.offsetTop > nav.scrollTop + nav.clientHeight - 40) {
+        nav.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      }
+    } else if (bar) {
+      var left = a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2;
+      bar.scrollTo({ left: Math.max(0, left), behavior: "auto" });
+    }
+  }
+  function setCurrent(id) {
+    var a = chapterById[id];
+    if (!a || a.getAttribute("aria-current") === "true") return;
+    chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
+    a.setAttribute("aria-current", "true");
+    a.parentNode.classList.add("open");
+    reveal(a);
+  }
+  function setSection(id) {
+    var a = subById[id];
+    if (!a) return;
+    subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
+    a.setAttribute("aria-current", "location");
+    if (sidebarMode()) reveal(a);
+  }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
+  if ("IntersectionObserver" in window) {
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
+  }
+
+  // Worksheets and job cards: empty table cells become text fields and task lists become tick
+  // boxes. Entries are a convenience saved in this browser only; printing keeps what's typed.
+  var fillMain = document.querySelector("main[data-fill]");
+  if (fillMain) {
+    var FKEY = "e46-m3-touring-" + fillMain.getAttribute("data-page") + "-v1";
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(FKEY) || "{}") || {}; } catch (e) { store = {}; }
+    var saveStore = function () { try { localStorage.setItem(FKEY, JSON.stringify(store)); } catch (e) { /* storage blocked */ } };
+    var fields = [];
+    fillMain.querySelectorAll("table").forEach(function (table, ti) {
+      var heads = table.tHead && table.tHead.rows[0]
+        ? Array.prototype.map.call(table.tHead.rows[0].cells, function (c) { return c.textContent.trim(); }) : [];
+      Array.prototype.forEach.call(table.tBodies, function (tb) {
+        Array.prototype.forEach.call(tb.rows, function (row, ri) {
+          Array.prototype.forEach.call(row.cells, function (cell, ci) {
+            if (cell.textContent.trim() !== "" || cell.children.length) return;
+            var id = "t" + ti + "r" + ri + "c" + ci;
+            var input = document.createElement("input");
+            input.type = "text";
+            input.className = "fill";
+            var rowLabel = row.cells[0] && row.cells[0] !== cell ? row.cells[0].textContent.trim() : "";
+            input.setAttribute("aria-label", (heads[ci] || "Entry") + (rowLabel ? ", " + rowLabel : ""));
+            input.value = store[id] || "";
+            input.addEventListener("input", function () {
+              if (input.value) { store[id] = input.value; } else { delete store[id]; }
+              saveStore();
+            });
+            cell.classList.add("fill-cell");
+            cell.appendChild(input);
+            fields.push(input);
+          });
+        });
+      });
+    });
+    fillMain.querySelectorAll('li input[type="checkbox"]').forEach(function (cb, i) {
+      var id = "c" + i;
+      cb.disabled = false;
+      cb.checked = !!store[id];
+      cb.addEventListener("change", function () {
+        if (cb.checked) { store[id] = 1; } else { delete store[id]; }
+        saveStore();
+      });
+      fields.push(cb);
+    });
+    if (fields.length) {
+      var bar = document.createElement("div");
+      bar.className = "fill-tools";
+      var note = document.createElement("span");
+      note.className = "note";
+      note.textContent = "Type in the blank cells and tick the boxes. Entries are saved in this browser on this device only.";
+      var printBtn = document.createElement("button");
+      printBtn.type = "button";
+      printBtn.textContent = "Print";
+      printBtn.addEventListener("click", function () { window.print(); });
+      var clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.textContent = "Clear my entries";
+      var armed = null;
+      clearBtn.addEventListener("click", function () {
+        if (!armed) {
+          clearBtn.textContent = "Tap again to clear everything";
+          armed = setTimeout(function () { armed = null; clearBtn.textContent = "Clear my entries"; }, 4000);
+          return;
+        }
+        clearTimeout(armed);
+        armed = null;
+        clearBtn.textContent = "Clear my entries";
+        store = {};
+        saveStore();
+        fields.forEach(function (f) { if (f.type === "checkbox") { f.checked = false; } else { f.value = ""; } });
+      });
+      bar.appendChild(note);
+      bar.appendChild(printBtn);
+      bar.appendChild(clearBtn);
+      var holder = fillMain.querySelector(".wrap") || fillMain;
+      holder.insertBefore(bar, holder.firstChild);
+    }
+  }
+
+  // Parts checklist. Ticks are a convenience saved in this browser only.
+  var KEY = "e46-m3-touring-parts-v1";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage blocked */ } }
+
+  function slug(s) {
+    var h = 0;
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+    return "p" + (h >>> 0).toString(36);
+  }
+  function kindOf(text) {
+    var t = text.toLowerCase();
+    if (t.indexOf("donor") > -1) return "donor";
+    if (t.indexOf("fab") > -1 || t.indexOf("make") > -1) return "fab";
+    if (t.indexOf("keep") > -1 || t.indexOf("reuse") > -1) return "keep";
+    return "new";
+  }
+
+  var partsSection = document.querySelector('section[data-chapter="parts"]');
+  var rows = [];
+  if (partsSection) {
+    partsSection.querySelectorAll("table").forEach(function (table) {
+      var head = table.tHead && table.tHead.rows[0];
+      if (!head || !table.tBodies[0]) return;
+      var srcIdx = -1;
+      Array.prototype.forEach.call(head.cells, function (c, i) { if (/source/i.test(c.textContent)) srcIdx = i; });
+      if (srcIdx < 0) return;
+      table.classList.add("parts");
+      var th = document.createElement("th");
+      th.className = "tick-col";
+      th.textContent = "Got";
+      head.insertBefore(th, head.firstChild);
+      Array.prototype.forEach.call(table.tBodies[0].rows, function (row) {
+        var name = (row.cells[0] ? row.cells[0].textContent : "").trim();
+        var id = slug(name + "|" + (row.cells[srcIdx] ? row.cells[srcIdx].textContent : ""));
+        var srcCell = row.cells[srcIdx];
+        var kind = kindOf(srcCell ? srcCell.textContent : "");
+        row.setAttribute("data-kind", kind);
+        if (srcCell) {
+          var pill = document.createElement("span");
+          pill.className = "pill pill-" + kind;
+          pill.textContent = srcCell.textContent.trim();
+          srcCell.textContent = "";
+          srcCell.appendChild(pill);
+        }
+        var td = document.createElement("td");
+        td.className = "tick-col";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = id;
+        cb.checked = !!saved[id];
+        cb.setAttribute("aria-label", "Got it: " + name);
+        if (cb.checked) row.classList.add("done");
+        cb.addEventListener("change", function () {
+          if (cb.checked) { saved[id] = 1; } else { delete saved[id]; }
+          row.classList.toggle("done", cb.checked);
+          persist();
+          updateCount();
+        });
+        td.appendChild(cb);
+        row.insertBefore(td, row.firstChild);
+        rows.push(row);
+      });
+    });
+  }
+
+  var countEl = null;
+  function updateCount() {
+    if (!countEl) return;
+    var done = rows.filter(function (r) { return r.classList.contains("done"); }).length;
+    countEl.textContent = done + " of " + rows.length + " ticked";
+  }
+
+  if (partsSection && rows.length) {
+    var tools = document.createElement("div");
+    tools.className = "parts-tools";
+    tools.setAttribute("role", "group");
+    tools.setAttribute("aria-label", "Filter parts by where they come from");
+    var label = document.createElement("span");
+    label.className = "label";
+    label.textContent = "Show";
+    tools.appendChild(label);
+    var filters = [["all", "All"], ["donor", "From donor M3"], ["new", "Buy new"], ["fab", "Fabricate"], ["keep", "Keep"]];
+    var buttons = [];
+    filters.forEach(function (f) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = "filter-" + f[0];
+      b.textContent = f[1];
+      b.setAttribute("aria-pressed", f[0] === "all" ? "true" : "false");
+      b.addEventListener("click", function () {
+        buttons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        rows.forEach(function (r) { r.hidden = !(f[0] === "all" || r.getAttribute("data-kind") === f[0]); });
+      });
+      buttons.push(b);
+      tools.appendChild(b);
+    });
+    countEl = document.createElement("span");
+    countEl.className = "count";
+    tools.appendChild(countEl);
+    var note = document.createElement("span");
+    note.className = "note";
+    note.textContent = "Ticks are saved in this browser on this device only.";
+    tools.appendChild(note);
+    var firstTable = partsSection.querySelector(".table-wrap");
+    if (firstTable) firstTable.parentNode.insertBefore(tools, firstTable);
+    updateCount();
+  }
+})();
+
+</script>
+</body>
+</html>

@@ -2,13 +2,16 @@
   "use strict";
 
   // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
-  // Mark the chapter (and section) in view, and keep its link visible.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
   var nav = document.querySelector(".chapters");
   var bar = document.querySelector(".chapters > ol");
-  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"));
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
   var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
-  var byId = {};
-  chapterLinks.concat(subLinks).forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
   function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
   function reveal(a) {
     if (sidebarMode()) {
@@ -22,7 +25,7 @@
     }
   }
   function setCurrent(id) {
-    var a = byId[id];
+    var a = chapterById[id];
     if (!a || a.getAttribute("aria-current") === "true") return;
     chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
     a.setAttribute("aria-current", "true");
@@ -30,21 +33,164 @@
     reveal(a);
   }
   function setSection(id) {
-    var a = byId[id];
+    var a = subById[id];
     if (!a) return;
     subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
     a.setAttribute("aria-current", "location");
     if (sidebarMode()) reveal(a);
   }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
   if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
-    var io2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
-    }, { rootMargin: "0px 0px -75% 0px" });
-    document.querySelectorAll("main section h3[id]").forEach(function (h) { io2.observe(h); });
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
   }
 
   // Worksheets and job cards: empty table cells become text fields and task lists become tick

@@ -218,8 +218,101 @@ figure.photo figcaption a { color: inherit; }
   border-radius: 4px;
 }
 .chapters a:hover { color: var(--fg); background: var(--panel); }
-.chapters a[aria-current="true"] { color: var(--bg); background: var(--fg); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
 .chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
 
 /* Body copy */
 main .wrap { padding-block: 0.5rem 3rem; }
@@ -514,6 +607,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     color: var(--muted);
   }
   .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
   .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
   .masthead .wrap { padding-block: 3rem 2rem; }
   .masthead .lede,
@@ -534,7 +629,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
   }
   body { display: block !important; font-size: 10.5pt; background: #fff; }
-  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col { display: none !important; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
   input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
   main[data-fill] ~ .colophon { display: none; }
   td.fill-cell { min-width: 0; }

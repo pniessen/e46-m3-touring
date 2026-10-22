@@ -233,8 +233,101 @@ figure.photo figcaption a { color: inherit; }
   border-radius: 4px;
 }
 .chapters a:hover { color: var(--fg); background: var(--panel); }
-.chapters a[aria-current="true"] { color: var(--bg); background: var(--fg); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
 .chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
 
 /* Body copy */
 main .wrap { padding-block: 0.5rem 3rem; }
@@ -529,6 +622,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     color: var(--muted);
   }
   .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
   .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
   .masthead .wrap { padding-block: 3rem 2rem; }
   .masthead .lede,
@@ -549,7 +644,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
   }
   body { display: block !important; font-size: 10.5pt; background: #fff; }
-  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col { display: none !important; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
   input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
   main[data-fill] ~ .colophon { display: none; }
   td.fill-cell { min-width: 0; }
@@ -586,9 +682,9 @@ figure.diagram figcaption strong { color: var(--fg); }
     
   </div>
 </header>
-<nav class="chapters" aria-label="Chapters"><ol><li><a href="#touring-baseline-record"><span class="lbl-short">Touring baseline</span><span class="lbl-full">Touring baseline record</span></a><ol class="sub"><li><a href="#mileage">Mileage</a></li></ol></li><li><a href="#touring-shell-record"><span class="lbl-short">Touring shell</span><span class="lbl-full">Touring shell record</span></a><ol class="sub"><li><a href="#shell-inspection">Shell inspection</a></li></ol></li><li><a href="#electronics-baseline"><span class="lbl-short">Electronics</span><span class="lbl-full">Electronics baseline</span></a></li><li><a href="#coding-backups-log">Coding backups log</a><ol class="sub"><li><a href="#donor-dme-vin-slots">Donor DME VIN slots</a></li></ol></li><li><a href="#donor-m3-record-and-tests"><span class="lbl-short">Donor M3: record</span><span class="lbl-full">Donor M3: record and tests</span></a><ol class="sub"><li><a href="#the-donor">The donor</a></li><li><a href="#compression-and-leak-down">Compression and leak-down</a></li><li><a href="#vanos-tests">VANOS tests</a></li></ol></li><li><a href="#donor-arch-targets">Donor arch targets</a><ol class="sub"><li><a href="#arch-targets">Arch targets</a></li></ol></li><li><a href="#s54-refresh-measurements"><span class="lbl-short">S54 refresh</span><span class="lbl-full">S54 refresh measurements</span></a></li><li><a href="#floor-and-welding-log"><span class="lbl-short">Floor and welding</span><span class="lbl-full">Floor and welding log</span></a><ol class="sub"><li><a href="#floor-and-exhaust-positions">Floor and exhaust positions</a></li><li><a href="#panel-thickness">Panel thickness</a></li><li><a href="#test-coupons">Test coupons</a></li><li><a href="#body-diagonals">Body diagonals</a></li><li><a href="#plug-welds-and-sealing">Plug welds and sealing</a></li></ol></li><li><a href="#arches-and-doors">Arches and doors</a></li><li><a href="#fuel-system-tests">Fuel system tests</a></li><li><a href="#torque-log">Torque log</a><ol class="sub"><li><a href="#phase-3-on-the-bench">Phase 3: on the bench</a></li><li><a href="#phase-7-rear-axle">Phase 7: rear axle</a></li><li><a href="#phase-8-front-axle-steering-and-brakes">Phase 8: front axle, steering and brakes</a></li><li><a href="#phase-9-engine-gearbox-and-driveshaft">Phase 9: engine, gearbox and driveshaft</a></li><li><a href="#phase-10-cooling-and-exhaust">Phase 10: cooling and exhaust</a></li><li><a href="#phase-12-at-ride-height-and-the-oil-pressure-switch">Phase 12: at ride height, and the oil-pressure switch</a></li></ol></li><li><a href="#fluids-log">Fluids log</a></li><li><a href="#re-pin-log-ms43-touring"><span class="lbl-short">Re-pin log: MS43</span><span class="lbl-full">Re-pin log: MS43 Touring</span></a></li><li><a href="#re-pin-log-ms451-touring"><span class="lbl-short">Re-pin log: MS45.1</span><span class="lbl-full">Re-pin log: MS45.1 Touring</span></a></li><li><a href="#e-box-plug-log">E-box plug log</a><ol class="sub"><li><a href="#x6011-black-8-pins">X6011, black, 8 pins</a></li><li><a href="#x6053-and-x60531-natural-8-pins">X6053 and X60531, natural, 8 pins</a></li><li><a href="#x6021-black-4-pins">X6021, black, 4 pins</a></li><li><a href="#x6054-or-x60541-and-the-battery-feed">X6054 or X60541, and the battery feed</a></li></ol></li><li><a href="#power-up-checks">Power-up checks</a><ol class="sub"><li><a href="#steps-114-battery-off-dme-unplugged">Steps 1–14: battery off, DME unplugged</a></li><li><a href="#steps-1518-battery-on-dme-still-unplugged">Steps 15–18: battery on, DME still unplugged</a></li><li><a href="#step-19-can-bus">Step 19: CAN bus</a></li><li><a href="#steps-2029-first-key-on">Steps 20–29: first key-on</a></li><li><a href="#steps-3033-the-oil-priming-crank">Steps 30–33: the oil-priming crank</a></li></ol></li><li><a href="#coding-sessions-log"><span class="lbl-short">Coding sessions</span><span class="lbl-full">Coding sessions log</span></a><ol class="sub"><li><a href="#fault-log">Fault log</a></li></ol></li><li><a href="#first-start">First start</a></li><li><a href="#shakedown-log">Shakedown log</a><ol class="sub"><li><a href="#alignment">Alignment</a></li><li><a href="#speedometer-and-fuel-gauge">Speedometer and fuel gauge</a></li><li><a href="#ac-after-the-charge">A/C after the charge</a></li><li><a href="#break-in-log">Break-in log</a></li></ol></li><li><a href="#inspection-readiness"><span class="lbl-short">Inspection</span><span class="lbl-full">Inspection readiness</span></a><ol class="sub"><li><a href="#readiness-drives">Readiness drives</a></li><li><a href="#hardware-checks-in-tool32">Hardware checks in Tool32</a></li><li><a href="#inspection-day">Inspection day</a></li><li><a href="#results-and-paperwork">Results and paperwork</a></li></ol></li></ol></nav>
+<nav class="chapters" aria-label="Chapters"><ol><li class="search-item"><button type="button" class="search-open" aria-label="Search the site"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lbl-full">Search</span></button></li><li><a href="#touring-baseline-record"><span class="lbl-short">Touring baseline</span><span class="lbl-full">Touring baseline record</span></a><ol class="sub"><li><a href="#mileage">Mileage</a></li></ol></li><li><a href="#touring-shell-record"><span class="lbl-short">Touring shell</span><span class="lbl-full">Touring shell record</span></a><ol class="sub"><li><a href="#shell-inspection">Shell inspection</a></li></ol></li><li><a href="#electronics-baseline"><span class="lbl-short">Electronics</span><span class="lbl-full">Electronics baseline</span></a></li><li><a href="#coding-backups-log">Coding backups log</a><ol class="sub"><li><a href="#donor-dme-vin-slots">Donor DME VIN slots</a></li></ol></li><li><a href="#donor-m3-record-and-tests"><span class="lbl-short">Donor M3: record</span><span class="lbl-full">Donor M3: record and tests</span></a><ol class="sub"><li><a href="#the-donor">The donor</a></li><li><a href="#compression-and-leak-down">Compression and leak-down</a></li><li><a href="#vanos-tests">VANOS tests</a></li></ol></li><li><a href="#donor-arch-targets">Donor arch targets</a><ol class="sub"><li><a href="#arch-targets">Arch targets</a></li></ol></li><li><a href="#s54-refresh-measurements"><span class="lbl-short">S54 refresh</span><span class="lbl-full">S54 refresh measurements</span></a></li><li><a href="#floor-and-welding-log"><span class="lbl-short">Floor and welding</span><span class="lbl-full">Floor and welding log</span></a><ol class="sub"><li><a href="#floor-and-exhaust-positions">Floor and exhaust positions</a></li><li><a href="#panel-thickness">Panel thickness</a></li><li><a href="#test-coupons">Test coupons</a></li><li><a href="#body-diagonals">Body diagonals</a></li><li><a href="#plug-welds-and-sealing">Plug welds and sealing</a></li></ol></li><li><a href="#arches-and-doors">Arches and doors</a></li><li><a href="#fuel-system-tests">Fuel system tests</a></li><li><a href="#torque-log">Torque log</a><ol class="sub"><li><a href="#phase-3-on-the-bench">Phase 3: on the bench</a></li><li><a href="#phase-7-rear-axle">Phase 7: rear axle</a></li><li><a href="#phase-8-front-axle-steering-and-brakes">Phase 8: front axle, steering and brakes</a></li><li><a href="#phase-9-engine-gearbox-and-driveshaft">Phase 9: engine, gearbox and driveshaft</a></li><li><a href="#phase-10-cooling-and-exhaust">Phase 10: cooling and exhaust</a></li><li><a href="#phase-12-at-ride-height-and-the-oil-pressure-switch">Phase 12: at ride height, and the oil-pressure switch</a></li></ol></li><li><a href="#fluids-log">Fluids log</a></li><li><a href="#re-pin-log-ms43-touring"><span class="lbl-short">Re-pin log: MS43</span><span class="lbl-full">Re-pin log: MS43 Touring</span></a></li><li><a href="#re-pin-log-ms451-touring"><span class="lbl-short">Re-pin log: MS45.1</span><span class="lbl-full">Re-pin log: MS45.1 Touring</span></a></li><li><a href="#e-box-plug-log">E-box plug log</a><ol class="sub"><li><a href="#x6011-black-8-pins">X6011, black, 8 pins</a></li><li><a href="#x6053-and-x60531-natural-8-pins">X6053 and X60531, natural, 8 pins</a></li><li><a href="#x6021-black-4-pins">X6021, black, 4 pins</a></li><li><a href="#x6054-or-x60541-and-the-battery-feed">X6054 or X60541, and the battery feed</a></li></ol></li><li><a href="#power-up-checks">Power-up checks</a><ol class="sub"><li><a href="#steps-114-battery-off-dme-unplugged">Steps 1–14: battery off, DME unplugged</a></li><li><a href="#steps-1518-battery-on-dme-still-unplugged">Steps 15–18: battery on, DME still unplugged</a></li><li><a href="#step-19-can-bus">Step 19: CAN bus</a></li><li><a href="#steps-2029-first-key-on">Steps 20–29: first key-on</a></li><li><a href="#steps-3033-the-oil-priming-crank">Steps 30–33: the oil-priming crank</a></li></ol></li><li><a href="#coding-sessions-log"><span class="lbl-short">Coding sessions</span><span class="lbl-full">Coding sessions log</span></a><ol class="sub"><li><a href="#fault-log">Fault log</a></li></ol></li><li><a href="#first-start">First start</a></li><li><a href="#shakedown-log">Shakedown log</a><ol class="sub"><li><a href="#alignment">Alignment</a></li><li><a href="#speedometer-and-fuel-gauge">Speedometer and fuel gauge</a></li><li><a href="#ac-after-the-charge">A/C after the charge</a></li><li><a href="#break-in-log">Break-in log</a></li></ol></li><li><a href="#inspection-readiness"><span class="lbl-short">Inspection</span><span class="lbl-full">Inspection readiness</span></a><ol class="sub"><li><a href="#readiness-drives">Readiness drives</a></li><li><a href="#hardware-checks-in-tool32">Hardware checks in Tool32</a></li><li><a href="#inspection-day">Inspection day</a></li><li><a href="#results-and-paperwork">Results and paperwork</a></li></ol></li></ol></nav>
 <main data-page="sheets" data-fill><div class="wrap"><section id="touring-baseline-record"><h2>Touring baseline record</h2>
-<p><strong>Phase 0,</strong> before you change anything. The guide's <a href="./#check-your-own-touring-first">Check your own Touring first</a> explains each item. An xi (<a href="./#if-your-car-is-a-325xi">If your car is a 325xi</a>), an M56 SULEV or an ASC-only car changes the plan: re-plan the axle, fuel or DSC parts before you buy a donor.</p>
+<p><strong>Phase 0,</strong> before you change anything. The guide's <a href="plan-and-budget.html#check-your-own-touring-first">Check your own Touring first</a> explains each item. An xi (<a href="overview.html#if-your-car-is-a-325xi">If your car is a 325xi</a>), an M56 SULEV or an ASC-only car changes the plan: re-plan the axle, fuel or DSC parts before you buy a donor.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -635,7 +731,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 <tr class="even">
 <td>Emissions (VECI) label, under the hood</td>
-<td>Test group and category: LER = LEV, the S54's category; UL2 or SMG = ULEV; M56 = SULEV. Photograph it (<a href="./#massachusetts">Massachusetts</a>)</td>
+<td>Test group and category: LER = LEV, the S54's category; UL2 or SMG = ULEV; M56 = SULEV. Photograph it (<a href="registration-and-legal.html#massachusetts">Massachusetts</a>)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -680,7 +776,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 <tr class="odd">
 <td>Fan layout</td>
-<td>A fan in the radiator shroud with plug X82 on it (manual car); any fan in front of the condenser; distance from X82 to the front of the condenser (<a href="./#cooling-and-oil-cooler">fans</a>)</td>
+<td>A fan in the radiator shroud with plug X82 on it (manual car); any fan in front of the condenser; distance from X82 to the front of the condenser (<a href="fuel-cooling-and-ac.html#cooling-and-oil-cooler">fans</a>)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -731,10 +827,10 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <aside class="callout callout-crit"><span class="callout-label">Safety</span>
-<p>This is your car's true mileage, and after Phase 11 the M3 cluster must show it. Never write a mileage into the light module (<a href="./#instrument-cluster-and-mileage">Instrument cluster and mileage</a>, <a href="https://www.law.cornell.edu/uscode/text/49/32704">49 U.S.C. §32704</a>).</p>
+<p>This is your car's true mileage, and after Phase 11 the M3 cluster must show it. Never write a mileage into the light module (<a href="electronics-and-coding.html#instrument-cluster-and-mileage">Instrument cluster and mileage</a>, <a href="https://www.law.cornell.edu/uscode/text/49/32704">49 U.S.C. §32704</a>).</p>
 </aside>
 </section><section id="touring-shell-record"><h2>Touring shell record</h2>
-<p><strong>Phases 0 and 4</strong> (<a href="./#rear-subframe-mount-reinforcement">what to look for</a>). Copy your last alignment printout into the <a href="#alignment">alignment table</a>. In Phase 4, also record the spare-wheel well and the parts around it on <a href="#floor-and-exhaust-positions">Floor and exhaust positions</a>, before Phase 5 cuts the well out.</p>
+<p><strong>Phases 0 and 4</strong> (<a href="chassis-and-drivetrain.html#rear-subframe-mount-reinforcement">what to look for</a>). Copy your last alignment printout into the <a href="#alignment">alignment table</a>. In Phase 4, also record the spare-wheel well and the parts around it on <a href="#floor-and-exhaust-positions">Floor and exhaust positions</a>, before Phase 5 cuts the well out.</p>
 <h3 id="shell-inspection">Shell inspection</h3>
 <p>Mounts from above and below. Cracks: repair in Phase 5; torn or rotten floor: body-shop quote first.</p>
 <div class="table-wrap"><table>
@@ -803,7 +899,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><strong>Ride height,</strong> in BMW's normal position for your Touring: on its wheels on level ground, full tank, 68 kg (150 lb) on each front seat and in the middle of the rear seat, 21 kg (46 lb) in the middle of the trunk, placard tire pressures, each corner bounced first (<a href="./#phase-0-paperwork-and-baseline">Phase 0</a>, step 7; <a href="./#massachusetts-ride-height-baseline">how</a>; <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/1_td__chassis_wheel_alignment_normal_position_e46___m43tu_m47_m47tu_m52tu_m54_m/">BMW's load</a>). BMW measures from the bottom middle of the rim flange to the lower edge of the arch. Pass: within 10 mm of BMW's figure for your strut label and wheels, and left and right within 10 mm at each axle (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/31__front_axle/0__general/1_td__front_axle_ride_height_e46___rear_end/">TIS 31 00</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/33__rear_axle/0__general/2_td__rear_axle_ride_height_e46___rear_end/">TIS 33 00</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/11_ra__identification_on_volume_production_suspension_sports_suspension_etc/">strut label</a>). A corner outside BMW's figure means a sagging spring: note it, so it isn't copied into your targets.</p>
+<p><strong>Ride height,</strong> in BMW's normal position for your Touring: on its wheels on level ground, full tank, 68 kg (150 lb) on each front seat and in the middle of the rear seat, 21 kg (46 lb) in the middle of the trunk, placard tire pressures, each corner bounced first (<a href="step-by-step-build.html#phase-0-paperwork-and-baseline">Phase 0</a>, step 7; <a href="chassis-and-drivetrain.html#massachusetts-ride-height-baseline">how</a>; <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/1_td__chassis_wheel_alignment_normal_position_e46___m43tu_m47_m47tu_m52tu_m54_m/">BMW's load</a>). BMW measures from the bottom middle of the rim flange to the lower edge of the arch. Pass: within 10 mm of BMW's figure for your strut label and wheels, and left and right within 10 mm at each axle (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/31__front_axle/0__general/1_td__front_axle_ride_height_e46___rear_end/">TIS 31 00</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/33__rear_axle/0__general/2_td__rear_axle_ride_height_e46___rear_end/">TIS 33 00</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/11_ra__identification_on_volume_production_suspension_sports_suspension_etc/">strut label</a>). A corner outside BMW's figure means a sagging spring: note it, so it isn't copied into your targets.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -1425,7 +1521,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="donor-m3-record-and-tests"><h2>Donor M3: record and tests</h2>
-<p><strong>Phase 1,</strong> while the car still runs and before anything comes off. How to run each test: <a href="./#choose-the-donor">Choose the donor</a> (Test it while it still runs) and <a href="./#phase-1-buy-and-inspect-the-donor">Phase 1</a>. The exhaust, hanger and floor positions go in the donor columns of <a href="#floor-and-exhaust-positions">Floor and exhaust positions</a>.</p>
+<p><strong>Phase 1,</strong> while the car still runs and before anything comes off. How to run each test: <a href="plan-and-budget.html#choose-the-donor">Choose the donor</a> (Test it while it still runs) and <a href="step-by-step-build.html#phase-1-buy-and-inspect-the-donor">Phase 1</a>. The exhaust, hanger and floor positions go in the donor columns of <a href="#floor-and-exhaust-positions">Floor and exhaust positions</a>.</p>
 <h3 id="the-donor">The donor</h3>
 <div class="table-wrap"><table>
 <thead>
@@ -1642,7 +1738,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><label><input type="checkbox"/>Refrigerant recovery booked while the car can still be driven or towed to a shop</label></li>
 </ul>
 </section><section id="donor-arch-targets"><h2>Donor arch targets</h2>
-<p><strong>Phase 1,</strong> on a level floor before teardown: your Phase 6 targets (<a href="./#measure-both-cars-then-mock-up">method</a>, step 1). <strong>Phase 2,</strong> with the rear bumper off and before you cut: the station offsets and templates (<a href="./#datum-stations-and-templates">method</a>).</p>
+<p><strong>Phase 1,</strong> on a level floor before teardown: your Phase 6 targets (<a href="bodywork-and-fitment.html#measure-both-cars-then-mock-up">method</a>, step 1). <strong>Phase 2,</strong> with the rear bumper off and before you cut: the station offsets and templates (<a href="bodywork-and-fitment.html#datum-stations-and-templates">method</a>).</p>
 <h3 id="arch-targets">Arch targets</h3>
 <p>In BMW's normal position for an M3: full tank, 68 kg (150 lb) on each front seat, 14 kg (31 lb) in the middle of the trunk, placard pressures (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/1_td__chassis_wheel_alignment_normal_position_e46___m3_m3_csl/">TIS</a>). A to C up from the floor; D by plumb line from the lip; E is BMW's ride height, taped from the bottom middle of the rim flange straight up to the lower edge of the arch. Front corners: reference only.</p>
 <div class="table-wrap"><table>
@@ -1741,7 +1837,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><strong>Profile, Phase 2,</strong> bumper off. Laser to skin, in mm, at each station along the car from the rear axle line (<a href="./#datum-stations-and-templates">method</a>).</p>
+<p><strong>Profile, Phase 2,</strong> bumper off. Laser to skin, in mm, at each station along the car from the rear axle line (<a href="bodywork-and-fitment.html#datum-stations-and-templates">method</a>).</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -1863,7 +1959,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="s54-refresh-measurements"><h2>S54 refresh measurements</h2>
-<p><strong>Phase 3,</strong> engine on the stand. Limits and method: <a href="./#s54-refresh-on-the-stand">S54 refresh on the stand</a>; torques in the <a href="#torque-log">torque log</a>.</p>
+<p><strong>Phase 3,</strong> engine on the stand. Limits and method: <a href="chassis-and-drivetrain.html#s54-refresh-on-the-stand">S54 refresh on the stand</a>; torques in the <a href="#torque-log">torque log</a>.</p>
 <p><strong>Rod bearings.</strong> By the heads: 12-point (12 mm socket) is M11, reused in its own hole, tightened once (log as cycle 1); E-Torx (E12) is M10, new, three cycles. Plastigauge with the old bolts: 0.040–0.070 mm.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -2002,9 +2098,9 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><label><input type="checkbox"/>New seals and oil-pump disc; hub tabs intact or hub replaced; cam bridge flat, crank pin slides in</label></li>
 </ul>
 </section><section id="floor-and-welding-log"><h2>Floor and welding log</h2>
-<p><strong>Phase 5,</strong> and after every welding session in Phases 5 and 6; the positions table below starts on the donor, in Phase 1 or 2. Method: <a href="./#welding-settings-and-safety">Welding settings and safety</a>. The <em>Subframe mount reinforcement</em> and <em>Rear floor reinforcement plan</em> diagrams in <a href="./#rear-subframe-mount-reinforcement">Rear subframe mount reinforcement</a> show where the mounts sit.</p>
+<p><strong>Phase 5,</strong> and after every welding session in Phases 5 and 6; the positions table below starts on the donor, in Phase 1 or 2. Method: <a href="chassis-and-drivetrain.html#welding-settings-and-safety">Welding settings and safety</a>. The <em>Subframe mount reinforcement</em> and <em>Rear floor reinforcement plan</em> diagrams in <a href="chassis-and-drivetrain.html#rear-subframe-mount-reinforcement">Rear subframe mount reinforcement</a> show where the mounts sit.</p>
 <h3 id="floor-and-exhaust-positions">Floor and exhaust positions</h3>
-<p><strong>Donor columns: Phase 1 or 2,</strong> with the donor's exhaust still hanging and before anything under its floor comes off. <strong>Touring columns: Phase 4</strong> (stripped), then the Phase 5 mock-up, and the tips in Phase 12. No source publishes these figures, so the donor's become your targets (<a href="./#exhaust-and-the-spare-wheel-well">method</a>). Datum: the midpoint between the bolt centers of the rear subframe's two rear mounts. Measure X rearward from the line through those bolts, and Y left (+) or right (−) of the midpoint. Photograph each reading with a tape in frame.</p>
+<p><strong>Donor columns: Phase 1 or 2,</strong> with the donor's exhaust still hanging and before anything under its floor comes off. <strong>Touring columns: Phase 4</strong> (stripped), then the Phase 5 mock-up, and the tips in Phase 12. No source publishes these figures, so the donor's become your targets (<a href="chassis-and-drivetrain.html#exhaust-and-the-spare-wheel-well">method</a>). Datum: the midpoint between the bolt centers of the rear subframe's two rear mounts. Measure X rearward from the line through those bolts, and Y left (+) or right (−) of the midpoint. Photograph each reading with a tape in frame.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -2344,7 +2440,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <h3 id="test-coupons">Test coupons</h3>
-<p>For each new combination of thicknesses, weld coupons of the same materials in the position you'll use, overhead included, with plug welds through holes of the size you'll use on the car: BMW's 8 mm (5/16 in) on the floor, the kit's on the plates. Break each one in a vise. Start from the chart in your welder's door. Miller recommends 0.023–0.024 in (0.6 mm) wire for body panels up to 1/16 in (1.6 mm), 0.030 in (0.8 mm) wire for 20 gauge to 1/8 in, and 75/25 argon/CO2; never pure argon. BMW's own body-repair rule is G3Si1 or G4Si1 wire (ER70S-6 in the US) with 82/18 argon/CO2 (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/41__body_%28tour%29/0__body/48_ra__welding_and_soldering_steel_parts/">TIS 41 00</a>). Pass values are I-CAR's (<a href="./#welding-settings-and-safety">table</a>):</p>
+<p>For each new combination of thicknesses, weld coupons of the same materials in the position you'll use, overhead included, with plug welds through holes of the size you'll use on the car: BMW's 8 mm (5/16 in) on the floor, the kit's on the plates. Break each one in a vise. Start from the chart in your welder's door. Miller recommends 0.023–0.024 in (0.6 mm) wire for body panels up to 1/16 in (1.6 mm), 0.030 in (0.8 mm) wire for 20 gauge to 1/8 in, and 75/25 argon/CO2; never pure argon. BMW's own body-repair rule is G3Si1 or G4Si1 wire (ER70S-6 in the US) with 82/18 argon/CO2 (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/41__body_%28tour%29/0__body/48_ra__welding_and_soldering_steel_parts/">TIS 41 00</a>). Pass values are I-CAR's (<a href="chassis-and-drivetrain.html#welding-settings-and-safety">table</a>):</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -2613,7 +2709,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <h3 id="plug-welds-and-sealing">Plug welds and sealing</h3>
-<p><strong>Phase 5,</strong> as the floor goes in and before the carpet goes back (<a href="./#exhaust-and-the-spare-wheel-well">method</a>). Count the factory spot welds on each edge before you drill, on the donor floor too if you use it. BMW's rule: plug welds through 8 mm (5/16 in) holes, the same number and positions as the factory welds, at least 25 mm (1 in) apart.</p>
+<p><strong>Phase 5,</strong> as the floor goes in and before the carpet goes back (<a href="chassis-and-drivetrain.html#exhaust-and-the-spare-wheel-well">method</a>). Count the factory spot welds on each edge before you drill, on the donor floor too if you use it. BMW's rule: plug welds through 8 mm (5/16 in) holes, the same number and positions as the factory welds, at least 25 mm (1 in) apart.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -2691,7 +2787,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><label><input type="checkbox"/>Battery box parts, vent hose (through its grommet) and ground stud refitted on clean metal</label></li>
 </ul>
 </section><section id="arches-and-doors"><h2>Arches and doors</h2>
-<p><strong>Phase 6.</strong> Method: <a href="./#measure-and-mock-up-before-you-cut">Measure and mock up before you cut</a> and the sixteen steps of <a href="./#arch-graft-step-by-step">Arch graft step by step</a>. The station table in <a href="./#flare-profile">Flare profile</a> shows what to expect; your donor's <a href="#arch-targets">arch targets</a> set the targets you work to. The <em>Rear quarter cut lines</em> and <em>Arch section at the axle</em> diagrams in <a href="./#rear-arches-and-doors">Rear arches and doors</a> show where the new lip goes. Pass values not credited in the guide are our suggestions.</p>
+<p><strong>Phase 6.</strong> Method: <a href="bodywork-and-fitment.html#measure-and-mock-up-before-you-cut">Measure and mock up before you cut</a> and the sixteen steps of <a href="bodywork-and-fitment.html#arch-graft-step-by-step">Arch graft step by step</a>. The station table in <a href="bodywork-and-fitment.html#flare-profile">Flare profile</a> shows what to expect; your donor's <a href="#arch-targets">arch targets</a> set the targets you work to. The <em>Rear quarter cut lines</em> and <em>Arch section at the axle</em> diagrams in <a href="bodywork-and-fitment.html#rear-arches-and-doors">Rear arches and doors</a> show where the new lip goes. Pass values not credited in the guide are our suggestions.</p>
 <p><strong>Rear door gaps and flush,</strong> at three points you mark along each door's trailing edge: before any welding, and again with the arches on. Gap with feeler gauges. Flush with a straightedge across the gap and feeler gauges under it; write + if the door sits out, − if it sits in. <strong>Pass:</strong> each reading back within 0.5 mm of its before figure, and every gap inside BMW's 4 ± 0.75 mm, parallel within 1 mm (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/41__body_%28tour%29/0__body/13_ra__gap_dimensions_on_doors___engine_hood_and_trunk_lid/page_1919/">TIS 41 00</a>).</p>
 <div class="table-wrap"><table>
 <thead>
@@ -3138,7 +3234,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><label><input type="checkbox"/>Doors open and close freely, with gaps and flush back to the before readings; the <a href="#body-diagonals">body diagonals</a> within ±2 mm</label></li>
 </ul>
 </section><section id="fuel-system-tests"><h2>Fuel system tests</h2>
-<p><strong>Phase 7,</strong> with the M3 filter-regulator and lines in and the engine out. Method and safety: <a href="./#test-the-fuel-system">Test the fuel system</a>. The gauge goes on the threaded test fitting at the regulator (TP1), and the pump runs through a switch with a 15 A inline fuse across K96's socket pins 6 and 2, on the battery alone. Work outdoors, with an extinguisher at hand.</p>
+<p><strong>Phase 7,</strong> with the M3 filter-regulator and lines in and the engine out. Method and safety: <a href="fuel-cooling-and-ac.html#test-the-fuel-system">Test the fuel system</a>. The gauge goes on the threaded test fitting at the regulator (TP1), and the pump runs through a switch with a 15 A inline fuse across K96's socket pins 6 and 2, on the battery alone. Work outdoors, with an extinguisher at hand.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -3231,7 +3327,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="torque-log"><h2>Torque log</h2>
-<p><strong>Phases 3 to 12.</strong> Values are copied from the guide's <a href="./#torque-values">Torque values</a>, which gives the source for each; confirm compilation and video values in TIS. "New" means fit a new fastener. Write the date under <strong>Done</strong>, and tick <strong>Marked</strong> once the fastener is paint-marked.</p>
+<p><strong>Phases 3 to 12.</strong> Values are copied from the guide's <a href="sources-and-appendix.html#torque-values">Torque values</a>, which gives the source for each; confirm compilation and video values in TIS. "New" means fit a new fastener. Write the date under <strong>Done</strong>, and tick <strong>Marked</strong> once the fastener is paint-marked.</p>
 <h3 id="phase-3-on-the-bench">Phase 3: on the bench</h3>
 <div class="table-wrap"><table>
 <thead>
@@ -3415,7 +3511,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <h3 id="phase-7-rear-axle">Phase 7: rear axle</h3>
-<p>In this order: the studs before the axle goes up; the collar nuts, rear bolts and push rod; the joints that don't need ride height; then the rubber-bushed joints at ride height, with each rear hub set to its target hub-to-lip (<a href="./#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a>, steps 4, 5 and 8; <a href="./#targets-for-the-mock-up-and-the-bushed-joints">targets</a>). The diff mounts were done on the bench (Phase 3).</p>
+<p>In this order: the studs before the axle goes up; the collar nuts, rear bolts and push rod; the joints that don't need ride height; then the rubber-bushed joints at ride height, with each rear hub set to its target hub-to-lip (<a href="step-by-step-build.html#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a>, steps 4, 5 and 8; <a href="chassis-and-drivetrain.html#targets-for-the-mock-up-and-the-bushed-joints">targets</a>). The diff mounts were done on the bench (Phase 3).</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -3570,7 +3666,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><strong>Parking brake</strong> (<a href="./#brakes-and-bleeding">how</a>; <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/34__brakes/41__parking_brake/2_ra__adjusting_handbrake/page_1795/">BMW TIS 34 10 014</a>):</p>
+<p><strong>Parking brake</strong> (<a href="chassis-and-drivetrain.html#brakes-and-bleeding">how</a>; <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/34__brakes/41__parking_brake/2_ra__adjusting_handbrake/page_1795/">BMW TIS 34 10 014</a>):</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -3827,7 +3923,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><strong>Checks before the car goes on its wheels</strong> (<a href="./#phase-8-fit-the-m3-front-suspension-and-steering">Phase 8</a>):</p>
+<p><strong>Checks before the car goes on its wheels</strong> (<a href="step-by-step-build.html#phase-8-fit-the-m3-front-suspension-and-steering">Phase 8</a>):</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -4105,7 +4201,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="fluids-log"><h2>Fluids log</h2>
-<p><strong>Phases 2 to 12,</strong> from <a href="./#fluids-and-capacities">Fluids and capacities</a>. Later top-ups and re-bleeds go in the <a href="#break-in-log">break-in log</a>.</p>
+<p><strong>Phases 2 to 12,</strong> from <a href="sources-and-appendix.html#fluids-and-capacities">Fluids and capacities</a>. Later top-ups and re-bleeds go in the <a href="#break-in-log">break-in log</a>.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -5167,7 +5263,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="first-start"><h2>First start</h2>
-<p><strong>Phases 7 to 12</strong> (<a href="./#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a> to <a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, and the manual's <a href="wiring-and-coding.html#session-6-first-start-adaptations-and-throttle-check">Session 6</a>). Log the warm VANOS jobs in <a href="#vanos-tests">VANOS tests</a>.</p>
+<p><strong>Phases 7 to 12</strong> (<a href="step-by-step-build.html#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a> to <a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, and the manual's <a href="wiring-and-coding.html#session-6-first-start-adaptations-and-throttle-check">Session 6</a>). Log the warm VANOS jobs in <a href="#vanos-tests">VANOS tests</a>.</p>
 <p><strong>Tests before the first start:</strong></p>
 <div class="table-wrap"><table>
 <thead>
@@ -5288,9 +5384,9 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="shakedown-log"><h2>Shakedown log</h2>
-<p><strong>Phase 12,</strong> from the first drive to the end of the break-in. The checks come from <a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, and the alignment targets from <a href="./#wheel-alignment">Wheel alignment</a>.</p>
+<p><strong>Phase 12,</strong> from the first drive to the end of the break-in. The checks come from <a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">Phase 12</a>, and the alignment targets from <a href="sources-and-appendix.html#wheel-alignment">Wheel alignment</a>.</p>
 <h3 id="alignment">Alignment</h3>
-<p>Drive 5–10 miles to settle the springs. Then load the car to BMW's normal position for an M3: full tank, 68 kg (150 lb) on each front seat, 14 kg (31 lb) in the middle of the trunk, tires at pressure (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/1_td__chassis_wheel_alignment_normal_position_e46___m3_m3_csl/">TIS</a>). Measure the ride height, torque the front anti-roll bar clamp nuts on the wheels, and have the car aligned to BMW's M3 values in design position: that load, then weights near the struts until each corner is within 2 mm of BMW's ride height (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/18_ra__kds_chassis_wheel_alignment_check_with_load_up_to_design_position/">TIS 32 00 150</a>). A corner more than 10 mm below BMW's figure at that load is outside BMW's tolerance, and weights only lower it further: fix the springs first. Calibrate the steering angle last (<a href="wiring-and-coding.html#session-7-steering-angle-after-the-alignment">Session 7</a>). How to measure: <a href="./#after-the-build-settle-check-and-align">After the build</a>.</p>
+<p>Drive 5–10 miles to settle the springs. Then load the car to BMW's normal position for an M3: full tank, 68 kg (150 lb) on each front seat, 14 kg (31 lb) in the middle of the trunk, tires at pressure (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/1_td__chassis_wheel_alignment_normal_position_e46___m3_m3_csl/">TIS</a>). Measure the ride height, torque the front anti-roll bar clamp nuts on the wheels, and have the car aligned to BMW's M3 values in design position: that load, then weights near the struts until each corner is within 2 mm of BMW's ride height (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/18_ra__kds_chassis_wheel_alignment_check_with_load_up_to_design_position/">TIS 32 00 150</a>). A corner more than 10 mm below BMW's figure at that load is outside BMW's tolerance, and weights only lower it further: fix the springs first. Calibrate the steering angle last (<a href="wiring-and-coding.html#session-7-steering-angle-after-the-alignment">Session 7</a>). How to measure: <a href="chassis-and-drivetrain.html#after-the-build-settle-check-and-align">After the build</a>.</p>
 <p><strong>Ride height after settling.</strong> BMW's figure runs from the rim flange's lower edge, straight below the hub center, to the arch's lower edge straight above it; hub-to-lip runs from the hub center to the same edge. Pass: 605 mm front and 587 mm rear on 18-inch wheels (619 and 600 mm on 19s), ±10 mm, or within 10 mm of your own target; left and right within 10 mm.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -5326,7 +5422,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><strong>Massachusetts check:</strong> the same marked points as Phase 0, measured up from the floor at the Phase 0 load (your Touring's normal position: 68 kg also in the middle of the rear seat, 21 kg in the trunk). Pass: every difference within 50.8 mm (2 in); our target is 25 mm (1 in) (<a href="./#massachusetts-ride-height-baseline">why</a>).</p>
+<p><strong>Massachusetts check:</strong> the same marked points as Phase 0, measured up from the floor at the Phase 0 load (your Touring's normal position: 68 kg also in the middle of the rear seat, 21 kg in the trunk). Pass: every difference within 50.8 mm (2 in); our target is 25 mm (1 in) (<a href="chassis-and-drivetrain.html#massachusetts-ride-height-baseline">why</a>).</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -5407,7 +5503,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><strong>Alignment.</strong> The M3 values are BMW's own, set in design position (<a href="./#wheel-alignment">Wheel alignment</a>). The Touring column is BMW's for your car as built, standard suspension with the low-slung sports suspension's values in brackets, to read your Phase 0 printout against (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/6_td__wheel_alignment_e46___rear_end___standard_suspension/">TIS: standard</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/2_td__wheel_alignment_e46___rear_end___low-slung_sports_suspension/">sport</a>). Caster isn't adjustable: a reading inside the M3's range proves the M3 top mounts and arms are in.</p>
+<p><strong>Alignment.</strong> The M3 values are BMW's own, set in design position (<a href="sources-and-appendix.html#wheel-alignment">Wheel alignment</a>). The Touring column is BMW's for your car as built, standard suspension with the low-slung sports suspension's values in brackets, to read your Phase 0 printout against (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/6_td__wheel_alignment_e46___rear_end___standard_suspension/">TIS: standard</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/2_td__wheel_alignment_e46___rear_end___low-slung_sports_suspension/">sport</a>). Caster isn't adjustable: a reading inside the M3's range proves the M3 top mounts and arms are in.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -5557,7 +5653,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <h3 id="ac-after-the-charge">A/C after the charge</h3>
-<p><strong>Phase 12, step 10.</strong> The shop evacuates and charges the system; then you run BMW's checks (<a href="./#air-conditioning">Air conditioning</a>). The refrigerant and oil amounts go in the <a href="#fluids-log">fluids log</a>.</p>
+<p><strong>Phase 12, step 10.</strong> The shop evacuates and charges the system; then you run BMW's checks (<a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>). The refrigerant and oil amounts go in the <a href="#fluids-log">fluids log</a>.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -5615,7 +5711,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <h3 id="break-in-log">Break-in log</h3>
-<p>BMW's break-in after new rod bearings is 1,200 miles (1,930 km) below 5,500 rpm and 105 mph (169 km/h). BMW's bulletin gives no checks along the way and needs no oil service at the end; the check points below are the guide's suggestions (<a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>). Include closed-throttle coast-downs in gear: that's when the DME learns the crankshaft wheel.</p>
+<p>BMW's break-in after new rod bearings is 1,200 miles (1,930 km) below 5,500 rpm and 105 mph (169 km/h). BMW's bulletin gives no checks along the way and needs no oil service at the end; the check points below are the guide's suggestions (<a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">Phase 12</a>). Include closed-throttle coast-downs in gear: that's when the DME learns the crankshaft wheel.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -5758,7 +5854,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section><section id="inspection-readiness"><h2>Inspection readiness</h2>
-<p><strong>Phases 12 and 13</strong> (<a href="wiring-and-coding.html#readiness-and-inspection">Readiness and inspection</a>, <a href="./#phase-13-paint-trim-and-paperwork">Phase 13</a>). <strong>Don't clear codes or disconnect the battery</strong> in the weeks before the test: both reset readiness. Fix the faults, then let the DME run its own tests.</p>
+<p><strong>Phases 12 and 13</strong> (<a href="wiring-and-coding.html#readiness-and-inspection">Readiness and inspection</a>, <a href="step-by-step-build.html#phase-13-paint-trim-and-paperwork">Phase 13</a>). <strong>Don't clear codes or disconnect the battery</strong> in the weeks before the test: both reset readiness. Fix the faults, then let the DME run its own tests.</p>
 <h3 id="readiness-drives">Readiness drives</h3>
 <p>One column per day, following the manual's <a href="wiring-and-coding.html#a-drive-plan-for-readiness">drive plan</a>. The leak test runs only every second time its conditions are met. For each monitor, write R (ready) or N (not ready).</p>
 <div class="table-wrap"><table>
@@ -5953,7 +6049,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <ul class="task-list">
 <li><label><input type="checkbox"/>All lights, side markers and rear reflectors (kept on the modified bumper), and headlight aim</label></li>
 <li><label><input type="checkbox"/>Horn, wipers and washers; brakes, parking brake and tires</label></li>
-<li><label><input type="checkbox"/>Brake run done beforehand (<a href="./#brakes-and-bleeding">how</a>): no pull at 6–13 km/h (4–8 mph); from 32 km/h (20 mph) a stop within 9.1 m (30 ft) on the foot brake; the parking brake holds in first at 1,200–1,300 rpm and stops the car from 32 km/h (20 mph) within 24.4 m (80 ft); about 560 N (125 lb) on the pedal for 10 s with at least 20% of its travel left; booster drop test passes</label></li>
+<li><label><input type="checkbox"/>Brake run done beforehand (<a href="chassis-and-drivetrain.html#brakes-and-bleeding">how</a>): no pull at 6–13 km/h (4–8 mph); from 32 km/h (20 mph) a stop within 9.1 m (30 ft) on the foot brake; the parking brake holds in first at 1,200–1,300 rpm and stops the car from 32 km/h (20 mph) within 24.4 m (80 ft); about 560 N (125 lb) on the pedal for 10 s with at least 20% of its travel left; booster drop test passes</label></li>
 <li><label><input type="checkbox"/>ABS, DSC, airbag and check-engine lamps light at key-on, then go out; the red BRAKE lamp goes out with the parking brake released</label></li>
 <li><label><input type="checkbox"/>No exhaust leaks</label></li>
 <li><label><input type="checkbox"/>Readiness monitors set; a generic scanner reads your Touring's VIN from the DME, if it answers (no rule required it before 2005)</label></li>
@@ -6002,6 +6098,16 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><label><input type="checkbox"/>Only now, the fallback parts sold</label></li>
 </ul>
 </section></div></main>
+<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>
 <footer class="colophon"><div class="wrap">
   <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
   <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
@@ -6013,13 +6119,16 @@ figure.diagram figcaption strong { color: var(--fg); }
   "use strict";
 
   // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
-  // Mark the chapter (and section) in view, and keep its link visible.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
   var nav = document.querySelector(".chapters");
   var bar = document.querySelector(".chapters > ol");
-  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"));
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
   var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
-  var byId = {};
-  chapterLinks.concat(subLinks).forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
   function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
   function reveal(a) {
     if (sidebarMode()) {
@@ -6033,7 +6142,7 @@ figure.diagram figcaption strong { color: var(--fg); }
     }
   }
   function setCurrent(id) {
-    var a = byId[id];
+    var a = chapterById[id];
     if (!a || a.getAttribute("aria-current") === "true") return;
     chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
     a.setAttribute("aria-current", "true");
@@ -6041,21 +6150,164 @@ figure.diagram figcaption strong { color: var(--fg); }
     reveal(a);
   }
   function setSection(id) {
-    var a = byId[id];
+    var a = subById[id];
     if (!a) return;
     subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
     a.setAttribute("aria-current", "location");
     if (sidebarMode()) reveal(a);
   }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
   if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
-    var io2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
-    }, { rootMargin: "0px 0px -75% 0px" });
-    document.querySelectorAll("main section h3[id]").forEach(function (h) { io2.observe(h); });
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
   }
 
   // Worksheets and job cards: empty table cells become text fields and task lists become tick

@@ -233,8 +233,101 @@ figure.photo figcaption a { color: inherit; }
   border-radius: 4px;
 }
 .chapters a:hover { color: var(--fg); background: var(--panel); }
-.chapters a[aria-current="true"] { color: var(--bg); background: var(--fg); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
 .chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
 
 /* Body copy */
 main .wrap { padding-block: 0.5rem 3rem; }
@@ -529,6 +622,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     color: var(--muted);
   }
   .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
   .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
   .masthead .wrap { padding-block: 3rem 2rem; }
   .masthead .lede,
@@ -549,7 +644,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
   }
   body { display: block !important; font-size: 10.5pt; background: #fff; }
-  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col { display: none !important; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
   input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
   main[data-fill] ~ .colophon { display: none; }
   td.fill-cell { min-width: 0; }
@@ -586,17 +682,17 @@ figure.diagram figcaption strong { color: var(--fg); }
     
   </div>
 </header>
-<nav class="chapters" aria-label="Chapters"><ol><li><a href="#a-fourth-round-in-october-2026-read-bmws-own-repair-manual-and-coding-data"><span class="lbl-short">Round 4: what</span><span class="lbl-full">Round 4: what changed</span></a></li><li><a href="#five-jobs-on-x60004-carry-the-wiring-and-the-tourings-dme-generation-sets-the-details"><span class="lbl-short">Wiring: five jobs</span><span class="lbl-full">Wiring: five jobs on X60004</span></a></li><li><a href="#the-325is-own-pump-relay-already-works-pump-flow-and-line-fittings-are-the-real-fuel-questions"><span class="lbl-short">Fuel pump</span><span class="lbl-full">Fuel pump and lines</span></a></li><li><a href="#bmws-documents-settle-the-torque-values-105-nm-70-or-three-105-cycles">Torque values</a></li><li><a href="#the-touring-floor-is-sedan-steel-without-a-rear-bulkhead-or-v-brace-boxes">The Touring floor</a></li><li><a href="#a-convertibles-quarter-is-a-different-part-number-around-the-same-m3-arch"><span class="lbl-short">Convertible</span><span class="lbl-full">Convertible quarter panels</span></a></li><li><a href="#coding-follows-a-fixed-order-tools-backups-dme-cluster-dsc-readiness">Coding order</a><ol class="sub"><li><a href="#the-tool-chain-must-be-proven-on-the-untouched-car">The tool chain must be proven on the untouched car</a></li><li><a href="#the-sequence">The sequence</a></li><li><a href="#immobilizer-delete-through-a-vendor-sync-only-a-virgin-dme">Immobilizer: delete through a vendor, sync only a virgin DME</a></li><li><a href="#writing-the-tourings-vin-and-the-right-software-into-the-dme">Writing the Touring's VIN and the right software into the DME</a></li><li><a href="#first-start-adaptations-and-readiness">First start, adaptations and readiness</a></li><li><a href="#instrument-cluster-a-virgin-eeprom-takes-the-true-mileage">Instrument cluster: a virgin EEPROM takes the true mileage</a></li><li><a href="#vehicle-order-and-the-fsw_pswman-workflow">Vehicle order and the FSW_PSW.MAN workflow</a></li><li><a href="#dsc-and-steering-angle-keep-the-tourings-mk60-unless-you-will-hand-code-an-m3-unit">DSC and steering angle: keep the Touring's MK60 unless you will hand-code an M3 unit</a></li><li><a href="#body-modules-and-the-clutch-start-interlock">Body modules and the clutch-start interlock</a></li></ol></li><li><a href="#only-five-openly-licensed-photos-show-bmws-real-m3-touring">Photos</a></li><li><a href="#youtube-shows-the-metalwork-in-detail-and-the-body-side-re-pins-not-at-all">YouTube</a><ol class="sub"><li><a href="#conversion-builds">Conversion builds</a></li><li><a href="#swap-wiring-and-coding">Swap wiring and coding</a></li><li><a href="#do-it-yourself-mechanical-jobs">Do-it-yourself mechanical jobs</a></li></ol></li><li><a href="#conclusion">Conclusion</a></li></ol></nav>
+<nav class="chapters" aria-label="Chapters"><ol><li class="search-item"><button type="button" class="search-open" aria-label="Search the site"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lbl-full">Search</span></button></li><li><a href="#a-fourth-round-in-october-2026-read-bmws-own-repair-manual-and-coding-data"><span class="lbl-short">Round 4: what</span><span class="lbl-full">Round 4: what changed</span></a></li><li><a href="#five-jobs-on-x60004-carry-the-wiring-and-the-tourings-dme-generation-sets-the-details"><span class="lbl-short">Wiring: five jobs</span><span class="lbl-full">Wiring: five jobs on X60004</span></a></li><li><a href="#the-325is-own-pump-relay-already-works-pump-flow-and-line-fittings-are-the-real-fuel-questions"><span class="lbl-short">Fuel pump</span><span class="lbl-full">Fuel pump and lines</span></a></li><li><a href="#bmws-documents-settle-the-torque-values-105-nm-70-or-three-105-cycles">Torque values</a></li><li><a href="#the-touring-floor-is-sedan-steel-without-a-rear-bulkhead-or-v-brace-boxes">The Touring floor</a></li><li><a href="#a-convertibles-quarter-is-a-different-part-number-around-the-same-m3-arch"><span class="lbl-short">Convertible</span><span class="lbl-full">Convertible quarter panels</span></a></li><li><a href="#coding-follows-a-fixed-order-tools-backups-dme-cluster-dsc-readiness">Coding order</a><ol class="sub"><li><a href="#the-tool-chain-must-be-proven-on-the-untouched-car">The tool chain must be proven on the untouched car</a></li><li><a href="#the-sequence">The sequence</a></li><li><a href="#immobilizer-delete-through-a-vendor-sync-only-a-virgin-dme">Immobilizer: delete through a vendor, sync only a virgin DME</a></li><li><a href="#writing-the-tourings-vin-and-the-right-software-into-the-dme">Writing the Touring's VIN and the right software into the DME</a></li><li><a href="#first-start-adaptations-and-readiness">First start, adaptations and readiness</a></li><li><a href="#instrument-cluster-a-virgin-eeprom-takes-the-true-mileage">Instrument cluster: a virgin EEPROM takes the true mileage</a></li><li><a href="#vehicle-order-and-the-fsw_pswman-workflow">Vehicle order and the FSW_PSW.MAN workflow</a></li><li><a href="#dsc-and-steering-angle-keep-the-tourings-mk60-unless-you-will-hand-code-an-m3-unit">DSC and steering angle: keep the Touring's MK60 unless you will hand-code an M3 unit</a></li><li><a href="#body-modules-and-the-clutch-start-interlock">Body modules and the clutch-start interlock</a></li></ol></li><li><a href="#only-five-openly-licensed-photos-show-bmws-real-m3-touring">Photos</a></li><li><a href="#youtube-shows-the-metalwork-in-detail-and-the-body-side-re-pins-not-at-all">YouTube</a><ol class="sub"><li><a href="#conversion-builds">Conversion builds</a></li><li><a href="#swap-wiring-and-coding">Swap wiring and coding</a></li><li><a href="#do-it-yourself-mechanical-jobs">Do-it-yourself mechanical jobs</a></li></ol></li><li><a href="#conclusion">Conclusion</a></li></ol></nav>
 <main data-page="research"><div class="wrap"><section id="a-fourth-round-in-october-2026-read-bmws-own-repair-manual-and-coding-data"><h2>A fourth round in October 2026 read BMW's own repair manual and coding data</h2>
 <p>In October 2026 a fourth round of research went deeper on coding, the rear arches, the floor and exhaust, suspension, fuel, brakes, cooling and A/C. A gap-filling pass after it reached BMW's E46 repair manual (TIS, 12/2007 issue) and BMW's E46 coding data. These findings change the picture below; the guide carries the details and the sources.</p>
 <ul>
 <li><strong>The M3 cluster keeps the donor's vehicle order.</strong> BMW's coding data admits an M3 cluster (coding index 22, 23 or 24) only with an M3 order, so NCS Expert refuses a 325i Touring order in it, and writing the Touring's order into it is very likely refused too. The light module (ALSZ) holds the car's own order, every other module is coded from that, and nothing is coded with Code Car or default coding (<a href="wiring-and-coding.html#session-4-cluster-and-light-module">Session 4</a>).</li>
 <li><strong>Your own MK60 stays as coded.</strong> One real parameter dump from a non-M MK60 at coding index C05 shows no M3 body type and no M3 rack curve, so "M3 values" on the Touring's unit means hand-edited parameters. The guide leaves the unit as coded and runs its three compensation routines; the steering-angle job, <code>LENKWINKEL_DSC_ABGLEICHEN</code>, exists only in the MK60's job file (<a href="wiring-and-coding.html#session-5-dsc-coding-and-vin">Session 5</a>).</li>
-<li><strong>A pipe set joins the pump to the lines.</strong> On both cars a short hose assembly joins the pump flange to the floor lines (Touring 16117175998, M3 16112283288). Nobody has documented the M3 set on the Touring's pump, so the guide moves the donor's whole in-tank set across with the M3 pipe set and lines (<a href="./#fuel-system">Fuel system</a>).</li>
-<li><strong>BMW measures ride height and alignment loaded.</strong> TIS gives E46 ride height from the rim flange to the arch edge in a loaded "normal position" (for the M3, a full tank, 68 kg on each front seat and 14 kg in the trunk): 605 mm front and 587 mm rear on the M3's 18-inch wheels, ±10 mm, with tables for the Touring by suspension and wheel size (<a href="./#ride-height-bmws-method-and-figures">Ride height: BMW's method and figures</a>, <a href="./#wheel-alignment">Wheel alignment</a>).</li>
-<li><strong>The M3 flare is a profile, and new steel is on sale.</strong> Scaled from BMW's drawings, the M3 rear quarter stands about 21–23 mm proud around the axle and 25–32 mm well behind it, over the same arch opening. BMW still sells the M3 convertible's rear side panel ($2,105.60 a side at BMWPartsDeal, October 2026) and the M3 trunk floor ($763.61), so the shell can be built without any donor steel (<a href="./#rear-arches-and-doors">Rear arches and doors</a>, <a href="./#budget">Budget</a>).</li>
-<li><strong>A manual Touring cools differently.</strong> It has an electric fan inside its radiator shroud rather than the M3's viscous fan and front pusher fan. The DME pin doesn't change, but the fan's lead may need extending to reach the M3 layout. The S54 holds about 9.3 litres of coolant, and the A/C takes 715–765 g of R134a by one vendor's handbook; the label under the hood decides (<a href="./#cooling-and-oil-cooler">Cooling and oil cooler</a>, <a href="./#air-conditioning">Air conditioning</a>).</li>
-<li><strong>A 325xi can be done either way.</strong> Converting an xi to rear drive is hard but feasible. Keeping all-wheel drive means the xi's own oil pan, a 330xi six-speed and matched differentials, and one of the two documented cars wrecked its S54's bottom end through the oil system (<a href="./#if-your-car-is-a-325xi">If your car is a 325xi</a>).</li>
+<li><strong>A pipe set joins the pump to the lines.</strong> On both cars a short hose assembly joins the pump flange to the floor lines (Touring 16117175998, M3 16112283288). Nobody has documented the M3 set on the Touring's pump, so the guide moves the donor's whole in-tank set across with the M3 pipe set and lines (<a href="fuel-cooling-and-ac.html#fuel-system">Fuel system</a>).</li>
+<li><strong>BMW measures ride height and alignment loaded.</strong> TIS gives E46 ride height from the rim flange to the arch edge in a loaded "normal position" (for the M3, a full tank, 68 kg on each front seat and 14 kg in the trunk): 605 mm front and 587 mm rear on the M3's 18-inch wheels, ±10 mm, with tables for the Touring by suspension and wheel size (<a href="chassis-and-drivetrain.html#ride-height-bmws-method-and-figures">Ride height: BMW's method and figures</a>, <a href="sources-and-appendix.html#wheel-alignment">Wheel alignment</a>).</li>
+<li><strong>The M3 flare is a profile, and new steel is on sale.</strong> Scaled from BMW's drawings, the M3 rear quarter stands about 21–23 mm proud around the axle and 25–32 mm well behind it, over the same arch opening. BMW still sells the M3 convertible's rear side panel ($2,105.60 a side at BMWPartsDeal, October 2026) and the M3 trunk floor ($763.61), so the shell can be built without any donor steel (<a href="bodywork-and-fitment.html#rear-arches-and-doors">Rear arches and doors</a>, <a href="plan-and-budget.html#budget">Budget</a>).</li>
+<li><strong>A manual Touring cools differently.</strong> It has an electric fan inside its radiator shroud rather than the M3's viscous fan and front pusher fan. The DME pin doesn't change, but the fan's lead may need extending to reach the M3 layout. The S54 holds about 9.3 litres of coolant, and the A/C takes 715–765 g of R134a by one vendor's handbook; the label under the hood decides (<a href="fuel-cooling-and-ac.html#cooling-and-oil-cooler">Cooling and oil cooler</a>, <a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>).</li>
+<li><strong>A 325xi can be done either way.</strong> Converting an xi to rear drive is hard but feasible. Keeping all-wheel drive means the xi's own oil pan, a 330xi six-speed and matched differentials, and one of the two documented cars wrecked its S54's bottom end through the oil system (<a href="overview.html#if-your-car-is-a-325xi">If your car is a 325xi</a>).</li>
 </ul>
 </section><section id="five-jobs-on-x60004-carry-the-wiring-and-the-tourings-dme-generation-sets-the-details"><h2>Five jobs on X60004 carry the wiring, and the Touring's DME generation sets the details</h2>
 <p>The S54's MSS54 and MSS54HP and the 325i's MS43 and MS45 all use Siemens's five-module DME connector (X60001 with 9 pins, X60002 with 24, X60003 with 52, X60004 with 40 and X60005 with 9, 134 pins on the MSS54), but the pin assignments differ throughout (<a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055 MS S54</a>; <a href="https://docs.google.com/spreadsheets/d/1I_2XAvziPCiRlZXnkfk4x1tUIKy4TKPbmdJcGCBdGIg/edit?usp=sharing">pinout workbook</a>). <strong>Only X60004, the "vehicle interface", stays with the Touring.</strong> X60001, X60002, X60003 and X60005 arrive with the complete M3 engine harness, together with an E-box branch that also crosses to the body: a black 8-pin plug X6011, a white 8-pin X6053 (mating X60531), a black 4-pin plug carrying the fuel-pump trigger, a 3-pin plug carrying the reverse-light pair and "1 really thick wire which is DME relay, nothing will work without it", and the E-box mini fuse box (<a href="https://www.e46fanatics.com/threads/s54-swap-wiring-information.1003871/">e46fanatics</a>). Keep the donor's DME and harness as a matched pair. Coil orders differ between DME families (MSS54 X60005 pins 1/2/3/6/7/9 fire coils 1/2/3/5/6/4; MS45 pins 1/4/6/7/8/9 fire coils 5/3/1/2/4/6), and a coil harness from the wrong family damaged a DME in an M54 swap into a 330Ci that mixed MS43 and MS45 coil harnesses (<a href="https://www.e46fanatics.com/threads/330ci-engine-swap-no-start-looking-for-help.1298699/">e46fanatics</a>). BMW's catalog also changes the M3 harness's gearbox module at 09/2003, about when the MSS54HP arrived (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/browse/engine_electrical_system/wiring_harness_engine_trans_module/">ETK</a>). Read the Touring's DME label: MS43 before 02/2003, MS45 after (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>). The transcribed BMW tables show two MS45 variants that differ on exactly the pins this swap touches: "MS45.1", with the pump relay on pin 10 and the clutch on pin 23, and "MS45 903", with pin 10 unused and a local CAN link to a pump controller on pins 31/35. The first comes from a tab the workbook labels "X3ZHP" and carries 3.0-litre-only pins (exhaust flap, "3.0 USA" secondary-air sensor), so it describes a 3.0-litre car such as the 330i ZHP rather than a 325i, though its relay and clutch pins fit a manual M54 Touring; the second looks like the M56 SULEV car (an inference), so meter each pin rather than trusting a label.</p>
@@ -738,8 +834,8 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p>US M3s drive the pump through a plug-in electronic module, the EKP or EKPS, which BMW's catalog calls "Relay for fuel pump, cycled" (61357892976) and which sits in the trunk above the right rear wheel well on the coupe (BMW's catalog lists it for the US coupe only; owners place a convertible's behind the right rear side trim). The DME sends it a 0–120 Hz PWM signal from X60002 pin 11, so the pump runs slowly at idle and part load and at full speed for about 20 seconds after start-up and at full load (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, Engine Electronics part 2</a>; <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/vehicle_electrical_system/relay_for_fuel_pump_cycled/">ETK</a>). European M3s and the US 325i switch an ordinary white-green relay instead, BMW's "Relay for fuel pump 1 K96" (61368373700) on top of the box behind the fuse panel, by grounding its coil through the black/violet (SW/VI) wire from X60004 pin 10 (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/vehicle_electrical_system/relay_for_fuel_pump_1_k96/">ETK, Touring K96</a>; <a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/3%20MS42%20MS43.pdf">BMW ST055 MS42/MS43</a>); the "K6320" label seen online appears in no BMW source. The decisive fact is that <strong>the US MSS54 has both outputs</strong>: BMW's tables label X60002-11 "USA only" and X60004-10 "not USA", and George Hill, who does S54 swaps and owns 325i and 323i Tourings, explains that "Because of this you don't have to make any changes to the fuel pump system when doing a S54 swap into a Non-M E46 chassis" (<a href="https://docs.google.com/spreadsheets/d/1I_2XAvziPCiRlZXnkfk4x1tUIKy4TKPbmdJcGCBdGIg/edit?usp=sharing">pinout workbook</a>; <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/132772-help-fuel-pump-relay-ekp-engine-wiring-schematic/page3">NAM3</a>).</p>
 <p>Swappers who left the relay wiring alone ran fine: a 323i owner whose MS42 body also switches the pump relay from X60004 pin 10 "didn't touch the wiring on the fuel pump" and measured 71 psi (about 4.9 bar) at the regulator (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/82513-s54-swap-to-ms42-car-no-start">NAM3</a>). The cost is a stored module fault. One US MSS54 in an MS45-era body "is still throwing a code for Fuel pump EKP since its not getting a signal. it doesnt trigger CEL but pASoft shows the dme error" (<a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/page-38">e46fanatics</a>), and George Hill describes the same "shadow code" in ISTA and INPA, invisible to a generic scanner, with every readiness monitor setting and an OBD plug-in test passing (<a href="https://www.e46fanatics.com/threads/s54-swap-california-bar-certification.1307461/page-2">e46fanatics</a>). The alternatives each cost something. Fitting the M3's EKP means rewiring the glovebox socket "with a black relay socket" (<a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/page-38">e46fanatics</a>); flashing European software would drop US-only functions such as the leak-pump diagnosis, which undermines inspection; and a vendor can suppress the fault while keeping the stock US calibration. Never let the PWM output reach a mechanical relay coil, which would chatter at up to 120 Hz (an inference; nobody has reported it), so find out what the M3 harness's small E-box plug with the black/violet wire mates with on the Touring side. Two points stay open: one owner reports a 2006 MSS54HP using "pin 10" rather than X60002-11 for the module, and BMW describes the airbag-triggered fuel cut-off only for the EKP, so whether it survives on a relay is unknown. In the one detailed 325i Touring EWS thread, the car was still crank-no-start with "fuel pump relay error code 1" and all six injectors disabled when the thread ended (<a href="https://www.e46fanatics.com/threads/ews-synch-for-s54-swap-into-e46-touring.1318881/">e46fanatics</a>), so verify pump control before blaming anything else.</p>
 <p>Confirm first that the Touring is an M54 car. BMW introduced the M56 SULEV in the 2003 325iA automatic for California, New York and Massachusetts (Vermont from 2004), with a pump control unit (16146912019), a metal tank and a feed line without a return (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%202%29/08_SULEV.pdf">BMW B11 75 02</a>; <a href="https://bmwfans.info/parts-catalog/16146912019/">ETK</a>), but its catalog also lists a five-speed gearbox and clutch for the US M56 Touring, both before and after 09/2003 (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/L-N/browse/manual_transmission/manual_transmission_s5d_g/">ETK gearbox</a>; <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/L-N/browse/clutch/clutch/">ETK clutch</a>), so a manual gearbox does not prove an M54 with the K96 relay; check the engine code and the tank. The M54 Touring's tank, delivery unit, jet pump, left sender and lines carry the same part numbers as the US 325i sedan's, so sedan swap evidence transfers directly (<a href="https://bmwfans.info/parts-catalog/16146766942/">ETK</a>).</p>
-<p>BMW specifies <strong>5.0 ± 0.2 bar</strong> (3.8 bar under part-throttle vacuum) and gave the M3 "a high output fuel pump… to match the fuel supply demands of the S54 engine" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, part 2</a>). Bentley, as quoted on e46fanatics, sets residual pressure above 4.5 bar after 20 minutes and one delivery minimum for every E46 engine: <strong>1.12 litres in 30 seconds at 12 V</strong>, about 134 L/h (<a href="https://www.e46fanatics.com/threads/fuel-pressure-info.1116777/">e46fanatics</a>). A rough estimate (not a sourced figure) puts the S54's full-load demand at 90–100 L/h, from 333 bhp at a specific fuel consumption of 0.27–0.30 kg/kWh, so a pump that only just meets the minimum leaves 35–45 L/h of return flow. On the E46's saddle tank that return flow powers the siphon jet that moves fuel from the left half to the pump (<a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055, p. 24</a>). A 330i ZHP owner traced fuel starvation near a quarter tank under hard load to exactly that and cured it with the M3 pump, which he recalled flows 10–20% more (<a href="https://www.e46fanatics.com/threads/will-an-m3-fuel-pump-fit-a-non-m-is-there-any-point-in-doing-this.903381/">e46fanatics</a>). Owners have fitted the M3 delivery unit (16142229684) and M3 baffle (16112229656) into non-M sedan tanks (one needed a sleeve; another measured the M3 pump body at 43 mm against 50 mm) (<a href="https://www.e46fanatics.com/threads/will-an-m3-fuel-pump-fit-a-non-m-is-there-any-point-in-doing-this.903381/page-2">e46fanatics, page 2</a>), and three Touring builds on YouTube fitted the M3 tank or pump without a reported problem (<a href="https://www.youtube.com/watch?v=GdCUQY-Xn-s&amp;t=900s">Tenza, 15:00</a>); Tenza's wagon was an ex-M56 SULEV car, and its M3 tank replaced a sealed tank that belonged to the certified evaporative system, so treat that one as a fit check, not a method. Run BMW's own test: pull K96 and bridge its socket's pins 6 and 2 through a fused switch, BMW's "pin 87b and 30" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, part 2, p.41</a>); WDS gives "Terminal 87" to pin 8, the coil supply, which must not be bridged (<a href="https://wds.psjr.org/en/e46/zinfo/E46_PK96A.htm">WDS</a>). Confirm 5.0 ± 0.2 bar through the M3 regulator with no more than 0.5 bar bleed-off, and measure at least 1.12 litres in 30 seconds. The fourth round made the donor's whole in-tank set the default rather than a track-only upgrade (<a href="./#choose-the-pump-route">Fuel system</a>).</p>
-<p>The M3 filter (13327831089), regulator housing (13537830368) and 5-bar regulator (13531404089) mount on the Touring's existing bracket (13321435583) and cover (13328230397) (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/fuel_preparation_system/fuel_filter_pressure_regulator/">ETK, M3</a>; <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/fuel_preparation_system/fuel_filter_pressure_regulator/">ETK, Touring</a>), but the lines are another matter. BMW gives the M3 its own front feed (16122229410), rear feed (16122229409) and return (16122229411), and Kalim found that "the return lines are identical, but the high-pressure lines have different fittings": quick-disconnects on the M3 against barb-and-clamp on the non-M (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/fuel_supply/fuel_pipe_and_mounting_parts/">ETK</a>; <a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/">e46fanatics</a>). Budget for the three M3 lines or adapters. The M3 regulator needs a vacuum hose to the idle-air distribution pipe (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, part 2</a>), a job the M54's atmospheric vent hose does not do (<a href="https://www.e46fanatics.com/threads/ms45-1-m54b30-330i-fuel-pressure.1048644/">e46fanatics, on an M54 330i</a>). Videos add three first-start lessons: fit the M3 filter-regulator before cranking, not after a no-start (<a href="https://www.youtube.com/watch?v=pvR3ovRfQHg&amp;t=4440s">Tracks and Trails, 1:14:00</a>); expect an old regulator's O-rings to leak (<a href="https://www.youtube.com/watch?v=4Q3PxGuJyxI&amp;t=357s">M346 Projects, 05:57</a>); and check feed and return orientation, which caused one swapper's no-start (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/82513-s54-swap-to-ms42-car-no-start">NAM3</a>). One 330Ci build's on-camera guess that the M3 system "runs at four bar" is wrong (<a href="https://www.youtube.com/watch?v=td8MgQ_3KGs&amp;t=1000s">DBO, 16:40</a>). The fourth round found where those fittings meet: a short pipe set joins the pump flange to the floor lines on both cars, and the guide now moves the donor's whole in-tank set with the M3 pipe set and lines (<a href="./#fuel-system">Fuel system</a>).</p>
+<p>BMW specifies <strong>5.0 ± 0.2 bar</strong> (3.8 bar under part-throttle vacuum) and gave the M3 "a high output fuel pump… to match the fuel supply demands of the S54 engine" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, part 2</a>). Bentley, as quoted on e46fanatics, sets residual pressure above 4.5 bar after 20 minutes and one delivery minimum for every E46 engine: <strong>1.12 litres in 30 seconds at 12 V</strong>, about 134 L/h (<a href="https://www.e46fanatics.com/threads/fuel-pressure-info.1116777/">e46fanatics</a>). A rough estimate (not a sourced figure) puts the S54's full-load demand at 90–100 L/h, from 333 bhp at a specific fuel consumption of 0.27–0.30 kg/kWh, so a pump that only just meets the minimum leaves 35–45 L/h of return flow. On the E46's saddle tank that return flow powers the siphon jet that moves fuel from the left half to the pump (<a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055, p. 24</a>). A 330i ZHP owner traced fuel starvation near a quarter tank under hard load to exactly that and cured it with the M3 pump, which he recalled flows 10–20% more (<a href="https://www.e46fanatics.com/threads/will-an-m3-fuel-pump-fit-a-non-m-is-there-any-point-in-doing-this.903381/">e46fanatics</a>). Owners have fitted the M3 delivery unit (16142229684) and M3 baffle (16112229656) into non-M sedan tanks (one needed a sleeve; another measured the M3 pump body at 43 mm against 50 mm) (<a href="https://www.e46fanatics.com/threads/will-an-m3-fuel-pump-fit-a-non-m-is-there-any-point-in-doing-this.903381/page-2">e46fanatics, page 2</a>), and three Touring builds on YouTube fitted the M3 tank or pump without a reported problem (<a href="https://www.youtube.com/watch?v=GdCUQY-Xn-s&amp;t=900s">Tenza, 15:00</a>); Tenza's wagon was an ex-M56 SULEV car, and its M3 tank replaced a sealed tank that belonged to the certified evaporative system, so treat that one as a fit check, not a method. Run BMW's own test: pull K96 and bridge its socket's pins 6 and 2 through a fused switch, BMW's "pin 87b and 30" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, part 2, p.41</a>); WDS gives "Terminal 87" to pin 8, the coil supply, which must not be bridged (<a href="https://wds.psjr.org/en/e46/zinfo/E46_PK96A.htm">WDS</a>). Confirm 5.0 ± 0.2 bar through the M3 regulator with no more than 0.5 bar bleed-off, and measure at least 1.12 litres in 30 seconds. The fourth round made the donor's whole in-tank set the default rather than a track-only upgrade (<a href="fuel-cooling-and-ac.html#choose-the-pump-route">Fuel system</a>).</p>
+<p>The M3 filter (13327831089), regulator housing (13537830368) and 5-bar regulator (13531404089) mount on the Touring's existing bracket (13321435583) and cover (13328230397) (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/fuel_preparation_system/fuel_filter_pressure_regulator/">ETK, M3</a>; <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/fuel_preparation_system/fuel_filter_pressure_regulator/">ETK, Touring</a>), but the lines are another matter. BMW gives the M3 its own front feed (16122229410), rear feed (16122229409) and return (16122229411), and Kalim found that "the return lines are identical, but the high-pressure lines have different fittings": quick-disconnects on the M3 against barb-and-clamp on the non-M (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/fuel_supply/fuel_pipe_and_mounting_parts/">ETK</a>; <a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/">e46fanatics</a>). Budget for the three M3 lines or adapters. The M3 regulator needs a vacuum hose to the idle-air distribution pipe (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041, part 2</a>), a job the M54's atmospheric vent hose does not do (<a href="https://www.e46fanatics.com/threads/ms45-1-m54b30-330i-fuel-pressure.1048644/">e46fanatics, on an M54 330i</a>). Videos add three first-start lessons: fit the M3 filter-regulator before cranking, not after a no-start (<a href="https://www.youtube.com/watch?v=pvR3ovRfQHg&amp;t=4440s">Tracks and Trails, 1:14:00</a>); expect an old regulator's O-rings to leak (<a href="https://www.youtube.com/watch?v=4Q3PxGuJyxI&amp;t=357s">M346 Projects, 05:57</a>); and check feed and return orientation, which caused one swapper's no-start (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/82513-s54-swap-to-ms42-car-no-start">NAM3</a>). One 330Ci build's on-camera guess that the M3 system "runs at four bar" is wrong (<a href="https://www.youtube.com/watch?v=td8MgQ_3KGs&amp;t=1000s">DBO, 16:40</a>). The fourth round found where those fittings meet: a short pipe set joins the pump flange to the floor lines on both cars, and the guide now moves the donor's whole in-tank set with the M3 pipe set and lines (<a href="fuel-cooling-and-ac.html#fuel-system">Fuel system</a>).</p>
 </section><section id="bmws-documents-settle-the-torque-values-105-nm-70-or-three-105-cycles"><h2>BMW's documents settle the torque values: 105 Nm, 70°, or three 105° cycles</h2>
 <p>BMW's repair data answers the flywheel question directly. A NewTIS screenshot for the E46 M3 coupe lists "Flywheel to crankshaft" for engine types including the S54 at <strong>105 Nm</strong>, with the note "Do not install with screw locking agent. The bolts are integral components on the flywheel. Threads on bolts oiled", and no angle step (<a href="https://nam3forum.com/forums/filedata/fetch?id=122599&amp;d=1629744750">NAM3 screenshot</a>; <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/122587-loctite-on-flywheel-bolts">thread</a>). BMW's catalog fits eight M12×1.5×50 bolts (11222243051), marked "Required for repair", to the S54 dual-mass flywheel (21212229900), and the same bolt serves the M54, so 105 Nm is the S54's own value rather than an M54 figure borrowed for it (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/engine/flywheel_twin_mass_flywheel/">ETK</a>; <a href="https://bmwfans.info/parts-catalog/11222243051/">ETK bolt usage</a>). Ignore the 100 Nm in a non-M DIY and the 120 Nm in forum snippets (the four-cylinder M43TU value); an aftermarket single-mass flywheel follows its maker's sheet, which often calls for thread locker.</p>
 <p>For rod bolts, BMW's Service Information B11 04 04, the rod-bearing campaign for S54s built from 02/12/2001 to 05/22/2003, gives two procedures (<a href="https://nam3forum.com/forums/filedata/fetch?id=5213">BMW SI B11 04 04</a>). <strong>M11×1.25 twelve-point bolts, on engines produced up to 12/13/2002, are reused</strong>: mark each, return it to its own hole, and tighten to 5 Nm, 30 Nm, then 70° "in one single stroke". <strong>M10×1.25 E-Torx bolts (11247834310, twelve per engine), from 12/12–13/2002 production, are always new</strong> and "must be tighten at least three times in order to reach its maximum tensile strength": 5 Nm, 30 Nm and 105° in one stroke, back off about one turn, repeat, and the third cycle is final; "Not adhering to the tightening specifications detailed below, will result in serious engine damage." Vendors and the catalog date the change "Feb '03" or "2/2003", so identify the bolts by their heads: a 12 mm twelve-point head is M11 and an E12 Torx head is M10 (<a href="https://www.bimmerworld.com/Engine/BMW-Engine-Internals/Genuine-BMW-Connecting-Rod-Bolt-M10X1-25-11247834310-E46-M3-E85.html">BimmerWorld</a>; <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/engine/crankshaft_connecting_rod/">ETK</a>). Each M10 cycle uses up bolt life (FCP Euro's video says they "can be torqued up to five times", which no BMW text read here confirms), so check clearance with Plastigauge using the old bolts and fit new ones only for final assembly (<a href="https://www.youtube.com/watch?v=Emjw22o_V8c&amp;t=1492s">FCP Euro, 24:52</a>). The same bulletin gives 25 Nm with a left-hand thread for the oil-pump sprocket nut, 10 Nm for the M6 pan screws with Hylomar at the cover joints, blue shells on the rod side and red on the cap, 6.5 litres of 10W-60, and a 1,200-mile break-in below 5,500 rpm. ARP's own sheets ask for stretch first: 0.0075–0.0080 in (or 70 ft-lb on ARP lube) for the M11 kit 201-6103, and 0.0065–0.0070 in (or 50 ft-lb) for 201-6102, which vendors sell for late S54s although ARP's sheet names the E36 M3's S50 Euro engine; both sheets say rods "should always be re-sized after new rod bolts are installed", a machine-shop step that in-car jobs skip (<a href="https://cdn.arp-bolts.com/instructions/201-6103.pdf">ARP 201-6103</a>; <a href="https://cdn.arp-bolts.com/instructions/201-6102.pdf">ARP 201-6102</a>).</p>
@@ -844,7 +940,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p><em>Only the flywheel, rod-bolt, SI and guibo rows were traced to BMW documents at first; the rest agree across at least two TIS-citing compilations or vendor procedures. The fourth round read BMW's TIS (issue 12/2007) and confirmed the reinforcement plate: new screws, rear row first, 59 Nm + 90° (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/4_tightening_torques/31__front_axle/10__front_axle_suspension/1_azd__front_axle_suspension/page_3534/">TIS 31 10 8AZ</a>); the guide's <a href="./#torque-values">Torque values</a> give TIS sources row by row.</em></p>
+<p><em>Only the flywheel, rod-bolt, SI and guibo rows were traced to BMW documents at first; the rest agree across at least two TIS-citing compilations or vendor procedures. The fourth round read BMW's TIS (issue 12/2007) and confirmed the reinforcement plate: new screws, rear row first, 59 Nm + 90° (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/4_tightening_torques/31__front_axle/10__front_axle_suspension/1_azd__front_axle_suspension/page_3534/">TIS 31 10 8AZ</a>); the guide's <a href="sources-and-appendix.html#torque-values">Torque values</a> give TIS sources row by row.</em></p>
 <p>Some figures in circulation are wrong. Condor Speed Shop's diff-bushing video gives "70 ft-lbs" for the rear Torx bolts and "128 ft-lbs" for the 21 mm front bolt; those match the non-M front and rear values swapped (an inference about where they came from), and are wrong for an M3 diff (<a href="https://www.youtube.com/watch?v=fcOohpFKZZE&amp;t=92s">Condor, 01:32</a>). The Bimmer Barn says "5, 30 and 105 newton meters" for late bolts, which is 105 degrees, without the three cycles (<a href="https://www.youtube.com/watch?v=kb7PO3CtERE&amp;t=216s">The Bimmer Barn, 03:36</a>); FCP Euro's kit page converts 30 Nm to "~15 ft lbs" when it is 22 ft-lb (<a href="https://www.fcpeuro.com/products/bmw-s54-connecting-rod-bearing-kit-11410395192kt1">FCP Euro</a>); and Department 69's "Replace bolts" on the M11 row contradicts BMW. Values seen only on camera, still to check against TIS, include 110 Nm for the front subframe (rear bolts first), 45 Nm for the engine-mount nuts, 59 Nm for the control-arm brackets and 25 Nm for the drain plug (<a href="https://www.youtube.com/watch?v=Emjw22o_V8c&amp;t=2394s">FCP Euro rod bearings, 39:54</a>); spark plugs at 23 Nm dry and valve-cover nuts at 10 Nm in FCP Euro's valve video (<a href="https://www.youtube.com/watch?v=6xtAIiKbKmM">FCP Euro valves</a>), against 25 Nm and 8 Nm from ECS (<a href="https://www.youtube.com/watch?v=vhsxb5IRa8s&amp;t=4264s">ECS Tuning, 1:11:04</a>). On camera, both rod-bearing videos give 0.03–0.07 mm as BMW's clearance, and valve clearance is 0.18–0.23 mm intake and 0.28–0.33 mm exhaust with coolant below 35 °C (<a href="https://www.youtube.com/watch?v=6xtAIiKbKmM&amp;t=1086s">FCP Euro valves, 18:06</a>).</p>
 </section><section id="the-touring-floor-is-sedan-steel-without-a-rear-bulkhead-or-v-brace-boxes"><h2>The Touring floor is sedan steel without a rear bulkhead or V-brace boxes</h2>
 <p>BMW's parts catalog puts the Touring's rear floor on the same parts as the sedan's. The 21.3 kg rear axle carrier panel (RACP) repair part 41117000246 is listed for every E46 body including the US 325i Touring, the M3 and the CSL, and the US 325i Touring and sedan share the trunk floor (41127062570), rear and front side members, shock supports, battery tray and spare-wheel bracket (<a href="https://bmwfans.info/parts-catalog/41117000246/">ETK RACP</a>; <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/bodywork/mounting_parts_for_trunk_floor_panel/">ETK, Touring</a>; <a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/325i-M54/L-N/browse/bodywork/mounting_parts_for_trunk_floor_panel/">ETK, sedan</a>). The Touring-only structure sits ahead of the cargo area at the backrest, where a cross member (41148253150) and belt-attachment supports replace the sedan's partition wall (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/bodywork/partition_trunk/">ETK</a>). The old forum line that the wagon floor is "slightly different… for more cargo space" therefore does not hold for the floor, rails or carrier panel, and its companion, "the subframe mounting points are not reinforced", means no stronger than a sedan's, not weaker (<a href="https://www.e46fanatics.com/threads/touring-subframe-failure.529699/">e46fanatics</a>). A 2001–05 Touring has the post-February-2000 panel, whose rear insert gained extra flanges and welds; on these cars cracks spread through the panel rather than pulling the insert out, and the later insert shows "two rectangular indents" on the vertical face ahead of the rear mounts (<a href="https://cmpautoengineering.com/pages/part-1-will-my-e46-subframe-crack-how-will-i-know">CMP part 1</a>). Redish identifies a further version from October 2004 with a bonded plastic brace inside the left rear (<a href="https://www.youtube.com/watch?v=lf-52XqXSTk&amp;t=620s">Redish Motorsport, 10:20</a>).</p>
@@ -1520,6 +1616,16 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p>The research moves the risk in this conversion away from where builders expect it. The engine, gearbox, axles and even the fuel system turn out to be close to bolt-in on a 2001–05 Touring: the S54's power architecture, relays and E-box match the 325i's, the US DME already drives the Touring's pump relay, and the M3 rear axle uses the same body points. What remains is concentrated in a handful of body-side circuits (four lamp wires, the brake switch's second contact, the clutch path through the gear-recognition switch, the DM-TL heater and the E-box sub-plugs) whose correct routing depends on whether the car carries an MS43 or an MS45 and which no video has filmed, plus two software decisions in which the conservative choice is also the best documented: a vendor EWS delete on otherwise stock US emissions code, and the Touring's own MK60. The MSS54's own status jobs (<code>STAT_KUP_EIN</code>, <code>STAT_KRAFTSCHLUSS_EIN</code>, <code>STAT_BLS_EIN</code>, <code>STAT_BLTS_EIN</code>, <code>STAT_FDYN_EIN</code> and the installed-equipment flags for the pump, cruise and DM-TL heater) turn every re-pin into a test that can be run with the key on before the engine first cranks, the cheapest insurance in the build.</p>
 <p>On the body, the Touring is not weaker than a sedan but is less than an M3: it lacks the V-brace mounts, the rear-seat bulkhead some kits rely on, and the M3 shell's extra gussets, while carrying more weight over the rear axle. That argues for treating the spare-well removal, the subframe reinforcement, the V-brace boxes and the exhaust hangers as one welding phase with the floor open. A convertible donor is the economical source of arch steel, and has now been used for it. The questions still open (the 325iT's X6011 pin roles, the MSS54HP pump pin, whether an M3 MK60 can be coded to accept a Touring's order, and Touring-specific cargo-side plates) are better closed with a meter, a test-fit and wiring diagrams loaded with the car's own VIN than with more forum reading.</p>
 </section></div></main>
+<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>
 <footer class="colophon"><div class="wrap">
   <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
   <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
@@ -1531,13 +1637,16 @@ figure.diagram figcaption strong { color: var(--fg); }
   "use strict";
 
   // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
-  // Mark the chapter (and section) in view, and keep its link visible.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
   var nav = document.querySelector(".chapters");
   var bar = document.querySelector(".chapters > ol");
-  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"));
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
   var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
-  var byId = {};
-  chapterLinks.concat(subLinks).forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
   function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
   function reveal(a) {
     if (sidebarMode()) {
@@ -1551,7 +1660,7 @@ figure.diagram figcaption strong { color: var(--fg); }
     }
   }
   function setCurrent(id) {
-    var a = byId[id];
+    var a = chapterById[id];
     if (!a || a.getAttribute("aria-current") === "true") return;
     chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
     a.setAttribute("aria-current", "true");
@@ -1559,21 +1668,164 @@ figure.diagram figcaption strong { color: var(--fg); }
     reveal(a);
   }
   function setSection(id) {
-    var a = byId[id];
+    var a = subById[id];
     if (!a) return;
     subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
     a.setAttribute("aria-current", "location");
     if (sidebarMode()) reveal(a);
   }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
   if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
-    var io2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
-    }, { rootMargin: "0px 0px -75% 0px" });
-    document.querySelectorAll("main section h3[id]").forEach(function (h) { io2.observe(h); });
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
   }
 
   // Worksheets and job cards: empty table cells become text fields and task lists become tick

@@ -4,9 +4,11 @@
     python3 tools/build_site.py OUT_DIR [--base-url URL] [--repo-url URL]
     python3 tools/build_site.py OUT_DIR --artifact
 
-Each page in build_html.PAGES is built when its Markdown file sits next to tools/ (README.md is the
-build guide and becomes index.html; WIRING-AND-CODING.md, JOB-CARDS.md, WORKSHEETS.md,
-CALCULATORS.md and research.md become their own pages). Every page links to the others.
+Each page in build_html.PAGES is built when its Markdown file sits next to tools/. README.md is the
+build guide: it becomes a home page (index.html) and one page per chapter (build_html.GUIDE_CHAPTERS),
+and links into it from any page go straight to the chapter that holds the target. WIRING-AND-CODING.md,
+JOB-CARDS.md, WORKSHEETS.md, CALCULATORS.md and research.md become their own pages. Every page links
+to the others, and search-index.js lets the search box on every page search them all.
 
 Website mode also writes 404.html, favicon.svg, og-image.png and .nojekyll, and copies diagrams/
 and photos/. Artifact mode writes index.html as a page fragment (the artifact host adds the
@@ -19,7 +21,8 @@ import json
 import pathlib
 import shutil
 
-from build_html import GUIDE_TITLE, PAGES, ROOT, TOOLS, build_page, page_links
+from build_html import (GUIDE_CHAPTERS, GUIDE_TITLE, PAGES, ROOT, TOOLS, build_guide, build_page,
+                        page_links, search_index_js)
 
 ASSETS = TOOLS / "assets"
 DEFAULT_BASE = "https://pniessen.github.io/e46-m3-touring/"
@@ -37,6 +40,16 @@ DESCRIPTIONS = {
              "wheel fitment and offsets, and a tire load check."),
     "research": ("Research notes behind the E46 M3 Touring conversion guide: wiring, fuel-pump control, "
                  "torque specs, subframe reinforcement, arch steel, coding, photos and videos."),
+}
+DESCRIPTIONS.update({ch["key"]: f'E46 M3 Touring conversion guide, {ch["title"].lower()}: {ch["blurb"]}'
+                     for ch in GUIDE_CHAPTERS})
+# One line per companion page, for the guide's home page.
+COMPANION_BLURBS = {
+    "wiring": "Pin tables, re-pinning, fuel-pump control, checks before first power-up, and coding session by session.",
+    "cards": "One printable card per phase: parts, tools, torques, fluids, steps and checks.",
+    "sheets": "Records to print or fill in here: baseline, donor tests, coding backups, body measurements, shakedown.",
+    "calc": "Gearing and road speed, tire size and speedometer, wheel fitment and offsets.",
+    "research": "What each research round found, with its sources.",
 }
 
 
@@ -122,26 +135,45 @@ def main() -> None:
     source = (f'Source, history and diagrams: <a href="{a.repo_url}">{a.repo_url.replace("https://", "")}</a>. '
               if a.repo_link or not a.artifact else "")
     footer = f'  <p>{source}Anything you tick or type on these pages is saved in your browser only.</p>\n'
-    written = []
+
+    def head_extra_for(key: str, title: str, html_name: str) -> str:
+        return "" if a.artifact else head_tags(title, DESCRIPTIONS[key], base + html_name, image)
+
+    written, index, anchors = [], [], None
+    guide = next((pg for pg in pages if pg["key"] == "guide"), None)
+    if guide:
+        companions = [(pg["label"], pg["html"], COMPANION_BLURBS.get(pg["key"], ""))
+                      for pg in pages if pg["key"] != "guide"]
+        g = build_guide(a.src / guide["md"], link_map=links, home_href=guide_href, site_nav=nav("guide"),
+                        standalone_home=not a.artifact, artifact_meta=a.artifact, head_extra_for=head_extra_for,
+                        footer_extra=footer, photo_mode="link", companions=companions)
+        anchors = g["anchors"]
+        index += g["index"]
+        for name, page in g["pages"].items():
+            (out / name).write_text(page, encoding="utf-8")
+            written.append(name)
     for pg in pages:
+        if pg["key"] == "guide":
+            continue
         md = a.src / pg["md"]
-        is_guide = pg["key"] == "guide"
-        title = GUIDE_TITLE if is_guide else f"{h1_of(md)} · {GUIDE_TITLE}"
-        url = base if is_guide else base + pg["html"]
+        title = f"{h1_of(md)} · {GUIDE_TITLE}"
         extra_css = (TOOLS / pg["css"]).read_text(encoding="utf-8") if pg.get("css") else ""
         extra_js = (TOOLS / pg["js"]).read_text(encoding="utf-8") if pg.get("js") else ""
-        fragment = a.artifact and is_guide
+        entries = []
         page = build_page(
-            md, standalone=not fragment, title=title, eyebrow=pg["eyebrow"], spec_strip=is_guide,
+            md, standalone=True, title=title, eyebrow=pg["eyebrow"], spec_strip=False,
             artifact_meta=a.artifact, photo_mode="link", page_key=pg["key"], fill=pg.get("fill", False),
             link_map=links, extra_css=extra_css, extra_js=extra_js, site_nav=nav(pg["key"]),
-            head_extra="" if a.artifact else head_tags(title, DESCRIPTIONS[pg["key"]], url, image),
-            footer_extra=footer)
+            head_extra=head_extra_for(pg["key"], title, pg["html"]), footer_extra=footer,
+            anchors=anchors, search=True, index=entries)
         (out / pg["html"]).write_text(page, encoding="utf-8")
         written.append(pg["html"])
+        index.append((pg["html"], pg["label"], entries))
+    (out / "search-index.js").write_text(search_index_js(index), encoding="utf-8")
+    written.append("search-index.js")
 
     if a.artifact:
-        files = {pg["html"]: str((out / pg["html"]).resolve()) for pg in pages if pg["key"] != "guide"}
+        files = {name: str((out / name).resolve()) for name in written if name != "index.html"}
         photos = a.src / "photos"
         for f in sorted(photos.glob("*.jpg")) if photos.is_dir() else []:
             files[f"photos/{f.name}"] = str(f.resolve())

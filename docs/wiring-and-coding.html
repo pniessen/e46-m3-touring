@@ -233,8 +233,101 @@ figure.photo figcaption a { color: inherit; }
   border-radius: 4px;
 }
 .chapters a:hover { color: var(--fg); background: var(--panel); }
-.chapters a[aria-current="true"] { color: var(--bg); background: var(--fg); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
 .chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
 
 /* Body copy */
 main .wrap { padding-block: 0.5rem 3rem; }
@@ -529,6 +622,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     color: var(--muted);
   }
   .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
   .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
   .masthead .wrap { padding-block: 3rem 2rem; }
   .masthead .lede,
@@ -549,7 +644,8 @@ figure.diagram figcaption strong { color: var(--fg); }
     --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
   }
   body { display: block !important; font-size: 10.5pt; background: #fff; }
-  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col { display: none !important; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
   input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
   main[data-fill] ~ .colophon { display: none; }
   td.fill-cell { min-width: 0; }
@@ -582,13 +678,13 @@ figure.diagram figcaption strong { color: var(--fg); }
     <nav class="sitenav" aria-label="Site"><ul><li><a href="./">Guide</a></li><li><a href="wiring-and-coding.html" aria-current="page">Wiring and coding</a></li><li><a href="job-cards.html">Job cards</a></li><li><a href="worksheets.html">Worksheets</a></li><li><a href="calculators.html">Calculators</a></li><li><a href="research.html">Research notes</a></li><li><a href="https://github.com/pniessen/e46-m3-touring">Source on GitHub</a></li></ul></nav>
     <p class="eyebrow">Wiring and coding manual &middot; companion to the build guide</p>
     <h1>Wiring and coding manual</h1>
-    <p class="lede">This is the bench companion to the <a href="./">E46 M3 Touring conversion guide</a>. It covers a US 2001–05 BMW E46 325i Touring (rear-wheel drive, 5-speed manual, M54 engine, Siemens MS43 or MS45.1 DME, Teves MK60 DSC) taking the S54 engine, its MSS54 or MSS54HP DME and its engine harness from a US 2001–06 E46 M3 with a manual gearbox. The guide's <a href="./#deep-dive-electronics-and-coding">Deep dive: electronics and coding</a> explains the choices and the order of work. This page has the pins, the checks and the coding sessions. If your Touring is a 325xi, choose a route in <a href="./#325xi-rear-drive-or-all-wheel-drive">325xi: rear drive or all-wheel drive</a> first; this manual notes where an xi differs.</p>
+    <p class="lede">This is the bench companion to the <a href="./">E46 M3 Touring conversion guide</a>. It covers a US 2001–05 BMW E46 325i Touring (rear-wheel drive, 5-speed manual, M54 engine, Siemens MS43 or MS45.1 DME, Teves MK60 DSC) taking the S54 engine, its MSS54 or MSS54HP DME and its engine harness from a US 2001–06 E46 M3 with a manual gearbox. The guide's <a href="electronics-and-coding.html#deep-dive-electronics-and-coding">Deep dive: electronics and coding</a> explains the choices and the order of work. This page has the pins, the checks and the coding sessions. If your Touring is a 325xi, choose a route in <a href="325xi.html#325xi-rear-drive-or-all-wheel-drive">325xi: rear drive or all-wheel drive</a> first; this manual notes where an xi differs.</p>
     
   </div>
 </header>
-<nav class="chapters" aria-label="Chapters"><ol><li><a href="#before-you-start">Before you start</a><ol class="sub"><li><a href="#hardware">Hardware</a></li><li><a href="#software-that-works-and-software-that-doesnt">Software that works and software that doesn't</a></li><li><a href="#cable-and-ediabas-settings">Cable and EDIABAS settings</a></li><li><a href="#prove-the-setup-on-your-touring">Prove the setup on your Touring</a></li><li><a href="#back-up-everything-first">Back up everything first</a></li></ol></li><li><a href="#engine-harness-and-dme"><span class="lbl-short">Engine harness</span><span class="lbl-full">Engine harness and DME</span></a><ol class="sub"><li><a href="#re-pin-or-swap-harness">Re-pin or swap harness</a></li><li><a href="#which-dme-your-touring-has">Which DME your Touring has</a></li><li><a href="#the-five-dme-plugs">The five DME plugs</a></li><li><a href="#x60004-pin-by-pin">X60004 pin by pin</a></li><li><a href="#connector-views-and-cavity-numbers">Connector views and cavity numbers</a></li><li><a href="#ms43-touring-what-to-move">MS43 Touring: what to move</a></li><li><a href="#ms451-touring-what-to-move">MS45.1 Touring: what to move</a></li><li><a href="#dm-tl-leak-test-pump-test-before-you-swap">DM-TL leak-test pump: test before you swap</a></li><li><a href="#e-box-plugs">E-box plugs</a></li><li><a href="#power-relays-and-fuses">Power, relays and fuses</a></li><li><a href="#grounds">Grounds</a></li><li><a href="#fans-and-can">Fans and CAN</a></li><li><a href="#terminals-tools-and-repair-leads">Terminals, tools and repair leads</a></li></ol></li><li><a href="#body-side-wiring"><span class="lbl-short">Body wiring</span><span class="lbl-full">Body-side wiring</span></a><ol class="sub"><li><a href="#sport-button-and-switch-center">Sport button and switch center</a></li><li><a href="#brake-light-switch">Brake-light switch</a></li><li><a href="#clutch-switch-gear-switch-and-cruise">Clutch switch, gear switch and cruise</a></li><li><a href="#steering-wheel-buttons-mfl">Steering-wheel buttons (MFL)</a></li><li><a href="#cluster-wiring">Cluster wiring</a></li><li><a href="#fuel-gauge-and-tank-senders">Fuel gauge and tank senders</a></li><li><a href="#can-k-bus-and-the-diagnosis-socket">CAN, K-bus and the diagnosis socket</a></li><li><a href="#sensor-leads-that-may-not-reach">Sensor leads that may not reach</a></li><li><a href="#heater-valve-and-auxiliary-water-pump">Heater valve and auxiliary water pump</a></li><li><a href="#ac-with-manual-or-automatic-climate-control">A/C with manual or automatic climate control</a></li><li><a href="#crash-fuel-cut-off">Crash fuel cut-off</a></li><li><a href="#wheel-speed-and-pad-wear-sensors">Wheel-speed and pad-wear sensors</a></li><li><a href="#mirrors-and-headlights">Mirrors and headlights</a></li></ol></li><li><a href="#fuel-pump-control"><span class="lbl-short">Fuel pump</span><span class="lbl-full">Fuel-pump control</span></a><ol class="sub"><li><a href="#how-each-car-switches-the-pump">How each car switches the pump</a></li><li><a href="#recommended-keep-the-relay">Recommended: keep the relay</a></li><li><a href="#checks-on-the-pump-circuit">Checks on the pump circuit</a></li><li><a href="#optional-the-m3-pump-module-ekp">Optional: the M3 pump module (EKP)</a></li><li><a href="#faults-that-look-like-pump-faults">Faults that look like pump faults</a></li></ol></li><li><a href="#checks-before-first-power-up"><span class="lbl-short">Power-up checks</span><span class="lbl-full">Checks before first power-up</span></a><ol class="sub"><li><a href="#e-box-plug-comparison">E-box plug comparison</a></li><li><a href="#steps-114-battery-disconnected-dme-unplugged">Steps 1–14: battery disconnected, DME unplugged</a></li><li><a href="#steps-1518-battery-connected-dme-still-unplugged">Steps 15–18: battery connected, DME still unplugged</a></li><li><a href="#can-bus-resistance">CAN bus resistance</a></li><li><a href="#first-key-on-what-to-expect">First key-on: what to expect</a></li><li><a href="#steps-3033-the-oil-priming-crank">Steps 30–33: the oil-priming crank</a></li></ol></li><li><a href="#coding-step-by-step"><span class="lbl-short">Coding</span><span class="lbl-full">Coding step by step</span></a><ol class="sub"><li><a href="#ncs-expert-basics">NCS Expert basics</a></li><li><a href="#session-1-vehicle-order-and-codings">Session 1: Vehicle order and codings</a></li><li><a href="#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2: DME VIN, EWS delete and gearbox software</a></li><li><a href="#session-3-ews">Session 3: EWS</a></li><li><a href="#session-4-cluster-and-light-module">Session 4: Cluster and light module</a></li><li><a href="#session-5-dsc-coding-and-vin">Session 5: DSC coding and VIN</a></li><li><a href="#session-6-first-start-adaptations-and-throttle-check">Session 6: First start, adaptations and throttle check</a></li><li><a href="#session-7-steering-angle-after-the-alignment">Session 7: Steering angle after the alignment</a></li><li><a href="#session-8-vehicle-order-changes-and-body-modules">Session 8: Vehicle-order changes and body modules</a></li><li><a href="#session-9-light-module-and-headlights">Session 9: Light module and headlights</a></li></ol></li><li><a href="#readiness-and-inspection"><span class="lbl-short">Readiness</span><span class="lbl-full">Readiness and inspection</span></a><ol class="sub"><li><a href="#what-the-mss54-monitors">What the MSS54 monitors</a></li><li><a href="#the-dm-tl-leak-test">The DM-TL leak test</a></li><li><a href="#a-drive-plan-for-readiness">A drive plan for readiness</a></li><li><a href="#checks-with-tool32-and-a-scanner">Checks with Tool32 and a scanner</a></li><li><a href="#what-an-inspection-checks">What an inspection checks</a></li><li><a href="#when-a-monitor-wont-complete">When a monitor won't complete</a></li></ol></li><li><a href="#troubleshooting">Troubleshooting</a><ol class="sub"><li><a href="#wont-start">Won't start</a></li><li><a href="#warning-lights">Warning lights</a></li><li><a href="#dsc-abs-and-steering-angle">DSC, ABS and steering angle</a></li><li><a href="#driving-emissions-and-comfort">Driving, emissions and comfort</a></li><li><a href="#tools-and-coding">Tools and coding</a></li></ol></li></ol></nav>
+<nav class="chapters" aria-label="Chapters"><ol><li class="search-item"><button type="button" class="search-open" aria-label="Search the site"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lbl-full">Search</span></button></li><li><a href="#before-you-start">Before you start</a><ol class="sub"><li><a href="#hardware">Hardware</a></li><li><a href="#software-that-works-and-software-that-doesnt">Software that works and software that doesn't</a></li><li><a href="#cable-and-ediabas-settings">Cable and EDIABAS settings</a></li><li><a href="#prove-the-setup-on-your-touring">Prove the setup on your Touring</a></li><li><a href="#back-up-everything-first">Back up everything first</a></li></ol></li><li><a href="#engine-harness-and-dme"><span class="lbl-short">Engine harness</span><span class="lbl-full">Engine harness and DME</span></a><ol class="sub"><li><a href="#re-pin-or-swap-harness">Re-pin or swap harness</a></li><li><a href="#which-dme-your-touring-has">Which DME your Touring has</a></li><li><a href="#the-five-dme-plugs">The five DME plugs</a></li><li><a href="#x60004-pin-by-pin">X60004 pin by pin</a></li><li><a href="#connector-views-and-cavity-numbers">Connector views and cavity numbers</a></li><li><a href="#ms43-touring-what-to-move">MS43 Touring: what to move</a></li><li><a href="#ms451-touring-what-to-move">MS45.1 Touring: what to move</a></li><li><a href="#dm-tl-leak-test-pump-test-before-you-swap">DM-TL leak-test pump: test before you swap</a></li><li><a href="#e-box-plugs">E-box plugs</a></li><li><a href="#power-relays-and-fuses">Power, relays and fuses</a></li><li><a href="#grounds">Grounds</a></li><li><a href="#fans-and-can">Fans and CAN</a></li><li><a href="#terminals-tools-and-repair-leads">Terminals, tools and repair leads</a></li></ol></li><li><a href="#body-side-wiring"><span class="lbl-short">Body wiring</span><span class="lbl-full">Body-side wiring</span></a><ol class="sub"><li><a href="#sport-button-and-switch-center">Sport button and switch center</a></li><li><a href="#brake-light-switch">Brake-light switch</a></li><li><a href="#clutch-switch-gear-switch-and-cruise">Clutch switch, gear switch and cruise</a></li><li><a href="#steering-wheel-buttons-mfl">Steering-wheel buttons (MFL)</a></li><li><a href="#cluster-wiring">Cluster wiring</a></li><li><a href="#fuel-gauge-and-tank-senders">Fuel gauge and tank senders</a></li><li><a href="#can-k-bus-and-the-diagnosis-socket">CAN, K-bus and the diagnosis socket</a></li><li><a href="#sensor-leads-that-may-not-reach">Sensor leads that may not reach</a></li><li><a href="#heater-valve-and-auxiliary-water-pump">Heater valve and auxiliary water pump</a></li><li><a href="#ac-with-manual-or-automatic-climate-control">A/C with manual or automatic climate control</a></li><li><a href="#crash-fuel-cut-off">Crash fuel cut-off</a></li><li><a href="#wheel-speed-and-pad-wear-sensors">Wheel-speed and pad-wear sensors</a></li><li><a href="#mirrors-and-headlights">Mirrors and headlights</a></li></ol></li><li><a href="#fuel-pump-control"><span class="lbl-short">Fuel pump</span><span class="lbl-full">Fuel-pump control</span></a><ol class="sub"><li><a href="#how-each-car-switches-the-pump">How each car switches the pump</a></li><li><a href="#recommended-keep-the-relay">Recommended: keep the relay</a></li><li><a href="#checks-on-the-pump-circuit">Checks on the pump circuit</a></li><li><a href="#optional-the-m3-pump-module-ekp">Optional: the M3 pump module (EKP)</a></li><li><a href="#faults-that-look-like-pump-faults">Faults that look like pump faults</a></li></ol></li><li><a href="#checks-before-first-power-up"><span class="lbl-short">Power-up checks</span><span class="lbl-full">Checks before first power-up</span></a><ol class="sub"><li><a href="#e-box-plug-comparison">E-box plug comparison</a></li><li><a href="#steps-114-battery-disconnected-dme-unplugged">Steps 1–14: battery disconnected, DME unplugged</a></li><li><a href="#steps-1518-battery-connected-dme-still-unplugged">Steps 15–18: battery connected, DME still unplugged</a></li><li><a href="#can-bus-resistance">CAN bus resistance</a></li><li><a href="#first-key-on-what-to-expect">First key-on: what to expect</a></li><li><a href="#steps-3033-the-oil-priming-crank">Steps 30–33: the oil-priming crank</a></li></ol></li><li><a href="#coding-step-by-step"><span class="lbl-short">Coding</span><span class="lbl-full">Coding step by step</span></a><ol class="sub"><li><a href="#ncs-expert-basics">NCS Expert basics</a></li><li><a href="#session-1-vehicle-order-and-codings">Session 1: Vehicle order and codings</a></li><li><a href="#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2: DME VIN, EWS delete and gearbox software</a></li><li><a href="#session-3-ews">Session 3: EWS</a></li><li><a href="#session-4-cluster-and-light-module">Session 4: Cluster and light module</a></li><li><a href="#session-5-dsc-coding-and-vin">Session 5: DSC coding and VIN</a></li><li><a href="#session-6-first-start-adaptations-and-throttle-check">Session 6: First start, adaptations and throttle check</a></li><li><a href="#session-7-steering-angle-after-the-alignment">Session 7: Steering angle after the alignment</a></li><li><a href="#session-8-vehicle-order-changes-and-body-modules">Session 8: Vehicle-order changes and body modules</a></li><li><a href="#session-9-light-module-and-headlights">Session 9: Light module and headlights</a></li></ol></li><li><a href="#readiness-and-inspection"><span class="lbl-short">Readiness</span><span class="lbl-full">Readiness and inspection</span></a><ol class="sub"><li><a href="#what-the-mss54-monitors">What the MSS54 monitors</a></li><li><a href="#the-dm-tl-leak-test">The DM-TL leak test</a></li><li><a href="#a-drive-plan-for-readiness">A drive plan for readiness</a></li><li><a href="#checks-with-tool32-and-a-scanner">Checks with Tool32 and a scanner</a></li><li><a href="#what-an-inspection-checks">What an inspection checks</a></li><li><a href="#when-a-monitor-wont-complete">When a monitor won't complete</a></li></ol></li><li><a href="#troubleshooting">Troubleshooting</a><ol class="sub"><li><a href="#wont-start">Won't start</a></li><li><a href="#warning-lights">Warning lights</a></li><li><a href="#dsc-abs-and-steering-angle">DSC, ABS and steering angle</a></li><li><a href="#driving-emissions-and-comfort">Driving, emissions and comfort</a></li><li><a href="#tools-and-coding">Tools and coding</a></li></ol></li></ol></nav>
 <main data-page="wiring"><div class="wrap"><aside class="callout callout-warn"><span class="callout-label">Warning</span>
-<p>The pins, colors and sizes here come from BMW's own wiring diagrams (WDS, read on a public mirror), its parts catalog and its training documents, checked against documented builds. WDS has no VIN filter and never says which face of a connector it shows. Before you move a wire, check it on your car: the cavity number moulded into the housing, the wire's color and size, and what the wire does (<a href="#checks-before-first-power-up">checks before first power-up</a>). ISTA shows the diagrams for your exact VIN (<a href="./#factory-documentation-and-coding-kit">Factory documentation and coding kit</a>). Where sources disagree, the tables give the better-sourced value and flag the other.</p>
+<p>The pins, colors and sizes here come from BMW's own wiring diagrams (WDS, read on a public mirror), its parts catalog and its training documents, checked against documented builds. WDS has no VIN filter and never says which face of a connector it shows. Before you move a wire, check it on your car: the cavity number moulded into the housing, the wire's color and size, and what the wire does (<a href="#checks-before-first-power-up">checks before first power-up</a>). ISTA shows the diagrams for your exact VIN (<a href="plan-and-budget.html#factory-documentation-and-coding-kit">Factory documentation and coding kit</a>). Where sources disagree, the tables give the better-sourced value and flag the other.</p>
 </aside><aside class="callout callout-crit"><span class="callout-label">Safety</span>
 <p>Three limits apply throughout. The EWS delete appears only as a service you buy or a tool function you run. Nothing here removes or disables an emissions function. Cluster work only ever sets a replacement cluster to your car's true mileage (<a href="https://www.law.cornell.edu/uscode/text/49/32704">49 U.S.C. §32704</a>).</p>
 </aside><p><strong>Conventions.</strong></p><ul>
@@ -859,7 +955,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tr>
 </tbody>
 </table></div>
-<p>The guide explains the choice in <a href="./#harness-and-re-pinning">Harness and re-pinning</a>.</p>
+<p>The guide explains the choice in <a href="electronics-and-coding.html#harness-and-re-pinning">Harness and re-pinning</a>.</p>
 <h3 id="which-dme-your-touring-has">Which DME your Touring has</h3>
 <p>The US 325i Touring changed DME with March 2003 production: MS43 before, MS45.1 from then on (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/engine_electrical_system/programmed_dme_control_unit_2/">ETK</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/engine_electrical_system/basic_cotrol_unit_dme/">ETK</a>). BimmerWorld and RPM Motorsport say 02/2003; that's the same change, since the last MS43 cars were built in February and the first MS45.1 cars in March (<a href="https://www.bimmerworld.com/About-Us/MS45-to-MS43-Conversion/">BimmerWorld</a>). Three names cause confusion:</p>
 <ul>
@@ -3061,7 +3157,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </table></div>
 <p>So after the move, your Touring's BL/BR wire sits in body X6011 pin 7 and meets the M3 harness's gray wire, which runs through X6053 pin 5 to the gear switch. A BMW TIS diagram posted on NAM3 shows the same path (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/225235-clutch-switch-help-code-50">NAM3</a>). The same poster's text names X6011 "pin 3"; his diagram says pin 7, and so does WDS.</p>
 <p><strong>Fit the M3's clutch module, 61319122700.</strong> It's required, not optional. The M3 module outputs +12 V with the pedal up; the non-M module (61319231129, your Touring's) switches between open and ground, which the chain can't use (terra, <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/225235-clutch-switch-help-code-50">NAM3</a>). Two builds cured no cruise this way: George Hill's S54 ZHP, whose intermittent stalling also stopped, and ewcmr2's S54 wagon (<a href="https://nam3forum.com/forums/forum/main-forum/member-build-journals/3768-what-s-going-on-in-my-shop-currently/page3">NAM3</a>, <a href="https://www.e46fanatics.com/threads/m3-cluster-swap-dsc-light.1260275/">e46fanatics</a>). BimmerWorld on 61319122700: "The switch must work to allow the car to start or to disengage from cruise control" (<a href="https://www.bimmerworld.com/Driveline-Shifter/Clutch-Parts/Genuine-BMW-Module-Clutch-Switch-61319122700-E39-M5-E46-M3-E85.html">BimmerWorld</a>). The Euro-only 61319122701 works only with the EWS interlock coded out, which this guide doesn't do (<a href="https://bmwfans.info/parts-catalog/61319122701/">ETK</a>). Take the donor's module, or buy one.</p>
-<p><strong>The gear-recognition switch</strong> (23142229113, on the 420G) is closed in gear and open in neutral (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/225235-clutch-switch-help-code-50">NAM3</a>, <a href="https://bmwfans.info/parts-catalog/23142229113/">ETK</a>). Its state in reverse isn't documented. A 325xi that keeps all-wheel drive runs the 330xi six-speed, which has no such switch: ETK lists only its reversing-light switch, 23147524811 (<a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/manual_transmission/gs6x37bz_grbx_housing_and_mount_parts/">ETK</a>). Without it the chain stays open and cruise won't work; bridging its plug would make the DME read "in gear" whenever the pedal is up, even in neutral. Neither has been tested (our inference; <a href="./#route-2-gearbox-transfer-case-and-differentials">325xi</a>).</p>
+<p><strong>The gear-recognition switch</strong> (23142229113, on the 420G) is closed in gear and open in neutral (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/225235-clutch-switch-help-code-50">NAM3</a>, <a href="https://bmwfans.info/parts-catalog/23142229113/">ETK</a>). Its state in reverse isn't documented. A 325xi that keeps all-wheel drive runs the 330xi six-speed, which has no such switch: ETK lists only its reversing-light switch, 23147524811 (<a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/manual_transmission/gs6x37bz_grbx_housing_and_mount_parts/">ETK</a>). Without it the chain stays open and cruise won't work; bridging its plug would make the DME read "in gear" whenever the pedal is up, even in neutral. Neither has been tested (our inference; <a href="325xi.html#route-2-gearbox-transfer-case-and-differentials">325xi</a>).</p>
 <p><strong>Cruise also needs:</strong></p>
 <ul>
 <li>the steering-wheel buttons' data line, X60004 pin 27 (0.35 BL/SW), unchanged: the right-hand buttons reach the DME on one serial wire through the clock spring (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%203%29.pdf">BMW ST041</a>). A Touring without steering-wheel buttons gets this wire from BMW's three-wire retrofit, with no coding (<a href="#steering-wheel-buttons-mfl">Steering-wheel buttons (MFL)</a>);</li>
@@ -3340,7 +3436,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </table></div>
 <p>X60004 pin 27 is the cruise buttons' pin on the MSS54 too (<a href="#clutch-switch-gear-switch-and-cruise">Clutch switch, gear switch and cruise</a>). BMW splices pins 9 and 10 into the two X12 leads, cut about 40 mm (1.6 in) behind the plug.</p>
 <ol type="1">
-<li>Disconnect the battery and follow BMW's airbag procedure before you take the wheel off (<a href="./#safety">Safety</a>).</li>
+<li>Disconnect the battery and follow BMW's airbag procedure before you take the wheel off (<a href="plan-and-budget.html#safety">Safety</a>).</li>
 <li>Run and splice the three wires as the table shows.</li>
 <li>Clear the DME adaptations afterwards (<a href="#session-6-first-start-adaptations-and-throttle-check">Session 6</a>): that's how the DME learns that cruise buttons are fitted (<code>STAT_FGR_MFL_VERBAUT_WERT</code>).</li>
 <li><strong>Test.</strong> Tool32, <code>MSS54DS0.PRG</code> → <code>STATUS_DIGITAL</code>: <code>STAT_MFL1_EIN</code> to <code>STAT_MFL4_EIN</code> change as you press the cruise buttons (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD documentation</a>). Fault 81 (0x51) is the steering-wheel data line (<a href="#warning-lights">Warning lights</a>).</li>
@@ -3680,7 +3776,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <ul>
 <li><strong>Capacity.</strong> Both tanks hold 16.6 US gal (62.8 L). BMW USA's 2003 sheet gives that for every 325 sedan and Sport Wagon, and its 2002 M3 sheet gives the same (<a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022146EN_US/41437">BMW USA: 325</a>, <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022127EN_US/41385">BMW USA: M3</a>). BMW's M3 training gives 63 L (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/1%20M3%20Complete%20Vehicle.pdf">BMW ST041</a>).</li>
 <li><strong>The curve: <code>60_l_literskala</code>.</strong> BMW's coding rule gives <code>TANK_KENNLINIE</code> = <code>60_l_literskala</code> for every engine but the M56 SULEV (<code>metalltank</code>) and one diesel, so your Touring's M54 and the M3's S54 both get it. On index 23 and 24 clusters <code>metalltank</code> is a different curve, while <code>dad_tank_diesel</code> is the same as <code>60_l_literskala</code> (<a href="https://archive.org/details/sp-daten-v-32">BMW E46CVT.000, KMBE46M3.C24</a>). A Touring that started as an M56 SULEV car with its metal tank would need <code>metalltank</code>. Nobody has reported an M3 cluster on Touring senders, so check with a measured fill.</li>
-<li><strong>Move the senders with the pump.</strong> The recommended fuel route puts the M3 delivery unit (16142229684, which carries the right sender) and the M3 left sender (16142229683) in your tank, as Kalim did (<a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/">e46fanatics</a>, <a href="./#choose-the-pump-route">Fuel system</a>). The M3 cluster then reads BMW's own M3 sender pair in a tank of the same capacity. If you keep your Touring's senders (16146766942 and 16116768788) or mix the two cars' senders, nobody has reported the reading, so check each side. All four share the plug housing 61138352390 (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/fuel_supply/fuel_pump_and_fuel_level_sensor/">ETK: Touring</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/fuel_supply/fuel_pump_and_fuel_level_sensor/">ETK: M3</a>).</li>
+<li><strong>Move the senders with the pump.</strong> The recommended fuel route puts the M3 delivery unit (16142229684, which carries the right sender) and the M3 left sender (16142229683) in your tank, as Kalim did (<a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/">e46fanatics</a>, <a href="fuel-cooling-and-ac.html#choose-the-pump-route">Fuel system</a>). The M3 cluster then reads BMW's own M3 sender pair in a tank of the same capacity. If you keep your Touring's senders (16146766942 and 16116768788) or mix the two cars' senders, nobody has reported the reading, so check each side. All four share the plug housing 61138352390 (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/fuel_supply/fuel_pump_and_fuel_level_sensor/">ETK: Touring</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/fuel_supply/fuel_pump_and_fuel_level_sensor/">ETK: M3</a>).</li>
 <li><strong>Reserve.</strong> The published M3 cluster coding and a non-M cluster's trace both set the reserve threshold, <code>TANK_SCHWELLE_RESERVE</code>, at 8 L (<a href="https://ncs-expert.com/wp-content/uploads/2013/06/FSW_PSW.pdf">NCS list</a>, <a href="https://github.com/kd7iwp/BMW-Coding/tree/master/E46">kd7iwp trace</a>). Expect the reserve lamp with about 8 L (2.1 US gal) left; it's only as accurate as the senders.</li>
 <li><strong>Resistance.</strong> We found no resistance curve for either car's senders. The hobby page this manual once cited for resistance values lists only the pins and wire colours: pin 11 right signal (SW/RT/WS), pin 12 right ground (BR/SW/WS), pin 15 left signal (SW/RT/GE) and pin 16 left ground (BR/SW/GE) (<a href="https://www.bmwgm5.com/E46_Fuel_Level.htm">bmwgm5</a>). At the tank there's a large pump feed and ground plus two small pairs for the senders; Tenza matched the pairs by their tracer colours (<a href="https://www.youtube.com/watch?v=PgW1oWs7cfk&amp;t=440s">Tenza – No more SULEV (2021), 07:20</a>). Go by the tracer pairs on your own plugs.</li>
 <li><strong>Check</strong> from near empty, adding measured amounts and logging them. The M3 cluster is a redesign cluster, so use Tool32 <code>KOMBI46R.PRG</code> → <code>STATUS_AIF_TANKDATEN_LESEN</code>. It gives litres for each sender (<code>STAT_TANKINHALT_HEBEL1_WERT</code> and <code>…HEBEL2_WERT</code>), the total, unfiltered and filtered (<code>STAT_TANKINHALT_UNGEF_WERT</code> and <code>…GEF_WERT</code>), and <code>STAT_RESERVE</code>; <code>STATUS_ANALOG_LESEN</code> in the same file gives each sender's raw input (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/KOMBI46R.md">SGBD: KOMBI46R</a>). <code>STATUS_TANKINHALT_LESEN</code> belongs to <code>KOMBI46.PRG</code>, the older cluster's file, and returns "JOB NOT FOUND" on the M3's (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/KOMBI46.md">SGBD: KOMBI46</a>). The cluster's own test 06 shows each sender in litres and a tank phase: 1 both sensors OK, 2 one sensor fault, 3 implausible (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST052%20Body%20Electronics%20II/03b_E46%20Driver%20Information%20Systems.pdf">BMW ST052</a>). One side stuck: a sender or its plug pins. Record it on the <a href="worksheets.html#speedometer-and-fuel-gauge">worksheet</a>.</li>
@@ -3990,12 +4086,12 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 <h3 id="heater-valve-and-auxiliary-water-pump">Heater valve and auxiliary water pump</h3>
-<p>Every E46 M3 except the CSL, European cars included, has the "Water valve with additional water pump" 64118369807. Your Touring has the plain "Water valve" 64118369805, the part the CSL and the X3 use too (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/heater_and_air_conditioning/water_hoses_water_valve/">ETK: M3</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/heater_and_air_conditioning/water_hoses_water_valve/">ETK: Touring</a>, <a href="https://bmwfans.info/parts-catalog/64118369807/">ETK: 64118369807</a>, <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/14592-deleting-auxiliary-water-pump">NAM3</a>). The pump isn't a DME circuit: it's fed from F62 (7.5 A, 0.5 RT/GR) and the climate control switches its ground side through pin 6 of its 6-pin plug X608 (0.5 BR/RT) (<a href="https://wds.psjr.org/en/e46/svg/SP0000017567.svg">SP0000017567</a>). Older drawings show F23 instead of F62 (<a href="https://wds.psjr.org/en/e46/svg/SP0000011635.svg">SP0000011635</a>). The S54's engine-side heater hoses go in with either valve; the hoses for each option are in the guide's <a href="./#cooling-and-oil-cooler">Cooling and oil cooler</a>. Two options; the guide recommends the first:</p>
+<p>Every E46 M3 except the CSL, European cars included, has the "Water valve with additional water pump" 64118369807. Your Touring has the plain "Water valve" 64118369805, the part the CSL and the X3 use too (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/heater_and_air_conditioning/water_hoses_water_valve/">ETK: M3</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/heater_and_air_conditioning/water_hoses_water_valve/">ETK: Touring</a>, <a href="https://bmwfans.info/parts-catalog/64118369807/">ETK: 64118369807</a>, <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/14592-deleting-auxiliary-water-pump">NAM3</a>). The pump isn't a DME circuit: it's fed from F62 (7.5 A, 0.5 RT/GR) and the climate control switches its ground side through pin 6 of its 6-pin plug X608 (0.5 BR/RT) (<a href="https://wds.psjr.org/en/e46/svg/SP0000017567.svg">SP0000017567</a>). Older drawings show F23 instead of F62 (<a href="https://wds.psjr.org/en/e46/svg/SP0000011635.svg">SP0000011635</a>). The S54's engine-side heater hoses go in with either valve; the hoses for each option are in the guide's <a href="fuel-cooling-and-ac.html#cooling-and-oil-cooler">Cooling and oil cooler</a>. Two options; the guide recommends the first:</p>
 <ol type="1">
 <li><strong>Fit the plain valve, 64118369805, on the S54,</strong> with the CSL's valve-to-heater-core hose 64212282548, the only hose ETK pairs with this valve and the S54's engine-side hoses (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/Europe/M3_CSL-S54/L-N/browse/heater_and_air_conditioning/water_hoses_water_valve/">ETK: CSL</a>). No wiring and no coding change: your climate control is already coded for a valve without a pump. Owners running it on M3s report "No notable difference" (NAM3 thread above). Bleed the heater circuit carefully: without the pump, the engine's own pump does the venting (our inference), so allow two heat cycles.</li>
 <li><strong>Keep the M3 valve and its pump.</strong> Run two wires: the pump's supply from F62 (check your fuse card) and its switched side to pin 6 of the climate control's X608 plug. Then set <code>ZUSATZWASSERPUMPE</code> = <code>aktiv</code> in the climate control's coding (<a href="#session-8-vehicle-order-changes-and-body-modules">Session 8</a>) and test with <code>STEUERN_ZUSATZWASSERPUMPE</code> (IHKR46 or IHKA46), watching <code>STAT_ZUSATZWASSERPUMPE_EIN</code> (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/IHKR46.md">SGBD</a>, <a href="https://ncs-expert.com/wp-content/uploads/2013/06/FSW_PSW.pdf">NCS list</a>). Do it before you fill: BMW's fill procedure runs the pump to vent the heater circuit (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST054%20Climate%20Control/03_Engine%20Cooling-Heating%20System.pdf">BMW ST054, engine cooling</a>). One builder whose pump wasn't wired found the cooling hard to bleed (<a href="https://www.youtube.com/watch?v=eddLff8yba0&amp;t=152s">UNRIVALED – Watch this before you S54 swap (2021), 02:32</a>); Tenza found two plugs on the S54's heater valve where his harness had one (<a href="https://www.youtube.com/watch?v=-TXzg2Z8d7w&amp;t=300s">Tenza Motorsports – 5 things they don't tell you, part 1 (2021), 05:00</a>).</li>
 </ol>
-<p><strong>Check, before the first start:</strong> ignition on, engine off, blower low and the heat at maximum (on an IHKR, blower at 1 and the dial fully right: at 0 the valve is energized shut). That holds the valve open, and with option 2 the pump should run: you hear it, and <code>STATUS_IO</code> shows <code>STAT_ZUSATZWASSERPUMPE_EIN</code> = 1 (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST054%20Climate%20Control%20%28Archive%201%29/13%20IHKR%20E46.pdf">BMW ST054, IHKR</a>, <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/IHKA46.md">SGBD</a>). The full fill and bleed is in the guide's <a href="./#fill-and-bleed-the-cooling-system">Fill and bleed the cooling system</a>.</p>
+<p><strong>Check, before the first start:</strong> ignition on, engine off, blower low and the heat at maximum (on an IHKR, blower at 1 and the dial fully right: at 0 the valve is energized shut). That holds the valve open, and with option 2 the pump should run: you hear it, and <code>STATUS_IO</code> shows <code>STAT_ZUSATZWASSERPUMPE_EIN</code> = 1 (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST054%20Climate%20Control%20%28Archive%201%29/13%20IHKR%20E46.pdf">BMW ST054, IHKR</a>, <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/IHKA46.md">SGBD</a>). The full fill and bleed is in the guide's <a href="fuel-cooling-and-ac.html#fill-and-bleed-the-cooling-system">Fill and bleed the cooling system</a>.</p>
 <h3 id="ac-with-manual-or-automatic-climate-control">A/C with manual or automatic climate control</h3>
 <ul>
 <li><strong>The chain.</strong> Both climate controls send the A/C request, the compressor load and the fan request over the K-bus to the cluster, which passes them to the DME over CAN. The DME then grounds the compressor relay K19's coil from X60004 pin 29 (0.5 SW/BL) (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/2%20e46%20ihkr.pdf">BMW ST040 IHKR</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST054%20Climate%20Control%20%28Archive%201%29/12%20IHKA%20E46.pdf">BMW ST054</a>). K19 takes power from F63 (7.5 A) and feeds the compressor clutch; the refrigerant pressure sensor is read by the climate control, not the DME (<a href="https://wds.psjr.org/en/e46/svg/SP0000011761.svg">SP0000011761</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000011762.svg">SP0000011762</a>). Nothing moves.</li>
@@ -4013,7 +4109,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><strong>The electric fan:</strong> command it with <code>STEUERN_E_LUEFTER</code> and read the DME's fan fault, 53 (0x35). One E46 owner's rule is that the compressor isn't engaged while the electric fan doesn't run (<a href="https://www.bmw-syndikat.de/bmwsyndikatforum/topic_p323488_Kein_Plus_Strom_am_Komperssor_3er_BMW_-_E46.html">bmw-syndikat (2013)</a>, unconfirmed).</li>
 </ol></li>
 <li><strong>Fan.</strong> The DME drives the electric fan by PWM from the radiator-outlet temperature, its calculated catalyst temperature, road speed, battery voltage and the A/C pressure the climate control reports (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055, MS S54, p.86</a>); BMW's pressure stages are under <a href="#fans-and-can">Fans and CAN</a>. Community reverse-engineering adds more (<a href="https://github.com/saildot4k/MSS54-XDFs/wiki/Aux-Fan-Speeds">MSS54-XDFs wiki</a>, not BMW): the DME takes the larger of a coolant-temperature request and the A/C request (16 stages, 0–100%); it runs the fan at 60% if the climate control's data is missing, and at 60% or more once intake air reaches 60 °C (140 °F); and it scales the result down with road speed. So a fan running at a steady 60% with the A/C on suggests the cluster isn't passing the climate-control data. Test with <code>STEUERN_E_LUEFTER</code>.</li>
-<li><strong>Compressor and lines.</strong> Fit the donor's compressor and bracket with the S54, a new belt to suit its pulley's grooves, and only one M3 line, the pressure hose 64536902681 from the compressor to the condenser: the guide's <a href="./#air-conditioning">Air conditioning</a> has the parts, the oil, the charge and BMW's pass values. If you keep your Touring's compressor instead, you need a different belt (Kalim, same post).</li>
+<li><strong>Compressor and lines.</strong> Fit the donor's compressor and bracket with the S54, a new belt to suit its pulley's grooves, and only one M3 line, the pressure hose 64536902681 from the compressor to the condenser: the guide's <a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a> has the parts, the oil, the charge and BMW's pass values. If you keep your Touring's compressor instead, you need a different belt (Kalim, same post).</li>
 </ul>
 <h3 id="crash-fuel-cut-off">Crash fuel cut-off</h3>
 <p>There's no wire from the airbag unit to the pump on an E46. The airbag unit (MRS III) sends a crash message on the K-bus, the cluster forwards it on CAN, and the DME switches the pump off (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST034%20E46%20Complete%20Vehicle/7%20Passive%20Safety%20Systems.pdf">BMW ST034</a>). The MSS54 has the function: fault 126 (0x7E) is "EKP-Crash-Abschaltung", and BMW's S54 texts say the pump relay or module is switched off (<a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041</a>). Nobody documents whether US software, which drives the M3's pump module from X60002 pin 11, also drops the X60004 pin-10 relay output this build uses. Treat the cut-off as unverified with the relay.</p>
@@ -4048,7 +4144,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p>Sources: <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/brakes/hydro_unit_dsc_fastening_sensors_2/">ETK: Touring</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/hydro_unit_dsc_fastening_sensors/">ETK: M3 MK60</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/hydro_unit_dsc_control_unit_fastening/">ETK: M3 MK20</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/rear_axle/rear_axle_support_wheel_suspension/">ETK: M3 rear sensors</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/rear_axle/rear_axle_support_wheel_suspension/">ETK: Touring rear sensors</a>.</p>
 <ul>
 <li><strong>Your own sensors read the M3 hubs.</strong> BMW lists the same front and rear sensors for the US 325i Touring and for the US M3 from 09/2002, with the same yaw and lateral sensor cluster (34526764018) and steering-angle sensor (32306793632) (<a href="https://bmwfans.info/parts-catalog/34526792896/">ETK</a>, <a href="https://bmwfans.info/parts-catalog/34526752683/">ETK</a>). BMW says the MK60 "uses the same metal pulse wheels used with the MK20". On a rear-drive E46 the rear pulse wheel sits on the half-shaft's outer CV joint, so it comes with the M3 half-shafts, and it gives 48 pulses per wheel turn (BMW ST056). No source gives the M3 front hub's count; the road test below proves it. The rear sensor for a 325i is the short one (BMW ST056).</li>
-<li><strong>Tenza's ABS lamp doesn't contradict this.</strong> That build's donor was a 2002 car with the MK20, so its sensors couldn't plug in. The lamp came on at the first start, with the car standing and the brakes not yet bled, and three months later the builder reported no problems (<a href="https://www.youtube.com/watch?v=8uwpzS_-uDs&amp;t=438s">Tenza Motorsports – M3 Touring build finally runs (2021), 07:18</a>, <a href="https://www.youtube.com/watch?v=mDBiRn30fEs&amp;t=240s">Tenza Motorsports – 5 things they don't tell you, part 2 (2021), 04:00</a>; the full story is in the guide's <a href="./#dsc-brakes-and-steering-angle">DSC, brakes and steering angle</a>). On a 2003 xi Touring the M3 sensors' plugs mated with the xi's harness, whose Bosch sensors use the same blue housings (<a href="https://www.e46fanatics.com/threads/m3-touring-project.1240087/">e46fanatics</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>): proof that the plugs fit, not of how the sensors read. Never splice an MK20 donor's sensor pigtails onto your MK60 harness: they're the wrong kind of sensor.</li>
+<li><strong>Tenza's ABS lamp doesn't contradict this.</strong> That build's donor was a 2002 car with the MK20, so its sensors couldn't plug in. The lamp came on at the first start, with the car standing and the brakes not yet bled, and three months later the builder reported no problems (<a href="https://www.youtube.com/watch?v=8uwpzS_-uDs&amp;t=438s">Tenza Motorsports – M3 Touring build finally runs (2021), 07:18</a>, <a href="https://www.youtube.com/watch?v=mDBiRn30fEs&amp;t=240s">Tenza Motorsports – 5 things they don't tell you, part 2 (2021), 04:00</a>; the full story is in the guide's <a href="electronics-and-coding.html#dsc-brakes-and-steering-angle">DSC, brakes and steering angle</a>). On a 2003 xi Touring the M3 sensors' plugs mated with the xi's harness, whose Bosch sensors use the same blue housings (<a href="https://www.e46fanatics.com/threads/m3-touring-project.1240087/">e46fanatics</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>): proof that the plugs fit, not of how the sensors read. Never splice an MK20 donor's sensor pigtails onto your MK60 harness: they're the wrong kind of sensor.</li>
 <li><strong>Front sensors:</strong> BMW says MK60 front sensors are three-wire, but an owner converting an M3 from MK20 to MK60 found the MK60 plugs expect two, with pin 3 an unneeded ground; the pins are otherwise the same (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/189096-mk20-mk60-swap">NAM3</a>).</li>
 <li><strong>Fitting:</strong> seat each sensor flush in its bore, screw at 8 Nm (71 in-lb), and clip the lead so it isn't stretched at full droop or full lock. A donor knuckle or trailing arm with a corroded bore leaves an air gap; clean it out.</li>
 <li><strong>Testing one.</strong> These are active sensors: the DSC unit feeds them 12 V and counts current pulses of 7 mA and 14 mA (BMW ST056), so an ohmmeter can't test them. With the key on, check for 12 V at the plug. With an ammeter in series, the current should switch between about 7 and 14 mA as you turn the wheel slowly.</li>
@@ -4251,7 +4347,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li>If the job returns OKAY but K96 stays silent, the job may drive only the module output on X60002 pin 11. Go by the prime and <code>STAT_EKP_EIN</code>. With K96 pulled, a test light across its socket's coil terminals should flash at key-on (<a href="https://www.vehicleservicepros.com/industry-news/article/53089788/evap-monitor-on-european-cars-real-world-diagnosis-of-dmtl-systems-2017-08-04">Motor Age</a>, the generic method).</li>
 <li>In INPA the engine is under E46 → Engine → "MS S54 for S54 M3". INPA's "Fuel pump EKP" entry won't answer on this build, because there's no module (<a href="https://bmwfaq.org/threads/duda-con-el-inpa.796332/">bmwfaq</a>).</li>
 </ul></li>
-<li><strong>Pressure,</strong> on the gauge at the regulator's threaded test fitting under the left front floor; the M3's rail has no port (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041</a>). Pass: 5.0 ± 0.2 bar (72.5 ± 2.9 psi) at the prime, and less than 0.5 bar lost after switch-off, BMW's pass/fail (<a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055</a>). BMW: "DO NOT OPERATE THE FUEL PUMP unless it is properly installed in the fuel tank and is submersed in the fuel" (same source). To run the pump longer without the DME, pull K96 and bridge its socket's pins 6 (the F54 supply) and 2 (out to the pump) through a switch with a 15 A inline fuse. BMW's test bridges "pin 87b and 30 of the relay socket" (ST041, p.41). WDS names pin 6 "Terminal 30" and pin 2 the output to the pump, on your K96 socket and on the US M3's module socket alike, so 87b is pin 2 (our reading). Pin 8 is the one WDS calls "Terminal 87": it's the coil supply from F3, so never bridge to it (<a href="https://wds.psjr.org/en/e46/zinfo/E46_PK96A.htm">WDS: X10156</a>, <a href="https://wds.psjr.org/en/e46/zinfo/E46_PK96B.htm">X10157</a>). The full pressure and delivery tests belong to the fuel system: see <a href="./#test-the-fuel-system">Test the fuel system</a>.</li>
+<li><strong>Pressure,</strong> on the gauge at the regulator's threaded test fitting under the left front floor; the M3's rail has no port (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041</a>). Pass: 5.0 ± 0.2 bar (72.5 ± 2.9 psi) at the prime, and less than 0.5 bar lost after switch-off, BMW's pass/fail (<a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055</a>). BMW: "DO NOT OPERATE THE FUEL PUMP unless it is properly installed in the fuel tank and is submersed in the fuel" (same source). To run the pump longer without the DME, pull K96 and bridge its socket's pins 6 (the F54 supply) and 2 (out to the pump) through a switch with a 15 A inline fuse. BMW's test bridges "pin 87b and 30 of the relay socket" (ST041, p.41). WDS names pin 6 "Terminal 30" and pin 2 the output to the pump, on your K96 socket and on the US M3's module socket alike, so 87b is pin 2 (our reading). Pin 8 is the one WDS calls "Terminal 87": it's the coil supply from F3, so never bridge to it (<a href="https://wds.psjr.org/en/e46/zinfo/E46_PK96A.htm">WDS: X10156</a>, <a href="https://wds.psjr.org/en/e46/zinfo/E46_PK96B.htm">X10157</a>). The full pressure and delivery tests belong to the fuel system: see <a href="fuel-cooling-and-ac.html#test-the-fuel-system">Test the fuel system</a>.</li>
 <li><strong>Voltage at the pump,</strong> with it running on the bypass: at the pump connector under the right rear seat, within 0.5 V of the battery on the feed, and 0.5 V or less on the ground side (<a href="https://automotivetechinfo.com/wp-content/uploads/2019/10/Diagnosing-Fuel-Delivery-Issues.pdf">Luke Murray</a>). It matters more with an M3 pump: K96 feeds the pump through 1.5 mm² (WS/BL), where the US M3's module uses 2.5 mm² (RT/WS). If it fails, clean and tighten the pump plug and its ground, then check F54 and the socket terminals.</li>
 </ol>
 <p>K96, K6327 and K19 are the same relay (61368373700), so swapping K96 with K19 is a quick relay test.</p>
@@ -4781,7 +4877,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </table></div>
 <p>Sources for steps 20–29: <a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">BMW ST055</a> (power, pedal, throttle and pump values), <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD documentation</a> (jobs and bits), <a href="https://bmwfaq.org/threads/duda-con-el-inpa.796332/">bmwfaq</a> (INPA's menu). On a stock E46 M3, the throttles visibly follow the pedal at key-on (<a href="https://motoiq.com/project-e46-m3-part-8-the-dreaded-eml-light/5">MotoIQ</a>).</p>
 <h3 id="steps-3033-the-oil-priming-crank">Steps 30–33: the oil-priming crank</h3>
-<p>In Phase 12, with the pump relay K96 and the injector relay K6327 pulled and the six coils unplugged (<a href="./#phase-12-front-end-first-start-and-shakedown">README, Phase 12</a>):</p>
+<p>In Phase 12, with the pump relay K96 and the injector relay K6327 pulled and the six coils unplugged (<a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">README, Phase 12</a>):</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -4820,7 +4916,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </table></div>
 <p>Then the first start, Session 6 step 6.</p>
 </section><section id="coding-step-by-step"><h2>Coding step by step</h2>
-<p>Do the sessions in this order. The guide explains why and shows the order as a figure (<a href="./#deep-dive-electronics-and-coding">Deep dive: electronics and coding</a>).</p>
+<p>Do the sessions in this order. The guide explains why and shows the order as a figure (<a href="electronics-and-coding.html#deep-dive-electronics-and-coding">Deep dive: electronics and coding</a>).</p>
 <div class="table-wrap"><table>
 <thead>
 <tr class="header">
@@ -5329,7 +5425,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li>Load <code>12MSS54.PRG</code>. Run <code>AIF_LESEN</code> with argument 1, then 2, 3 and so on. For each slot record the VIN, software, authority and assembly numbers, plus <code>AIF_ANZ_FREI</code> (free slots left) and the first slot with an empty <code>AIF_FG_NR</code> and its <code>AIF_ADRESSE_LOW</code> (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/12MSS54.md">SGBD documentation</a>, <a href="https://www.ecuworx.co.uk/2016/02/26/adding-updating-your-vin-uif-with-tool32/">ECUWorx</a>). A DME with few free slots left has little room for your VIN.</li>
 <li>For a DIY delete only: BMWFlash → File → Read DME → "No" for a partial read; save it and keep a copy (<a href="https://www.ecuworx.co.uk/how-to/using-the-mss5x-binary-modification-tool/">ECUWorx</a>). A 32 kB file means an MSS54, 64 kB an MSS54HP (<a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/2052-comprehensive-mss54-mss54hp-dme-information">NAM3</a>).</li>
 </ol>
-<p><strong>Vendor route</strong> (the guide's <a href="./#immobilizer-ews">Immobilizer (EWS)</a> lists vendors and prices): order the EWS delete with your Touring's full VIN, manual-gearbox software if the donor was SMG, and the tampering-fault delete if offered. Decline every emissions delete. Ask for BMW's latest US software for the donor's hardware: BMW reprogrammed 2001–05 US M3 DMEs because the original software could misjudge catalyst efficiency (SI B12 22 08, <a href="https://static.nhtsa.gov/odi/ffdd/tsbs/TSBS_RECEIVED_2005-2009.zip">NHTSA bulletin index, record 10029304</a>). Instead of a delete, a vendor can program the used DME to your car's EWS and key: one review reports a running S54 in a 2001 330i after RPM Motorsport "synced" its used DME "to the EWS and key" ($300, 1–2 days plus shipping, October 2026; <a href="https://rpmmotorsport.net/products/bmw-e39-e46-m3-m5-s54-s62-used-ecu-dme-ews-programming">RPM</a>).</p>
+<p><strong>Vendor route</strong> (the guide's <a href="electronics-and-coding.html#immobilizer-ews">Immobilizer (EWS)</a> lists vendors and prices): order the EWS delete with your Touring's full VIN, manual-gearbox software if the donor was SMG, and the tampering-fault delete if offered. Decline every emissions delete. Ask for BMW's latest US software for the donor's hardware: BMW reprogrammed 2001–05 US M3 DMEs because the original software could misjudge catalyst efficiency (SI B12 22 08, <a href="https://static.nhtsa.gov/odi/ffdd/tsbs/TSBS_RECEIVED_2005-2009.zip">NHTSA bulletin index, record 10029304</a>). Instead of a delete, a vendor can program the used DME to your car's EWS and key: one review reports a running S54 in a 2001 330i after RPM Motorsport "synced" its used DME "to the EWS and key" ($300, 1–2 days plus shipping, October 2026; <a href="https://rpmmotorsport.net/products/bmw-e39-e46-m3-m5-s54-s62-used-ecu-dme-ews-programming">RPM</a>).</p>
 <p><strong>DIY delete</strong> (a licensed tool function): load the partial read into ECUWorx's MSS5x tool, buy and activate its licence, select "EWS Delete + EWS Tampering DTC Delete" (and "Transmission Swap" to manual for an SMG donor), apply and write the changes, then reflash with BMWFlash (File → Reflash DME), key to 0 and back to 2 (<a href="https://www.ecuworx.co.uk/how-to/using-the-mss5x-binary-modification-tool/">ECUWorx</a>, <a href="https://www.ecuworx.co.uk/how-to/a-run-down-of-features-of-the-mss5x-binary-modification-tool-and-what-they-do/">ECUWorx</a>). Don't apply any emissions option the tool offers.</p>
 <p><strong>DIY VIN write</strong> (Tool32, <code>12MSS54.PRG</code>), after ECUWorx's procedure:</p>
 <ol type="1">
@@ -5856,7 +5952,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p><strong>Cars built before 09/2001.</strong> The light module may not push the mileage to a new cluster. One 2001 Touring owner had the true reading written into the chip; another owner fitted a newer light module and switched his car to FA (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>, <a href="https://www.e46fanatics.com/threads/e46-m3-cluster-coding.1278842/">e46fanatics</a>).</p>
 <p><strong>Expect:</strong> no tamper dot; your true mileage, matching the Phase 0 photo; the donor's order in AKMB and yours in ALSZ, as your coding sheet notes; a re-read that matches your MAN; the DSC and yellow BRAKE lamps may go out within a short drive once the VINs match (<a href="https://www.e46fanatics.com/threads/e46-m3-cluster-coding.1278842/">e46fanatics</a>).</p>
 <aside class="callout callout-crit"><span class="callout-label">Safety</span>
-<p>The light module is your car's mileage record. PA-Soft can write a VIN and mileage into the light module, and one retrofit guide uses that to match the module to a donor cluster (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>). Don't: it changes your car's recorded mileage. Make the cluster match the light module, keep the photos and screenshots, and see the guide's <a href="./#instrument-cluster-and-mileage">Instrument cluster and mileage</a>.</p>
+<p>The light module is your car's mileage record. PA-Soft can write a VIN and mileage into the light module, and one retrofit guide uses that to match the module to a donor cluster (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>). Don't: it changes your car's recorded mileage. Make the cluster match the light module, keep the photos and screenshots, and see the guide's <a href="electronics-and-coding.html#instrument-cluster-and-mileage">Instrument cluster and mileage</a>.</p>
 </aside>
 <h3 id="session-5-dsc-coding-and-vin">Session 5: DSC coding and VIN</h3>
 <p><strong>Before you start:</strong> the cluster carries your VIN (Session 4); the charger is on; your DSC unit's part number and coding index are saved (Session 1).</p>
@@ -6119,7 +6215,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p><strong>Option B, the M3's MK60:</strong></p>
 <ol type="1">
 <li><p><strong>Write your VIN into it.</strong> PA-Soft → the ABS/DSC module → Reprogramming → Write FGSTNR, and enter the last 14 characters of your VIN, the ones after "WBA" (<a href="https://www.youtube.com/watch?v=1dn4c3g6dsA&amp;t=287s">LM Auto Repairs – E46 MK60 coding and VIN (2016), 04:47</a>, filmed on a 2003 E46 diesel). In Tool32 the job is <code>DSC_MK60.PRG</code> → <code>IDENT_VIN_SCHREIBEN</code>: type your 17-character VIN plus one more character, any, as the job file asks. Read it back with <code>IDENT_VIN</code> (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/DSC_MK60.md">SGBD documentation</a>).</p></li>
-<li><p><strong>Set up this session's vehicle order.</strong> NCS Expert with a manipulation profile → F1 → F3 → E46 → <strong>ALSZ</strong>, then check the order against your Session 1 screenshot. Read it from the light module, not the cluster: after the cluster swap AKMB holds the donor's order (Session 4), and on a car built from 09/2001 the EWS holds none (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/KOMBI46R.md">SGBD documentation</a>, <a href="https://github.com/emdzej/ncsx/blob/main/docs/daten-format.md">NCS data, via ncsx</a>). Then Enter FA, leaving the VIN as it is (<a href="#ncs-expert-basics">NCS Expert basics</a> shows the screens). Delete the production date (#MMYY) and add #0902 or later, no earlier than the unit itself; the donor's own date is a safe choice. Also give the order the donor's type code (<code>BL93</code> from a coupe, <code>BR93</code> from a convertible), from its vehicle order saved in Phase 1, so that it says <code>S54B32</code>: BMW's coding data admits the M3 MK60 (index C06) only with an M3 type key and a date from 09/2002 (<a href="https://archive.org/details/sp-daten-v-32">SP-Daten V32</a>, <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/189096-mk20-mk60-swap">NAM3</a>, <a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/173720-mk60-vin-issue-m3-track-mode-rabbit-hole">NAM3</a>). Don't run <code>FA_WRITE</code>: the changes last for this session only, and your stored order stays a Touring's. BMW's rule requires the M3 type key; nobody has documented this order in a Touring. On a 325xi converted to rear drive, also delete <code>$203</code> (all-wheel drive) from the session order, as the guide's <a href="./#route-1-code-the-mk60-from-an-xi-order">325xi section</a> explains.</p></li>
+<li><p><strong>Set up this session's vehicle order.</strong> NCS Expert with a manipulation profile → F1 → F3 → E46 → <strong>ALSZ</strong>, then check the order against your Session 1 screenshot. Read it from the light module, not the cluster: after the cluster swap AKMB holds the donor's order (Session 4), and on a car built from 09/2001 the EWS holds none (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/KOMBI46R.md">SGBD documentation</a>, <a href="https://github.com/emdzej/ncsx/blob/main/docs/daten-format.md">NCS data, via ncsx</a>). Then Enter FA, leaving the VIN as it is (<a href="#ncs-expert-basics">NCS Expert basics</a> shows the screens). Delete the production date (#MMYY) and add #0902 or later, no earlier than the unit itself; the donor's own date is a safe choice. Also give the order the donor's type code (<code>BL93</code> from a coupe, <code>BR93</code> from a convertible), from its vehicle order saved in Phase 1, so that it says <code>S54B32</code>: BMW's coding data admits the M3 MK60 (index C06) only with an M3 type key and a date from 09/2002 (<a href="https://archive.org/details/sp-daten-v-32">SP-Daten V32</a>, <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/189096-mk20-mk60-swap">NAM3</a>, <a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/173720-mk60-vin-issue-m3-track-mode-rabbit-hole">NAM3</a>). Don't run <code>FA_WRITE</code>: the changes last for this session only, and your stored order stays a Touring's. BMW's rule requires the M3 type key; nobody has documented this order in a Touring. On a 325xi converted to rear drive, also delete <code>$203</code> (all-wheel drive) from the session order, as the guide's <a href="325xi.html#route-1-code-the-mk60-from-an-xi-order">325xi section</a> explains.</p></li>
 <li><p><strong>Code it.</strong> Back (F6) → Process ECU (F4) → MK60 → check the job is <code>SG_CODIEREN</code> → Execute (F3). Expect "coding active", then "coding ended" (<a href="https://www.youtube.com/watch?v=CvyVCwCAx1Q&amp;t=1874s">50sKid – E46 DSC unit replacement and coding (2016), 31:14</a>). Code only the MK60 with this order: Process Car would code your body modules as a coupe's (<a href="#session-1-vehicle-order-and-codings">Session 1</a>). Never use Process Car or Code Car on this car.</p></li>
 <li><p><strong>If NCS doesn't list MK60, or reports "Codierindex … nicht zulässig"</strong>, the session's production date is too early for the unit, or its type key isn't an M3's: fix both and retry. In one M3 the date, not the VIN, was at fault (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/189096-mk20-mk60-swap">NAM3</a>, <a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/173720-mk60-vin-issue-m3-track-mode-rabbit-hole">NAM3</a>, <a href="https://www.e46fanatics.com/threads/ncs-expert-coding-is-faulty-resolved-8-12-21.1293250/">e46fanatics</a>).</p></li>
 <li><p><strong>Check the values.</strong> Read its coding (<code>CODIERDATEN_LESEN</code>) and compare it with the values below, which liam821 read from real cars. Set the rack curve and brake models for the parts you fitted, save as <code>FSW_PSW.MAN</code> and write it with <code>SG_CODIEREN</code> (<a href="https://liam821.com/MK60-Comparison.pdf">liam821</a>, <a href="https://www.ecuworx.co.uk/uploads/M-Track.pdf">ECUWorx</a>). From your Touring's own order NCS won't code the M3 unit at all (BMW's rule, step 2). The handling parameters that follow the engine (<code>UEBERSTEUERN_MUE_0_2</code>, <code>UNTERSTEUERSCHWELLE_2</code>, <code>GEARMOMENTREGLER_MAX_HA_2</code> and others) take the M3's settings from the <code>S54B32</code> type key (liam821).</p>
@@ -6224,7 +6320,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </ol>
 <p>Writing a code to a session order and setting values in coding files are both our reading of the coding rules; nobody has documented M Track in a Touring.</p></li>
 </ol>
-<p><strong>Bleeding with INPA.</strong> BMW bleeds a DSC car with its tester's routine, and INPA's MK60 routine is that tester at home: INPA → E46 → Chassis → DSC MK60 → Activate (F6) → Control hydraulic (F1) → F2 for front left and rear left, F3 for front right and rear right. Follow BMW's procedure for the work you did, with a pressure bleeder at no more than 2 bar (29 psi); the whole sequence, flush first, is in the guide's <a href="./#brakes-and-bleeding">Brakes and bleeding</a>:</p>
+<p><strong>Bleeding with INPA.</strong> BMW bleeds a DSC car with its tester's routine, and INPA's MK60 routine is that tester at home: INPA → E46 → Chassis → DSC MK60 → Activate (F6) → Control hydraulic (F1) → F2 for front left and rear left, F3 for front right and rear right. Follow BMW's procedure for the work you did, with a pressure bleeder at no more than 2 bar (29 psi); the whole sequence, flush first, is in the guide's <a href="chassis-and-drivetrain.html#brakes-and-bleeding">Brakes and bleeding</a>:</p>
 <ul>
 <li><strong>Caliper or hose work only</strong> (the default route): the routine on the rear circuit, right rear then left rear. The front is bled by pumping the pedal fully at least 12 times per side and closing the bleed screw with the pedal held down, right front then left front (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/34__brakes/0__brake_testing_and_bleeding/9_ra__bleeding_brake_system_with_abs_asc-t/page_1741/">TIS 34 00 048</a>).</li>
 <li><strong>Work on the master cylinder, the DSC unit or the pipes between them, or a unit that ran dry:</strong> the routine at every wheel in turn, right rear, left rear, right front, left front, restarting it for each wheel (<a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/34__brakes/0__brake_testing_and_bleeding/10_ra__bleeding_brake_system_with_dsc3/">TIS 34 00 050</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/34__brakes/0__brake_testing_and_bleeding/10_ra__bleeding_brake_system_with_dsc3/page_1743/">p.2</a>).</li>
@@ -6235,7 +6331,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p><strong>If an M3 unit never clears "VIN not initialized":</strong> in the one documented Touring case, the owner had written a blank coding file to the unit and reset the steering angle in PA-Soft. He never coded it from a vehicle order whose date suited it, and never ran INPA's initialisation (<a href="https://www.e46fanatics.com/threads/m3-cluster-swap-dsc-light.1260275/">e46fanatics</a>). So first do steps 1–7 in order: the VIN, a late session order with an M3 type key, set up from ALSZ, the coding, then Shift+F4 → F1. A late enough session date is what let one M3's MK60 code and initialise (<a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/173720-mk60-vin-issue-m3-track-mode-rabbit-hole">NAM3</a>). If it still won't initialise, refit your Touring's own unit, the cure in that Touring (<a href="https://www.e46fanatics.com/threads/m3-cluster-swap-dsc-light.1260275/">e46fanatics</a>).</p>
 <p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=1dn4c3g6dsA&amp;t=287s">LM Auto Repairs – E46 MK60 coding and VIN (2016), 04:47</a> for Write FGSTNR (on a 2003 E46 diesel), <a href="https://www.youtube.com/watch?v=CvyVCwCAx1Q&amp;t=1874s">50sKid – E46 DSC unit replacement and coding (2016), 31:14</a> for the NCS coding, and the same video at <a href="https://www.youtube.com/watch?v=CvyVCwCAx1Q&amp;t=2027s">33:47</a> for the Shift+F4 → F1 initialisation.</p>
 <h3 id="session-6-first-start-adaptations-and-throttle-check">Session 6: First start, adaptations and throttle check</h3>
-<p><strong>Why.</strong> BMW: if the throttle housing or pedal module is replaced, "the ADAPTATIONS MUST BE CLEARED and ADAPTATION PROCEDURE MUST BE PERFORMED… If this is not performed, the vehicle will not start, or run in 'fail-safe' mode" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%201%29.pdf">BMW ST041</a>). Do this at the first start, as part of <a href="./#phase-12-front-end-first-start-and-shakedown">Phase 12</a>.</p>
+<p><strong>Why.</strong> BMW: if the throttle housing or pedal module is replaced, "the ADAPTATIONS MUST BE CLEARED and ADAPTATION PROCEDURE MUST BE PERFORMED… If this is not performed, the vehicle will not start, or run in 'fail-safe' mode" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%201%29.pdf">BMW ST041</a>). Do this at the first start, as part of <a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">Phase 12</a>.</p>
 <p><strong>When to clear again.</strong> After any change on the engine side: the engine wiring, the cruise or steering-wheel buttons, the A/C, the fuel pump or the gearbox. A body option, such as a cluster or light setting, doesn't need it, because the DME isn't coded from the vehicle order (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST051%20Body%20Electronics%20I%20%28Archive%201%29/05%20EWS.pdf">BMW ST051</a>, <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD documentation</a>). Clearing the DME's faults also resets the readiness monitors, so don't clear without a reason (<a href="https://www.nyvip3.com/OBDII/ReadyVSNotReady">NYVIP3</a>).</p>
 <p>Tool32, <code>MSS54DS0.PRG</code> (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD documentation</a>):</p>
 <ol type="1">
@@ -6273,10 +6369,10 @@ figure.diagram figcaption strong { color: var(--fg); }
 <p><strong>In INPA</strong>, adaptations are erased under E46 → Engine → F4 → F7, running each entry. That was filmed on an M54 car; the MSS54 script's path isn't documented (<a href="https://www.youtube.com/watch?v=FiBr1h9j0bU&amp;t=1439s">50sKid – Code the vehicle order (2017), 23:59</a>). One owner reportedly "soft-bricked" a DME clearing adaptations in INPA (<a href="https://z4-forum.com/threads/e85-manual-swap-trouble-solved.152760/">z4-forum</a>, unverified), so keep the charger on.</p>
 <p><strong>What the DME relearns.</strong> Clearing adaptations also makes the DME relearn which equipment is fitted: pump control, A/C, cruise and the DM-TL heater (<code>STAT_EKP_CFG_VERBAUT_WERT</code>, <code>STAT_KKOS_ST_VERBAUT_WERT</code>, <code>STAT_FGR_MFL_VERBAUT_WERT</code>, <code>STAT_LDPH_VERBAUT_WERT</code>, all in <code>STATUS_ADAPTIONSBLOCK_06</code>). Nothing codes them; they're learned (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD documentation</a>). The job file doesn't say which <code>STAT_EKP_CFG_VERBAUT_WERT</code> value means relay and which the pump module, so write down the number on the donor and again after this session. We infer, though nobody has shown it, that a mismatch between this learned setting and your relay wiring is what stores the pump fault 1 (0x01); see <a href="#faults-that-look-like-pump-faults">Faults that look like pump faults</a>.</p>
 <p><strong>Expect:</strong> a steady idle with fuel trims near zero; all four VANOS jobs complete inside the figures above; no new faults.</p>
-<p><strong>If it fails:</strong> clear and relearn again, on the charger. Check <code>STAT_WDK_ADAPT_WERT</code>, then the throttle sensors, pedal and actuator, the chain behind the EML lamp's 3-second shutdown (<a href="#wont-start">Won't start</a>). VANOS readings outside the figures: retest fully warm, then see the guide's <a href="./#s54-refresh-on-the-stand">S54 refresh on the stand</a>.</p>
+<p><strong>If it fails:</strong> clear and relearn again, on the charger. Check <code>STAT_WDK_ADAPT_WERT</code>, then the throttle sensors, pedal and actuator, the chain behind the EML lamp's 3-second shutdown (<a href="#wont-start">Won't start</a>). VANOS readings outside the figures: retest fully warm, then see the guide's <a href="chassis-and-drivetrain.html#s54-refresh-on-the-stand">S54 refresh on the stand</a>.</p>
 <p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=FiBr1h9j0bU&amp;t=1439s">50sKid – Code the vehicle order (2017), 23:59</a> for INPA's F4 → F7 adaptation erase (on an M54 car).</p>
 <h3 id="session-7-steering-angle-after-the-alignment">Session 7: Steering angle after the alignment</h3>
-<p><strong>When:</strong> after the wheel alignment, done in BMW's design position at the M3's normal-position load (<a href="./#wheel-alignment">Wheel alignment</a>), and after any later steering or suspension work.</p>
+<p><strong>When:</strong> after the wheel alignment, done in BMW's design position at the M3's normal-position load (<a href="sources-and-appendix.html#wheel-alignment">Wheel alignment</a>), and after any later steering or suspension work.</p>
 <p><strong>INPA (MK60):</strong></p>
 <ol type="1">
 <li>Car level, wheel dead straight, ignition on, no brake pressure.</li>
@@ -6553,7 +6649,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li>your old halogen trace: put your own customisations back through a coding file, line by line, never the whole old trace;</li>
 <li>the xenon values in the table below. The levelling switches are <code>LEUCHTWEITENREGELUNG</code>, <code>LEUCHTWEITENREG_AUTOM</code> and <code>LEUCHTWEITENREG_DYNAM</code>, which BMW sets from <code>$522</code>. <code>AUTO_LWR_ENABLE</code>, which some coding lists show, belongs to the adaptive-headlight unit, not the light module (<a href="https://archive.org/details/sp-daten-v-32">BMW E46CVT.000</a>).</li>
 <li>Then set the M3's level-sensor curves through a coding file, because coding from your Touring's order gives the non-M ones: <code>KENNLINIE_LWR_SENSOR_VO</code> = <code>wert_03</code>, <code>KENNLINIE_LWR_SENSOR_HI</code> = <code>wert_02</code>, <code>DEF_LWR_SENSOR_HI</code> = <code>wert_03</code> and <code>OFFSET_LWR</code> = <code>wert_03</code>, BMW's values for an M3; every non-M rear-drive car gets <code>wert_01</code> (<a href="https://archive.org/details/sp-daten-v-32">BMW E46CVT.000, group LSZ_M3undAllrad</a>). They suit both sensors on M3 suspension. If your rear axle is still the Touring's, leave <code>_HI</code> and <code>DEF_LWR_SENSOR_HI</code> at <code>wert_01</code> (our inference: BMW never pairs an M3 front with a non-M rear).</li>
-<li><strong>On a 325xi,</strong> the order says <code>ALLRAD</code> (all-wheel drive), so coding from it gives BMW's all-wheel-drive curves instead: <code>wert_02</code>, <code>wert_01</code>, <code>wert_02</code> and <code>wert_02</code>, in the same order (same source). Converted to rear drive with the M3's front and rear axles, set the M3 values above, as on a 325i. Kept on all-wheel drive, with both sensors on the xi's own axles, leave the values the order gives: they're BMW's for that hardware (<a href="./#325xi-rear-drive-or-all-wheel-drive">325xi</a>).</li>
+<li><strong>On a 325xi,</strong> the order says <code>ALLRAD</code> (all-wheel drive), so coding from it gives BMW's all-wheel-drive curves instead: <code>wert_02</code>, <code>wert_01</code>, <code>wert_02</code> and <code>wert_02</code>, in the same order (same source). Converted to rear drive with the M3's front and rear axles, set the M3 values above, as on a 325i. Kept on all-wheel drive, with both sensors on the xi's own axles, leave the values the order gives: they're BMW's for that hardware (<a href="325xi.html#325xi-rear-drive-or-all-wheel-drive">325xi</a>).</li>
 </ul></li>
 <li><p><strong>Check in Tool32, <code>LSZ_2.PRG</code>:</strong></p>
 <ul>
@@ -6742,8 +6838,8 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><strong>The stored faults.</strong> Location 1 (0x01), the pump fault, doesn't light the lamp. Whether a leftover 130 (0x82) after an EWS delete commands the lamp hasn't been documented: check <code>STAT_MIL_EIN</code> and a generic scanner's mode 01 and 03 rather than guess, and order the tampering-fault delete with the EWS delete (<a href="#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2</a>).</li>
 <li><strong>The VIN.</strong> The state tester reads the VIN stored in the DME, and a partial VIN fails (<a href="https://static.nhtsa.gov/odi/tsbs/2013/MC-10150160-9999.pdf">BMW SI B12 09 13</a>). Make sure all 17 characters of yours are in it (<a href="#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2</a>).</li>
 <li><strong>SMG software</strong> left in the DME can ask for the check-engine lamp on the SMG's behalf; fit manual software first (<a href="#session-2-dme-vin-ews-delete-and-gearbox-software">Session 2</a>).</li>
-<li><strong>Massachusetts</strong> doesn't emissions-test a 2001–05 car in 2026, so there it's a safety inspection only; its anti-tampering rules still apply (<a href="./#massachusetts">Massachusetts</a>).</li>
-<li><strong>California</strong> and other states that check DME software: see the guide's <a href="./#registration-and-legal-us">Registration and legal</a>.</li>
+<li><strong>Massachusetts</strong> doesn't emissions-test a 2001–05 car in 2026, so there it's a safety inspection only; its anti-tampering rules still apply (<a href="registration-and-legal.html#massachusetts">Massachusetts</a>).</li>
+<li><strong>California</strong> and other states that check DME software: see the guide's <a href="registration-and-legal.html#registration-and-legal-us">Registration and legal</a>.</li>
 </ul>
 <h3 id="when-a-monitor-wont-complete">When a monitor won't complete</h3>
 <ul>
@@ -6903,7 +6999,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <li><strong>Did the pump prime at key-on, and is there 5.0 ± 0.2 bar?</strong>
 <ul>
 <li><strong>No prime:</strong> <a href="#checks-on-the-pump-circuit">Checks on the pump circuit</a>: X60004 pin 10 to K96, the fuses, K96 swapped with K19, <code>STEUERN_EKP</code>, the E-box plugs. A 323i wagon whose M3 plugs had no mates didn't prime (<a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/page-39">e46fanatics</a>).</li>
-<li><strong>Primes, but low or no pressure:</strong> feed and return swapped at the filter-regulator (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/82513-s54-swap-to-ms42-car-no-start">NAM3</a>), the regulator and its vacuum hose, the pump's delivery (at least 1.12 L in 30 s at 12 V, <a href="./#fuel-system">Fuel system</a>), old fuel.</li>
+<li><strong>Primes, but low or no pressure:</strong> feed and return swapped at the filter-regulator (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/82513-s54-swap-to-ms42-car-no-start">NAM3</a>), the regulator and its vacuum hose, the pump's delivery (at least 1.12 L in 30 s at 12 V, <a href="fuel-cooling-and-ac.html#fuel-system">Fuel system</a>), old fuel.</li>
 <li><strong>Yes:</strong> go to 6.</li>
 </ul></li>
 <li><strong>Injector faults 3–5 and 31–33 (0x03–0x05, 0x1F–0x21), or "circuit low" on all six?</strong>
@@ -7019,7 +7115,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 </ul>
 <h3 id="warning-lights">Warning lights</h3>
 <p>Expected states: key on, engine off, the red oil-pressure lamp, the charge lamp and the check-engine lamp are lit, and the red BRAKE lamp while the parking brake is on. After the start, oil and charge go out within seconds and the check-engine lamp goes out unless a fault asks for it; Tenza's check-engine and oil lamps went out after 10–15 seconds (<a href="https://www.youtube.com/watch?v=8uwpzS_-uDs&amp;t=338s">Tenza Motorsports – M3 Touring build finally runs (2021), 05:38</a>). The DSC, ABS and yellow BRAKE lamps stay on until Session 5. To tell lamp wiring from a real fault, read <code>STAT_MIL_EIN</code>: at 0 with the lamp lit, suspect the cluster or its coding; at 1, read <code>FS_LESEN</code>.</p>
-<p><strong>The two BRAKE lamps mean different things.</strong> BMW: the red BRAKE lamp means low brake fluid or the parking brake on, while DSC and ABS faults light the yellow BRAKE lamp with the ABS and DSC lamps (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>). Have all four dark before the inspection (<a href="./#massachusetts">Massachusetts</a>).</p>
+<p><strong>The two BRAKE lamps mean different things.</strong> BMW: the red BRAKE lamp means low brake fluid or the parking brake on, while DSC and ABS faults light the yellow BRAKE lamp with the ABS and DSC lamps (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>). Have all four dark before the inspection (<a href="registration-and-legal.html#massachusetts">Massachusetts</a>).</p>
 <figure class="diagram"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 825" role="img" aria-label="A lookup chart for the warning lights. Expected, not a fault: with the key on and the engine off the red oil-pressure lamp, the charge lamp and the check-engine lamp are lit, and the red BRAKE lamp while the parking brake is on; after the start, oil and charge go out within seconds and the check-engine lamp goes out unless a fault asks for it; the DSC, ABS and yellow BRAKE lamps stay on until Session 5. To tell lamp wiring from a real fault, read STAT_MIL_EIN: at 0 with the check-engine lamp lit while the engine runs, suspect the cluster or its coding; at 1, read FS_LESEN. The two BRAKE lamps mean different things (BMW ST056): red is low brake fluid or the parking brake on, not a DSC fault; yellow is a DSC or ABS fault, lit with the ABS and DSC lamps; have all four dark before the inspection. Then each lamp with its likely causes, most likely first, and the first check. Check engine: the leak-test circuit, SMG software in the DME, the O2 sensors or their heaters, secondary air, injector circuits, throttle or pedal, misfire. No lamp but faults stored: the pump fault 1 (0x01), expected with US software on K96; possibly 130 (0x82) after an EWS delete; 110 (0x6E) if the Sport LED isn't wired. Oil pressure, out at key-on: the pin-11 wire or the cluster's CAN setting; on while running: low oil pressure or a grounded lamp wire. Charge, out at key-on: the pin-1 wire or GENERATOR_UEBER_CAN; on while running: alternator, belt, the terminal-61 wire, low voltage; with a donor built from 03/2004, if the lamp stays dark with GENERATOR_UEBER_CAN at nicht_aktiv, code it aktiv. Oil level: the pin-21 wire, TOG_UEBER_CAN, or the sensor, fault 44 (0x2C). EML: the throttle sensors, pedal, synchronization or actuator, low charging voltage, or the adaptation not done. ABS, DSC and yellow BRAKE: the VIN not initialized (5E1F; 5EF1 in PA-Soft) until the cluster carries your VIN; wheel-speed faults 5D90 to 5DC5, whose third character names the wheel, and an MK20 donor's sensors don't fit; the steering angle not calibrated; an M3 MK60 not yet coded from a session order dated 09/2002 (#0902) or later, or reset in PA-Soft instead of initialised in INPA, so write the VIN, code it, run Shift+F4 then F1, and only if it still fails refit your Touring's own unit; the yellow BRAKE lamp alone, the brake test-contact wire still on pin 28. Red BRAKE: low brake fluid, often an unbled system, which also switches DSC off, or the parking brake or its switch; check the fluid level and STATUS_SCHALTER. Cruise won't engage: not the M3 clutch module, the gear switch, implausible brake contacts, SMG software, the steering-wheel data line. Airbag: a seat swap or the slip-ring plugs; never bypass it, since its crash message starts the DME's pump cut-off, unverified with K96. Gearbox or SMG lamp and tamper dot: SMG software; after a vehicle-order change, the modules it touches not yet coded; the cluster's VIN or mileage not matching the light module's. The car's order lives in the light module (ALSZ): read it from there; the M3 cluster keeps the donor's order and is coded only from its own read-out; never use Code Car. Check filler cap: the cap, or a leak.">
 
 <defs>
@@ -7198,7 +7294,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <td>Red BRAKE</td>
 <td>Low brake fluid, often an unbled system, which also switches DSC off; or the parking brake on, or its switch. Not a DSC or ABS fault (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>)</td>
 <td>The fluid level; Tool32 <code>DSC_MK60.PRG</code> → <code>STATUS_SCHALTER</code>: <code>STAT_HANDBREMSE_SCHALTER_EIN</code> and <code>STAT_BREMSFLUESSIGKEIT_SCHALTER_EIN</code> follow the lever and the fluid switch (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/DSC_MK60.md">SGBD documentation</a>)</td>
-<td>Fill and bleed (<a href="./#brakes-and-bleeding">Brakes and bleeding</a>); adjust the parking brake or fix its switch</td>
+<td>Fill and bleed (<a href="chassis-and-drivetrain.html#brakes-and-bleeding">Brakes and bleeding</a>); adjust the parking brake or fix its switch</td>
 </tr>
 <tr class="odd">
 <td>Cruise won't engage</td>
@@ -7381,7 +7477,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <tr class="even">
 <td>Spongy pedal after a DSC change</td>
 <td>Air in the hydraulic unit</td>
-<td>Bleed BMW's way: INPA's routine at every wheel, restarted for each, with five full pedal strokes after each run (TIS 34 00 050, <a href="#session-5-dsc-coding-and-vin">Session 5</a>); then BMW's leak test (<a href="./#brakes-and-bleeding">Brakes and bleeding</a>). Owners also press the pedal hard during the routine (Session 5)</td>
+<td>Bleed BMW's way: INPA's routine at every wheel, restarted for each, with five full pedal strokes after each run (TIS 34 00 050, <a href="#session-5-dsc-coding-and-vin">Session 5</a>); then BMW's leak test (<a href="chassis-and-drivetrain.html#brakes-and-bleeding">Brakes and bleeding</a>). Owners also press the pedal hard during the routine (Session 5)</td>
 </tr>
 </tbody>
 </table></div>
@@ -7413,7 +7509,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <tr class="even">
 <td>VANOS test slow (over 500 ms) or its status reads "weggedriftet"</td>
 <td>Worn VANOS seals, valve block or sealing plate; or a test run before the engine was fully warm</td>
-<td>Retest at 85 °C (185 °F) or more, against the owner and ISTA figures in <a href="#session-6-first-start-adaptations-and-throttle-check">Session 6</a>; then the VANOS work in the guide's <a href="./#s54-refresh-on-the-stand">S54 refresh on the stand</a></td>
+<td>Retest at 85 °C (185 °F) or more, against the owner and ISTA figures in <a href="#session-6-first-start-adaptations-and-throttle-check">Session 6</a>; then the VANOS work in the guide's <a href="chassis-and-drivetrain.html#s54-refresh-on-the-stand">S54 refresh on the stand</a></td>
 </tr>
 <tr class="odd">
 <td>Sport works but its LED doesn't</td>
@@ -7448,7 +7544,7 @@ figure.diagram figcaption strong { color: var(--fg); }
 <tr class="odd">
 <td>Fault 96 (0x60), radiator-outlet temperature plausibility; slow warm-up</td>
 <td>The radiator-outlet sensor unplugged or in the wrong hose; we infer that a thermostat stuck open sets it too</td>
-<td><code>STATUS_MOTORTEMPERATUR</code> against <code>STATUS_KUEHLW_AUSL_TEMPERATUR</code> while warming: the outlet should rise once the engine passes about 80 °C (176 °F) (<a href="./#cooling-checks-and-pass-values">Cooling checks and pass values</a>)</td>
+<td><code>STATUS_MOTORTEMPERATUR</code> against <code>STATUS_KUEHLW_AUSL_TEMPERATUR</code> while warming: the outlet should rise once the engine passes about 80 °C (176 °F) (<a href="fuel-cooling-and-ac.html#cooling-checks-and-pass-values">Cooling checks and pass values</a>)</td>
 </tr>
 <tr class="even">
 <td>Coolant-level or washer warning</td>
@@ -7505,6 +7601,16 @@ figure.diagram figcaption strong { color: var(--fg); }
 </tbody>
 </table></div>
 </section></div></main>
+<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>
 <footer class="colophon"><div class="wrap">
   <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
   <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
@@ -7516,13 +7622,16 @@ figure.diagram figcaption strong { color: var(--fg); }
   "use strict";
 
   // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
-  // Mark the chapter (and section) in view, and keep its link visible.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
   var nav = document.querySelector(".chapters");
   var bar = document.querySelector(".chapters > ol");
-  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"));
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
   var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
-  var byId = {};
-  chapterLinks.concat(subLinks).forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
   function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
   function reveal(a) {
     if (sidebarMode()) {
@@ -7536,7 +7645,7 @@ figure.diagram figcaption strong { color: var(--fg); }
     }
   }
   function setCurrent(id) {
-    var a = byId[id];
+    var a = chapterById[id];
     if (!a || a.getAttribute("aria-current") === "true") return;
     chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
     a.setAttribute("aria-current", "true");
@@ -7544,21 +7653,164 @@ figure.diagram figcaption strong { color: var(--fg); }
     reveal(a);
   }
   function setSection(id) {
-    var a = byId[id];
+    var a = subById[id];
     if (!a) return;
     subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
     a.setAttribute("aria-current", "location");
     if (sidebarMode()) reveal(a);
   }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
   if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
-    var io2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
-    }, { rootMargin: "0px 0px -75% 0px" });
-    document.querySelectorAll("main section h3[id]").forEach(function (h) { io2.observe(h); });
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
   }
 
   // Worksheets and job cards: empty table cells become text fields and task lists become tick

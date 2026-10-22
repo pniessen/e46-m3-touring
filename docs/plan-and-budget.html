@@ -1,0 +1,1865 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plan and budget · E46 M3 Touring Conversion</title>
+<meta name="description" content="E46 M3 Touring conversion guide, plan and budget: Check your own Touring, choose the donor, then budget and time, factory documents and coding kit, tools, space, shop briefs and safety.">
+<link rel="canonical" href="https://pniessen.github.io/e46-m3-touring/plan-and-budget.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="E46 M3 Touring Conversion">
+<meta property="og:title" content="Plan and budget · E46 M3 Touring Conversion">
+<meta property="og:description" content="E46 M3 Touring conversion guide, plan and budget: Check your own Touring, choose the donor, then budget and time, factory documents and coding kit, tools, space, shop briefs and safety.">
+<meta property="og:url" content="https://pniessen.github.io/e46-m3-touring/plan-and-budget.html">
+<meta property="og:image" content="https://pniessen.github.io/e46-m3-touring/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: workshop-manual reading column (~70ch); figures and tables scroll in place;
+   sticky chapter bar; risk is shown by callout stripes, part origin by colored pills. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --panel: #e7ecf1;
+  --fg: #151a20;
+  --muted: #55606c;
+  --line: #d2d9e0;
+  --accent: #1d5fa6;
+  --accent-soft: #e0eaf6;
+  --warn: #8a5a00;
+  --warn-fill: #fff3cf;
+  --warn-edge: #e0a800;
+  --crit: #ad2a22;
+  --crit-fill: #fbe9e7;
+  --ok: #1f6e45;
+  --ok-fill: #e3f2ea;
+  --c-donor: #1d5fa6;
+  --c-donor-soft: #dce8f6;
+  --c-new: #1f6e45;
+  --c-new-soft: #dff0e6;
+  --c-fab: #b9440f;
+  --c-fab-soft: #fbe5d9;
+  --c-keep: #66727e;
+  --c-keep-soft: #e9edf1;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --measure: 70ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1114;
+    --surface: #161a1f;
+    --panel: #1d232a;
+    --fg: #e5e9ed;
+    --muted: #9ba6b1;
+    --line: #2b333b;
+    --accent: #7cb0ea;
+    --accent-soft: #182a3e;
+    --warn: #f0c75a;
+    --warn-fill: #2c2410;
+    --warn-edge: #c99a1c;
+    --crit: #ff8a80;
+    --crit-fill: #321a19;
+    --ok: #6fd19c;
+    --ok-fill: #142a1f;
+    --c-donor: #7cb0ea;
+    --c-donor-soft: #18283a;
+    --c-new: #6fd19c;
+    --c-new-soft: #15291e;
+    --c-fab: #ff9a62;
+    --c-fab-soft: #33200f;
+    --c-keep: #a3adb7;
+    --c-keep-soft: #222930;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1114;
+  --surface: #161a1f;
+  --panel: #1d232a;
+  --fg: #e5e9ed;
+  --muted: #9ba6b1;
+  --line: #2b333b;
+  --accent: #7cb0ea;
+  --accent-soft: #182a3e;
+  --warn: #f0c75a;
+  --warn-fill: #2c2410;
+  --warn-edge: #c99a1c;
+  --crit: #ff8a80;
+  --crit-fill: #321a19;
+  --ok: #6fd19c;
+  --ok-fill: #142a1f;
+  --c-donor: #7cb0ea;
+  --c-donor-soft: #18283a;
+  --c-new: #6fd19c;
+  --c-new-soft: #15291e;
+  --c-fab: #ff9a62;
+  --c-fab-soft: #33200f;
+  --c-keep: #a3adb7;
+  --c-keep-soft: #222930;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+code, kbd { font-family: var(--font-mono); font-size: 0.88em; background: var(--panel); padding: 0.08em 0.35em; border-radius: 3px; }
+strong { font-weight: 600; }
+
+.wrap {
+  max-width: calc(var(--measure) + 2rem);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Masthead */
+.masthead { border-bottom: 1px solid var(--line); background: var(--surface); }
+.masthead .wrap { padding-block: 2.2rem 1.6rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0;
+}
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 8vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+.masthead h1 .from { color: var(--muted); display: block; font-size: 0.48em; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+.lede { margin: 0; font-size: 1.06rem; color: var(--fg); max-width: var(--measure); }
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  margin: 0.4rem 0 0;
+  border-top: 2px solid var(--fg);
+}
+.spec div { padding: 0.55rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spec dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.35; }
+
+/* Photos */
+figure.photo { margin: 1.4rem 0 1.6rem; }
+figure.photo img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--panel); }
+figure.photo figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--muted); margin-top: 0.45rem; }
+figure.photo figcaption a { color: inherit; }
+.photo-pair { display: grid; gap: 1.1rem; margin: 1.4rem 0 1.6rem; }
+.photo-pair figure.photo { margin: 0; }
+@media (min-width: 720px) {
+  .photo-pair { grid-template-columns: 1fr 1fr; align-items: start; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+}
+
+/* Site links (website build only) */
+.sitenav ul { list-style: none; margin: 0 0 0.2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; }
+.sitenav li { margin: 0; }
+.sitenav a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; }
+.sitenav a:hover { color: var(--fg); text-decoration: underline; }
+.sitenav a[aria-current="page"] { color: var(--fg); font-weight: 500; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Chapter bar */
+.chapters {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.chapters ol {
+  list-style: none;
+  margin: 0 auto;
+  max-width: calc(var(--measure) + 2rem);
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.chapters ol::-webkit-scrollbar { display: none; }
+.chapters a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.chapters a:hover { color: var(--fg); background: var(--panel); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
+.chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
+
+/* Body copy */
+main .wrap { padding-block: 0.5rem 3rem; }
+main section { padding-top: 1.5rem; }
+main section + section { border-top: 2px solid var(--fg); margin-top: 2.5rem; }
+h2, h3, h4 { text-wrap: balance; line-height: 1.2; }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5.5vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0.8rem;
+}
+h3 { font-size: 1.28rem; font-weight: 600; margin: 2.1rem 0 0.6rem; }
+h4 { font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 0.9rem; }
+li { margin: 0.2rem 0; }
+li > ul, li > ol { margin: 0.2rem 0 0.4rem; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+/* Step lists inside the procedure read like a manual */
+section[data-chapter="steps"] ol > li::marker { font-family: var(--font-mono); font-weight: 500; color: var(--muted); }
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.8rem 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line); }
+th {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+table.parts td:first-child { font-weight: 400; }
+table.parts td:nth-child(2) { font-weight: 500; min-width: 11rem; }
+table.parts td:last-child { min-width: 14rem; }
+tr.done td { color: var(--muted); }
+tr.done td:nth-child(2) { text-decoration: line-through; text-decoration-color: var(--muted); }
+.tick-col { width: 2.4rem; text-align: center; }
+.tick-col input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); margin: 0.1rem 0 0; cursor: pointer; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.pill-donor { color: var(--c-donor); background: var(--c-donor-soft); }
+.pill-new { color: var(--c-new); background: var(--c-new-soft); }
+.pill-fab { color: var(--c-fab); background: var(--c-fab-soft); }
+.pill-keep { color: var(--c-keep); background: var(--c-keep-soft); }
+
+/* Parts toolbar */
+.parts-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0.6rem 0 1rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.parts-tools .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-right: 0.2rem; }
+.parts-tools button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.parts-tools button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.parts-tools .count { margin-left: auto; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.parts-tools .note { flex-basis: 100%; font-size: 0.78rem; color: var(--muted); }
+
+/* Long inline code (file names, coding parameters) wraps instead of widening the page. */
+p code, li code, td code, dd code { overflow-wrap: anywhere; }
+
+/* Worksheets and job cards */
+.fill-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.5rem;
+  margin: 1.2rem 0 0.4rem; padding: 0.6rem 0.7rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+}
+.fill-tools .note { flex: 1 1 16rem; font-size: 0.82rem; color: var(--muted); }
+.fill-tools button {
+  font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer;
+}
+td.fill-cell { padding: 0.1rem 0.35rem; min-width: 5.5rem; }
+input.fill {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95em; color: var(--fg);
+  background: transparent; border: 0; border-bottom: 1px dashed var(--line); padding: 0.35rem 0.15rem;
+}
+input.fill:focus { background: var(--accent-soft); border-bottom-color: var(--accent); outline: none; }
+ul.task-list { list-style: none; padding-left: 0.1rem; }
+ul.task-list li { position: relative; margin: 0.3rem 0; padding-left: 1.75rem; }
+ul.task-list li label { cursor: pointer; }
+ul.task-list input[type="checkbox"] { position: absolute; left: 0; top: 0.18rem; width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--accent); }
+tr[hidden] { display: none !important; }
+
+/* Callouts (GitHub alert syntax in the Markdown source) */
+.callout {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0.75rem 0.95rem 0.8rem;
+  border-left: 4px solid var(--edge, var(--accent));
+  background: var(--fill, var(--accent-soft));
+  border-radius: 0 6px 6px 0;
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout .callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--edge-text, var(--accent));
+  margin-bottom: 0.25rem;
+}
+.callout-note { --edge: var(--accent); --fill: var(--accent-soft); --edge-text: var(--accent); }
+.callout-tip { --edge: var(--ok); --fill: var(--ok-fill); --edge-text: var(--ok); }
+.callout-key { --edge: var(--fg); --fill: var(--panel); --edge-text: var(--fg); }
+.callout-warn { --edge: var(--warn-edge); --fill: var(--warn-fill); --edge-text: var(--warn); }
+.callout-crit { --edge: var(--crit); --fill: var(--crit-fill); --edge-text: var(--crit); }
+
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+
+/* Deep dives */
+details {
+  margin: 1rem 0 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  width: 1ch;
+  flex: none;
+}
+details[open] > summary::before { content: "\2212"; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > :not(summary) { margin-left: 0.9rem; margin-right: 0.9rem; }
+details > :nth-child(2) { margin-top: 0.8rem; }
+details > :last-child { margin-bottom: 0.9rem; }
+
+/* Figures */
+figure.diagram { margin: 1.4rem 0 1.8rem; }
+.diagram-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 0.6rem;
+}
+.diagram-scroll svg { display: block; width: 100%; height: auto; min-width: 600px; color: var(--fg); }
+.diagram-scroll.portrait svg { min-width: 340px; max-width: 540px; margin: 0 auto; }
+figure.diagram figcaption { font-size: 0.86rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
+figure.diagram figcaption strong { color: var(--fg); }
+.scroll-hint { display: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem; }
+@media (max-width: 640px) { .diagram-scroll:not(.portrait) + .scroll-hint, .scroll-hint.show { display: block; } }
+
+/* Diagram kit: classes used inside the SVG files */
+.diagram svg text { font-family: var(--font-body); fill: currentColor; }
+.diagram svg .t { font-size: 13px; }
+.diagram svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+.diagram svg .t-xs { font-size: 10.5px; fill: var(--muted); }
+.diagram svg .t-b { font-weight: 600; }
+.diagram svg .t-h { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; }
+.diagram svg .t-mono { font-family: var(--font-mono); }
+.diagram svg .ln { stroke: currentColor; fill: none; stroke-width: 1.5; }
+.diagram svg .ln-thin { stroke: var(--muted); fill: none; stroke-width: 1; }
+.diagram svg .ln-faint { stroke: var(--line); fill: none; stroke-width: 1; }
+.diagram svg .dash { stroke-dasharray: 5 4; }
+.diagram svg .fill-fg { fill: currentColor; }
+.diagram svg .fill-bg { fill: var(--surface); }
+.diagram svg .panel { fill: var(--panel); stroke: var(--line); }
+.diagram svg .donor { fill: var(--c-donor-soft); stroke: var(--c-donor); }
+.diagram svg .new { fill: var(--c-new-soft); stroke: var(--c-new); }
+.diagram svg .fab { fill: var(--c-fab-soft); stroke: var(--c-fab); }
+.diagram svg .keep { fill: var(--c-keep-soft); stroke: var(--c-keep); }
+.diagram svg .donor-s { stroke: var(--c-donor); fill: none; }
+.diagram svg .new-s { stroke: var(--c-new); fill: none; }
+.diagram svg .fab-s { stroke: var(--c-fab); fill: none; }
+.diagram svg .crit-s { stroke: var(--crit); fill: none; }
+.diagram svg .donor-t { fill: var(--c-donor); }
+.diagram svg .new-t { fill: var(--c-new); }
+.diagram svg .fab-t { fill: var(--c-fab); }
+.diagram svg .crit-t { fill: var(--crit); }
+.diagram svg .crit-f { fill: var(--crit); }
+.diagram svg .donor-f { fill: var(--c-donor); }
+.diagram svg .fab-f { fill: var(--c-fab); }
+.diagram svg .new-f { fill: var(--c-new); }
+.diagram svg .warn-f { fill: var(--warn-fill); stroke: var(--warn-edge); }
+.diagram svg .shape { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; }
+.diagram svg .keep-s { stroke: var(--c-keep); fill: none; }
+.diagram svg .keep-f { fill: var(--c-keep); }
+.diagram svg .t-h { font-size: 15px; }
+
+/* Footer */
+.colophon { border-top: 1px solid var(--line); background: var(--surface); }
+.colophon .wrap { padding-block: 1.4rem 2rem; font-size: 0.85rem; color: var(--muted); }
+.colophon p { margin: 0 0 0.5rem; }
+
+@media (max-width: 480px) {
+  body { font-size: 15.5px; }
+  h3 { font-size: 1.18rem; }
+  .spec { grid-template-columns: 1fr 1fr; }
+}
+
+/* Section links in the chapter navigation appear only in the wide-screen sidebar */
+.chapters .sub { display: none; }
+
+/* Wide screens: sidebar contents, text at reading width, tables and figures use the full column */
+@media (min-width: 1100px) {
+  html { scroll-padding-top: 1.5rem; }
+  body { font-size: 17px; display: grid; grid-template-columns: 17.5rem minmax(0, 1fr); }
+  body > .masthead { grid-column: 2; grid-row: 1; }
+  body > main { grid-column: 2; grid-row: 2; }
+  body > .colophon { grid-column: 2; grid-row: 3; }
+  body > nav.chapters {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    scrollbar-width: thin;
+  }
+  .chapters > ol {
+    flex-direction: column;
+    overflow: visible;
+    max-width: none;
+    gap: 0.05rem;
+    padding: 1.4rem 0.9rem 3rem 1.1rem;
+  }
+  .chapters a { white-space: normal; }
+  .chapters .lbl-short { display: none; }
+  .chapters .lbl-full { display: inline; }
+  .chapters li.open > .sub { display: block; }
+  .chapters .sub {
+    list-style: none;
+    margin: 0.2rem 0 0.7rem 0.55rem;
+    padding: 0 0 0 0.55rem;
+    border-left: 1px solid var(--line);
+  }
+  .chapters .sub a {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.22rem 0.45rem;
+    color: var(--muted);
+  }
+  .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
+  .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
+  .masthead .wrap { padding-block: 3rem 2rem; }
+  .masthead .lede,
+  main section > :is(p, ul, ol, h2, h3, h4, blockquote, aside, details),
+  main .wrap > :is(p, ul, ol, blockquote, aside, details) { max-width: 47rem; }
+  .diagram-scroll.portrait svg { max-width: 620px; }
+  figure.photo, .photo-pair { max-width: 58rem; }
+  table { font-size: 0.88rem; }
+}
+
+/* Printing: garage-ready pages without navigation or tick boxes */
+@media print {
+  :root:not([data-theme="print"]), :root[data-theme] {
+    --bg: #fff; --surface: #fff; --panel: #eef1f4; --fg: #000; --muted: #444; --line: #bbb;
+    --accent: #1d5fa6; --accent-soft: #eef3fa; --warn: #6b4600; --warn-fill: #fff7dc; --warn-edge: #c99a1c;
+    --crit: #9a1f18; --crit-fill: #fdeeec; --ok: #1f6e45; --ok-fill: #ecf7f0;
+    --c-donor: #1d5fa6; --c-donor-soft: #e6eef9; --c-new: #1f6e45; --c-new-soft: #e8f4ec;
+    --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
+  }
+  body { display: block !important; font-size: 10.5pt; background: #fff; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
+  input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
+  main[data-fill] ~ .colophon { display: none; }
+  td.fill-cell { min-width: 0; }
+  .wrap { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .masthead, .colophon { border: 0; }
+  main section { break-before: page; border-top: 0 !important; margin-top: 0 !important; padding-top: 0; }
+  main section:first-child { break-before: auto; }
+  h2, h3, h4 { break-after: avoid; }
+  tr, figure, aside, .callout { break-inside: avoid; }
+  .table-wrap { overflow: visible; border: 0; }
+  table { font-size: 8.5pt; }
+  th { white-space: normal; }
+  .diagram-scroll { border: 0; padding: 0; overflow: visible; }
+  .diagram-scroll svg { min-width: 0 !important; max-width: 100%; }
+  .diagram-scroll.portrait svg { max-width: 13cm; }
+  figure.photo img { width: auto; max-width: 100%; max-height: 9cm; }
+  .photo-pair { grid-template-columns: 1fr 1fr; break-inside: avoid; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+  a { color: inherit; text-decoration: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <nav class="sitenav" aria-label="Site"><ul><li><a href="./" aria-current="page">Guide</a></li><li><a href="wiring-and-coding.html">Wiring and coding</a></li><li><a href="job-cards.html">Job cards</a></li><li><a href="worksheets.html">Worksheets</a></li><li><a href="calculators.html">Calculators</a></li><li><a href="research.html">Research notes</a></li><li><a href="https://github.com/pniessen/e46-m3-touring">Source on GitHub</a></li></ul></nav>
+    <p class="eyebrow">Build guide &middot; part 2 of 11</p>
+    <h1>Plan and budget</h1>
+    
+    
+  </div>
+</header>
+<nav class="chapters" aria-label="Chapters"><ol><li class="search-item"><button type="button" class="search-open" aria-label="Search the site"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lbl-full">Search</span></button></li><li><a href="./"><span class="lbl-short">Home</span><span class="lbl-full">Guide home</span></a></li><li><a href="overview.html">Overview</a></li><li class="open"><a href="plan-and-budget.html" aria-current="page"><span class="lbl-short">Plan</span><span class="lbl-full">Plan and budget</span></a><ol class="sub"><li><a href="#check-your-own-touring-first">Check your own Touring first</a></li><li><a href="#choose-the-donor">Choose the donor</a></li><li><a href="#budget">Budget</a></li><li><a href="#time">Time</a></li><li><a href="#factory-documentation-and-coding-kit">Factory documentation and coding kit</a></li><li><a href="#tools-and-test-equipment">Tools and test equipment</a></li><li><a href="#space-storage-and-logistics">Space, storage and logistics</a></li><li><a href="#shop-briefs">Shop briefs</a></li><li><a href="#safety">Safety</a></li></ol></li><li><a href="parts-list.html"><span class="lbl-short">Parts</span><span class="lbl-full">Parts list</span></a></li><li><a href="step-by-step-build.html"><span class="lbl-short">Steps</span><span class="lbl-full">Step-by-step build</span></a></li><li><a href="chassis-and-drivetrain.html"><span class="lbl-short">Chassis</span><span class="lbl-full">Chassis and drivetrain</span></a></li><li><a href="fuel-cooling-and-ac.html"><span class="lbl-short">Fuel & cooling</span><span class="lbl-full">Fuel, cooling and A/C</span></a></li><li><a href="325xi.html"><span class="lbl-short">325xi</span><span class="lbl-full">325xi: rear drive or all-wheel drive</span></a></li><li><a href="electronics-and-coding.html"><span class="lbl-short">Electronics</span><span class="lbl-full">Electronics and coding</span></a></li><li><a href="bodywork-and-fitment.html"><span class="lbl-short">Body</span><span class="lbl-full">Bodywork and fitment</span></a></li><li><a href="registration-and-legal.html"><span class="lbl-short">Legal</span><span class="lbl-full">Registration and legal (US)</span></a></li><li><a href="sources-and-appendix.html"><span class="lbl-short">Sources</span><span class="lbl-full">Sources and appendix</span></a></li></ol></nav>
+<main data-page="guide"><div class="wrap"><section id="plan-and-budget">
+<h3 id="check-your-own-touring-first">Check your own Touring first</h3>
+<p>Before you buy a donor, make sure your Touring is the car this guide assumes. Most checks cost nothing; Phase 0 of the <a href="step-by-step-build.html#step-by-step-build">build</a> records the results.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>How</th>
+<th>What the answer means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Model and build date</td>
+<td>Decode the VIN: 325i or 325xi, build date, option codes</td>
+<td>An xi changes the plan (<a href="overview.html#if-your-car-is-a-325xi">If your car is a 325xi</a>). The build date sets the facelift front (from 09/2001), how modules are coded (ZCS before 09/2001, the vehicle order after) and which DME you have</td>
+</tr>
+<tr class="even">
+<td>Engine and tank</td>
+<td>Engine code on the block or in the VIN decode; look at the tank</td>
+<td>You want an M54B25 with a plastic tank. An M56 SULEV car has a CAN-controlled pump module, a sealed metal tank and no return line (<a href="https://bmwfans.info/parts-catalog/16146912019/">ETK</a>), so the fuel plan doesn't apply as written; one M56 Touring took the M3 tank, which changes a certified evaporative system, so ask your state first (<a href="https://www.youtube.com/watch?v=PgW1oWs7cfk&amp;t=20s">Tenza Motorsports – No more SULEV (2021), 00:20</a>, <a href="registration-and-legal.html#registration-and-legal-us">Registration and legal</a>). BMW's 2002 bulletin introduced the M56 with automatics (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%202%29/08_SULEV.pdf">BMW B11 75 02</a>). Read one way, BMW's catalog lists a five-speed for the US 325i M56 Touring (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/L-N/browse/manual_transmission/manual_transmission_s5d_g/">ETK</a>); read another, that gearbox sits in groups shared with other engines, and the only M56 gearbox-module harness it lists is for automatics (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M56/browse/engine_electrical_system/wiring_harness_engine_trans_module/">ETK</a>), so a manual M56 is probably a conversion. Either way a manual isn't proof of an M54: check the engine code and the tank</td>
+</tr>
+<tr class="odd">
+<td>DME</td>
+<td>Read the label in the E-box</td>
+<td>MS43 on cars built to 02/2003, MS45.1 from 03/2003 (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/engine_electrical_system/programmed_dme_control_unit_2/">ETK</a>); forums and Kassel's chart call the second "MS45". No label? The MS45.1 has the leak-test heater wire in X60004 pin 2 and wires in pins 5 and 15; the MS43 has the heater wire in the E-box plug X6011. On a car built in 02 or 03/2003, check rather than assume; a 325xi should have an MS43 in every year, but read its label too (<a href="wiring-and-coding.html#which-dme-your-touring-has">manual</a>). It sets your re-pin list</td>
+</tr>
+<tr class="even">
+<td>DSC, not ASC only</td>
+<td>Label on the hydraulic unit, or the option list</td>
+<td>BMW also lists ASC-only units for US Tourings, and an ASC-only car has no steering-angle sensor (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/brakes/asc_hydro_unit_control_unit_support/">ETK</a>); BMW's 2003 US spec sheet for the 325i Sport Wagon lists DSC (<a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022146EN_US/41437">BMW USA</a>). Cars built before 09/2001 also have an early MK60 with analog yaw sensors (<a href="https://www.e46fanatics.com/threads/mk60-coding-index-the-following-control-unit-is-not-allowed-for-this-coding-job.1264623/">e46fanatics</a>)</td>
+</tr>
+<tr class="odd">
+<td>Rear axle carrier panel (RACP)</td>
+<td>Clean and inspect all four subframe mounts top and bottom, the ends of the V-shaped beam and the rail-to-floor spot welds, using CMP's criteria (<a href="https://cmpautoengineering.com/pages/part-1-will-my-e46-subframe-crack-how-will-i-know">CMP, part 1</a>, <a href="https://cmpautoengineering.com/pages/part-2-it-s-not-just-the-subframe-mounts">part 2</a>)</td>
+<td>Cracks are repaired before plating. A torn panel is a body-shop job: BMW's 21 kg replacement (41117000246) is marked "This part is discontinued" at BMWPartsDeal (last price $1,304.68, October 2026), so ask a dealer whether a successor exists (<a href="https://www.bmwpartsdeal.com/parts/bmw-repair_part_insert_rear_axle_support-41117000246.html">BMWPartsDeal</a>)</td>
+</tr>
+<tr class="even">
+<td>Rust</td>
+<td>Rear arch inner lips, sills and jacking points, around the tank and brake-pipe brackets, battery box, floor</td>
+<td>On one Touring Redish found the jacking points delaminating, corrosion behind the tank brackets and holes in the battery box (<a href="https://www.youtube.com/watch?v=cwbRDG7XHa8&amp;t=180s">Autoalex Cars – Part 3 (2023), 03:00</a>, <a href="https://www.youtube.com/watch?v=cwbRDG7XHa8&amp;t=760s">12:40</a>)</td>
+</tr>
+<tr class="odd">
+<td>Options</td>
+<td>Climate control (automatic IHKA or manual IHKR), DSC button or console switch center, xenon lights, front fogs and a rain/light sensor (together they set your light module's part number), steering-wheel buttons, mirror harness on facelift doors, cruise</td>
+<td>A/C is confirmed working with IHKA; nobody has confirmed IHKR (<a href="https://www.e46fanatics.com/threads/kalims-s54-sedan-swap-warning-pic-heavy.889867/page-38">e46fanatics</a>). Without front fogs, the M3 bumper's fog lights need a fog-variant light module, the fog button and relay K47; no coding turns them on (<a href="wiring-and-coding.html#mirrors-and-headlights">manual</a>, <a href="https://archive.org/details/sp-daten-v-32">BMW coding data</a>). Facelift Touring doors have ribbon-cable mirror harnesses that M3 mirrors don't plug into (<a href="https://www.youtube.com/watch?v=a7HeYZ8Ctow&amp;t=20s">M346 Projects – Pt 21, M3 mirror retrofit (2024), 00:20</a>)</td>
+</tr>
+<tr class="even">
+<td>Coding kit</td>
+<td>Build it and prove it on the unmodified car: INPA reads the cluster, light module and DSC, and NCS Expert reads the vehicle order (FA) or key code (ZCS)</td>
+<td>Fix the cable, port or software before taking any backup; Phase 0 then saves every module's coding and the cluster and light-module EEPROMs. See <a href="#factory-documentation-and-coding-kit">Factory documentation and coding kit</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="choose-the-donor">Choose the donor</h3>
+<div class="photo-pair"><figure class="photo"><img alt="An E46 M3 coupe at a classic car show" decoding="async" height="856" loading="lazy" src="photos/donor-m3-coupe.jpg" width="1280"/><figcaption>Photo: A coupe donor: E46 M3 at Retro Classics 2025. Alexander Migl, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46-2S%29_Retro_Classics_2025_DSC_7558.jpg">Wikimedia Commons</a>.</figcaption></figure><figure class="photo"><img alt="An E46 M3 convertible at a classic car show" decoding="async" height="713" loading="lazy" src="photos/donor-m3-convertible.jpg" width="1280"/><figcaption>Photo: Convertibles usually cost less, and their rear quarters almost certainly carry the same arch as the coupe's (see <a href="bodywork-and-fitment.html#rear-arches-and-doors">Rear arches and doors</a>). E46 M3 convertible at Retro Classics 2026. Alexander Migl, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BMW_M3_%28E46-2CS%29_Retro_Classics_2026_IMG_4807.jpg">Wikimedia Commons</a>.</figcaption></figure></div>
+
+
+
+<p>Buy one complete, running E46 M3 with a manual gearbox. A running car lets you test the engine, gearbox and electronics before they come apart. The builder of two Hungarian conversions puts it simply: "Coupe or Cabrio/Vert doesn't really matter… better if she is mechanically fine" (<a href="https://www.youtube.com/watch?v=ihD3-3ZlBjI">M3projekts – Cheapest UK M3 donor, Ep7 (2023), description</a>).</p>
+<ul>
+<li><strong>Model year: the same as your Touring or newer.</strong> EPA policy and state engine-change rules generally want the engine to be the same model year as the chassis or newer (see <a href="registration-and-legal.html#registration-and-legal-us">Registration and legal</a>). A 2003 Touring can take an engine from a 2003–06 M3; a 2005 needs a 2005 or 2006. Choose a donor whose underhood emissions (VECI) label shows a US 50-state certification; in Massachusetts the emissions category matters too (see <a href="registration-and-legal.html#massachusetts">Massachusetts</a>).</li>
+<li><strong>If your Touring is a 325xi, choose its route first.</strong> Converting it to rear drive takes the donor's whole MK60 system with its sensors, pipes and harness branch, so buy a donor built from 09/2002. Keeping all-wheel drive leaves the donor's 420G, front axle, MK60 and diff unused (<a href="325xi.html#325xi-rear-drive-or-all-wheel-drive">325xi: rear drive or all-wheel drive</a>).</li>
+<li><strong>Build date.</strong> Several parts change with production date:</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Earlier cars</th>
+<th>Later cars</th>
+<th>What it means for you</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Engine computer</td>
+<td>MSS54, to about 09/2003</td>
+<td>MSS54HP, from about 09/2003 (<a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/2052-comprehensive-mss54-mss54hp-dme-information/page2">NAM3</a>)</td>
+<td>Either works. Keep the DME with its own engine harness, which also changes at 09/2003 (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/browse/engine_electrical_system/wiring_harness_engine_trans_module/">ETK</a>)</td>
+</tr>
+<tr class="even">
+<td>DSC unit</td>
+<td>Teves MK20, to 09/2002: 43-pin plug and a separate pre-charge pump (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/hydro_unit_dsc_control_unit_fastening/">ETK</a>)</td>
+<td>MK60, from 09/2002 (Competition unit from 12/2004): the same 47-pin plug as your Touring's (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/hydro_unit_dsc_fastening_sensors/">ETK</a>)</td>
+<td>Matters only if you'd use the donor's DSC. An MK20 won't plug into your harness. An M3 MK60 codes only from a session vehicle order with an M3 type key and a date of 09/2002 or later, then needs INPA's initialisation (<a href="wiring-and-coding.html#session-5-dsc-coding-and-vin">manual, Session 5</a>)</td>
+</tr>
+<tr class="odd">
+<td>Master cylinder and booster</td>
+<td>34312282343 and 34332282193, to 09/2002</td>
+<td>34317838638 and 34332282622, from 09/2002 (<a href="https://bmwfans.info/parts-catalog/34332282622/">ETK</a>)</td>
+<td>Only for the donor-DSC route</td>
+</tr>
+<tr class="even">
+<td>Rod bolts</td>
+<td>M11 twelve-point, reused, on engines built up to 12/12–13/2002</td>
+<td>M10 E-Torx, new every time, tightened in three cycles (<a href="https://nam3forum.com/forums/filedata/fetch?id=5213">BMW SI B11 04 04</a>)</td>
+<td>Vendors and ETK give 02/2003 for the change; go by the bolt heads, not the date. Late engines need 12 new bolts</td>
+</tr>
+<tr class="odd">
+<td>Instrument cluster</td>
+<td>Coding index 20–22</td>
+<td>Redesign clusters, coding index 23–24, roughly 2003 on (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>)</td>
+<td>Prefer a redesign cluster: it properly supports the M Track light and brake-force display. For a Touring built from 09/2002, use a cluster from 09/2002 or later: ECUswap calls it compulsory ("zwangsweise") (<a href="https://ecuswap.de/technikinfo-kombiinstrument-austausch-e46/">ECUswap</a>); a 2003–06 donor gives index 23 or 24. The cluster keeps the donor's vehicle order, since BMW's coding data accepts an index-23 or -24 cluster only with an M3 order (<a href="https://archive.org/details/sp-daten-v-32">BMW coding data</a>). The backlight wire also changed at 09/2002, so an older cluster in a later Touring needs a wire added, and a newer cluster in an older Touring a light-module update (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>)</td>
+</tr>
+<tr class="even">
+<td>Rear wheel-speed sensors</td>
+<td>Early type, to 09/2002</td>
+<td>Later type, from 09/2002; your Touring changed at 09/2001 (<a href="https://bmwfans.info/parts-catalog/34526752683/">ETK</a>)</td>
+<td>You keep your own sensors: they suit the M3 hubs, and from 09/2002 the M3 uses the same parts (<a href="parts-list.html#brakes-and-dsc">Brakes and DSC</a>). A donor built before 09/2002 has the MK20's inductive sensors with gray plugs, which don't fit your harness; that likely explains why a 2004 Touring's plugs didn't mate with its 2002 donor's (<a href="https://www.youtube.com/watch?v=mDBiRn30fEs&amp;t=200s">Tenza Motorsports – 5 things they don't tell you, part 2 (2021), 03:20</a>), while on a 2003 xi Touring, whose Bosch sensors use the same blue housings, the M3 sensors' plugs mated (<a href="https://www.e46fanatics.com/threads/m3-touring-project.1240087/">e46fanatics</a>)</td>
+</tr>
+<tr class="odd">
+<td>Competition package (ZCP)</td>
+<td>—</td>
+<td>From 12/2004: a quicker rack (shared with the CSL), 345 × 28 mm front rotors and 19-inch Style 163 wheels (<a href="https://bmwfans.info/parts-catalog/32132282642/">ETK: rack</a>, <a href="https://bmwfans.info/parts-catalog/34112282445/">ETK: rotor</a>)</td>
+<td>Nice to have, not needed</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Manual, not SMG.</strong> SMG cars cost less (one estimate says 20–30%, unverified), but you'd add the manual shift parts and clutch hydraulics an SMG car lacks, a manual gearbox-harness section (<a href="https://www.redline-motorsport.com/product-category/e46-wiring/">Redline</a>) and manual DME software. The MSS54's hardware is the same for both gearboxes, but BMW released separate manual and SMG software, so an SMG donor's DME needs a reflash or a vendor's conversion, not just coding (<a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/2052-comprehensive-mss54-mss54hp-dme-information">NAM3</a>, <a href="https://www.ecuworx.co.uk/how-to/a-run-down-of-features-of-the-mss5x-binary-modification-tool-and-what-they-do/">ECUWorx</a>). One SMG-donor DME that a local shop "coded" stayed in limp mode (<a href="https://www.youtube.com/watch?v=eddLff8yba0&amp;t=122s">UNRIVALED – Watch this before you S54 swap your BMW (2021), 02:02</a>). The PistonHeads Touring's builder converted an SMG donor.</li>
+<li><strong>Coupe or convertible.</strong> Convertibles usually cost less (see the price table below), and for this conversion they give up almost nothing:
+<ul>
+<li>BMW lists separate M3 convertible quarter panels (41357894541/542), but the arch is almost certainly the same pressing as the coupe's. Both cars have the same rear track, wheels and body width, and the same filler flap, bumper brackets and side skirts meet the flare (<a href="https://bmwfans.info/parts-catalog/41357894541/">ETK: quarter</a>, <a href="https://bmwfans.info/parts-catalog/51172695524/">ETK: flap</a>, <a href="https://www.press.bmwgroup.com/usa/article/attachment/T0022127EN_US/41385">BMW USA</a>). BMW's own dimension drawings of the two M3s show the same arch opening within 2–9 mm and the same flare within 3–7 mm (our measurement from the drawings, an estimate) (<a href="https://getoutlines.com/blueprints/6769/2007-bmw-m3-e46-coupe-blueprints">M3 coupe drawing</a>, <a href="https://getoutlines.com/blueprints/453/2004-bmw-m3-e46-c-cabriolet-blueprints">M3 convertible drawing</a>). Confirm it with section templates at seven stations before you cut (<a href="bodywork-and-fitment.html#datum-stations-and-templates">Datum, stations and templates</a>).</li>
+<li>A convertible quarter covers the whole outer skin from the door shut line to the tail light, the part a Touring needs; it lacks only the coupe's C-pillar. Its arch flange sits on the convertible's heavy inner side frame, so expect more spot welds to drill (<a href="https://bmwfans.info/parts-catalog/E46-Cabrio/USA/M3-S54/L-N/browse/bodywork/body_side_frame/">ETK</a>). It brings the same M3 trunk floor, front fenders, hood and bumper as a coupe.</li>
+<li>One owner-built Touring used both quarter sections and the trunk floor from a 2003 M3 convertible (<a href="https://www.youtube.com/watch?v=YqM2rQw1HQI&amp;t=400s">M346 Projects – Pt 1, M3 part out (2023), 06:40</a>).</li>
+<li>M3 convertible front seats don't fit a Touring (<a href="https://www.e46fanatics.com/threads/project-e46-m3-touring-conversion-to-europe-and-back.1300891/">e46fanatics</a>), and the convertible's front struts (31312282265/266) and springs are sized for a heavier nose, a front axle load of about 856 kg against the coupe's 779 kg: plan on coupe front springs or coilovers with a convertible donor. Its rear dampers (33522282267) were built for a rear load close to your Touring's (our inference), though aftermarket makers sell one damper for both M3s (<a href="https://bmwfans.info/parts-catalog/31312283103/">ETK</a>, <a href="chassis-and-drivetrain.html#springs-dampers-and-anti-roll-bars">Suspension for Touring weight</a>).</li>
+</ul></li>
+<li><strong>Damage and rust you can accept.</strong> A bent shell is fine if the parts you need are intact: drivetrain, axle parts, front panels (hood, fenders, headlights, bumper), both rear arch areas and the trunk floor around the muffler. Rust is the bigger risk. E46 rear-arch rust starts at the inner arch, hidden under seam sealer (<a href="https://www.redish-motorsport.com/BMWE46M3RearWheelArchesRust.html">Redish</a>), and Redish says M3 inner arches "are always rotten out" (<a href="https://www.youtube.com/watch?v=cwbRDG7XHa8&amp;t=260s">Autoalex Cars – Part 3 (2023), 04:20</a>), and Autoalex's cheap coupe donor lost its inner arch as soon as it was stripped (<a href="https://www.youtube.com/watch?v=RyoFFLppseE&amp;t=460s">Autoalex Cars – Part 1 (2023), 07:40</a>). That car revved cleanly, but its frame and subframes turned out to be "in seriously bad condition" (<a href="https://www.bmwblog.com/2023/03/03/e46-m3-touring-build/">BMWBlog</a>).</li>
+<li><strong>Paperwork.</strong> Get the title or salvage paperwork and a bill of sale, and photograph the VIN plates and engine number; your state may ask for proof of the engine's year.</li>
+</ul>
+<p><strong>Test it while it still runs.</strong> Some tests need the seller's agreement; do the rest before teardown.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>How</th>
+<th>Record or look for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Drive it</td>
+<td>Fully warm; every gear; listen at warm idle</td>
+<td>A knock at idle; clean shifts into all six gears and reverse; diff clunk or whine. One 190,000-mile donor's gearbox later refused a gear on track (<a href="https://www.youtube.com/watch?v=N8pdzFoVu9k&amp;t=820s">Autoalex Cars – It took 3 years and £70,000 (2025), 13:40</a>)</td>
+</tr>
+<tr class="even">
+<td>Fault codes</td>
+<td>Scan every module with INPA and save the lists</td>
+<td>Stored faults in the DME, DSC, cluster, airbag and EWS</td>
+</tr>
+<tr class="odd">
+<td>Module IDs</td>
+<td>Record each module's part number and software; read the DME's ID and its stored VIN slots (AIF) with Tool32 (<a href="https://www.ecuworx.co.uk/2016/02/26/adding-updating-your-vin-uif-with-tool32/">ECUWorx</a>); back up the cluster EEPROM with PA-Soft</td>
+<td>Unit types (MK20 or MK60, MSS54 or HP) and the cluster's coding index. Send the DME data with the DME if a vendor flashes it</td>
+</tr>
+<tr class="even">
+<td>Compression and leak-down</td>
+<td>Warm engine, all plugs out</td>
+<td>Compression of about 11–12 bar (160–174 psi) minimum, about the same on every cylinder: a figure from a forum compilation, so confirm it in TIS (<a href="https://drive.google.com/file/d/1GS3Hirx6x0c0WG8hPeXiwfXfeUldkQnm/view?usp=sharing">Flow compilation, p.47</a>). No leak-down figure turned up; judge how even the six cylinders are</td>
+</tr>
+<tr class="odd">
+<td>VANOS</td>
+<td>Tool32 or INPA VANOS tests; listen for rattle; if allowed, take the valve cover off and look at the exhaust-hub tabs and the oil-pump disc (<a href="https://beisansystems.com/s54-vanos-procedure-e46-m3/">Beisan</a>)</td>
+<td>VANOS faults, and the test readings to compare after the refresh (Phase 12); a cracked hub tab means a new hub</td>
+</tr>
+<tr class="even">
+<td>Fuel pressure</td>
+<td>Gauge on the threaded test fitting at the regulator, beside the filter under the left front floor (filter cover off); pump run through a bypass at its module's socket, terminals 30 and 87b (pins 6 and 2 of plug X10157, through a switch with a 15 A inline fuse), BMW's method (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041</a>)</td>
+<td>5.0 ± 0.2 bar; 20 minutes later no more than 0.5 bar (7 psi) lost and still 4.5 bar or more (<a href="https://www.e46fanatics.com/threads/fuel-pressure-info.1116777/">Bentley, quoted on e46fanatics</a>). It proves the pump, regulator and check valve you'll move</td>
+</tr>
+<tr class="odd">
+<td>A/C</td>
+<td>Run it on max</td>
+<td>Cold air and a compressor that engages. Then have a shop recover the refrigerant before you open anything; venting it is prohibited (<a href="https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing">EPA</a>)</td>
+</tr>
+<tr class="even">
+<td>DSC and ABS</td>
+<td>Warning lights at start; a careful hard stop on a quiet road</td>
+<td>Lights out, ABS working</td>
+</tr>
+<tr class="odd">
+<td>Options fitted</td>
+<td>Look for headlight-washer nozzle covers in the bumper and a second pump on the washer bottle</td>
+<td>Headlight washers were an option on US M3s (BMW code 502), not standard (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/vehicle_electrical_system/windshield_cleaning_container/">ETK</a>)</td>
+</tr>
+<tr class="even">
+<td>Measurements</td>
+<td>On level ground, on BMW 18- or 19-inch wheels, in BMW's normal position: a full tank, two people of about 68 kg (150 lb) in the front seats and 14 kg (31 lb) in the middle of the trunk (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/3_technical_data/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/1_td__chassis_wheel_alignment_normal_position_e46___m3_m3_csl/">TIS 32 00</a>). At each corner: BMW's ride height (rim flange at the bottom middle to the arch's lower edge), the heights of the hub center, the arch lip and a body point both cars share, and how far the lip sits outboard of the tire (<a href="bodywork-and-fitment.html#measure-and-mock-up-before-you-cut">Measure and mock up before you cut</a>). Photograph the spring paint marks, the label on each front strut, the B-pillar tire placard and the underhood A/C and emissions labels</td>
+<td>BMW's 605 mm front and 587 mm rear on 18-inch wheels (619 and 600 mm on 19s), ±10 mm with left and right within 10 mm, shows a stock stance (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/3_technical_data/31__front_axle/0__general/1_td__front_axle_ride_height_e46___m3/">TIS 31 00</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/3_technical_data/33__rear_axle/0__general/2_td__rear_axle_ride_height_e46___m3/">TIS 33 00</a>). Your hub-to-body and hub-to-lip targets for the Phase 6 mock-up, and the A/C charge</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Donor option</th>
+<th>Price seen</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Running E46 M3</td>
+<td>2005 coupes $37,275–$45,150 and 2005 convertibles $12,750–$31,500, in sales from Dec 2024 to Jan 2026 (from search extracts)</td>
+<td><a href="https://www.hagerty.com/valuation-tools/bmw/m3/2005/2005-bmw-m3">Hagerty</a></td>
+</tr>
+<tr class="even">
+<td>Rough donors used for conversions</td>
+<td>$6,500 for a curbed 2002 M3 that needed a clutch (2021); £7,000 for an insurance-write-off convertible (UK, 2023); £9,250 for a rusty 190,000-mile coupe (UK, 2023). In Canada in 2025, manual M3s with over 400,000 km were asking more than CAD 20,000</td>
+<td><a href="https://www.youtube.com/watch?v=urkCbJGGPhs&amp;t=60s">Tenza Motorsports – S54 swap costs (2021), 01:00</a>, <a href="https://www.youtube.com/watch?v=ihD3-3ZlBjI&amp;t=60s">M3projekts – Ep7 (2023), 01:00</a>, <a href="https://www.youtube.com/watch?v=elovkaAuNU0&amp;t=40s">Autoalex Cars – I bought a cheap E46 M3 (2023), 00:40</a>, <a href="https://www.youtube.com/watch?v=KE7iY3yYBZI&amp;t=460s">Tracks and Trails – Can I do it? (2025), 07:40</a></td>
+</tr>
+<tr class="odd">
+<td>Salvage or wrecked M3</td>
+<td>A salvage-title convertible already missing its rear end, about $4,500 (bought around 2018); a clean-title 2003 six-speed with salvage history, $7,100 (April 2019)</td>
+<td><a href="https://www.autoevolution.com/news/watch-this-4500-bmw-e46-m3-donor-car-get-a-new-lease-in-life-after-sitting-for-4-years-196000.html">autoevolution</a>, <a href="https://www.e46fanatics.com/threads/salvage-m3-worth-a-gamble.1252507/">e46fanatics</a></td>
+</tr>
+<tr class="even">
+<td>Used S54 with DME and harness, about 200k miles</td>
+<td>About $3,500 asking locally, $6,000 and up on eBay and Copart (June 2025). The same thread suggests a whole '03.5-on convertible donor for under $9–10k</td>
+<td><a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/309472-s54-used-engine-prices">NAM3</a></td>
+</tr>
+<tr class="odd">
+<td>Complete used M3 rear axle</td>
+<td>€1,650 (Germany, 2023)</td>
+<td><a href="https://www.youtube.com/watch?v=6NbgUPsl8og&amp;t=40s">M539 Restorations – Project Cologne PT13 (2023), 00:40</a></td>
+</tr>
+</tbody>
+</table></div>
+<aside class="callout callout-tip"><span class="callout-label">Tip</span>
+<p>An engine on its own is cheaper, but you would still need the M3 axle parts, steering, brakes, cluster, harness, fuel parts and body panels. Bought piece by piece, those usually cost more than a rough whole car.</p>
+</aside>
+<h3 id="budget">Budget</h3>
+<p>These ranges assume you do the labor. Rows marked "estimate" are planning figures, not quotes. Vendor prices were checked in October 2026 unless a date is given; £ and € prices are as listed, before shipping and import costs.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Range (USD)</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Donor M3</td>
+<td>$8,000–$20,000</td>
+<td>Estimate; recent prices under <a href="#choose-the-donor">Choose the donor</a>. Add travel or transport: one build spent about $1,000 collecting its cars (<a href="https://www.youtube.com/watch?v=oSZrM5wW0sQ&amp;t=100s">Tenza Motorsports – Total build cost (2022), 01:40</a>)</td>
+</tr>
+<tr class="even">
+<td>Rod-bearing parts</td>
+<td>$750–$1,100</td>
+<td>BimmerWorld's OEM kits are $753.99 for engines built to 2/03 and $844.99 from 4/03, with new M10 bolts (<a href="https://www.bimmerworld.com/Engine/Engine-Maintenance/Rod-Bearing-Overhaul-Kit-Basic-OEM-E46-M3-2004.html">BimmerWorld</a>); upgraded bolts or coated bearings cost more (estimate). Shops charge $1,625 (<a href="https://europeanautosource.com/products/eas-s54-rod-bearing-service-bmw-e46-e85-e86-m3-z4m">EAS</a>); Mr Vanos in the UK charges £1,995, including a new oil pump, ARP bolts and two engine mounts (<a href="https://mrvanos.com/products/rod-bearing-replacement-bmw-3-series-e46-m3">Mr Vanos</a>)</td>
+</tr>
+<tr class="odd">
+<td>VANOS refresh</td>
+<td>$155–$1,135</td>
+<td>Beisan's seal and rattle kit is $155 (<a href="https://beisansystems.com/s54-vanos-procedure-e46-m3/">Beisan</a>); BimmerWorld's kit with a new exhaust hub is $979.99 without seals (<a href="https://www.bimmerworld.com/Engine/Camshafts/S54-VANOS-Refresh-Kit-with-VAC-Exhaust-Hub-E46-Z3-Z4.html">BimmerWorld</a>)</td>
+</tr>
+<tr class="even">
+<td>Other engine seals, gaskets, chain guide, shims</td>
+<td>$500–$1,500</td>
+<td>Estimate</td>
+</tr>
+<tr class="odd">
+<td>Clutch, dual-mass flywheel, pilot bearing, bolts</td>
+<td>$600–$1,800</td>
+<td>Estimate</td>
+</tr>
+<tr class="even">
+<td>420G seals and gear-identification switch</td>
+<td>$100–$300</td>
+<td>The switch is about $78 (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/2844-smg-to-6mt-conversion">NAM3</a>); seals estimate</td>
+</tr>
+<tr class="odd">
+<td>Axle refresh: subframe and diff mounts, RTABs, arms, end links</td>
+<td>$800–$2,000</td>
+<td>Estimate</td>
+</tr>
+<tr class="even">
+<td>Brakes: pads, rotors, pad-wear sensors, M3 front hoses, booster grommet, DOT 4 brake fluid; parking-brake shoes if worn</td>
+<td>$600–$1,500</td>
+<td>Estimate</td>
+</tr>
+<tr class="odd">
+<td>Rear springs about 7–9% stiffer than an M3 coupe's, or M3 coilovers</td>
+<td>$1,200–$3,500</td>
+<td>Estimate. The donor brings its struts and dampers; budget for new rear springs about 7–9% stiffer than an M3 coupe's (our estimate). BMW's M3 rear springs are about $75–$101 each at FCP Euro (October 2026), and no maker sells a kit for an M3-axle Touring (<a href="https://www.fcpeuro.com/products/bmw-coil-spring-mubea-33532283137">FCP Euro</a>, <a href="chassis-and-drivetrain.html#springs-dampers-and-anti-roll-bars">Suspension for Touring weight</a>)</td>
+</tr>
+<tr class="even">
+<td>Rear subframe reinforcement and V-brace mounts</td>
+<td>$250–$700 in parts</td>
+<td>The MSW kit is about $155–$160 (<a href="https://www.moreheadspeedworks.com/product/msw-e46-rear-subframe-mounting-chassis-reinforcement-kit/">Morehead</a>); Redish's plates were £180, plus £125 for six tank and brake-pipe brackets, in 2023 (<a href="https://www.youtube.com/watch?v=cwbRDG7XHa8&amp;t=960s">Autoalex Cars – Part 3 (2023), 16:00</a>); aftermarket V-brace boxes were "like a hundred bucks" in 2025 (<a href="https://www.youtube.com/watch?v=eMJLXbvzckE&amp;t=460s">Tracks and Trails – I spent $10,000 on my E46 Touring's rear end (2025), 07:40</a>). Shop labor: $800–$1,200 quoted in 2019, about $2,200–$2,400 with bushings and an alignment (<a href="https://www.e46fanatics.com/threads/m3-subframe-reinforcement-labor-cost-what-is-reasonable.1253483/">e46fanatics</a>); one 2025 Canadian quote was CAD 2,500, against CAD 2,300 to do it yourself including a new welder (<a href="https://www.youtube.com/watch?v=t4CtY_W3vpU&amp;t=800s">Tracks and Trails – Fixing the weakest part of my E46 Touring (2025), 13:20</a>)</td>
+</tr>
+<tr class="odd">
+<td>Trunk floor, muffler brackets and heat shield</td>
+<td>$0–$1,400</td>
+<td>Recommended new parts at BMWPartsDeal, October 2026: floor 41127895619 $763.61, reinforcement 51717894229 $88.22, brackets 41122494844 $27.19 and 41112493931 $71.40, rear heat shield 51482494848 $259.12, together $1,209.54 plus shipping (<a href="https://www.bmwpartsdeal.com/parts/bmw-trunk_floor-41127895619.html">floor</a>); add $92.19 for a new M3 canister holder 16132229735 if the canister has to move and you didn't keep the donor's. $0 if you graft the donor's floor and brackets. The M3 exhaust comes with the donor; a new rear muffler 18107831783 is $5,093.16 at BMWPartsDeal (October 2026). One builder found a used CSL muffler for $400 in 2024 (<a href="https://www.youtube.com/watch?v=T-JM2xqxuv4&amp;t=160s">M346 Projects – Pt 9, CSL muffler (2024), 02:40</a>), but a CSL rear section was never US-certified</td>
+</tr>
+<tr class="even">
+<td>Fuel: a new M3 filter, seals and clamps; the donor's in-tank set, pipe set, lines, regulator housing and regulator (a new regulator only if the donor's fails its Phase 1 test)</td>
+<td>$250–$900</td>
+<td>Estimate. If the donor's are missing or damaged, a new delivery unit is $559.16 and a new pipe set $159.88 at BMWPartsDeal, and a new baffle $123.62 at BimmerWorld (October 2026) (<a href="https://www.bmwpartsdeal.com/parts/bmw-delivery_unit_right-16142229684.html">BMWPartsDeal</a>, <a href="https://www.bimmerworld.com/Intake-Fuel/Fuel-Filters/Genuine-BMW-Fuel-Baffle-Fixture-16112229656-E46-E46-M3.html">BimmerWorld</a>)</td>
+</tr>
+<tr class="odd">
+<td>Cooling: new expansion tank and holder, thermostat, vent screw, hoses and BMW antifreeze; the M3 radiator, oil cooler and both fans come with the donor</td>
+<td>$400–$900</td>
+<td>Estimate (<a href="fuel-cooling-and-ac.html#cooling-and-oil-cooler">Cooling and oil cooler</a>)</td>
+</tr>
+<tr class="even">
+<td>A/C: recovery on both cars, a new receiver-drier and O-rings, PAG oil, evacuation and charge; the donor's pressure hose</td>
+<td>$300–$700</td>
+<td>Estimate (<a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>)</td>
+</tr>
+<tr class="odd">
+<td>DME: EWS delete with your VIN written in (manual software if SMG)</td>
+<td>$100–$349, plus shipping</td>
+<td>Kassel charges $109 for the delete plus $20 for the VIN, or $349 for its engine-swap coding with every swap option (<a href="https://www.kasselperformance.com/product/bmw-e46-m3-s54-mss54-hp-tuning/">Kassel</a>). DUDMD charges $215–$225 (<a href="https://www.dudmd.com/products/e46-m3-mss54-ews-delete-service">DUDMD</a>). RPM charges $300 (October 2026) (<a href="https://www.rpmmotorsport.net/collections/bmw-unlocked-ecu-service-ews-cas-delete/products/bmw-e46-m3-s54-m5-e39-s62-ews-delete-ready-to-start">RPM</a>). Severn charges $100–$200 depending on shipping, and its page says "off-road use only" (<a href="https://www.severntuning.com/products/bmw-mss54-hp-ews-delete-2001-2006-e46-m3">Severn</a>). For the sync route, RPM's used-DME EWS programming is $300 (<a href="https://rpmmotorsport.net/products/bmw-e39-e46-m3-m5-s54-s62-used-ecu-dme-ews-programming">RPM</a>)</td>
+</tr>
+<tr class="even">
+<td>Coding kit: laptop, K+DCAN cable, PA-Soft interface, 10 A charger; Standard Tools 2.12 with NCS Expert 4.0.1</td>
+<td>$300–$800</td>
+<td>Estimate; less if you own a suitable laptop. BMW doesn't sell the software to owners (<a href="#factory-documentation-and-coding-kit">Factory documentation and coding kit</a>)</td>
+</tr>
+<tr class="odd">
+<td>Cluster: new EEPROM done yourself, or a service</td>
+<td>$50–$400</td>
+<td>Estimate. Huggins Racing lists a used-cluster VIN and mileage correction, which sets a used cluster to your car's true mileage, at $125 and its rear-door LED mod at $100 (October 2026) (<a href="https://racehuggins.com/product/e46-cluster-mileage-vin-correction/">Huggins</a>, <a href="https://racehuggins.com/product/e46-m3-cluster-mod-for-non-m/">Huggins</a>). One Touring build paid Kassel about $1,000 including shipping for the DME tune, EWS delete and cluster mileage together (2021, <a href="https://www.youtube.com/watch?v=mDBiRn30fEs&amp;t=340s">Tenza Motorsports – 5 things they don't tell you, part 2 (2021), 05:40</a>)</td>
+</tr>
+<tr class="even">
+<td>Wiring: terminals, repair leads, depinning keys</td>
+<td>$100–$300</td>
+<td>Estimate. Redline's plug-in E46 S54 swap harness is $265 and needs an EWS-deleted DME (<a href="https://www.redline-motorsport.com/product/e46-m52tu-m54-s54/">Redline</a>)</td>
+</tr>
+<tr class="odd">
+<td>Body materials</td>
+<td>$500–$2,000</td>
+<td>Estimate, using the donor's arch steel. New BMW arch steel adds about $4,460 for both sides (tip below)</td>
+</tr>
+<tr class="even">
+<td>Front fenders</td>
+<td>$0–$2,000</td>
+<td>Grafting the donor's costs only materials; carbon Touring fenders are €1,400 before VAT (<a href="https://m3projekts.com/product/e46-m3-touring-front-fenders/">M3Projekts</a>)</td>
+</tr>
+<tr class="odd">
+<td>Paint (full respray)</td>
+<td>$6,000–$15,000</td>
+<td>Estimate; varies widely by region and shop</td>
+</tr>
+<tr class="even">
+<td>Tires, alignment, fluids, hardware</td>
+<td>$1,500–$2,500</td>
+<td>Estimate</td>
+</tr>
+<tr class="odd">
+<td>Tools you don't own yet</td>
+<td>$1,000–$3,000</td>
+<td>Estimate: welder, respirator and extraction, spot-weld cutters, test gauges and the fuel test kit, torque wrenches, engine stand (<a href="#tools-and-test-equipment">Tools and test equipment</a>). One builder's MIG welder was about CAD 1,200 (<a href="https://www.youtube.com/watch?v=t4CtY_W3vpU&amp;t=780s">Tracks and Trails – Fixing the weakest part of my E46 Touring (2025), 13:00</a>)</td>
+</tr>
+<tr class="even">
+<td>Contingency</td>
+<td>10–15%</td>
+<td>Estimate; every documented build met work it hadn't planned</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>About $26k–$73k</strong></td>
+<td>Including contingency; before selling leftovers. New BMW arch steel adds about $4,460</td>
+</tr>
+</tbody>
+</table></div>
+<aside class="callout callout-tip"><span class="callout-label">Tip</span>
+<p>If the donor's arch steel is rotten, or you'd rather keep donor steel out of your body, here is what new BMW steel costs (October 2026). At one US dealer the M3 convertible's rear side panels 41357894541/542 were $2,105.60 each (list $2,561.00) and its inner lateral trim panels 41217894553/554, which include the outer half of the wheelhouse, $127.54 and $118.80; the M3 coupe's side panels 41217890689/690 were $6,932.63 each and its interior side frames 41217890677/678 $1,311.70 each (<a href="https://www.bmwpartsdeal.com/parts/bmw-left_rear_side_panel-41357894541.html">BMWPartsDeal: 41357894541</a>, <a href="https://www.bmwpartsdeal.com/parts/bmw-left_inner_lateral_trim_panel-41217894553.html">41217894553</a>, <a href="https://www.bmwpartsdeal.com/parts/bmw-left_rear_side_panel-41217890689.html">41217890689</a>, <a href="https://www.bmwpartsdeal.com/parts/bmw-left_interior_side_frame-41217890677.html">41217890677</a>). That makes about $2,230 a side for new convertible steel and $8,240 a side for coupe steel, before freight and tax (our arithmetic). Each page said "Ships in 1-3 Business Days", but stock isn't confirmed until you order. That the convertible's inner panel carries the M3-width arch flange is our reading of BMW's diagram, so check one against an M3 skin first. New convertible steel for both arches plus the new trunk floor and its reinforcement comes to about $5,310 (our arithmetic), with no donor steel in your body (<a href="registration-and-legal.html#massachusetts">Massachusetts</a>).</p>
+<p>In Europe, eStore-Central lists the convertible quarter at €1,979.88 each and the inner panels at €141.50 and €131.82, about €4,280 for both sides plus an M3 filler flap (51172695524, €45.06), and the coupe quarter at €6,518.67 each (<a href="https://www.estore-central.com/bmw-parts-catalog/E46-M3-S54/Cabrio/Bodywork/Body-Side-Frame/">eStore-Central</a>). R44, a UK shop that prices in pounds, lists the coupe quarters at £4,420 each (<a href="https://r44performance.com/products/genuine-bmw-e46-m3-rear-quarter-panel-left-41217890689">R44: left</a>, <a href="https://r44performance.com/products/genuine-bmw-e46-m3-rear-quarter-panel-right-41217890690">right</a>). BMW's inner arch panels have been £990 each since 2025 (<a href="https://www.redish-motorsport.com/BMWE46M3RearWheelArchesRust.html">Redish</a>); we infer that is the M3 coupe's interior side frame 41217890677/678. LBL Panels' M3 arch sections are £225 standard or £375 for a full arch, in 1.2 mm steel (2026, unverified), but no current listing turned up in October 2026 (<a href="https://forums.m3cutters.co.uk/threads/e46-m3-rear-arch-repair-panel.252420/">m3cutters</a>). Redish has also used a fabricator's repair panels at "like 10%" of the price of a BMW side panel, which it put at "2,300 and something pounds" (<a href="https://www.youtube.com/watch?v=cwbRDG7XHa8&amp;t=360s">Autoalex Cars – Part 3 (2023), 06:00</a>).</p>
+</aside>
+<p>Selling what you don't use (the M54, the 5-speed, the MS43 or MS45.1 DME, replaced 325i axle parts, donor interior and panels) can recover $2k–$5k (estimate). Hold back the fallback parts listed under <a href="#space-storage-and-logistics">Space, storage and logistics</a>, and keep the M54's A/C compressor until the A/C is charged (<a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>).</p>
+<p><strong>If your car is a 325xi,</strong> converting it to rear drive adds about $0–$1,500 in parts with a donor built from 09/2002, or $1,000–$3,000 with an earlier one, net of selling the xi's drivetrain and DSC (our estimate). No source costs keeping all-wheel drive. Both routes are in <a href="325xi.html#325xi-rear-drive-or-all-wheel-drive">325xi: rear drive or all-wheel drive</a>.</p>
+<p>For comparison, Autoalex's UK build with specialist help cost about £70,000, including two engines (<a href="https://www.youtube.com/watch?v=N8pdzFoVu9k&amp;t=1120s">Autoalex Cars – It took 3 years and £70,000 (2025), 18:40</a>), and the all-wheel-drive Touring that sold for $65,000 had more than $70,000 in it (<a href="https://www.builtforbackroads.com/listing/2004-bmw-325xit-touring-awd-s54-swap">Built for Backroads</a>). A US S54 swap that kept the non-M body and spare-wheel well came to $21,665 all in, including both cars and a budget paint job (<a href="https://www.youtube.com/watch?v=oSZrM5wW0sQ&amp;t=80s">Tenza Motorsports – Total build cost (2022), 01:20</a>). With one finished car bid to $59,250 without selling and another sold for $65,000, build this because you want the car, not as an investment.</p>
+<h3 id="time">Time</h3>
+<p>Rough durations for one person working evenings and weekends. These are planning estimates; the last column shows what builders reported.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Weekends</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Buy, test and strip the donor</td>
+<td>4–8</td>
+<td>One builder stripped a convertible donor in about a week (<a href="https://www.youtube.com/watch?v=YqM2rQw1HQI&amp;t=120s">M346 Projects – Pt 1, M3 part out (2023), 02:00</a>)</td>
+</tr>
+<tr class="even">
+<td>Strip your Touring</td>
+<td>2–4</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Subframe mounts and floor</td>
+<td>4–8</td>
+<td>Cutting one V-brace mounting box off a donor "took all day" (<a href="https://www.youtube.com/watch?v=eMJLXbvzckE&amp;t=380s">Tracks and Trails – I spent $10,000 on my E46 Touring's rear end (2025), 06:20</a>)</td>
+</tr>
+<tr class="even">
+<td>Rear arches (and doors, if you reshape them)</td>
+<td>8–16</td>
+<td>A professional shop took about four weeks, two people at 40–50 hours a week, for the whole body from first cut to paint (<a href="https://www.youtube.com/watch?v=L8m9gEOklVY&amp;t=1560s">SOS Customz – Building a BMW E46 M3 Touring wagon (2023), 26:00</a>)</td>
+</tr>
+<tr class="odd">
+<td>S54 and axle refresh (in parallel with the bodywork)</td>
+<td>6–10</td>
+<td>Plan 3–7 days for a first rod-bearing job (<a href="https://www.youtube.com/watch?v=O345BKC8EkM">Paul Vo – Rod bearing installation and torque procedure (2017), description</a>); Beisan quotes 7 or more hours for a DIY VANOS job (<a href="https://beisansystems.com/s54-vanos-procedure-e46-m3/">Beisan</a>)</td>
+</tr>
+<tr class="even">
+<td>Reassembly: axles, engine, fuel, cooling, exhaust</td>
+<td>8–12</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wiring, coding, first start, shakedown</td>
+<td>4–8</td>
+<td>Allow a week or two for the DME and cluster to visit a vendor; RPM quotes 1–2 business days after arrival, with overnight shipping both ways (<a href="https://www.rpmmotorsport.net/collections/bmw-unlocked-ecu-service-ews-cas-delete/products/bmw-e46-m3-s54-m5-e39-s62-ews-delete-ready-to-start">RPM</a>)</td>
+</tr>
+<tr class="even">
+<td>Front end, paint and trim</td>
+<td>4–8, plus shop time</td>
+<td>One paint shop kept the car four months (<a href="https://www.youtube.com/watch?v=1AjKKQisrGE&amp;t=0s">M346 Projects – Pt 25, paint reveal (2025), 00:00</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="diagram"><div class="diagram-scroll portrait"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 618" role="img" aria-label="A typical 24-month build on a calendar, with a mark every six months and a typical finish between 18 and 30 months. Phases 0 to 2, paperwork and baseline, buying and inspecting the donor, and stripping the donor, fill roughly the first three and a half months; the donor is bought and tested at the end of Phase 1. Phase 3, bench work on the S54, 420G, axles, DME and fenders, runs alongside Phases 4 to 8. After stripping your Touring, Phase 5 welds the subframe mounts and floor, and the first cut into your floor there is the point of no return; Phase 6, the rear arches, is the longest phase of your own work. Phases 7 to 10 fit the rear axle and fuel system, front suspension and steering, the S54 and 420G, and cooling, intake and exhaust; Phase 11 is wiring, immobilizer and coding; Phase 12 fits the front end and includes the first start, shakedown and alignment. Phase 13 includes about four months at the paint shop and ends with inspection at about 24 months. Bar lengths follow the guide's weekend estimates for each phase: typical, and your times will vary.">
+
+<defs>
+  <marker id="d15-build-timeline-ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+</defs>
+
+
+<text class="t-h" x="8" y="20">BUILD CALENDAR</text>
+<text class="t-xs" x="390" y="20" text-anchor="end">Typical; your times will vary</text>
+<text class="t-xs t-b" x="8" y="42">weekends</text>
+
+
+<rect class="panel" x="250.4" y="46" width="129.6" height="456" opacity="0.6"/>
+<g class="ln-faint">
+  <line x1="56" y1="46" x2="56" y2="502"/>
+  <line x1="120.8" y1="46" x2="120.8" y2="502"/>
+  <line x1="185.6" y1="46" x2="185.6" y2="502"/>
+  <line x1="250.4" y1="46" x2="250.4" y2="502"/>
+  <line x1="315.2" y1="46" x2="315.2" y2="502"/>
+  <line x1="380" y1="46" x2="380" y2="502"/>
+</g>
+
+
+<path class="ln-thin" d="M43,89 H47 V131 H43"/>
+<text class="t-sm" x="40" y="114" text-anchor="end">4–8</text>
+<text class="t-sm" x="40" y="162" text-anchor="end">6–10</text>
+<text class="t-sm" x="40" y="194" text-anchor="end">2–4</text>
+<text class="t-sm" x="40" y="226" text-anchor="end">4–8</text>
+<text class="t-sm" x="40" y="258" text-anchor="end">8–16</text>
+<path class="ln-thin" d="M43,281 H47 V387 H43"/>
+<text class="t-sm" x="40" y="338" text-anchor="end">8–12</text>
+<path class="ln-thin" d="M43,409 H47 V451 H43"/>
+<text class="t-sm" x="40" y="434" text-anchor="end">4–8</text>
+<text class="t-sm" x="40" y="482" text-anchor="end">4–8</text>
+<text class="t-xs" x="40" y="496" text-anchor="end">+ shop</text>
+
+
+<rect class="shape" x="56" y="57.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="donor" x="68.5" y="89.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="donor" x="80.9" y="121.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="donor" x="93.4" y="153.5" width="108" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="93.4" y="185.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="fab" x="105.8" y="217.5" width="24.9" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="fab" x="130.8" y="249.5" width="49.8" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="180.6" y="281.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="191" y="313.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="201.4" y="345.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="211.8" y="377.5" width="10.4" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="222.2" y="409.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="234.6" y="441.5" width="12.5" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="247.1" y="473.5" width="12.5" height="9" rx="1.5"/>
+<rect class="keep dash" x="259.5" y="473.5" width="43.2" height="9" rx="1.5" stroke-width="1.5"/>
+<rect class="shape" x="302.7" y="473.5" width="12.5" height="9" rx="1.5"/>
+
+
+<text class="t-sm fill-fg" x="74.5" y="66"><tspan class="t-b">0 </tspan>Paperwork and baseline</text>
+<text class="t-xs" x="84.5" y="80">before you buy the donor</text>
+<text class="t-sm fill-fg" x="86.9" y="98"><tspan class="t-b">1 </tspan>Buy and inspect the donor</text>
+<text class="t-sm fill-fg" x="99.4" y="130"><tspan class="t-b">2 </tspan>Strip the donor</text>
+<text class="t-sm fill-fg" x="207.4" y="162"><tspan class="t-b">3 </tspan>Bench work, alongside 4–8</text>
+<text class="t-xs" x="217.4" y="176">S54, 420G, axles, DME, fenders</text>
+<text class="t-sm fill-fg" x="111.8" y="194"><tspan class="t-b">4 </tspan>Strip your Touring</text>
+<text class="t-sm fill-fg" x="136.8" y="226"><tspan class="t-b">5 </tspan>Metalwork 1, subframe mounts and floor</text>
+<text class="t-sm fill-fg" x="186.6" y="258"><tspan class="t-b">6 </tspan>Metalwork 2, rear arches</text>
+<text class="t-sm fill-fg" x="197" y="290"><tspan class="t-b">7 </tspan>Fit the M3 rear axle and</text>
+<text class="t-sm fill-fg" x="207" y="304">fuel system</text>
+<text class="t-sm fill-fg" x="207.4" y="322"><tspan class="t-b">8 </tspan>Fit the M3 front suspension</text>
+<text class="t-sm fill-fg" x="217.4" y="336">and steering</text>
+<text class="t-sm fill-fg" x="217.8" y="354"><tspan class="t-b">9 </tspan>Install the S54 and 420G</text>
+<text class="t-sm fill-fg" x="228.2" y="386"><tspan class="t-b">10 </tspan>Cooling, intake and</text>
+<text class="t-sm fill-fg" x="244.7" y="400">exhaust</text>
+<text class="t-sm fill-fg" x="240.6" y="418"><tspan class="t-b">11 </tspan>Wiring, immobilizer and</text>
+<text class="t-sm fill-fg" x="257.1" y="432">coding</text>
+<text class="t-sm fill-fg" x="228.6" y="450" text-anchor="end"><tspan class="t-b">12 </tspan>Front end, first start</text>
+<text class="t-sm fill-fg" x="228.6" y="464" text-anchor="end">and shakedown</text>
+<text class="t-sm fill-fg" x="241.1" y="482" text-anchor="end"><tspan class="t-b">13 </tspan>Paint, trim and paperwork</text>
+
+
+<path class="fill-fg" d="M80.9,89.5 L85.4,94 L80.9,98.5 L76.4,94 Z"/>
+<text class="t-xs t-b fill-fg" x="96.9" y="112">Donor bought and tested</text>
+<path class="crit-f" d="M115.8,217.5 L120.3,222 L115.8,226.5 L111.3,222 Z"/>
+<text class="t-xs t-b crit-t" x="146.8" y="240">First cut into your floor: point of no return</text>
+<path class="fill-fg" d="M236.5,442.4 L240.1,446 L236.5,449.6 L232.9,446 Z"/>
+<path class="fill-fg" d="M247.1,442.4 L250.7,446 L247.1,449.6 L243.5,446 Z"/>
+<text class="t-xs t-b fill-fg" x="255.1" y="450">First start</text>
+<text class="t-xs t-b fill-fg" x="255.1" y="464">Alignment</text>
+<path class="fill-fg" d="M315.2,473.5 L319.7,478 L315.2,482.5 L310.7,478 Z"/>
+<text class="t-xs t-b fill-fg" x="322.2" y="482">Inspection</text>
+<text class="t-xs" x="281.1" y="496" text-anchor="middle">at the paint shop, about 4 months</text>
+
+
+<text class="t-xs" x="56" y="515" text-anchor="middle">0</text>
+<text class="t-xs" x="120.8" y="515" text-anchor="middle">6</text>
+<text class="t-xs" x="185.6" y="515" text-anchor="middle">12</text>
+<text class="t-xs" x="250.4" y="515" text-anchor="middle">18</text>
+<text class="t-xs" x="315.2" y="515" text-anchor="middle">24</text>
+<text class="t-xs" x="380" y="515" text-anchor="middle">30</text>
+<text class="t-xs" x="56" y="529">months from the start</text>
+<line class="ln-thin" x1="163" y1="525.5" x2="181" y2="525.5" marker-end="url(#d15-build-timeline-ah)"/>
+<text class="t-xs t-b" x="315.2" y="529" text-anchor="middle">typical finish: 18–30 months</text>
+
+
+<rect class="shape" x="8" y="546" width="12" height="12" rx="2"/>
+<text class="t-sm" x="26" y="556.5">Your Touring</text>
+<rect class="donor" x="132" y="546" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="150" y="556.5">Donor and bench</text>
+<rect class="fab" x="270" y="546" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="288" y="556.5">Welding</text>
+<rect class="keep dash" x="8" y="564" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="26" y="574.5">At a shop</text>
+<path class="fill-fg" d="M138,565.5 L142.5,570 L138,574.5 L133.5,570 Z"/>
+<text class="t-sm" x="150" y="574.5">Milestone</text>
+
+<text class="t-xs" x="8" y="598">Bar lengths follow the guide's weekend estimates, spread over a</text>
+<text class="t-xs" x="8" y="611">24-month build with about four months at the paint shop.</text>
+</svg></div><figcaption>Figure 2. The phases on a calendar for a typical build of about two years, with bar lengths in proportion to the weekend estimates above. Bench work runs alongside Phases 4 to 8, the paint shop can keep the car for about four months, and the first cut into your floor, in Phase 5, is the point of no return.</figcaption></figure>
+
+<p><strong>If your car is a 325xi,</strong> converting it to rear drive adds 4–8 weekends (our estimate): the front-end trial fit and transplant, with any anti-roll-bar brackets, 1–2; a gearbox-crossmember adapter 1–2; the DSC hardware and pipes 1–2; the DSC loom and coding 1–2 (<a href="325xi.html#325xi-rear-drive-or-all-wheel-drive">325xi: rear drive or all-wheel drive</a>).</p>
+<p>Real builds:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Build</th>
+<th>Who did the work</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Autoalex Cars: UK 330i Touring, coupe donor</td>
+<td>Specialist (Redish Motorsport)</td>
+<td>Started March 2023, handed over May 2025 (<a href="https://www.youtube.com/watch?v=N8pdzFoVu9k&amp;t=200s">Autoalex Cars – It took 3 years and £70,000 (2025), 03:20</a>, <a href="https://www.youtube.com/watch?v=N8pdzFoVu9k&amp;t=380s">06:20</a>)</td>
+</tr>
+<tr class="even">
+<td>"To Europe and back": US 2003 325iT, convertible donor</td>
+<td>A shop in Hungary</td>
+<td>Picked up December 2021, bodywork March–May 2022, first test drive March 2023 (<a href="https://www.e46fanatics.com/threads/project-e46-m3-touring-conversion-to-europe-and-back.1300891/">e46fanatics</a>)</td>
+</tr>
+<tr class="odd">
+<td>M346 Projects: US 2004 Touring, convertible donor</td>
+<td>Owner, with a visiting metalworker</td>
+<td>July 2023 to October 2025, including four months at the paint shop (<a href="https://www.youtube.com/watch?v=YqM2rQw1HQI&amp;t=0s">M346 Projects – Pt 1 (2023), 00:00</a>, <a href="https://www.youtube.com/watch?v=m-WKkTAKpws&amp;t=0s">Pt 26, final reveal (2025), 00:00</a>)</td>
+</tr>
+<tr class="even">
+<td>Tracks and Trails: 2004 325i Touring (automatic)</td>
+<td>Owner, his first welding project</td>
+<td>Cars bought by June 2025, first start June 2026, body panels on by September 2026 with paint still to do (<a href="https://www.youtube.com/watch?v=KE7iY3yYBZI">Tracks and Trails – Can I do it? (2025), description</a>, <a href="https://www.youtube.com/watch?v=pvR3ovRfQHg&amp;t=4640s">Attempting to drive (2026), 1:17:20</a>, <a href="https://www.youtube.com/watch?v=nADBRfX9DqY&amp;t=2080s">What it really takes (2026), 34:40</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep the scope to the recipe: a turbocharged Touring on a standalone ECU, started in 2019, still wasn't running in June 2026 (<a href="https://www.youtube.com/watch?v=w_L72YANRdU&amp;t=1100s">Calvin's Car Diary – I have big news about my £200,000 E46 M3 Touring (2026), 18:20</a>).</p>
+<h3 id="factory-documentation-and-coding-kit">Factory documentation and coding kit</h3>
+<p>BMW's documentation is the reference for every standard procedure, torque and wiring diagram this guide doesn't print. Load the right VIN: one Touring swapper found the diagrams changed once he entered his wagon's VIN, and a Bentley page that didn't match his car misled him (<a href="https://www.e46fanatics.com/threads/battery-and-oil-pressure-lights-inop.1207433/">e46fanatics</a>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Use it for</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BMW TIS (newTIS)</td>
+<td>Repair instructions, tightening torques, technical data and capacities, body dimensions (group 41 00), alignment values; wiring diagrams (WDS) by VIN</td>
+<td><a href="https://www.newtis.info/">newTIS</a> (it runs a browser check, so open it in a normal browser). Read body-side diagrams with your Touring's VIN and engine-side ones with the donor's. One builder found it lacked the right MSS54 DME diagram (<a href="https://www.e46fanatics.com/threads/s54-swap-fuel-injectors-low-circuit.1277127/">e46fanatics</a>). BMW's repair text (TIS issue 12/2007) is also free to read, page by page, on workshop-manuals.com for the <a href="https://workshop-manuals.com/bmw/3_Series_E46/325i_M54_TOUR/">325i Touring</a> and the <a href="https://workshop-manuals.com/bmw/3_Series_E46/M3_S54_COUPE/">M3 coupe</a>; the M3 convertible has its own (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_conver/3_technical_data/33__rear_axle/0__general/2_td__rear_axle_ride_height_e46___m3/">example page</a>)</td>
+</tr>
+<tr class="even">
+<td>BMW WDS (Wiring Diagram System), public mirror</td>
+<td>Wiring diagrams, DME pin tables, connector views and component locations; the manual's pin tables name the drawing behind every wire</td>
+<td><a href="https://wds.psjr.org/en/e46/">wds.psjr.org</a>. It has no VIN filter: pick each drawing by the models and build dates in its title. ISTA shows the diagrams for your exact VIN; BMW's official portal sold a one-day subscription for $32 in October 2026 (<a href="https://bmwtechinfo.bmwgroup.com/">BMW AOS</a>)</td>
+</tr>
+<tr class="odd">
+<td>ETK parts catalog</td>
+<td>Part numbers, which models use a part, changes by build date</td>
+<td><a href="https://www.realoem.com/">RealOEM</a> or <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/">bmwfans.info</a>; search by VIN</td>
+</tr>
+<tr class="even">
+<td>Bentley E46 service manual</td>
+<td>A printed manual for the 325i; a seller listing says it also covers the 2000–05 M3 (unverified)</td>
+<td><a href="https://www.bentleypublishers.com/">Bentley Publishers</a></td>
+</tr>
+<tr class="odd">
+<td>BMW service bulletins</td>
+<td>SI B11 04 04: S54 rod bearings, bolts, torques, oil and break-in. SI B12 09 13: inspections fail when the DME holds the wrong VIN</td>
+<td><a href="https://nam3forum.com/forums/filedata/fetch?id=5213">SI B11 04 04, via NAM3</a>, <a href="https://static.nhtsa.gov/odi/tsbs/2013/MC-10150160-9999.pdf">SI B12 09 13, via NHTSA</a></td>
+</tr>
+<tr class="even">
+<td>BMW training manuals</td>
+<td>How the systems work: E46 M3 (ST041), MS S54 engine management (ST055), EWS (ST051)</td>
+<td><a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/1%20M3%20Complete%20Vehicle.pdf">ST041</a>, <a href="https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics%20%28Archive%201%29/8%20MS%20S54.pdf">ST055</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST051%20Body%20Electronics%20I%20%28Archive%201%29/05%20EWS.pdf">ST051</a></td>
+</tr>
+<tr class="odd">
+<td>SGBD job documentation</td>
+<td>The jobs, status bits and fault numbers Tool32 uses, for the S54's DME (<code>MSS54DS0.PRG</code>), the MK60 DSC (<code>DSC_MK60.PRG</code>) and the other modules</td>
+<td><a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD documentation</a> and its <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/DSC_MK60.md">MK60 page</a>, a community transcription of BMW's job files</td>
+</tr>
+<tr class="even">
+<td>"Flow" E46 M3 torque compilation</td>
+<td>A forum PDF of the M3's fasteners built on RealOEM printouts, with a TIS alignment page. Cross-check only; confirm in TIS</td>
+<td><a href="https://drive.google.com/file/d/1GS3Hirx6x0c0WG8hPeXiwfXfeUldkQnm/view?usp=sharing">Google Drive</a>, via <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/414-e46-m3-torque-spec-thread-every-bolt-on-the-car-on-diagrams">NAM3</a></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Coding kit.</strong> Buy it early and prove it on your unmodified Touring before you need it. Setup steps are in the <a href="wiring-and-coding.html">Wiring and coding manual</a>.</p>
+<ul>
+<li><strong>Laptop:</strong> a dedicated Windows 10 or 11 laptop, 32- or 64-bit, running Windows natively (not in a virtual machine or Boot Camp), with its charger plugged in. BMW Standard Tools 2.12 installs on Windows 7–11, so older advice that it needs Windows XP is out of date (<a href="https://www.e46fanatics.com/threads/installing-bmw-standard-tools.1322014/">e46fanatics</a>).</li>
+<li><strong>Cable:</strong> a K+DCAN USB cable with an FTDI chip and a switch that bridges OBD pins 7 and 8. On an E46 only the DME talks on pin 7; the cluster, light module and DSC are on pin 8, so an unbridged cable can't read them (<a href="https://www.e46fanatics.com/threads/installing-bmw-standard-tools.1322014/">e46fanatics</a>, <a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/293965-verify-ncsexpert-function-before-doing-manual-swap">NAM3</a>). Set it to COM1 with a 1 ms latency timer (<a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/204464-help-with-coding-issues-re-ncs-and-pasoft">NAM3</a>).</li>
+<li><strong>PA-Soft interface:</strong> PA-Soft (BMW Scanner 1.4) needs its own interface for cluster and light-module EEPROM work. Its driver is the step most likely to fail on Windows 10 and 11, so install it first (<a href="https://www.e46fanatics.com/threads/installing-bmw-standard-tools.1322014/">e46fanatics</a>, <a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/204464-help-with-coding-issues-re-ncs-and-pasoft">NAM3</a>).</li>
+<li><strong>Software:</strong> BMW Standard Tools 2.12 (INPA, Tool32, NCS Expert, WinKFP) with E46 data files, plus NCS Dummy and an NCS profile that allows editing, such as Revtor's or FISTER (<a href="https://www.ecuworx.co.uk/uploads/M-Track.pdf">ECUWorx</a>). Use the NCS Expert 4.0.1 that comes with Standard Tools 2.12, with a manipulation profile such as Revtor's <code>NCSDUMMY4.PFL</code> or terra's "Expert Mode w/ Manipulation": version 3.x doesn't run on 64-bit Windows (<a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/1281-getting-started-with-ncs-expert">NAM3</a>, <a href="https://nam3forum.com/forums/forum/special-interests/coding-tuning/1281-getting-started-with-ncs-expert/page3">NAM3</a>). Two owners' INPA builds, labelled 5.00 and 5.0.2, had no MK60 steering-angle page, while builds 3.0.1 and 4.4.7 are reported to have it; Tool32 runs the job, <code>LENKWINKEL_DSC_ABGLEICHEN</code>, either way (<a href="https://www.e46fanatics.com/threads/dsc-mk60-replacement-coding-with-ncs-expert.1286178/">e46fanatics</a>, <a href="https://www.e46fanatics.com/threads/steering-angle-calibration-not-showing-up-in-inpa.1285802/">e46fanatics</a>, <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/DSC_MK60.md">SGBD documentation</a>). BMW's dealer software, ISTA, is optional.</li>
+<li><strong>Power:</strong> a battery charger or power supply of at least 10 A on the car whenever you code or flash (<a href="https://www.ecuworx.co.uk/how-to/using-the-mss5x-binary-modification-tool/">ECUWorx</a>).</li>
+<li><strong>For the cluster, if you do it yourself:</strong> an EEPROM programmer (R270 type), a hot-air rework station and a blank M35080 chip (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>). A cluster service replaces all three.</li>
+<li><strong>Not enough on their own:</strong> BimmerGeeks' ProTool reads E46 faults but can't code an E46 (<a href="https://www.bimmergeeks.net/protool">BimmerGeeks</a>); Carly lists only comfort and lighting coding (<a href="https://www.mycarly.com/blog/car-coding/bmw-e46-coding-list-what-you-can-code/">Carly</a>); the Foxwell NT530 does resets, not module coding (<a href="https://www.bimmerworld.com/Tools/Foxwell-NT530-OBD-System-Scanner-for-BMWs.html">BimmerWorld</a>).</li>
+</ul>
+<aside class="callout callout-note"><span class="callout-label">Note</span>
+<p>BMW doesn't sell Standard Tools, PA-Soft, NCS profiles or data files to owners; they circulate through forums and vendors (<a href="https://www.e46fanatics.com/threads/installing-bmw-standard-tools.1322014/">e46fanatics</a>). Scan what you download, and keep the laptop for the car.</p>
+</aside>
+<h3 id="tools-and-test-equipment">Tools and test equipment</h3>
+<ul>
+<li><strong>Lifting and moving:</strong> a two-post lift makes this far easier. Without one you need tall jack stands, an engine hoist with a load leveler, a transmission jack, an engine support bar, an engine stand, a low table or dollies for dropping subframes, and wheel dollies to move the stripped shell. Read <a href="#safety">Safety</a> before anything heavy comes out.</li>
+<li><strong>Measuring and testing:</strong> two torque wrenches (one covering about 5–60 Nm, one reaching 300 Nm for the hub nuts), a torque-angle gauge, a compression tester and a leak-down tester, a fuel-pressure gauge with an adapter for BMW's threaded test fitting (BMW names adapter 13 5 220 for the S54 regulator's fitting and for later non-M rails; <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041 Part 2</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST055%20Engine%20Electronics/04_Fuel%20Management.pdf">BMW ST055</a>), a relay-bypass switch with a 15 A inline fuse, a graduated container of 2 L or more and a quick-connect cap rated for 5 bar for the fuel tests (<a href="fuel-cooling-and-ac.html#test-the-fuel-system">Test the fuel system</a>), a mechanical oil-pressure gauge with an M12×1.5 adapter for the oil-pressure-switch port (<a href="https://drive.google.com/file/d/1GS3Hirx6x0c0WG8hPeXiwfXfeUldkQnm/view?usp=sharing">Flow</a>), a cooling-system pressure tester, a multimeter, a vernier caliper for panel thickness, a profile gauge for arch shapes, and a tape measure and plumb bob for ride height and body diagonals. Toe plates and a camber gauge are optional.</li>
+<li><strong>Engine bench:</strong> Plastigauge in the green PG-1 grade FCP Euro uses (<a href="https://www.youtube.com/watch?v=Emjw22o_V8c&amp;t=80s">FCP Euro – S54 rod bearing replacement DIY (2022), 01:20</a>), feeler gauges and valve shims, E-Torx sockets E10, E12 and E14, and a 12-point 12 mm socket for M11 rod bolts. From Beisan's VANOS procedure: BMW's crank-turning socket 83300491056 (or a 36 mm 12-point socket on early engines, which have four Torx bolts at the crank hub; later engines take a 27 mm hex adapter), and a 32 mm fan wrench with water-pump pulley holder 83300491046 for the left-hand-thread fan clutch (<a href="https://beisansystems.com/s54-vanos-procedure-e46-m3/">Beisan</a>). If the VANOS unit comes off, add the S54 timing set (cam bridge, locking pins, crank pin) and a transfer-gear holder (<a href="https://www.youtube.com/watch?v=vhsxb5IRa8s&amp;t=90s">ECS Tuning – S54 valve adjustment and VANOS rebuild (2025), 01:30</a>).</li>
+<li><strong>Driveline and chassis:</strong> a clutch alignment tool, a flywheel lock, an O2-sensor socket, a spring compressor for the front struts, bushing press kits (trailing-arm bushings, subframe and diff mounts), a ball-joint separator, an inner tie-rod tool, a pressure bleeder with an airtight cap (BMW's limit is 2 bar, 29 psi: <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/34__brakes/0__brake_testing_and_bleeding/10_ra__bleeding_brake_system_with_dsc3/">BMW TIS 34 00 050</a>) or a slave-cylinder bleed tool, a brake-pedal depressor and caps for the brake pipes you open in Phase 4, and a brake-line bender: BMW supplies straight pre-flared lines (<a href="https://www.youtube.com/watch?v=WZaYROuG1jo&amp;t=2240s">Calvin's Car Diary – What happened to my £200K E46 M3 Touring project (2025), 37:20</a>).</li>
+<li><strong>Body:</strong> a MIG welder set up for thin sheet (wire, gas and settings: <a href="chassis-and-drivetrain.html#welding-settings-and-safety">Welding settings and safety</a>), 8 mm (5/16 in) spot-weld cutters, with spares, and a spot-weld chisel, cut-off and flap discs, a hole punch for plug-weld holes (6 mm for the arch lips, 8 mm elsewhere), butt-weld clamps, clecos and panel clamps, a panel flanger if you joggle the arch seams, a cross-line laser, a tram gauge and 3 mm hardboard for the arch offsets and templates, a straightedge for door flush, copper or aluminum backing paddles, hammers and dollies, long sanding boards, and a plastic welder if you graft the rear bumpers.</li>
+<li><strong>Electrical:</strong> depinning keys and a crimper for BMW's terminal families, a multimeter, labels and heat-shrink. Turner sells 12- and 23-piece depin sets (<a href="https://www.turnermotorsport.com/c-1681-bmw-repair-kit">Turner</a>, unverified). Coding hardware is under <a href="#factory-documentation-and-coding-kit">Factory documentation and coding kit</a>.</li>
+<li><strong>Safety equipment:</strong> a respirator rated for metal fume plus local extraction, two fire extinguishers and a fire blanket, welding blankets, and eye, face and hand protection.</li>
+</ul>
+<h3 id="space-storage-and-logistics">Space, storage and logistics</h3>
+<p>For 18–30 months you'll store two cars' worth of parts: a stripped Touring shell, an engine on a stand, the donor's axle assemblies and your own, panels, glass and boxes of small parts. Plan the space before you buy the donor.</p>
+<ul>
+<li><strong>Room to work:</strong> one bay for the Touring shell on wheel dollies, with room to open its doors and weld around it; a bench and the engine stand; shelving or wall racks for panels, axle assemblies and labelled bins; and dry storage for parts waiting to be sold. The donor needs a second bay or a driveway spot only until it's stripped.</li>
+<li><strong>Strip the donor fast.</strong> Test it, take everything on the <a href="parts-list.html#parts-list">Parts list</a>, cut out the steel you need, then let the shell go. One builder stripped his donor in about a week (<a href="https://www.youtube.com/watch?v=YqM2rQw1HQI&amp;t=120s">M346 Projects – Pt 1, M3 part out (2023), 02:00</a>). Protect what you store: one builder's power-steering line kinked in storage and had to be replaced (<a href="https://www.youtube.com/watch?v=pvR3ovRfQHg&amp;t=3920s">Tracks and Trails – Attempting to drive my E46 M3 Touring for the first time (2026), 1:05:20</a>).</li>
+<li><strong>The donor shell and its title.</strong> Sell or scrap the shell through a licensed dismantler or scrapyard; Autoalex's went to a new owner (<a href="https://www.youtube.com/watch?v=YSLP0kvBao4&amp;t=820s">Autoalex Cars – Part 2 (2023), 13:40</a>). Ask your DMV what happens to the donor's title when the car is dismantled, and keep copies of the title, bill of sale and the VIN-plate and engine-number photos for the engine-change paperwork (<a href="registration-and-legal.html#registration-and-legal-us">Registration and legal</a>).</li>
+<li><strong>Fluids and refrigerant.</strong> Have a shop recover the A/C refrigerant from both cars before either system is opened; venting it is prohibited (<a href="https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing">EPA</a>). Drain oil, coolant, brake fluid and fuel into labelled containers and take them to a recycling center; your Touring keeps its brake fluid in (<a href="step-by-step-build.html#phase-4-strip-your-touring">Phase 4</a>).</li>
+<li><strong>Your Touring off the road.</strong> Ask your insurer about a storage policy and your DMV whether to keep the car registered during the build.</li>
+</ul>
+<p><strong>What to sell, and when.</strong> The right-hand column is the guide's one list of fallback parts: your way back if the DSC, cluster, cruise or fuel route doesn't work out. The phases point here.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Safe to sell early</th>
+<th>Hold until the car has passed inspection</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The M54, 5-speed gearbox and clutch, once the M54's A/C compressor is off: keep that until the A/C is charged (<a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>)</td>
+<td>Your Touring's DSC unit, booster and master cylinder, and the donor's</td>
+</tr>
+<tr class="even">
+<td>The MS43 or MS45.1 DME and engine harness, once you've tagged its X60004 wires</td>
+<td>Your Touring's original cluster, with its EEPROM backup</td>
+</tr>
+<tr class="odd">
+<td>325i axle parts you've replaced: rack, control arms, struts, rear subframe, trailing arms, brakes</td>
+<td>The donor DME's original file, and the donor's EWS and keys</td>
+</tr>
+<tr class="even">
+<td>Touring front panels you've replaced: hood, fenders, bumper, headlights</td>
+<td>The donor's clutch-switch module, if you fitted a new M3 one (your Touring's doesn't work with the MSS54)</td>
+</tr>
+<tr class="odd">
+<td>Donor interior, glass, doors and trunk lid; a convertible's top</td>
+<td>The donor's body harness and connector pigtails, a source of terminals and missing wires</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>The fuel pump and tank you didn't fit, and the donor's fuel-pump module</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>The donor's wheel-speed sensors, if it's an MK60 car (built from 09/2002); an MK20 donor's don't fit your harness</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="shop-briefs">Shop briefs</h3>
+<p>Give any shop a written brief. These cover the jobs this guide suggests outsourcing.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Job</th>
+<th>Ask for</th>
+<th>Tell them</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A/C, before teardown</strong></td>
+<td>Recover the refrigerant from both cars, and write down how much refrigerant and how much oil came out of each</td>
+<td>The donor's compressor and pressure hose are coming out; you'll cap every opening. BMW puts the recovered oil back in at the charge (<a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>)</td>
+</tr>
+<tr class="even">
+<td><strong>A/C, after first start</strong></td>
+<td>Fit a new receiver-drier, 64538377330. Set the oil by BMW's rules: drain the donor's compressor and refill it with the amount drained from the Touring's old compressor plus 10 g, add back the oil recovered from the Touring, and add about 30 ml (1 oz) for the new drier: about 150 ml (5.1 US fl oz) of PAG in all, ND-8 grade for the Denso compressor (<a href="https://spareto.com/products/denso-compressor-air-conditioning/dcp05039">spareto</a>). Evacuate for at least 30 minutes, with no more than 7 kPa (2 inHg) of change in a 5-minute hold. Charge R-134a by weight to the underhood label, then run the compressor in</td>
+<td>The system has been open for months. Only the compressor-to-condenser hose (64536902681) is an M3 part; the condenser, the other lines and the drier's bracket are the same parts on both cars (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/heater_and_air_conditioning/coolant_lines/">ETK: M3</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/heater_and_air_conditioning/coolant_lines/">ETK: Touring</a>). Bring your photo of the label, the Touring's old compressor and the recovery figures. BMW's targets: low side 1–2 bar, high side 10–15 bar, centre vent 4–20 °C (40–68 °F) (<a href="fuel-cooling-and-ac.html#air-conditioning">Air conditioning</a>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Subframe reinforcement welding</strong></td>
+<td>Underside plates at all four mounts plus the topside work: the rosette welds over the rear mounts, the floor tied to the rails, and V-brace mounting boxes</td>
+<td>It's a Touring with no rear-seat bulkhead, so kit parts that brace against one won't fit (<a href="https://www.youtube.com/watch?v=WZaYROuG1jo&amp;t=1800s">Calvin's Car Diary – What happened to my £200K E46 M3 Touring project (2025), 30:00</a>). Keep the kit's spacer plates; no structural foam; the tank, fuel lines and EVAP parts are out. The brake pipes along the floor are still full of fluid: unclip and move them clear of each weld, or shield them (<a href="#safety">Safety</a>). See <a href="chassis-and-drivetrain.html#rear-subframe-mount-reinforcement">Rear subframe mount reinforcement</a></td>
+</tr>
+<tr class="even">
+<td><strong>Paint</strong></td>
+<td>A full respray (or the panels you list), including door shuts, jambs, under the hood and the tailgate opening; the color code from the body tag</td>
+<td>What you've prepped and what they must finish. The M3 panels were fitted in primer, so gaps are set. For a color change, ask whether the doors come off and the glass comes out, as on one build (<a href="https://www.youtube.com/watch?v=oaycAZRakfc&amp;t=180s">M346 Projects – Pt 23, paint shop prep (2025), 03:00</a>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Exhaust</strong></td>
+<td>With the M3 floor, fitting only: the stock M3 front section 18107832909, intermediate pipe 18107832313 and muffler 18107831783 on the center support and BMW's three muffler brackets; flanges 22 ± 2 Nm (16 ± 1.5 ft-lb), muffler clamp 15 Nm (11 ft-lb), hanger nuts 22 Nm (16 ft-lb), hanger bolts 20 Nm (15 ft-lb). With the well kept: a rear section from the M3 mid-pipes to the muffler you choose, such as a US E36 M3 muffler</td>
+<td>Keep the M3 catalysts, all four O2 sensors, the secondary-air parts and an unaltered muffler: Massachusetts bans by-passes and gutted or louder systems (<a href="https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXIV/Chapter90/Section16">c. 90 §16</a>). Bring the donor's gap figures. Check clearance to the floor, tank, bumper and tires at full bump; fit heat shields; set the tips to your bumper cut-outs. See <a href="chassis-and-drivetrain.html#exhaust-and-the-spare-wheel-well">Exhaust and the spare-wheel well</a></td>
+</tr>
+<tr class="even">
+<td><strong>Wheel alignment</strong></td>
+<td>BMW's E46 M3 values, set in BMW's design position after a ride-height check: the M3's normal-position load (a full tank, 68 kg (150 lb) on each front seat and 14 kg (31 lb) in the middle of the trunk), then weights near the struts until each corner is within 2 mm of the M3 ride height. Before and after printouts</td>
+<td>Tell the shop: M3 axles on a body with major repairs, so BMW allows only the design-position method, not the rig's ride-height-input mode (<a href="https://workshop-manuals.com/bmw/3_series_e46/m3_s54_coupe/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/18_ra__kds_chassis_wheel_alignment_check_with_load_up_to_design_position/">TIS 32 00 150</a>, <a href="https://workshop-manuals.com/bmw/3_series_e46/325i_m54_tour/2_repair_instructions/32__steering_and_wheel_alignment/0__electronic_chassis_alignment/20_ra__kds_chassis_wheel_alignment_check_with_ride-height_measurement_without_load/">32 00 155</a>). Every geometry part is M3, so the M3 values apply. Front camber moves only about ±0.5° in the strut-tower slots (tool 32 3 140) and caster not at all; rear camber is set at an eccentric bolt and rear toe with tool 32 3 030 (<a href="sources-and-appendix.html#wheel-alignment">Wheel alignment</a>). If the car sits more than 10 mm below the M3 heights at that load, fix the springs first. You'll calibrate the steering-angle sensor afterwards</td>
+</tr>
+<tr class="odd">
+<td><strong>DME flash</strong></td>
+<td>An EWS delete with your Touring's full 17-character VIN written in; manual software if the donor was SMG; otherwise stock US software, since a Euro file can drop US emissions functions. Ask for BMW's latest US software for the donor's hardware: BMW's bulletin SI B12 22 08 (2009) says the original programming of 2001–05 US M3 DMEs could misjudge catalyst efficiency (<a href="https://static.nhtsa.gov/odi/ffdd/tsbs/TSBS_RECEIVED_2005-2009.zip">NHTSA bulletin index, record 10029304</a>)</td>
+<td>Decline secondary-air, rear O2, catalyst and EVAP deletes: they're illegal on a road car. Ask that every readiness monitor still runs; one builder's modified DMEs never set them (<a href="https://www.youtube.com/watch?v=m-WKkTAKpws&amp;t=2600s">M346 Projects – Pt 26, final reveal (2025), 43:20</a>). Send the fault list, hardware number and AIF you saved. If your state checks software, ask whether their file passes (<a href="registration-and-legal.html#registration-and-legal-us">Registration and legal</a>)</td>
+</tr>
+<tr class="even">
+<td><strong>Cluster service</strong></td>
+<td>Your Touring's VIN in the M3 cluster, with the odometer set so it takes your true mileage from the light module; the M3 coding index and coding kept, not re-coded "from the factory vehicle order"; the donor's vehicle order left in the cluster, since NCS codes an index-23 or -24 cluster only with an M3 order (<a href="https://archive.org/details/sp-daten-v-32">BMW coding data</a>); rear-door warning lights added if offered</td>
+<td>Send a photo of your current odometer. Never let anyone change the light module's mileage to match a cluster. Owners name Kassel, Fixels and RPM Motorsport (<a href="https://nam3forum.com/forums/forum/main-forum/e46-2001-2006/228697-cluster-replacement">NAM3</a>) and Huggins Racing (<a href="https://www.e46fanatics.com/threads/diy-m3-cluster-into-non-m-retrofit.1277945/">e46fanatics</a>); Kassel added the rear-door warnings for one Touring (<a href="https://www.youtube.com/watch?v=mDBiRn30fEs&amp;t=340s">Tenza Motorsports – 5 things they don't tell you, part 2 (2021), 05:40</a>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Machine shop, if you fit ARP rod bolts</strong></td>
+<td>Resize the rods after the new bolts go in, as ARP's sheet requires (<a href="https://cdn.arp-bolts.com/instructions/201-6103.pdf">ARP</a>)</td>
+<td>Mark every rod and cap</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="safety">Safety</h3>
+<ul>
+<li><strong>Lifts and stands.</strong> The car's center of gravity moves when the engine or rear axle comes out. Strap it to a two-post lift or put stands under the end that's getting lighter, and reposition the lift arms; one builder supported the rear once the engine was out (<a href="https://www.youtube.com/watch?v=3ud3sHHYU5g&amp;t=380s">Tracks and Trails – Removing the M54 drivetrain (2025), 06:20</a>). Lower subframes level: studs pass through them (<a href="https://www.youtube.com/watch?v=GdCUQY-Xn-s&amp;t=280s">Tenza Motorsports – Supplying the S54 wagon with an M3 rear end (2021), 04:40</a>).</li>
+<li><strong>Fuel.</strong> Drain and remove the tank, filler neck and EVAP parts, including the vapour separator in the right rear wheel well, before you weld or grind anywhere near the rear of the car, and cap every line. Store fuel in approved cans away from the work. When you run the pump for a test, work outdoors or with the doors open, away from flames, sparks, heaters and grinding, with an extinguisher at hand, eye protection and fuel-resistant gloves. Relieve the pressure before you open a joint: BMW warns that "residual fuel pressure may be present" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/3%20EngineElectronics%20%28Part%202%29.pdf">BMW ST041 Part 2</a>). Never run the pump dry or with the front feed line open, and collect test fuel only in an approved container (<a href="fuel-cooling-and-ac.html#test-the-fuel-system">Test the fuel system</a>).</li>
+<li><strong>Refrigerant and coolant.</strong> Never open an A/C line before a shop has recovered the refrigerant: nobody may vent it (<a href="https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing">EPA</a>). The cooling system runs at up to 2.0 bar (29 psi): open the expansion-tank cap only with the coolant cold. BMW checks the level only at 30 °C (86 °F) or below (<a href="fuel-cooling-and-ac.html#cooling-and-oil-cooler">Cooling and oil cooler</a>).</li>
+<li><strong>Battery and electronics.</strong> Disconnect the battery before welding, unplug the DME and alternator, and clamp the welder's ground close to the weld, never through suspension parts (<a href="https://www.garagistic.com/pages/instructions-e46-chassis-reinforcement-kit-k0536">Garagistic K0536</a>).</li>
+<li><strong>Fire.</strong> BimmerWorld warns that BMW's factory chassis coating "can be extremely flammable" (<a href="https://www.bimmerworld.com/About-Us/E46-Rear-Subframe-Floor-Reinforcement-Install/">BimmerWorld</a>). Strip coatings and seam sealer back from the weld, keep two extinguishers and a fire blanket at hand, and stay with the car until everything has cooled.</li>
+<li><strong>Fumes.</strong> Reinforcement plates are often zinc-coated, as CMP's 2.5 mm plates are (<a href="https://cmpautoengineering.com/collections/bmw-e46/products/e46-subframe-racp-to-chassis-rail-plates">CMP</a>), and weld-through primer is zinc-rich. Zinc fume causes metal fume fever, so use local extraction or a respirator rated for metal fume (<a href="https://www.osha.gov/sites/default/files/publications/OSHA_FS-3647_WELDING.pdf">OSHA</a>). Settings and test coupons: <a href="chassis-and-drivetrain.html#welding-settings-and-safety">Welding settings and safety</a>.</li>
+<li><strong>Airbags.</strong> Disconnect the battery and follow BMW's procedure before removing the steering wheel or anything else with an airbag.</li>
+<li><strong>Brakes.</strong> The brake fluid stays in the system through the build (Phase 4), so keep weld heat and spatter off the brake pipes along the floor: unclip and move a pipe clear of a weld, or shield it, and keep every opened end capped (our recommendation). Don't drive until the pedal is firm, then prove the ABS with a careful hard stop on a quiet road (<a href="electronics-and-coding.html#dsc-brakes-and-steering-angle">DSC, brakes and steering angle</a>).</li>
+</ul>
+</section><nav aria-label="Guide chapters" class="pager"><a class="prev" href="overview.html"><span>Previous</span>Overview</a><a class="next" href="parts-list.html"><span>Next</span>Parts list</a></nav></div></main>
+<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>
+<footer class="colophon"><div class="wrap">
+  <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
+  <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
+  <p>An independent enthusiast project, not affiliated with or endorsed by BMW AG. BMW and M3 are trademarks of BMW AG.</p>
+  <p>Source, history and diagrams: <a href="https://github.com/pniessen/e46-m3-touring">github.com/pniessen/e46-m3-touring</a>. Anything you tick or type on these pages is saved in your browser only.</p>
+</div></footer>
+<script>
+(function () {
+  "use strict";
+
+  // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
+  var nav = document.querySelector(".chapters");
+  var bar = document.querySelector(".chapters > ol");
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
+  var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
+  function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
+  function reveal(a) {
+    if (sidebarMode()) {
+      var top = a.offsetTop - nav.clientHeight / 3;
+      if (a.offsetTop < nav.scrollTop || a.offsetTop > nav.scrollTop + nav.clientHeight - 40) {
+        nav.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      }
+    } else if (bar) {
+      var left = a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2;
+      bar.scrollTo({ left: Math.max(0, left), behavior: "auto" });
+    }
+  }
+  function setCurrent(id) {
+    var a = chapterById[id];
+    if (!a || a.getAttribute("aria-current") === "true") return;
+    chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
+    a.setAttribute("aria-current", "true");
+    a.parentNode.classList.add("open");
+    reveal(a);
+  }
+  function setSection(id) {
+    var a = subById[id];
+    if (!a) return;
+    subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
+    a.setAttribute("aria-current", "location");
+    if (sidebarMode()) reveal(a);
+  }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
+  if ("IntersectionObserver" in window) {
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
+  }
+
+  // Worksheets and job cards: empty table cells become text fields and task lists become tick
+  // boxes. Entries are a convenience saved in this browser only; printing keeps what's typed.
+  var fillMain = document.querySelector("main[data-fill]");
+  if (fillMain) {
+    var FKEY = "e46-m3-touring-" + fillMain.getAttribute("data-page") + "-v1";
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(FKEY) || "{}") || {}; } catch (e) { store = {}; }
+    var saveStore = function () { try { localStorage.setItem(FKEY, JSON.stringify(store)); } catch (e) { /* storage blocked */ } };
+    var fields = [];
+    fillMain.querySelectorAll("table").forEach(function (table, ti) {
+      var heads = table.tHead && table.tHead.rows[0]
+        ? Array.prototype.map.call(table.tHead.rows[0].cells, function (c) { return c.textContent.trim(); }) : [];
+      Array.prototype.forEach.call(table.tBodies, function (tb) {
+        Array.prototype.forEach.call(tb.rows, function (row, ri) {
+          Array.prototype.forEach.call(row.cells, function (cell, ci) {
+            if (cell.textContent.trim() !== "" || cell.children.length) return;
+            var id = "t" + ti + "r" + ri + "c" + ci;
+            var input = document.createElement("input");
+            input.type = "text";
+            input.className = "fill";
+            var rowLabel = row.cells[0] && row.cells[0] !== cell ? row.cells[0].textContent.trim() : "";
+            input.setAttribute("aria-label", (heads[ci] || "Entry") + (rowLabel ? ", " + rowLabel : ""));
+            input.value = store[id] || "";
+            input.addEventListener("input", function () {
+              if (input.value) { store[id] = input.value; } else { delete store[id]; }
+              saveStore();
+            });
+            cell.classList.add("fill-cell");
+            cell.appendChild(input);
+            fields.push(input);
+          });
+        });
+      });
+    });
+    fillMain.querySelectorAll('li input[type="checkbox"]').forEach(function (cb, i) {
+      var id = "c" + i;
+      cb.disabled = false;
+      cb.checked = !!store[id];
+      cb.addEventListener("change", function () {
+        if (cb.checked) { store[id] = 1; } else { delete store[id]; }
+        saveStore();
+      });
+      fields.push(cb);
+    });
+    if (fields.length) {
+      var bar = document.createElement("div");
+      bar.className = "fill-tools";
+      var note = document.createElement("span");
+      note.className = "note";
+      note.textContent = "Type in the blank cells and tick the boxes. Entries are saved in this browser on this device only.";
+      var printBtn = document.createElement("button");
+      printBtn.type = "button";
+      printBtn.textContent = "Print";
+      printBtn.addEventListener("click", function () { window.print(); });
+      var clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.textContent = "Clear my entries";
+      var armed = null;
+      clearBtn.addEventListener("click", function () {
+        if (!armed) {
+          clearBtn.textContent = "Tap again to clear everything";
+          armed = setTimeout(function () { armed = null; clearBtn.textContent = "Clear my entries"; }, 4000);
+          return;
+        }
+        clearTimeout(armed);
+        armed = null;
+        clearBtn.textContent = "Clear my entries";
+        store = {};
+        saveStore();
+        fields.forEach(function (f) { if (f.type === "checkbox") { f.checked = false; } else { f.value = ""; } });
+      });
+      bar.appendChild(note);
+      bar.appendChild(printBtn);
+      bar.appendChild(clearBtn);
+      var holder = fillMain.querySelector(".wrap") || fillMain;
+      holder.insertBefore(bar, holder.firstChild);
+    }
+  }
+
+  // Parts checklist. Ticks are a convenience saved in this browser only.
+  var KEY = "e46-m3-touring-parts-v1";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage blocked */ } }
+
+  function slug(s) {
+    var h = 0;
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+    return "p" + (h >>> 0).toString(36);
+  }
+  function kindOf(text) {
+    var t = text.toLowerCase();
+    if (t.indexOf("donor") > -1) return "donor";
+    if (t.indexOf("fab") > -1 || t.indexOf("make") > -1) return "fab";
+    if (t.indexOf("keep") > -1 || t.indexOf("reuse") > -1) return "keep";
+    return "new";
+  }
+
+  var partsSection = document.querySelector('section[data-chapter="parts"]');
+  var rows = [];
+  if (partsSection) {
+    partsSection.querySelectorAll("table").forEach(function (table) {
+      var head = table.tHead && table.tHead.rows[0];
+      if (!head || !table.tBodies[0]) return;
+      var srcIdx = -1;
+      Array.prototype.forEach.call(head.cells, function (c, i) { if (/source/i.test(c.textContent)) srcIdx = i; });
+      if (srcIdx < 0) return;
+      table.classList.add("parts");
+      var th = document.createElement("th");
+      th.className = "tick-col";
+      th.textContent = "Got";
+      head.insertBefore(th, head.firstChild);
+      Array.prototype.forEach.call(table.tBodies[0].rows, function (row) {
+        var name = (row.cells[0] ? row.cells[0].textContent : "").trim();
+        var id = slug(name + "|" + (row.cells[srcIdx] ? row.cells[srcIdx].textContent : ""));
+        var srcCell = row.cells[srcIdx];
+        var kind = kindOf(srcCell ? srcCell.textContent : "");
+        row.setAttribute("data-kind", kind);
+        if (srcCell) {
+          var pill = document.createElement("span");
+          pill.className = "pill pill-" + kind;
+          pill.textContent = srcCell.textContent.trim();
+          srcCell.textContent = "";
+          srcCell.appendChild(pill);
+        }
+        var td = document.createElement("td");
+        td.className = "tick-col";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = id;
+        cb.checked = !!saved[id];
+        cb.setAttribute("aria-label", "Got it: " + name);
+        if (cb.checked) row.classList.add("done");
+        cb.addEventListener("change", function () {
+          if (cb.checked) { saved[id] = 1; } else { delete saved[id]; }
+          row.classList.toggle("done", cb.checked);
+          persist();
+          updateCount();
+        });
+        td.appendChild(cb);
+        row.insertBefore(td, row.firstChild);
+        rows.push(row);
+      });
+    });
+  }
+
+  var countEl = null;
+  function updateCount() {
+    if (!countEl) return;
+    var done = rows.filter(function (r) { return r.classList.contains("done"); }).length;
+    countEl.textContent = done + " of " + rows.length + " ticked";
+  }
+
+  if (partsSection && rows.length) {
+    var tools = document.createElement("div");
+    tools.className = "parts-tools";
+    tools.setAttribute("role", "group");
+    tools.setAttribute("aria-label", "Filter parts by where they come from");
+    var label = document.createElement("span");
+    label.className = "label";
+    label.textContent = "Show";
+    tools.appendChild(label);
+    var filters = [["all", "All"], ["donor", "From donor M3"], ["new", "Buy new"], ["fab", "Fabricate"], ["keep", "Keep"]];
+    var buttons = [];
+    filters.forEach(function (f) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = "filter-" + f[0];
+      b.textContent = f[1];
+      b.setAttribute("aria-pressed", f[0] === "all" ? "true" : "false");
+      b.addEventListener("click", function () {
+        buttons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        rows.forEach(function (r) { r.hidden = !(f[0] === "all" || r.getAttribute("data-kind") === f[0]); });
+      });
+      buttons.push(b);
+      tools.appendChild(b);
+    });
+    countEl = document.createElement("span");
+    countEl.className = "count";
+    tools.appendChild(countEl);
+    var note = document.createElement("span");
+    note.className = "note";
+    note.textContent = "Ticks are saved in this browser on this device only.";
+    tools.appendChild(note);
+    var firstTable = partsSection.querySelector(".table-wrap");
+    if (firstTable) firstTable.parentNode.insertBefore(tools, firstTable);
+    updateCount();
+  }
+})();
+
+</script>
+</body>
+</html>

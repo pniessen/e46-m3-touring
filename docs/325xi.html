@@ -1,0 +1,2284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>325xi: rear drive or all-wheel drive · E46 M3 Touring Conversion</title>
+<meta name="description" content="E46 M3 Touring conversion guide, 325xi: rear drive or all-wheel drive: Only if your car is a 325xi: converting it to rear drive, which we recommend, or keeping all-wheel drive.">
+<link rel="canonical" href="https://pniessen.github.io/e46-m3-touring/325xi.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="E46 M3 Touring Conversion">
+<meta property="og:title" content="325xi: rear drive or all-wheel drive · E46 M3 Touring Conversion">
+<meta property="og:description" content="E46 M3 Touring conversion guide, 325xi: rear drive or all-wheel drive: Only if your car is a 325xi: converting it to rear drive, which we recommend, or keeping all-wheel drive.">
+<meta property="og:url" content="https://pniessen.github.io/e46-m3-touring/325xi.html">
+<meta property="og:image" content="https://pniessen.github.io/e46-m3-touring/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: workshop-manual reading column (~70ch); figures and tables scroll in place;
+   sticky chapter bar; risk is shown by callout stripes, part origin by colored pills. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --panel: #e7ecf1;
+  --fg: #151a20;
+  --muted: #55606c;
+  --line: #d2d9e0;
+  --accent: #1d5fa6;
+  --accent-soft: #e0eaf6;
+  --warn: #8a5a00;
+  --warn-fill: #fff3cf;
+  --warn-edge: #e0a800;
+  --crit: #ad2a22;
+  --crit-fill: #fbe9e7;
+  --ok: #1f6e45;
+  --ok-fill: #e3f2ea;
+  --c-donor: #1d5fa6;
+  --c-donor-soft: #dce8f6;
+  --c-new: #1f6e45;
+  --c-new-soft: #dff0e6;
+  --c-fab: #b9440f;
+  --c-fab-soft: #fbe5d9;
+  --c-keep: #66727e;
+  --c-keep-soft: #e9edf1;
+  --font-display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --measure: 70ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1114;
+    --surface: #161a1f;
+    --panel: #1d232a;
+    --fg: #e5e9ed;
+    --muted: #9ba6b1;
+    --line: #2b333b;
+    --accent: #7cb0ea;
+    --accent-soft: #182a3e;
+    --warn: #f0c75a;
+    --warn-fill: #2c2410;
+    --warn-edge: #c99a1c;
+    --crit: #ff8a80;
+    --crit-fill: #321a19;
+    --ok: #6fd19c;
+    --ok-fill: #142a1f;
+    --c-donor: #7cb0ea;
+    --c-donor-soft: #18283a;
+    --c-new: #6fd19c;
+    --c-new-soft: #15291e;
+    --c-fab: #ff9a62;
+    --c-fab-soft: #33200f;
+    --c-keep: #a3adb7;
+    --c-keep-soft: #222930;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1114;
+  --surface: #161a1f;
+  --panel: #1d232a;
+  --fg: #e5e9ed;
+  --muted: #9ba6b1;
+  --line: #2b333b;
+  --accent: #7cb0ea;
+  --accent-soft: #182a3e;
+  --warn: #f0c75a;
+  --warn-fill: #2c2410;
+  --warn-edge: #c99a1c;
+  --crit: #ff8a80;
+  --crit-fill: #321a19;
+  --ok: #6fd19c;
+  --ok-fill: #142a1f;
+  --c-donor: #7cb0ea;
+  --c-donor-soft: #18283a;
+  --c-new: #6fd19c;
+  --c-new-soft: #15291e;
+  --c-fab: #ff9a62;
+  --c-fab-soft: #33200f;
+  --c-keep: #a3adb7;
+  --c-keep-soft: #222930;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+code, kbd { font-family: var(--font-mono); font-size: 0.88em; background: var(--panel); padding: 0.08em 0.35em; border-radius: 3px; }
+strong { font-weight: 600; }
+
+.wrap {
+  max-width: calc(var(--measure) + 2rem);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Masthead */
+.masthead { border-bottom: 1px solid var(--line); background: var(--surface); }
+.masthead .wrap { padding-block: 2.2rem 1.6rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0;
+}
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 8vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+.masthead h1 .from { color: var(--muted); display: block; font-size: 0.48em; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+.lede { margin: 0; font-size: 1.06rem; color: var(--fg); max-width: var(--measure); }
+.spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  margin: 0.4rem 0 0;
+  border-top: 2px solid var(--fg);
+}
+.spec div { padding: 0.55rem 0.7rem 0.6rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spec dd { margin: 0.1rem 0 0; font-size: 0.95rem; line-height: 1.35; }
+
+/* Photos */
+figure.photo { margin: 1.4rem 0 1.6rem; }
+figure.photo img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--panel); }
+figure.photo figcaption { font-size: 0.86rem; line-height: 1.45; color: var(--muted); margin-top: 0.45rem; }
+figure.photo figcaption a { color: inherit; }
+.photo-pair { display: grid; gap: 1.1rem; margin: 1.4rem 0 1.6rem; }
+.photo-pair figure.photo { margin: 0; }
+@media (min-width: 720px) {
+  .photo-pair { grid-template-columns: 1fr 1fr; align-items: start; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+}
+
+/* Site links (website build only) */
+.sitenav ul { list-style: none; margin: 0 0 0.2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; }
+.sitenav li { margin: 0; }
+.sitenav a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; }
+.sitenav a:hover { color: var(--fg); text-decoration: underline; }
+.sitenav a[aria-current="page"] { color: var(--fg); font-weight: 500; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Chapter bar */
+.chapters {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.chapters ol {
+  list-style: none;
+  margin: 0 auto;
+  max-width: calc(var(--measure) + 2rem);
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 0.5rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.chapters ol::-webkit-scrollbar { display: none; }
+.chapters a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.chapters a:hover { color: var(--fg); background: var(--panel); }
+.chapters a[aria-current="true"], .chapters a[aria-current="page"] { color: var(--bg); background: var(--fg); }
+.chapters .lbl-full { display: none; }
+
+/* Search: a button at the start of the chapter bar opens a full-screen panel */
+.chapters .search-open {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chapters .search-open:hover { color: var(--fg); background: var(--panel); }
+.chapters .search-item { display: flex; }
+.chapters .search-item .search-open { align-self: stretch; }
+.search-open svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 1.6rem 0 0.2rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: text;
+}
+.home-search:hover { border-color: var(--accent); }
+.search-panel { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; padding-top: env(safe-area-inset-top, 0px); }
+.search-panel[hidden] { display: none; }
+html.search-on { overflow: hidden; }
+.search-form { display: flex; gap: 0.5rem; position: sticky; top: 0; background: var(--bg); padding: 0.9rem 0 0.6rem; }
+.search-q {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+}
+.search-close { font: inherit; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); padding: 0 0.85rem; cursor: pointer; }
+.search-status { color: var(--muted); font-size: 0.86rem; margin: 0.1rem 0 0.6rem; min-height: 1.2em; }
+.search-results { list-style: none; margin: 0 0 3rem; padding: 0; }
+.search-results li { border-top: 1px solid var(--line); margin: 0; }
+.search-results a { display: block; padding: 0.7rem 0; text-decoration: none; color: var(--fg); }
+.search-results a:hover .head { text-decoration: underline; }
+.search-results .where { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.search-results .head { display: block; font-weight: 600; color: var(--accent); margin: 0.1rem 0 0.15rem; }
+.search-results .snip { display: block; font-size: 0.92rem; line-height: 1.45; }
+.search-results mark { background: var(--warn-fill); color: inherit; border-radius: 2px; padding: 0 0.08em; }
+
+/* The guide's home page: where to start, and one card per part */
+.start { padding-left: 1.3rem; }
+.start li { margin: 0.45rem 0; }
+.chapter-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.chapter-list li { margin: 0; }
+.chapter-list a {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+}
+.chapter-list a:hover { border-color: var(--accent); }
+.chapter-list .n { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.chapter-list strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; margin: 0.1rem 0 0.3rem; }
+.chapter-list .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warn); background: var(--warn-fill); border-radius: 3px; padding: 0.1rem 0.35rem; margin-bottom: 0.35rem; }
+.chapter-list .d { display: block; font-size: 0.92rem; line-height: 1.42; color: var(--muted); }
+@media (min-width: 720px) { .chapter-list { grid-template-columns: 1fr 1fr; } }
+
+/* Previous and next chapter */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 3rem 0 1.5rem; }
+.pager a { display: block; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--fg); font-weight: 600; line-height: 1.3; text-decoration: none; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { display: block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+.pager .next { grid-column: 2; text-align: right; }
+
+/* Body copy */
+main .wrap { padding-block: 0.5rem 3rem; }
+main section { padding-top: 1.5rem; }
+main section + section { border-top: 2px solid var(--fg); margin-top: 2.5rem; }
+h2, h3, h4 { text-wrap: balance; line-height: 1.2; }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5.5vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0.8rem;
+}
+h3 { font-size: 1.28rem; font-weight: 600; margin: 2.1rem 0 0.6rem; }
+h4 { font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 0.9rem; }
+li { margin: 0.2rem 0; }
+li > ul, li > ol { margin: 0.2rem 0 0.4rem; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+/* Step lists inside the procedure read like a manual */
+section[data-chapter="steps"] ol > li::marker { font-family: var(--font-mono); font-weight: 500; color: var(--muted); }
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.8rem 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line); }
+th {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+table.parts td:first-child { font-weight: 400; }
+table.parts td:nth-child(2) { font-weight: 500; min-width: 11rem; }
+table.parts td:last-child { min-width: 14rem; }
+tr.done td { color: var(--muted); }
+tr.done td:nth-child(2) { text-decoration: line-through; text-decoration-color: var(--muted); }
+.tick-col { width: 2.4rem; text-align: center; }
+.tick-col input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); margin: 0.1rem 0 0; cursor: pointer; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.pill-donor { color: var(--c-donor); background: var(--c-donor-soft); }
+.pill-new { color: var(--c-new); background: var(--c-new-soft); }
+.pill-fab { color: var(--c-fab); background: var(--c-fab-soft); }
+.pill-keep { color: var(--c-keep); background: var(--c-keep-soft); }
+
+/* Parts toolbar */
+.parts-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin: 0.6rem 0 1rem;
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.parts-tools .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-right: 0.2rem; }
+.parts-tools button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.parts-tools button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.parts-tools .count { margin-left: auto; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.parts-tools .note { flex-basis: 100%; font-size: 0.78rem; color: var(--muted); }
+
+/* Long inline code (file names, coding parameters) wraps instead of widening the page. */
+p code, li code, td code, dd code { overflow-wrap: anywhere; }
+
+/* Worksheets and job cards */
+.fill-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.5rem;
+  margin: 1.2rem 0 0.4rem; padding: 0.6rem 0.7rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+}
+.fill-tools .note { flex: 1 1 16rem; font-size: 0.82rem; color: var(--muted); }
+.fill-tools button {
+  font: inherit; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer;
+}
+td.fill-cell { padding: 0.1rem 0.35rem; min-width: 5.5rem; }
+input.fill {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 0.95em; color: var(--fg);
+  background: transparent; border: 0; border-bottom: 1px dashed var(--line); padding: 0.35rem 0.15rem;
+}
+input.fill:focus { background: var(--accent-soft); border-bottom-color: var(--accent); outline: none; }
+ul.task-list { list-style: none; padding-left: 0.1rem; }
+ul.task-list li { position: relative; margin: 0.3rem 0; padding-left: 1.75rem; }
+ul.task-list li label { cursor: pointer; }
+ul.task-list input[type="checkbox"] { position: absolute; left: 0; top: 0.18rem; width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--accent); }
+tr[hidden] { display: none !important; }
+
+/* Callouts (GitHub alert syntax in the Markdown source) */
+.callout {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0.75rem 0.95rem 0.8rem;
+  border-left: 4px solid var(--edge, var(--accent));
+  background: var(--fill, var(--accent-soft));
+  border-radius: 0 6px 6px 0;
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout .callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--edge-text, var(--accent));
+  margin-bottom: 0.25rem;
+}
+.callout-note { --edge: var(--accent); --fill: var(--accent-soft); --edge-text: var(--accent); }
+.callout-tip { --edge: var(--ok); --fill: var(--ok-fill); --edge-text: var(--ok); }
+.callout-key { --edge: var(--fg); --fill: var(--panel); --edge-text: var(--fg); }
+.callout-warn { --edge: var(--warn-edge); --fill: var(--warn-fill); --edge-text: var(--warn); }
+.callout-crit { --edge: var(--crit); --fill: var(--crit-fill); --edge-text: var(--crit); }
+
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+
+/* Deep dives */
+details {
+  margin: 1rem 0 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  width: 1ch;
+  flex: none;
+}
+details[open] > summary::before { content: "\2212"; }
+details[open] > summary { border-bottom: 1px solid var(--line); }
+details > :not(summary) { margin-left: 0.9rem; margin-right: 0.9rem; }
+details > :nth-child(2) { margin-top: 0.8rem; }
+details > :last-child { margin-bottom: 0.9rem; }
+
+/* Figures */
+figure.diagram { margin: 1.4rem 0 1.8rem; }
+.diagram-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 0.6rem;
+}
+.diagram-scroll svg { display: block; width: 100%; height: auto; min-width: 600px; color: var(--fg); }
+.diagram-scroll.portrait svg { min-width: 340px; max-width: 540px; margin: 0 auto; }
+figure.diagram figcaption { font-size: 0.86rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
+figure.diagram figcaption strong { color: var(--fg); }
+.scroll-hint { display: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem; }
+@media (max-width: 640px) { .diagram-scroll:not(.portrait) + .scroll-hint, .scroll-hint.show { display: block; } }
+
+/* Diagram kit: classes used inside the SVG files */
+.diagram svg text { font-family: var(--font-body); fill: currentColor; }
+.diagram svg .t { font-size: 13px; }
+.diagram svg .t-sm { font-size: 11.5px; fill: var(--muted); }
+.diagram svg .t-xs { font-size: 10.5px; fill: var(--muted); }
+.diagram svg .t-b { font-weight: 600; }
+.diagram svg .t-h { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; }
+.diagram svg .t-mono { font-family: var(--font-mono); }
+.diagram svg .ln { stroke: currentColor; fill: none; stroke-width: 1.5; }
+.diagram svg .ln-thin { stroke: var(--muted); fill: none; stroke-width: 1; }
+.diagram svg .ln-faint { stroke: var(--line); fill: none; stroke-width: 1; }
+.diagram svg .dash { stroke-dasharray: 5 4; }
+.diagram svg .fill-fg { fill: currentColor; }
+.diagram svg .fill-bg { fill: var(--surface); }
+.diagram svg .panel { fill: var(--panel); stroke: var(--line); }
+.diagram svg .donor { fill: var(--c-donor-soft); stroke: var(--c-donor); }
+.diagram svg .new { fill: var(--c-new-soft); stroke: var(--c-new); }
+.diagram svg .fab { fill: var(--c-fab-soft); stroke: var(--c-fab); }
+.diagram svg .keep { fill: var(--c-keep-soft); stroke: var(--c-keep); }
+.diagram svg .donor-s { stroke: var(--c-donor); fill: none; }
+.diagram svg .new-s { stroke: var(--c-new); fill: none; }
+.diagram svg .fab-s { stroke: var(--c-fab); fill: none; }
+.diagram svg .crit-s { stroke: var(--crit); fill: none; }
+.diagram svg .donor-t { fill: var(--c-donor); }
+.diagram svg .new-t { fill: var(--c-new); }
+.diagram svg .fab-t { fill: var(--c-fab); }
+.diagram svg .crit-t { fill: var(--crit); }
+.diagram svg .crit-f { fill: var(--crit); }
+.diagram svg .donor-f { fill: var(--c-donor); }
+.diagram svg .fab-f { fill: var(--c-fab); }
+.diagram svg .new-f { fill: var(--c-new); }
+.diagram svg .warn-f { fill: var(--warn-fill); stroke: var(--warn-edge); }
+.diagram svg .shape { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; }
+.diagram svg .keep-s { stroke: var(--c-keep); fill: none; }
+.diagram svg .keep-f { fill: var(--c-keep); }
+.diagram svg .t-h { font-size: 15px; }
+
+/* Footer */
+.colophon { border-top: 1px solid var(--line); background: var(--surface); }
+.colophon .wrap { padding-block: 1.4rem 2rem; font-size: 0.85rem; color: var(--muted); }
+.colophon p { margin: 0 0 0.5rem; }
+
+@media (max-width: 480px) {
+  body { font-size: 15.5px; }
+  h3 { font-size: 1.18rem; }
+  .spec { grid-template-columns: 1fr 1fr; }
+}
+
+/* Section links in the chapter navigation appear only in the wide-screen sidebar */
+.chapters .sub { display: none; }
+
+/* Wide screens: sidebar contents, text at reading width, tables and figures use the full column */
+@media (min-width: 1100px) {
+  html { scroll-padding-top: 1.5rem; }
+  body { font-size: 17px; display: grid; grid-template-columns: 17.5rem minmax(0, 1fr); }
+  body > .masthead { grid-column: 2; grid-row: 1; }
+  body > main { grid-column: 2; grid-row: 2; }
+  body > .colophon { grid-column: 2; grid-row: 3; }
+  body > nav.chapters {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    background: var(--surface);
+    scrollbar-width: thin;
+  }
+  .chapters > ol {
+    flex-direction: column;
+    overflow: visible;
+    max-width: none;
+    gap: 0.05rem;
+    padding: 1.4rem 0.9rem 3rem 1.1rem;
+  }
+  .chapters a { white-space: normal; }
+  .chapters .lbl-short { display: none; }
+  .chapters .lbl-full { display: inline; }
+  .chapters li.open > .sub { display: block; }
+  .chapters .sub {
+    list-style: none;
+    margin: 0.2rem 0 0.7rem 0.55rem;
+    padding: 0 0 0 0.55rem;
+    border-left: 1px solid var(--line);
+  }
+  .chapters .sub a {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.22rem 0.45rem;
+    color: var(--muted);
+  }
+  .chapters .sub a[aria-current] { color: var(--fg); background: var(--panel); }
+  .chapters .sub .sub-h2 > a { font-weight: 600; color: var(--fg); margin-top: 0.4rem; }
+  .chapters .search-open { width: 100%; margin-bottom: 0.5rem; border: 1px solid var(--line); background: var(--bg); padding: 0.45rem 0.6rem; }
+  .wrap { max-width: 66rem; padding-left: 2.75rem; padding-right: 2.75rem; }
+  .masthead .wrap { padding-block: 3rem 2rem; }
+  .masthead .lede,
+  main section > :is(p, ul, ol, h2, h3, h4, blockquote, aside, details),
+  main .wrap > :is(p, ul, ol, blockquote, aside, details) { max-width: 47rem; }
+  .diagram-scroll.portrait svg { max-width: 620px; }
+  figure.photo, .photo-pair { max-width: 58rem; }
+  table { font-size: 0.88rem; }
+}
+
+/* Printing: garage-ready pages without navigation or tick boxes */
+@media print {
+  :root:not([data-theme="print"]), :root[data-theme] {
+    --bg: #fff; --surface: #fff; --panel: #eef1f4; --fg: #000; --muted: #444; --line: #bbb;
+    --accent: #1d5fa6; --accent-soft: #eef3fa; --warn: #6b4600; --warn-fill: #fff7dc; --warn-edge: #c99a1c;
+    --crit: #9a1f18; --crit-fill: #fdeeec; --ok: #1f6e45; --ok-fill: #ecf7f0;
+    --c-donor: #1d5fa6; --c-donor-soft: #e6eef9; --c-new: #1f6e45; --c-new-soft: #e8f4ec;
+    --c-fab: #b9440f; --c-fab-soft: #fbeee6; --c-keep: #555; --c-keep-soft: #f0f2f4;
+  }
+  body { display: block !important; font-size: 10.5pt; background: #fff; }
+  body::before, .chapters, .sitenav, .parts-tools, .fill-tools, .scroll-hint, .tick-col,
+  .search-panel, .home-search, .pager { display: none !important; }
+  input.fill { border-bottom: 1px solid #888; padding: 0.1rem; }
+  main[data-fill] ~ .colophon { display: none; }
+  td.fill-cell { min-width: 0; }
+  .wrap { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .masthead, .colophon { border: 0; }
+  main section { break-before: page; border-top: 0 !important; margin-top: 0 !important; padding-top: 0; }
+  main section:first-child { break-before: auto; }
+  h2, h3, h4 { break-after: avoid; }
+  tr, figure, aside, .callout { break-inside: avoid; }
+  .table-wrap { overflow: visible; border: 0; }
+  table { font-size: 8.5pt; }
+  th { white-space: normal; }
+  .diagram-scroll { border: 0; padding: 0; overflow: visible; }
+  .diagram-scroll svg { min-width: 0 !important; max-width: 100%; }
+  .diagram-scroll.portrait svg { max-width: 13cm; }
+  figure.photo img { width: auto; max-width: 100%; max-height: 9cm; }
+  .photo-pair { grid-template-columns: 1fr 1fr; break-inside: avoid; }
+  .photo-pair img.crop-tall { aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 85%; }
+  a { color: inherit; text-decoration: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <nav class="sitenav" aria-label="Site"><ul><li><a href="./" aria-current="page">Guide</a></li><li><a href="wiring-and-coding.html">Wiring and coding</a></li><li><a href="job-cards.html">Job cards</a></li><li><a href="worksheets.html">Worksheets</a></li><li><a href="calculators.html">Calculators</a></li><li><a href="research.html">Research notes</a></li><li><a href="https://github.com/pniessen/e46-m3-touring">Source on GitHub</a></li></ul></nav>
+    <p class="eyebrow">Build guide &middot; deep dive &middot; part 7 of 11</p>
+    <h1>325xi: rear drive or all-wheel drive</h1>
+    
+    
+  </div>
+</header>
+<nav class="chapters" aria-label="Chapters"><ol><li class="search-item"><button type="button" class="search-open" aria-label="Search the site"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.6 12.6l4.6 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="lbl-full">Search</span></button></li><li><a href="./"><span class="lbl-short">Home</span><span class="lbl-full">Guide home</span></a></li><li><a href="overview.html">Overview</a></li><li><a href="plan-and-budget.html"><span class="lbl-short">Plan</span><span class="lbl-full">Plan and budget</span></a></li><li><a href="parts-list.html"><span class="lbl-short">Parts</span><span class="lbl-full">Parts list</span></a></li><li><a href="step-by-step-build.html"><span class="lbl-short">Steps</span><span class="lbl-full">Step-by-step build</span></a></li><li><a href="chassis-and-drivetrain.html"><span class="lbl-short">Chassis</span><span class="lbl-full">Chassis and drivetrain</span></a></li><li><a href="fuel-cooling-and-ac.html"><span class="lbl-short">Fuel & cooling</span><span class="lbl-full">Fuel, cooling and A/C</span></a></li><li class="open"><a href="325xi.html" aria-current="page"><span class="lbl-short">325xi</span><span class="lbl-full">325xi: rear drive or all-wheel drive</span></a><ol class="sub"><li><a href="#how-to-tell-an-xi">How to tell an xi</a></li><li><a href="#rear-drive-or-all-wheel-drive-the-verdict">Rear drive or all-wheel drive: the verdict</a></li><li><a href="#what-differs-on-an-xi-body">What differs on an xi body</a></li><li><a href="#route-1-convert-to-rear-drive">Route 1: convert to rear drive</a></li><li><a href="#route-1-swap-the-bosch-dsc-57-for-an-mk60">Route 1: swap the Bosch DSC 5.7 for an MK60</a></li><li><a href="#route-1-code-the-mk60-from-an-xi-order">Route 1: code the MK60 from an xi order</a></li><li><a href="#route-1-phase-by-phase">Route 1: phase by phase</a></li><li><a href="#route-2-keep-all-wheel-drive">Route 2: keep all-wheel drive</a></li><li><a href="#route-2-the-oil-pan-and-why-a-shared-gasket-proves-nothing">Route 2: the oil pan, and why a shared gasket proves nothing</a></li><li><a href="#route-2-gearbox-transfer-case-and-differentials">Route 2: gearbox, transfer case and differentials</a></li><li><a href="#route-2-front-axle-dsc-57-and-what-is-still-open">Route 2: front axle, DSC 5.7 and what is still open</a></li><li><a href="#emissions-and-massachusetts-for-an-xi">Emissions and Massachusetts for an xi</a></li><li><a href="#documented-xi-builds">Documented xi builds</a></li></ol></li><li><a href="electronics-and-coding.html"><span class="lbl-short">Electronics</span><span class="lbl-full">Electronics and coding</span></a></li><li><a href="bodywork-and-fitment.html"><span class="lbl-short">Body</span><span class="lbl-full">Bodywork and fitment</span></a></li><li><a href="registration-and-legal.html"><span class="lbl-short">Legal</span><span class="lbl-full">Registration and legal (US)</span></a></li><li><a href="sources-and-appendix.html"><span class="lbl-short">Sources</span><span class="lbl-full">Sources and appendix</span></a></li></ol></nav>
+<main data-page="guide"><div class="wrap"><section id="325xi-rear-drive-or-all-wheel-drive">
+<p>Read this if your Touring turns out to be a 325xi, the all-wheel-drive version BMW sold in the US for 2001–05. The rest of the guide assumes a rear-drive 325i. Behind the front seats an xi is the same car, so the floor, arches, rear-axle mounts and fuel system follow the guide. In front almost everything differs: the body, front axle, gearbox mounting, oil pan and DSC are all xi parts (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>). You can convert the car to rear drive, which is hard but feasible and what we recommend, or keep all-wheel drive, which is harder still and has already wrecked one S54's bottom end.</p>
+<h3 id="how-to-tell-an-xi">How to tell an xi</h3>
+<ol type="1">
+<li><strong>Decode the VIN</strong> at <a href="https://bmwfans.info/vin/">bmwfans</a>: it names an xi "325xi". Don't rely on NHTSA's decoder for this. It reads a 2001 325xi Touring's VIN as a "325i" wagon and gives no drive type (<a href="https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/WBAAW33421EN80596?format=json">NHTSA vPIC</a>).</li>
+<li><strong>Read the vehicle order</strong> from the light module (ALSZ), as Phase 0 and the manual's <a href="wiring-and-coding.html#session-1-vehicle-order-and-codings">Session 1</a> do. All-wheel drive is option <code>$203</code> (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>). Note the type key in the order's <code>*</code> field as well, because Route 1 replaces it for one coding session. On cars built from 09/2001 it's also the VIN's characters 4–7: EN33 on a US 325i Touring (<a href="https://archive.org/details/sp-daten-v-32">BMW SP-Daten V32</a>), EP33 on the 2004 325xi Touring in <a href="#documented-xi-builds">Documented xi builds</a>, whose VIN bmwfans decodes as a 325xi built in 11/2003. On an earlier car the type key doesn't settle it: BMW's coding data lists AW33 for the US 325i Touring of 09/2000–08/2001 (<a href="https://archive.org/details/sp-daten-v-32">BMW SP-Daten V32</a>), yet bmwfans decodes a May 2001 AW33 VIN as a 325xi, so go by the decode and <code>$203</code> (our reading).</li>
+<li><strong>Look underneath.</strong> An xi has a transfer case on the back of the gearbox, a prop shaft running forward along the left of the engine, a front differential bolted to the oil pan and two front drive shafts. Its DSC unit sits on the right of the engine bay with a blue 42-pin plug; a 325i's MK60 sits on the left, under the master cylinder (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>, <a href="https://wds.psjr.org/en/e46/zinfo/E46_EA65B.htm">WDS: xi</a>, <a href="https://wds.psjr.org/en/e46/zinfo/E46_EA65D.htm">WDS: MK60</a>).</li>
+<li><strong>Note the build month.</strong> An xi built before 09/2001 stores a key code (ZCS) instead of a vehicle order, and BMW wants a changed ZCS to come from its technical hotline (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST406%20Coding%20%26%20Programming/06%20Vehicle%20Coding%20Information.pdf">BMW ST406</a>). That makes the MK60 swap harder. A 2003 car has an order.</li>
+</ol>
+<h3 id="rear-drive-or-all-wheel-drive-the-verdict">Rear drive or all-wheel drive: the verdict</h3>
+<p><strong>Convert to rear drive: our recommendation.</strong> You fit the donor's complete M3 front axle, the M3 lower steering joint with its flexible coupling, the M3 gearbox crossmember on a fabricated adapter and the whole MK60 DSC system, then sell the xi's drivetrain. Three xi Tourings have been made rear-drive on M3 running gear, though none has documented its DSC swap. Our estimate is $0–$1,500 more in parts than the guide's plan with a donor built from 09/2002, or $1,000–$3,000 with an earlier one, plus 4–8 weekends.</p>
+<p><strong>Keep all-wheel drive only if all-wheel drive is the point.</strong> It keeps the xi's front axle and DSC, but it needs an oil system BMW never made, the 330xi six-speed and a matched pair of differentials. Two US cars have done it, and one wrecked its S54's bottom end through the oil system.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Route 1: convert to rear drive (recommended)</th>
+<th>Route 2: keep all-wheel drive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Extra cost</td>
+<td>About $0–$1,500 in parts with a donor built from 09/2002, $1,000–$3,000 with an earlier one, after selling the xi's drivetrain (our estimate; breakdown in <a href="#route-1-convert-to-rear-drive">Route 1</a>)</td>
+<td>Not costed: no source splits it out. You buy a 330xi six-speed set, a matched pair of diffs, a second oil pan to rework, oil-pump parts, a Z4 M clutch, new front shafts and a custom steering line, and the donor's 420G, front axle, MK60 and diff go unused</td>
+</tr>
+<tr class="even">
+<td>Extra time</td>
+<td>4–8 weekends (our estimate)</td>
+<td>More, and open-ended. The documented AWD car took 280 hours of mechanical work in all, and FCP Euro's went "over budget and over time" (<a href="https://bimmerlife.com/2022/07/04/a-perfect-one-car-solution-the-e46-m3-touring/">BimmerLife</a>, <a href="https://www.fcpeuro.com/blog/back-on-the-road-off-the-road-bmw-e46-m3xi-part-2">FCP Euro, part 2</a>)</td>
+</tr>
+<tr class="odd">
+<td>Difficulty</td>
+<td>Hard. In <a href="overview.html#how-hard-each-job-is">How hard each job is</a>, "DSC and brakes" rises from Moderate to Hard, and "Front and rear axle transplant" from Moderate to "Moderate to hard" (our rating)</td>
+<td>Very hard: fabrication plus one-off integration</td>
+</tr>
+<tr class="even">
+<td>Risk</td>
+<td>Two undocumented jobs, the DSC loom with its coding and the gearbox-crossmember adapter, plus the front-subframe trial fit. Each one shows up on the bench or at mock-up</td>
+<td>An oil system BMW never made, which wrecked the bottom end of one of the two documented engines. Drivetrain torque above BMW's figures for the transfer case and diffs (our arithmetic). The MSS54-to-DSC 5.7 link is untested</td>
+</tr>
+<tr class="odd">
+<td>What you keep</td>
+<td>Everything behind the front seats, the steering column and its angle sensor, the brake booster</td>
+<td>The xi's front axle, rack, DSC 5.7, rear axle, gearbox crossmember and rear prop shaft; on a car built from 03/2003, its transfer case and front prop shaft too</td>
+</tr>
+<tr class="even">
+<td>What you add</td>
+<td>The donor's front axle and MK60 system; the M3 lower steering joint with its flexible coupling; the M3 gearbox crossmember on an adapter; a DSC adapter loom</td>
+<td>The parts listed under Extra cost</td>
+</tr>
+<tr class="odd">
+<td>What you get</td>
+<td>M3 handling and parts, and about 100 kg (220 lb) less weight, BMW's figure for the xi system (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>)</td>
+<td>Traction on snow and gravel, 17 mm (0.7 in) more ground clearance, and the xi's four-wheel brake traction control</td>
+</tr>
+<tr class="even">
+<td>Legal standing</td>
+<td>LEV in every model year, the S54's category (<a href="#emissions-and-massachusetts-for-an-xi">Emissions and Massachusetts for an xi</a>). Once it can't drive all four wheels, Massachusetts' four-wheel-drive rules (540 CMR 6.00) stop applying (our reading)</td>
+<td>LEV in every model year too. Still a four-wheel-drive vehicle under 540 CMR 6.00: no wheel spacers, a track widened by at most 4 in (102 mm) through tires and rims, and the body level to within 2 in (51 mm) front to rear</td>
+</tr>
+<tr class="odd">
+<td>Documented</td>
+<td>The Bring a Trailer car, JMCCRNA's and a 2004 car from Buffalo</td>
+<td>Baca's, and the Colorado car that became FCP Euro's "M3xi"</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="what-differs-on-an-xi-body">What differs on an xi body</h3>
+<p>BMW built the xi on "a specially designed body pan with a widened transmission tunnel and modifications on the driver's side to accept the transfer case", with "a completely new front engine carrier", reinforced front strut mounts and a new gearbox crossmember (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>). The parts catalog shows where (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/bodywork/front_body_parts/">ETK: xi</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/bodywork/front_body_parts/">ETK: 325i</a>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>325xi Touring</th>
+<th>325i Touring and M3</th>
+<th>What it means for you</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Front frame rails, inner</td>
+<td>41007037635/636: 325xi, 330xi and 330xd only (<a href="https://bmwfans.info/parts-catalog/41007037635/">ETK</a>)</td>
+<td>41118234033/034, on every rear-drive E46 (<a href="https://bmwfans.info/parts-catalog/41118234033/">ETK</a>)</td>
+<td>The rear-drive front subframe probably bolts up, but prove it with the <a href="#route-1-convert-to-rear-drive">trial fit</a></td>
+</tr>
+<tr class="even">
+<td>Front frame rails, outer</td>
+<td>41117029237/238</td>
+<td>41117029239/240</td>
+<td>As above</td>
+</tr>
+<tr class="odd">
+<td>Strut towers</td>
+<td>41007037637/638</td>
+<td>41148234035/036</td>
+<td>The top mounts, collar nuts and reinforcement plate (51717036781) are common. Check ride height at mock-up</td>
+</tr>
+<tr class="even">
+<td>Front anti-roll-bar body brackets</td>
+<td>41117161089/032</td>
+<td>41118239195/196</td>
+<td>Check that the M3 bar's brackets seat; weld on the rear-drive pair if they don't</td>
+</tr>
+<tr class="odd">
+<td>Transmission tunnel</td>
+<td>Widened, with a cast crossmember (22316750856)</td>
+<td>M3 crossmember 22312229198 on four M8 bolts</td>
+<td>Expect the M3 crossmember to need an adapter</td>
+</tr>
+<tr class="even">
+<td>Front subframe fixings</td>
+<td>Two M12×1.5×140 collar screws at the front; at the rear, adaptors on four M10×50 bolts and two M12×1.5×50 bolts</td>
+<td>Four M12×1.5×100 collar screws (31116781023)</td>
+<td>The same M12×1.5 thread at the front, used differently at the rear</td>
+</tr>
+<tr class="odd">
+<td>Left front seat console</td>
+<td>41117037741</td>
+<td>41118239493</td>
+<td>BMW puts the xi's yaw sensor and the MK60's sensor cluster both under the driver's seat (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>); check the bracket holes</td>
+</tr>
+<tr class="even">
+<td>DSC unit mounting</td>
+<td>Right side, bracket 34516750966</td>
+<td>Left side, bracket 34516752664 on body bracket 41148201492</td>
+<td>The xi body has the left body bracket too (<a href="https://bmwfans.info/parts-catalog/41148201492/">ETK</a>)</td>
+</tr>
+<tr class="odd">
+<td>Behind the front seats: rear-axle body insert (41117000246), rear wheelhouses, trunk floor and partition, tank, pump, senders, fuel and vent lines, parking-brake cables, exhaust hangers</td>
+<td>Same parts as the 325i Touring</td>
+<td>As in the guide</td>
+<td>The guide's plan applies. The xi adds a tank protective plate (16111183924): keep it. One gearbox-mounted exhaust bracket differs (18207502523 against 18311728547) (<a href="https://bmwfans.info/parts-catalog/41117000246/">ETK</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/fuel_supply/">ETK: fuel</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/exhaust_system/">ETK: exhaust</a>)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="route-1-convert-to-rear-drive">Route 1: convert to rear drive</h3>
+<p>You fit the donor's complete front axle with the M3 lower steering joint and its flexible coupling, mount the M3 gearbox crossmember on an adapter, and replace the Bosch DSC with the whole MK60 system (<a href="#route-1-swap-the-bosch-dsc-57-for-an-mk60">next section</a>). The xi's transfer case, front differential and shafts, front subframe and rack come out. The M3 rear axle, floor, arches and fuel system go in as the guide describes.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>325xi Touring (yours)</th>
+<th>325i Touring</th>
+<th>US M3 (donor)</th>
+<th>For an xi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Front axle support (subframe)</td>
+<td>31101096954, with collar screws 31101095617, adaptors 31106768293/294 and bolts 07119902899 and 07149112451</td>
+<td>31111096902, four collar screws 31116781023</td>
+<td>Same as the 325i's, plus reinforcement plate 51717893609</td>
+<td>The donor's, after the trial fit</td>
+</tr>
+<tr class="even">
+<td>Lower arms and their rear mounts</td>
+<td>31126758533/534; ball joints 31126756695/696; brackets 31121139791/792 on the subframe</td>
+<td>31122282121/122; brackets 31126783376 on the body</td>
+<td>31122229453/454; brackets 31122229623/624 on the body</td>
+<td>The donor's</td>
+</tr>
+<tr class="odd">
+<td>Struts and knuckles</td>
+<td>31316751131/132 or 31316759647/648; 31216756541/542 or 31216759311/312</td>
+<td>Rear-drive parts</td>
+<td>M3 parts</td>
+<td>The donor's</td>
+</tr>
+<tr class="even">
+<td>Front anti-roll bar; bushing brackets; links</td>
+<td>31351097261 (23.5 mm); 31356754336; 31356751079/080</td>
+<td>31351097178 (23 mm); 31351094552; 31356780847</td>
+<td>31352229755 (26 mm); 31351094552; 31356780847</td>
+<td>The donor's</td>
+</tr>
+<tr class="odd">
+<td>Anti-roll-bar body brackets</td>
+<td>41117161089/032</td>
+<td>41118239195/196</td>
+<td>41118239195/196</td>
+<td>Check; weld on the rear-drive pair if needed</td>
+</tr>
+<tr class="even">
+<td>Rack</td>
+<td>32136759815</td>
+<td>32136755065 (from 09/2001)</td>
+<td>32132229397 (Competition 32132282642)</td>
+<td>The donor's</td>
+</tr>
+<tr class="odd">
+<td>Lower steering joint</td>
+<td>32306750815 (to 11/2003) or 32306764009, with double joint 32306754165</td>
+<td>32301094700 (to 11/2003) or 32306764006, with coupling 32301094703</td>
+<td>Same as the 325i's</td>
+<td>The donor's</td>
+</tr>
+<tr class="even">
+<td>Steering column; steering-angle sensor</td>
+<td>32303450159; 32306793632</td>
+<td>Common</td>
+<td>Common</td>
+<td>Keep; recalibrate</td>
+</tr>
+<tr class="odd">
+<td>Gearbox crossmember</td>
+<td>22316750856, bearing 22316773125, buffer 22316788586</td>
+<td>22316769911</td>
+<td>22312229198, mounts 22322282340, four M8×22 bolts 22326760945</td>
+<td>The donor's, on a fabricated adapter</td>
+</tr>
+<tr class="even">
+<td>Transfer case; front prop shaft; front diff; front shafts</td>
+<td>27107509763 or 27107530812; 26207525969 or 26207525970; 31507500797 or 31507526216; 31607505199/200</td>
+<td>—</td>
+<td>—</td>
+<td>Remove; sell once the trial fit passes</td>
+</tr>
+<tr class="odd">
+<td>Rear prop shaft; center mount</td>
+<td>26117502959 (1,244 mm); 26121229317</td>
+<td>26111229557 (1,585 mm); 26127501257</td>
+<td>26112229240 (1,404 mm); 26122282495</td>
+<td>The donor's</td>
+</tr>
+<tr class="even">
+<td>Rear axle carrier (body insert 41117000246 on all three)</td>
+<td>33316770787</td>
+<td>33316770865</td>
+<td>33312282490</td>
+<td>The donor's, on the same body points</td>
+</tr>
+<tr class="odd">
+<td>DSC system</td>
+<td>Bosch DSC 5.7 on the right, with a pre-charge pump, an analogue yaw sensor, Bosch wheel-speed sensors and its own brake pipes</td>
+<td>MK60 (from 09/2001) on the left, with a CAN sensor cluster, two pressure sensors on the master cylinder and its own pipes</td>
+<td>Same as the 325i's, from 09/2002</td>
+<td>The whole MK60 system, with an adapter loom: part numbers in <a href="#route-1-swap-the-bosch-dsc-57-for-an-mk60">the DSC section</a></td>
+</tr>
+<tr class="even">
+<td>Fuel-filter cover</td>
+<td>13327500083</td>
+<td>13328230397</td>
+<td>13328230397</td>
+<td>The donor's, if yours doesn't clear</td>
+</tr>
+<tr class="odd">
+<td>Tunnel heat insulator</td>
+<td>51488253953</td>
+<td>51488193807</td>
+<td>51487893366</td>
+<td>Fit and trim</td>
+</tr>
+<tr class="even">
+<td>Clutch hard line</td>
+<td>21526753015, support 21526774229</td>
+<td>21526774230, support 21526774227</td>
+<td>21522229675, bracket 21522229699</td>
+<td>The donor's (guide); check its route</td>
+</tr>
+</tbody>
+</table></div>
+<p>Part numbers are from ETK (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/front_axle/front_axle_support_4_wheel/">xi front axle</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/front_axle/front_axle_support_wishbone/">M3 front axle</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/engine_and_gearbox_suspension/gearbox_suspension_4_wheel_drive/">xi gearbox mount</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/engine_and_gearbox_suspension/gearbox_mounting/">M3 gearbox mount</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/brakes/dsc_compressor_senors_mounting_parts/">xi DSC sensors</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/hydro_unit_dsc_fastening_sensors/">M3 DSC</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/brakes/brake_pipe_rear_4_wheel/">xi rear brake pipes</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/rear_brake_pipe_dsc_2/">M3 rear brake pipes from 09/2002</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/fuel_preparation_system/fuel_filter_pressure_regulator/">fuel filter</a>). Check every number against your VIN.</p>
+<p><strong>The gate: trial-fit the front subframe before you commit.</strong> The xi's front frame rails are their own parts and its subframe fastens differently, so nobody can promise that the rear-drive subframe bolts up. Three xi Tourings run M3 or rear-drive front subframes, and none of their builders reported making mounts (<a href="https://www.builtforbackroads.com/listing/2004-bmw-325xi-touring-s54-swap">Built for Backroads</a>, <a href="https://en.vmax.si/2024/12/21/this-is-a-near-perfect-m3-and-it-was-for-sale/">vmax.si</a>, <a href="https://www.e46fanatics.com/threads/m3-touring-project.1240087/">e46fanatics</a>). BMW bolts the xi subframe to "the vehicle frame at both the front and rear attachment points", and its front screws use the rear-drive thread, only longer, so we expect it to fit (our inference). Prove it at the start of Phase 5, before any cutting, with the xi's front axle out:</p>
+<ol type="1">
+<li>Offer up the donor's subframe, arm brackets and reinforcement plate on loose screws. All four M12×1.5 collar screws (31116781023) must start by hand and run to full depth, the rear dowels must engage, and no mount face may show a gap before torque.</li>
+<li>Every M10 screw must start by hand at each arm-bracket and reinforcement-plate hole.</li>
+<li>Fit the anti-roll bar on its brackets. Both bushing brackets must seat on their studs, and the bar must clear the oil pan, rack and lines at full lock and full bump.</li>
+<li>With the subframe off again, measure the diagonals across its four body mounting points and write them down, as the guide does at the rear (<a href="step-by-step-build.html#phase-5-metalwork-1-subframe-mounts-and-floor">Phase 5</a>): they're your reference for the welding that follows.</li>
+</ol>
+<p>If a screw won't start, stop. Measure against BMW's body dimensions and get a body shop's view. Fit thread inserts only where those dimensions confirm the position.</p>
+<aside class="callout callout-note"><span class="callout-label">Note</span>
+<p>Keep the xi's front axle, transfer case, gearbox and DSC until the trial fit passes. They're your way back to Route 2 or to a stock car.</p>
+</aside>
+<p><strong>Gearbox crossmember.</strong> The xi's cast crossmember (22316750856) bolts to the xi tunnel with two M8×22 and two M8×60 bolts. The M3's (22312229198) needs four M8 threads at the rear-drive positions, which the xi tunnel may not have (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/engine_and_gearbox_suspension/gearbox_suspension_4_wheel_drive/">ETK: xi</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/engine_and_gearbox_suspension/gearbox_mounting/">ETK: M3</a>). JMCCRNA's converted xi needed a custom bracket, which then clashed with its Euro exhaust (<a href="https://www.e46fanatics.com/threads/m3-touring-project.1240087/">e46fanatics</a>), and the Bring a Trailer car's seller lists a custom brace across the xi tunnel (<a href="https://bringatrailer.com/listing/2001-bmw-e46-m3-wagon/">Bring a Trailer</a>).</p>
+<ol type="1">
+<li><strong>Phase 1:</strong> on the donor, measure where its crossmember bolts sit against its driveshaft center-mount studs and its front subframe's rear screws. That's your template.</li>
+<li><strong>Phase 5:</strong> make an adapter, or weld in nuts at the rear-drive positions (<a href="chassis-and-drivetrain.html#welding-settings-and-safety">Welding settings and safety</a>).</li>
+<li><strong>Phase 9:</strong> fit the M3 crossmember as the guide does, M8 bolts at 21 Nm (15 ft-lb) (<a href="chassis-and-drivetrain.html#driveline-and-rear-axle">Driveline and rear axle</a>). Pass: the 420G's mounts sit square without force, and the exhaust clears the adapter.</li>
+</ol>
+<p><strong>Steering.</strong> The xi's lower steering joint is a double-cardan part made for the xi rack (32306750815 to 11/2003 or 32306764009, with double joint 32306754165). Fit the M3's (32301094700 to 11/2003 or 32306764006) with its flexible coupling (32301094703) (<a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/steering/steer_col_lower_joint_assy/">ETK</a>). The column (32303450159) and steering-angle sensor (32306793632) are common to all three cars, so they stay (<a href="https://bmwfans.info/parts-catalog/32306793632/">ETK</a>).</p>
+<p><strong>Anti-roll bar.</strong> The M3 bar's bushing brackets (31351094552) clamp onto studs on the body brackets, and the xi's body brackets are made for a bar that runs round the front diff and shafts. If the M3 brackets don't seat, weld on the rear-drive body brackets (41118239195/196, €7.85 and €7.81 list at bmwfans, October 2026) at the positions you measured on the donor (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/bodywork/front_body_bracket_left/">ETK</a>). In Phase 2, cut the donor's brackets out with margin to use as templates.</p>
+<p><strong>Driveshaft, fuel, heat shields and clutch line.</strong></p>
+<ul>
+<li><strong>Driveshaft:</strong> the M3's (26112229240, 1,404 mm (55.3 in)) with its center mount (26122282495). The xi's shaft is only 1,244 mm (49.0 in) because its gearbox and transfer case are longer. The M3 shaft should fit if the center-mount studs sit where rear-drive cars have them (our inference). Pass, as in <a href="chassis-and-drivetrain.html#driveline-and-rear-axle">Driveline and rear axle</a>: the center-mount bolts start by hand with the shaft fully home, and take 21 Nm (15 ft-lb) with 4–6 mm (0.16–0.24 in) forward preload.</li>
+<li><strong>Fuel:</strong> the guide's plan applies. Use the donor's filter cover if the xi's (13327500083) doesn't clear the M3 filter-regulator (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/fuel_preparation_system/fuel_filter_pressure_regulator/">ETK</a>).</li>
+<li><strong>Heat shields:</strong> fit the donor's tunnel shields, or trim the xi's, in Phase 10.</li>
+<li><strong>Clutch line:</strong> fit the M3 hard line as the guide does, and check its route along the xi tunnel.</li>
+</ul>
+<p><strong>Extra cost</strong> (our estimates; the euro figures are BMW list prices at bmwfans, October 2026):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Donor built from 09/2002</th>
+<th>Earlier donor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Front subframe; lower steering joint and coupling</td>
+<td>The donor's (new: €356.70; €125.95 and €35.41)</td>
+<td>Same</td>
+</tr>
+<tr class="even">
+<td>Anti-roll-bar body brackets, if needed</td>
+<td>€7.85 and €7.81, plus welding</td>
+<td>Same</td>
+</tr>
+<tr class="odd">
+<td>Gearbox crossmember adapter</td>
+<td>$50–$300 in steel and hardware, or $300–$800 at a fabricator</td>
+<td>Same</td>
+</tr>
+<tr class="even">
+<td>MK60, sensor cluster, four sensors, master cylinder with pressure sensors, reservoir, pipes</td>
+<td>The donor's</td>
+<td>$800–$2,500, used or new (new: sensor cluster €360.48, master cylinder €328.81, pressure sensors €93.64 each)</td>
+</tr>
+<tr class="odd">
+<td>DSC adapter loom</td>
+<td>$50–$150 (47-pin housing €5.29)</td>
+<td>Same</td>
+</tr>
+<tr class="even">
+<td>Tunnel heat shields</td>
+<td>$0–$150</td>
+<td>Same</td>
+</tr>
+<tr class="odd">
+<td>Selling the xi's drivetrain and DSC</td>
+<td>Recovers perhaps $300–$1,500</td>
+<td>Same</td>
+</tr>
+<tr class="even">
+<td><strong>Net extra parts</strong></td>
+<td><strong>About $0–$1,500</strong></td>
+<td><strong>About $1,000–$3,000</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Extra time:</strong> 4–8 weekends: the front-end trial fit and transplant, with any anti-roll-bar brackets, 1–2; the crossmember adapter 1–2; DSC hardware and pipes 1–2; the loom and coding 1–2 (our estimate).</p>
+<h3 id="route-1-swap-the-bosch-dsc-57-for-an-mk60">Route 1: swap the Bosch DSC 5.7 for an MK60</h3>
+<p>The xi's DSC can't stay. BMW: "The front sensors of the 2wd and 4wd versions of E46 are physically different and will not fit in the wheel hub", and the MK60's rear sensors "will fit in the rear axle of the 4wd car however they are not compatible with the Bosch system" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>, pp.17–18). M3 hubs need MK60 sensors, so you need the MK60 and everything around it. On a converted xi the guide's Option A, keeping your own unit, doesn't exist, and its Option B (<a href="electronics-and-coding.html#dsc-brakes-and-steering-angle">DSC, brakes and steering angle</a>) needs more than the unit. The 2004 Buffalo xi kept its Bosch unit, and its seller listed that as a known flaw (<a href="https://www.builtforbackroads.com/listing/2004-bmw-325xi-touring-s54-swap">Built for Backroads</a>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Bosch DSC 5.7 (xi)</th>
+<th>Teves MK60 (325i from 09/2001, M3 from 09/2002)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hydraulic and control unit</td>
+<td>Right of the engine bay (34516762114, bracket 34516750966)</td>
+<td>Left, under the master cylinder (325i 34516765453, M3 34512282558; bracket 34516752664)</td>
+</tr>
+<tr class="even">
+<td>Plug X18303</td>
+<td>42-pin, blue</td>
+<td>47-pin, black (housing 61136954574)</td>
+</tr>
+<tr class="odd">
+<td>Pre-charge pump</td>
+<td>Below the master cylinder (34511166087, bracket 34516751719)</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td>Master cylinder and pressure sensors</td>
+<td>34316751442; one sensor, on the unit</td>
+<td>325i 34336785666 or M3 34317838638; two sensors (34521164458) on the master cylinder</td>
+</tr>
+<tr class="odd">
+<td>Fluid reservoir</td>
+<td>34326751589, level switch in the tank</td>
+<td>34326750798, switch in the cap (34326752698)</td>
+</tr>
+<tr class="even">
+<td>Yaw and lateral sensor</td>
+<td>Analogue sensor under the driver's seat (34526753694)</td>
+<td>CAN sensor cluster (34526764018, bracket 34526750817), also under the driver's seat</td>
+</tr>
+<tr class="odd">
+<td>Wheel-speed sensors</td>
+<td>Hall-effect, 8 V supply; front 34526756382, rear 34526756383 (xi only)</td>
+<td>Magnetoresistive, 12 V; front 34526792896/897, rear 34526752683</td>
+</tr>
+<tr class="even">
+<td>Brake pipes</td>
+<td>The xi's own runs, to the right-hand unit</td>
+<td>Front 34326759218, 34326755801, 34326752405, 34326752407; rear 34326752409, 34326755704, 34326766825 (325i, and M3 from 09/2002)</td>
+</tr>
+<tr class="odd">
+<td>PT-CAN pins</td>
+<td>24 and 40</td>
+<td>11 and 15</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sources: <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/brakes/dsc_compressor_senors_mounting_parts/">ETK: xi</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/brakes/hydro_unit_dsc_fastening_sensors/">ETK: M3</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000017172.svg">WDS: CAN</a>.</p>
+<p><strong>Use a donor built from 09/2002.</strong> It brings every left-side part: the MK60 with its bracket and mounts, the sensor cluster with its bracket, all four sensors, the master cylinder with both pressure sensors, the reservoir and cap, every brake pipe and clip, and above all its DSC harness branch. A 325i built from 09/2001 is the second source; with its unit, use the 325i master cylinder and the M3 front hoses. An earlier M3's MK20 sits on the right like the xi's unit, but it has other sensors, another plug and its own charge pump, and nobody has documented it in an xi: don't use it (our inference).</p>
+<p><strong>Build the adapter loom by signal, never by pin number.</strong> The two plugs number their pins differently. On the MK60, pin 24 is the sensor cluster's ground and pin 6 its supply, so moving the xi's wires across pin for pin would put PT-CAN high on a ground and a battery feed on the sensor supply (our inference from the WDS drawings). Cut the donor's DSC branch out long before you strip the donor: the 47-pin plug with every lead back to its next joint, labelled at both ends. Then join it to the xi harness signal by signal. "Move" means re-terminate the xi's own lead at the MK60 pin:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>MK60 pin</th>
+<th>Signal</th>
+<th>MK60 wire (WDS)</th>
+<th>Where it comes from on the xi</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Battery (terminal 30), fuse F61, 30 A</td>
+<td>2.5 RT/GE</td>
+<td>xi pin 2 (F35, 50 A, 4.0 RT) or pin 6 (F53, 30 A)</td>
+<td>A feed fused at 30 A (our inference)</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>Battery (terminal 30), fuse F56, 30 A</td>
+<td>2.5 RT/BL</td>
+<td>The other xi battery feed</td>
+<td>As above</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Ignition (terminal 15), fuse F33, 5 A</td>
+<td>0.5 GN/BL/GE</td>
+<td>xi pin 23 is a different feed (terminal 87, F3, 20 A)</td>
+<td>A new terminal-15 feed from F33, or this one re-fused at 5 A (our inference)</td>
+</tr>
+<tr class="even">
+<td>16, 47</td>
+<td>Ground, to X170</td>
+<td>2.5 BR</td>
+<td>xi pins 1 and 5</td>
+<td>Move</td>
+</tr>
+<tr class="odd">
+<td>11, 15</td>
+<td>PT-CAN high, low</td>
+<td>Twisted pair</td>
+<td>xi pins 24 and 40</td>
+<td><strong>Move to 11 and 15. Never leave them on 24 and 40</strong></td>
+</tr>
+<tr class="even">
+<td>6, 24, 29, 25</td>
+<td>Sensor cluster supply, ground, CAN2 high, CAN2 low</td>
+<td>SW/RT/WS, BL/WS/GE, GE, BL/GE (cluster plug X61035 pins 3, 5, 2, 1)</td>
+<td>The xi yaw sensor's six leads, in the same 6-pin housing</td>
+<td>The donor's leads, or rewire by signal</td>
+</tr>
+<tr class="odd">
+<td>22, 23, 21</td>
+<td>Pressure sensor 1 supply, signal, ground</td>
+<td>BL/SW/GE, SW/VI/GE, WS/BL/GE (X1747)</td>
+<td>The xi sensor on the unit (three leads)</td>
+<td>The donor's leads, to the master cylinder</td>
+</tr>
+<tr class="even">
+<td>18, 20, 19</td>
+<td>Pressure sensor 2 supply, signal, ground</td>
+<td>BL/SW, SW/VI, WS/BL (X1748)</td>
+<td>None</td>
+<td>The donor's leads</td>
+</tr>
+<tr class="odd">
+<td>46, 45</td>
+<td>Front-left wheel speed <code>DFVL</code>, <code>DFVL+</code></td>
+<td>BR, BR/RT</td>
+<td>The xi's front-left lead (blue plug)</td>
+<td>Move</td>
+</tr>
+<tr class="even">
+<td>33, 34</td>
+<td>Front-right wheel speed <code>DFVR</code>, <code>DFVR+</code></td>
+<td>BR, GE</td>
+<td>The xi's front-right lead</td>
+<td>Move</td>
+</tr>
+<tr class="odd">
+<td>37, 36</td>
+<td>Rear-left wheel speed <code>DFHL</code>, <code>DFHL+</code></td>
+<td>BR, BL</td>
+<td>The xi's rear-left lead</td>
+<td>Move</td>
+</tr>
+<tr class="even">
+<td>42, 43</td>
+<td>Rear-right wheel speed <code>DFHR</code>, <code>DFHR+</code></td>
+<td>GE/BR, GE/SW</td>
+<td>The xi's rear-right lead</td>
+<td>Move</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Brake-fluid level <code>BRFN</code> (also cluster X11175 pin 20)</td>
+<td>0.35 BR/GN/GE</td>
+<td>The xi's tank-switch lead</td>
+<td>The donor's cap-switch lead</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>Parking brake <code>FSB</code> (also cluster X11175 pin 23)</td>
+<td>0.5 BL/BR/GE</td>
+<td>The xi's lead</td>
+<td>Move</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>DSC button <code>S_ASCPAS</code></td>
+<td>0.5 BL/VI</td>
+<td>The xi's lead</td>
+<td>Move</td>
+</tr>
+<tr class="even">
+<td>Not on the drawings read</td>
+<td>Brake-light switch, ABS lamp, diagnosis line, wheel-speed outputs</td>
+<td>—</td>
+<td>The xi's leads (diagnosis on xi pin 11)</td>
+<td>Read these pins off the donor's plug</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>Pre-charge pump, hill-descent control, <code>LCM</code> line</td>
+<td>—</td>
+<td>xi only</td>
+<td>Insulate and tie back</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sources: WDS <a href="https://wds.psjr.org/en/e46/svg/SP0000015072.svg">MK60 supply</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015073.svg">front sensors</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015074.svg">rear sensors</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000017311.svg">sensor cluster</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015080.svg">pressure sensor 1</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015081.svg">pressure sensor 2</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015085.svg">parking brake</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015075.svg">DSC button</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000015086.svg">fluid level</a>, <a href="https://wds.psjr.org/en/e46/svg/SP0000017172.svg">CAN</a>; the DSC 5.7's <a href="https://wds.psjr.org/en/e46/svg/SP0000016593.svg">supply</a> and <a href="https://wds.psjr.org/en/e46/svg/SP0000017263.svg">overview</a>. One WDS steering-angle page also draws the MK60's CAN on pins 24 and 40 (SP0000017308); the CAN-bus page contradicts it, so trace the twisted pair on the donor's plug before you cut.</p>
+<aside class="callout callout-crit"><span class="callout-label">Safety</span>
+<p>Disconnect the battery before you work on the loom. Fuse each MK60 battery feed at 30 A, as on the 325i (F56 and F61): the xi's 50 A feed (F35) was sized for the Bosch unit (our inference). DSC is a safety system, so if a check below fails, find the cause before you drive.</p>
+</aside>
+<p><strong>Make the dead circuits safe.</strong> The xi's pre-charge pump, hill-descent and analogue-sensor circuits go dead. So does a separate flat-tire warning unit (36236753289), if your car has one, because the MK60 from 2002 does that job itself (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>). Insulate each lead end and tie it back. The steering-angle sensor stays: it's the same part, on the same pins, on both systems.</p>
+<p><strong>Checks before the first key-on</strong> (Phase 11):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>If it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Battery disconnected, MK60 plugged in: resistance across the CAN at the DME or cluster (<a href="wiring-and-coding.html#can-bus-resistance">CAN bus resistance</a>)</td>
+<td>About 60 Ω</td>
+<td>About 120 Ω: the MK60 isn't on the bus, so recheck pins 11 and 15</td>
+</tr>
+<tr class="even">
+<td>MK60 unplugged, battery connected: voltage at the harness plug</td>
+<td>Battery voltage at pins 1 and 32 only; pin 4 live only with the ignition on; pins 16 and 47 grounded; nothing at pin 6 (our check)</td>
+<td>A feed on the wrong pin: stop and re-pin</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Checks after coding</strong> (Phases 11 and 12, after <a href="wiring-and-coding.html#session-5-dsc-coding-and-vin">Session 5</a>'s compensation routines):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>If it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identification and fault memory</td>
+<td>INPA identifies the MK60; the fault memory is clear after the routines</td>
+<td>Recheck CAN pins 11 and 15 and the ignition feed</td>
+</tr>
+<tr class="even">
+<td>Pressure sensors</td>
+<td>About 0 bar with the pedal released; the brake-light switch changes state before either sensor reads 5 bar (73 psi) (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/04%2520E46%2520DSC%25201-27-03.pdf">BMW ST056</a>)</td>
+<td>Swap the two sensors' leads; check their supply</td>
+</tr>
+<tr class="odd">
+<td>Steering angle</td>
+<td>About 0° with the wheel straight, after the post-alignment calibration</td>
+<td>Recalibrate (<a href="wiring-and-coding.html#session-7-steering-angle-after-the-alignment">Session 7</a>)</td>
+</tr>
+<tr class="even">
+<td>Wheel speeds</td>
+<td>All four within about 1 km/h (0.6 mph) rolling straight at a steady 20 km/h (12 mph) (our check)</td>
+<td>Swapped sensor leads, or an xi sensor left in</td>
+</tr>
+<tr class="odd">
+<td>Lamps</td>
+<td>ABS, DSC and yellow BRAKE lamps out after the self-test; red BRAKE lamp out with the parking brake off and the reservoir full</td>
+<td>Read the faults; check the <code>BRFN</code> and <code>FSB</code> leads</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="route-1-code-the-mk60-from-an-xi-order">Route 1: code the MK60 from an xi order</h3>
+<p><strong>The rule BMW applies.</strong> Your xi's order carries <code>$203</code> and the xi's type key. BMW's coding data allows every non-M MK60 coding index only when the order doesn't say <code>ALLRAD</code> (all-wheel drive), and the M3's index only when it says <code>S54B32</code>, as an M3 type key does (<a href="https://archive.org/details/sp-daten-v-32">BMW SP-Daten V32, E46SGVT.000</a>). So NCS should refuse to code an MK60 from your stored order (our reading of the rule).</p>
+<ol type="1">
+<li><strong>Write your VIN into the MK60</strong>, as <a href="wiring-and-coding.html#session-5-dsc-coding-and-vin">Session 5</a>, Option B, describes.</li>
+<li><strong>Set up the session order</strong> as Option B does, read from ALSZ, with one more change: <strong>delete <code>$203</code></strong>. For the M3's MK60, Option B already gives the session order the donor's type key, which says <code>S54B32</code> and also removes the xi's. For a 325i's MK60 coded with 325i values, put in the US 325i Touring's type key, EN33, instead (<a href="https://archive.org/details/sp-daten-v-32">BMW SP-Daten V32</a>). Don't run <code>FA_WRITE</code>: the change lasts for this session only.</li>
+<li><strong>Code, check and keep the coding</strong> as Option B does, then run all three compensation routines, because the unit is new to the car.</li>
+</ol>
+<p><strong>Expect:</strong> "coding ended", with no "Codierindex … nicht zulässig". If NCS refuses, check that the session order has no <code>$203</code>, an allowed type key and a late enough date.</p>
+<p><strong>Leave the stored order alone.</strong> The light module keeps your xi's order, <code>$203</code> and type key included, and the M3 cluster keeps the donor's, exactly as on a 325i (<a href="wiring-and-coding.html#session-4-cluster-and-light-module">Session 4</a>). The MSS54 isn't coded from the order, so <code>$203</code> doesn't reach it, and your xi VIN goes into the MSS54, the cluster and the MK60 as a 325i's would (our inference). One light-module difference: BMW codes the xenon headlight-levelling sensor curves differently for <code>ALLRAD</code> cars, so with xenons, check those values in <a href="wiring-and-coding.html#session-9-light-module-and-headlights">Session 9</a> (<a href="https://archive.org/details/sp-daten-v-32">BMW SP-Daten V32, E46CVT.000</a>).</p>
+<p><strong>Steering angle.</strong> Calibrate with the MK60's job, <code>lenkwinkel_dsc_abgleichen</code> in <code>DSC_MK60.PRG</code>, not the xi's <code>test_lenkwinkel</code> (<a href="wiring-and-coding.html#session-7-steering-angle-after-the-alignment">Session 7</a>).</p>
+<h3 id="route-1-phase-by-phase">Route 1: phase by phase</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>What changes for an xi</th>
+<th>Check</th>
+<th>Pass</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-0-paperwork-and-baseline">Phase 0</a></td>
+<td>Decode the VIN. Save the order from ALSZ with its type key, <code>$203</code> and build month. Photograph the VECI label, the right-hand DSC unit with its plug, and from underneath the xi crossmember with its four bolts, the tunnel and the anti-roll-bar brackets. Choose your route</td>
+<td>VIN, order and label</td>
+<td>The decode reads "325xi"; the order shows <code>$203</code>; the label names an LER test group (LEV). For Route 1, buy a donor built from 09/2002, of your xi's model year or newer</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-1-buy-and-inspect-the-donor">Phase 1</a></td>
+<td>Save the donor's MK60 coding file and order. Measure where its gearbox crossmember bolts sit against the driveshaft center-mount studs and the front subframe's rear screws, and where its anti-roll-bar body brackets sit against the front subframe screws</td>
+<td>Measurements</td>
+<td>Each point dimensioned from two fixed body points and photographed with a rule in shot (our check)</td>
+</tr>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-2-strip-the-donor">Phase 2</a></td>
+<td>Also take the front subframe with every fixing and the arm-bracket screws; the lower steering joint and coupling; the front anti-roll bar and its brackets, with the body brackets cut out with margin; the whole MK60 system with every pipe, clip and sensor; the DSC harness branch, cut long and labelled at both ends; the tunnel heat shields; the fuel-filter cover</td>
+<td>Parts against the <a href="#route-1-convert-to-rear-drive">Route 1 parts table</a></td>
+<td>Every item bagged and labelled</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-3-bench-work">Phase 3</a></td>
+<td>Build the DSC adapter loom</td>
+<td>Every lead, end to end</td>
+<td>Continuity on every lead, and no lead shorted to another or to ground</td>
+</tr>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-4-strip-your-touring">Phase 4</a></td>
+<td>Also remove the front axle complete (subframe, front diff, shafts, rack), the transfer case, both prop shafts, the gearbox with its cast crossmember, the Bosch unit and pre-charge pump, the yaw sensor, master cylinder, reservoir and every brake pipe. Keep the booster, column and steering-angle sensor, and keep the xi parts until Phase 5's gate passes</td>
+<td>Subframe and arm-bracket threads</td>
+<td>A thread gauge or new bolt runs in by hand. Chase threads; don't recut them</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-5-metalwork-1-subframe-mounts-and-floor">Phase 5</a></td>
+<td>First the gate: trial-fit the front end. Then any anti-roll-bar brackets, the crossmember adapter, then the guide's rear work</td>
+<td>The <a href="#route-1-convert-to-rear-drive">trial fit</a></td>
+<td>Every screw starts by hand and runs home; the dowels engage; no mount face shows a gap; the bar's brackets seat and the bar clears at full lock and bump</td>
+</tr>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-6-metalwork-2-rear-arches">Phase 6</a></td>
+<td>Unchanged: the rear quarters are the 325i Touring's</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-7-fit-the-m3-rear-axle-and-fuel-system">Phase 7</a></td>
+<td>Unchanged: the same body points, tank, lines and parking-brake cables. Keep the tank protective plate; fit the donor's filter cover if yours doesn't clear the M3 filter-regulator</td>
+<td>Filter cover</td>
+<td>Seats on its bracket without force</td>
+</tr>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-8-fit-the-m3-front-suspension-and-steering">Phase 8</a></td>
+<td>Fit the donor's front axle as the guide describes, with the M3 lower steering joint and coupling. Brakes: the MK60 hardware on the left, the donor's pipes, new M3 front hoses; bleed with INPA's routine (<a href="chassis-and-drivetrain.html#brakes-and-bleeding">Brakes and bleeding</a>)</td>
+<td>Pipes and steering</td>
+<td>No weeps after bleeding; the wheel straight with the rack centered</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-9-install-the-s54-and-420g">Phase 9</a></td>
+<td>The M3 crossmember on its adapter; the M3 driveshaft; the clutch line's route along the xi tunnel</td>
+<td>Crossmember and driveshaft</td>
+<td>The 420G's mounts sit square; M8 bolts at 21 Nm (15 ft-lb); the center-mount bolts start by hand with the shaft fully home, then 21 Nm with 4–6 mm forward preload</td>
+</tr>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-10-cooling-intake-and-exhaust">Phase 10</a></td>
+<td>Hang the M3 exhaust on the common hangers; fit and trim the tunnel shields</td>
+<td>Exhaust clearance</td>
+<td>No contact with the adapter or tunnel with the engine rocked by hand (our check)</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-11-wiring-immobilizer-and-coding">Phase 11</a></td>
+<td>Fit the loom and make the dead circuits safe; write your VIN into the MK60, code it from a session order without <code>$203</code>, then run the three compensation routines</td>
+<td>The checks before the first key-on</td>
+<td>About 60 Ω across the CAN; feeds on the right pins; INPA identifies the MK60</td>
+</tr>
+<tr class="odd">
+<td><a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">Phase 12</a></td>
+<td>Run the DSC checks after coding</td>
+<td>Those checks</td>
+<td>All pass</td>
+</tr>
+<tr class="even">
+<td><a href="step-by-step-build.html#phase-13-paint-trim-and-paperwork">Phase 13</a></td>
+<td>Paperwork: LEV in every year; 540 CMR 6.00 no longer applies (our reading); tell your insurer</td>
+<td>Letters</td>
+<td>Written answers on file</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="route-2-keep-all-wheel-drive">Route 2: keep all-wheel drive</h3>
+<p>Keep all-wheel drive only if it's the reason you want the car. You keep the xi's front axle, rack, DSC and rear axle, and put the S54 into the xi's driveline. That needs three things BMW never built: an S54 oil system that clears the xi's front axle, an S54-rated gearbox with a transfer case, and a matched pair of differentials with the gearing you want. Two US cars have done it; one wrecked its S54's bottom end through the oil system (<a href="https://bimmerlife.com/2022/07/04/a-perfect-one-car-solution-the-e46-m3-touring/">BimmerLife</a>, <a href="https://www.fcpeuro.com/blog/bmw-e46-m3xi-an-m3-powered-bmw-rally-wagon-ready-for-almost-anything">FCP Euro, part 1</a>).</p>
+<p><strong>How the driveline is laid out.</strong> The gearbox drives the NV 124 transfer case on its tail. The NV 124 sends 62% of the torque back down the tunnel to the rear diff on a 1,244 mm (49.0 in) prop shaft, and 38% forward on a 723 mm (28.5 in) shaft that runs along the left of the gearbox and engine to the front diff. The front diff is bolted to the left side of the oil pan. The left front shaft runs straight from it; the right one runs through a tube welded across the front of the pan to a support bracket with a bearing on the pan's right side, then out to the hub. Both prop shafts turn at the same speed (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>, <a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/drive_shaft/drive_shaft_4_wheel/">ETK</a>). The S54's headers sit on the right, next to that shaft.</p>
+<figure class="diagram"><div class="diagram-scroll portrait"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 1214" role="img" aria-label="Driveline of a 325xi Touring with the S54, seen from above with the front at the top; schematic, not to scale. Keeping all-wheel drive: the donor's S54 sits on your xi oil pan 11137519432, which has the right axle tube welded through its front. That front zone is the hazard: the S54's two-stage pump has its scavenge pickup there, so both documented builds fitted an M50-family single-stage pump and machined or re-made the pan, and on one the pump chain ground into the pan and wrecked the bottom end. Prove every clearance with clay and the oil pressure against the donor's. The front diff, type 174, bolts to the pan's left side; the right shaft runs through the tube to a support bracket on the pan's right side; the S54 headers' clearance to that shaft and bracket is unknown: check on the car. Behind the engine come the 330xi six-speed 23007563053, from 03/2003, on the M3 flywheel with a Z4 M clutch as in BMW's Z4 M, then the NV 124 transfer case 27107530812, which splits torque 38:62 at the same speed front and rear and is rated by BMW at 300 Nm, against the US S54's 355 Nm. The front prop shaft 26207525970, 723 mm, runs forward on the left to the front diff; the rear prop shaft runs to the rear diff, type 188. The front and rear diff ratios must match: both builds used an X3 3.91 pair (the X3 2.5i's ratio), a 325xi/330xi automatic 3.46 pair gives near-M3 gearing, and X3 rear flanges don't fit the xi rear shafts. Your front axle, knuckles, shafts and rack, the Bosch DSC 5.7 and its four sensors, the crossmember and the rear prop shaft stay. Converting to rear drive instead: the transfer case, front diff, front shafts and front prop shaft, the xi front subframe, knuckles and rack, and the Bosch DSC 5.7 with its sensors come out. In go the M3 front subframe and axle, trial-fitted first; the M3 gearbox on a custom crossmember bracket; the M3 lower steering joint and coupling; and an MK60 with an adapter loom, because the xi's plug is 42-pin with CAN on pins 24 and 40 and the MK60's is 47-pin with CAN on pins 11 and 15, so it is wired signal by signal. Everything behind the front seats is the same as on a 325i Touring.">
+
+<defs>
+  <marker id="d42-xi-driveline-ah" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="fill-fg"/></marker>
+  <marker id="d42-xi-driveline-ahn" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="new-f"/></marker>
+  <marker id="d42-xi-driveline-ahk" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="keep-f"/></marker>
+  <marker id="d42-xi-driveline-ahd" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="donor-f"/></marker>
+  <marker id="d42-xi-driveline-ahc" viewBox="0 0 8 8" refX="7.5" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" class="crit-f"/></marker>
+</defs>
+
+<rect class="keep" x="8" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="16.5">Keep</text>
+<rect class="donor" x="65.9" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="82.9" y="16.5">From donor M3</text>
+<rect class="new" x="175.7" y="6" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="192.7" y="16.5">Buy, used or new</text>
+<rect class="fab" x="8" y="26" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm" x="25" y="36.5">Modify</text>
+<rect class="crit-s dash" x="74.2" y="26" width="12" height="12" rx="2" stroke-width="1.5"/>
+<text class="t-sm" x="91.2" y="36.5">Hazard, or check on the car</text>
+<rect class="keep dash" x="246.6" y="26" width="12" height="12" rx="2" stroke-width="1"/>
+<path class="crit-s" d="M249.1,28.5 l7,7 M249.1,35.5 l7,-7" stroke-width="1.6"/>
+<text class="t-sm" x="263.6" y="36.5">Comes out</text>
+
+
+<text class="t-h" x="8" y="66">KEEP ALL-WHEEL DRIVE</text>
+<text class="t-sm" x="8" y="83">Seen from above, front at the top. Schematic, not to scale.</text>
+<rect class="warn-f" x="8" y="96" width="384" height="110" rx="5" stroke-width="1.5"/>
+<text class="t t-b crit-t" x="18" y="115">Hazard: the front of the oil pan</text>
+<text class="t-sm" x="18" y="132">Your xi pan 11137519432 has the right axle tube welded</text>
+<text class="t-sm" x="18" y="146">through its front, the zone where the S54's two-stage pump</text>
+<text class="t-sm" x="18" y="160">has its scavenge pickup. Both builds fitted an M50-family</text>
+<text class="t-sm" x="18" y="174">single-stage pump instead. On one, the pump chain ground</text>
+<text class="t-sm" x="18" y="188">into the pan and wrecked the bottom end. Prove every</text>
+<text class="t-sm" x="18" y="202">clearance with clay, and oil pressure against the donor's.</text>
+<text class="t-xs" x="8" y="222">left (driver's side)</text>
+<text class="t-xs" x="392" y="222" text-anchor="end">right</text>
+<rect class="keep" x="14" y="232" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="keep" x="14" y="714" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="keep" x="366" y="232" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="keep" x="366" y="714" width="20" height="52" rx="4" stroke-width="1.5"/>
+<rect class="donor" x="168" y="218" width="64" height="180" rx="6" stroke-width="1.5"/>
+<rect class="fab" x="174" y="236" width="52" height="136" rx="4" stroke-width="1.5"/>
+<text class="t-sm t-b donor-t" x="200" y="389" text-anchor="middle">S54</text>
+<text class="t-sm t-b fab-t" x="200" y="330" text-anchor="middle">xi pan</text>
+<path class="donor-s" d="M232,244 c12,0 18,6 18,24" stroke-width="1.5"/>
+<path class="donor-s" d="M232,268 c12,0 18,6 18,24" stroke-width="1.5"/>
+<path class="donor-s" d="M232,292 c12,0 18,6 18,24" stroke-width="1.5"/>
+<line class="keep-s" x1="34" y1="258" x2="122" y2="258" stroke-width="3"/>
+<rect class="keep" x="158" y="253" width="80" height="10" rx="2" stroke-width="1.2"/>
+<line class="keep-s" x1="158" y1="258" x2="366" y2="258" stroke-width="3"/>
+<rect class="keep" x="238" y="250" width="12" height="16" rx="2" stroke-width="1.5"/>
+<rect class="new" x="122" y="244" width="36" height="28" rx="4" stroke-width="2"/>
+<rect class="crit-s dash" x="165" y="215" width="70" height="65" rx="8" stroke-width="2"/>
+<line class="crit-s" x1="200" y1="206" x2="200" y2="215" stroke-width="1.5"/>
+<ellipse class="crit-s dash" cx="252" cy="262" rx="14" ry="21" stroke-width="1.5"/>
+<path class="new" d="M172,398 L228,398 L222,422 L222,498 L178,498 L178,422 Z" stroke-width="2"/>
+<rect class="new" x="128" y="498" width="94" height="30" rx="4" stroke-width="2"/>
+<line class="new-s" x1="140" y1="498" x2="140" y2="274" stroke-width="3" marker-end="url(#d42-xi-driveline-ahn)"/>
+<line class="keep-s" x1="200" y1="528" x2="200" y2="722" stroke-width="3" marker-end="url(#d42-xi-driveline-ahk)"/>
+<line class="keep-s" x1="34" y1="740" x2="182" y2="740" stroke-width="3"/>
+<line class="keep-s" x1="218" y1="740" x2="366" y2="740" stroke-width="3"/>
+<rect class="new" x="182" y="724" width="36" height="32" rx="4" stroke-width="2"/>
+<text class="t-sm t-b" x="8" y="300">Front diff, type 174</text>
+<text class="t-sm" x="8" y="314">bolted to the pan's</text>
+<text class="t-sm" x="8" y="328">left side</text>
+<line class="ln-thin" x1="92" y1="289" x2="128" y2="273"/>
+<text class="t-sm t-b" x="8" y="380">Front prop shaft</text>
+<text class="t-xs t-mono" x="8" y="394">26207525970</text>
+<text class="t-sm" x="8" y="408">723 mm, from</text>
+<text class="t-sm" x="8" y="422">03/2003</text>
+<text class="t-sm crit-t" x="258" y="304">Headers to the right</text>
+<text class="t-sm crit-t" x="258" y="318">shaft and bracket:</text>
+<text class="t-sm crit-t" x="258" y="332">check on the car</text>
+<line class="crit-s" x1="256" y1="293" x2="257" y2="281" stroke-width="1"/>
+<text class="t-sm" x="258" y="362">Pan machined or</text>
+<text class="t-sm" x="258" y="376">re-made on both builds</text>
+<line class="ln-thin" x1="254" y1="358" x2="226" y2="358"/>
+<text class="t-sm t-b" x="258" y="416">330xi six-speed</text>
+<text class="t-xs t-mono" x="258" y="430">23007563053</text>
+<text class="t-sm" x="258" y="444">from 03/2003, on the M3</text>
+<text class="t-sm" x="258" y="458">flywheel with a Z4 M</text>
+<text class="t-sm" x="258" y="472">clutch, as in BMW's Z4 M</text>
+<line class="ln-thin" x1="254" y1="412" x2="223" y2="412"/>
+<text class="t-sm t-b" x="258" y="504">NV 124 transfer case</text>
+<text class="t-xs t-mono" x="258" y="518">27107530812</text>
+<text class="t-sm" x="258" y="532">38:62 torque, 1:1 speed</text>
+<text class="t-sm crit-t" x="258" y="546">BMW: 300 Nm max;</text>
+<text class="t-sm crit-t" x="258" y="560">US S54: 355 Nm</text>
+<line class="ln-thin" x1="254" y1="500" x2="222" y2="500"/>
+<rect class="panel" x="8" y="578" width="184" height="124" rx="5" stroke-width="1"/>
+<text class="t-sm t-b" x="16" y="596">Diff ratios must match</text>
+<text class="t-sm" x="16" y="612">Both prop shafts turn at the</text>
+<text class="t-sm" x="16" y="626">same speed. Both builds used</text>
+<text class="t-sm" x="16" y="640">an X3 3.91 pair; the</text>
+<text class="t-sm" x="16" y="654">325xi/330xi automatic 3.46</text>
+<text class="t-sm" x="16" y="668">pair gives near-M3 gearing.</text>
+<text class="t-sm" x="16" y="682">X3 rear flanges don't fit</text>
+<text class="t-sm" x="16" y="696">the xi rear shafts.</text>
+<rect class="panel" x="208" y="578" width="184" height="96" rx="5" stroke-width="1"/>
+<text class="t-sm t-b" x="216" y="596">Stays</text>
+<text class="t-sm" x="216" y="612">Your front axle, knuckles,</text>
+<text class="t-sm" x="216" y="626">shafts and rack; your</text>
+<text class="t-sm" x="216" y="640">Bosch DSC 5.7 and its four</text>
+<text class="t-sm" x="216" y="654">sensors; the crossmember</text>
+<text class="t-sm" x="216" y="668">and rear prop shaft.</text>
+<text class="t-sm" x="200" y="780" text-anchor="middle">Rear diff, type 188: same ratio as the front</text>
+
+
+<line class="ln-faint" x1="8" y1="802" x2="392" y2="802"/>
+<text class="t-h" x="8" y="828">OR CONVERT TO REAR DRIVE</text>
+<text class="t-sm" x="8" y="845">The same view, smaller: the car after the conversion.</text>
+<rect class="keep dash" x="8" y="858" width="384" height="72" rx="5" stroke-width="1.5"/>
+<path class="crit-s" d="M18,867 l10,10 M18,877 l10,-10" stroke-width="2"/>
+<text class="t-sm t-b crit-t" x="36" y="876.5">Comes out</text>
+<text class="t-sm" x="18" y="894">Transfer case, front diff, front shafts and front prop shaft;</text>
+<text class="t-sm" x="18" y="908">the xi front subframe, knuckles and rack; the Bosch DSC 5.7</text>
+<text class="t-sm" x="18" y="922">with its sensors.</text>
+<rect class="donor" x="136" y="944" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm t-b" x="154" y="954">Goes in</text>
+<text class="t-sm" x="136" y="970">M3 front subframe and axle:</text>
+<text class="t-sm" x="136" y="984"><tspan class="crit-t">trial-fit it first</tspan></text>
+<text class="t-sm" x="136" y="1002">M3 gearbox on a <tspan class="fab-t">custom</tspan></text>
+<text class="t-sm" x="136" y="1016"><tspan class="fab-t">crossmember bracket</tspan></text>
+<text class="t-sm" x="136" y="1034">M3 lower steering joint and coupling</text>
+<text class="t-sm" x="136" y="1052">MK60 with an <tspan class="fab-t">adapter loom</tspan></text>
+<text class="t-sm" x="136" y="1066">xi: 42-pin plug, CAN pins 24/40</text>
+<text class="t-sm" x="136" y="1080">MK60: 47-pin plug, CAN pins 11/15</text>
+<text class="t-sm" x="136" y="1094">Wire it signal by signal</text>
+<line class="ln dash" x1="8" y1="1110" x2="392" y2="1110" stroke-width="1.5"/>
+<text class="t-xs" x="392" y="1124" text-anchor="end">front seats</text>
+<rect class="keep" x="136" y="1124" width="12" height="12" rx="2" stroke-width="1"/>
+<text class="t-sm t-b" x="154" y="1134">Stays</text>
+<text class="t-sm" x="136" y="1150">Everything behind the front seats</text>
+<text class="t-sm" x="136" y="1164">is the same as on a 325i Touring</text>
+<rect class="keep" x="10" y="1110" width="116" height="88" rx="10" stroke-width="1"/>
+<rect class="ln-faint" x="10" y="944" width="116" height="254" rx="18"/>
+<rect class="keep" x="12" y="960" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="keep" x="114" y="960" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="keep" x="12" y="1158" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="keep" x="114" y="1158" width="10" height="28" rx="3" stroke-width="1.2"/>
+<rect class="donor" x="28" y="969" width="80" height="10" rx="2" stroke-width="1.5"/>
+<rect class="crit-s dash" x="25" y="965" width="86" height="18" rx="4" stroke-width="1.5"/>
+<rect class="donor" x="55" y="952" width="26" height="106" rx="4" stroke-width="1.5"/>
+<text class="t-xs" x="68" y="1048" text-anchor="middle">S54</text>
+<path class="donor" d="M58,1058 L78,1058 L75,1068 L75,1098 L61,1098 L61,1068 Z" stroke-width="1.5"/>
+<text class="t-xs" x="56" y="1080" text-anchor="end">420G</text>
+<rect class="fab" x="50" y="1090" width="36" height="7" rx="2" stroke-width="1.5"/>
+<line class="donor-s" x1="68" y1="1098" x2="68" y2="1164" stroke-width="2.5"/>
+<rect class="donor" x="60" y="1164" width="16" height="16" rx="3" stroke-width="1.5"/>
+<line class="donor-s" x1="22" y1="1172" x2="60" y2="1172" stroke-width="2"/>
+<line class="donor-s" x1="76" y1="1172" x2="114" y2="1172" stroke-width="2"/>
+<rect class="donor" x="26" y="1004" width="20" height="14" rx="2" stroke-width="1.5"/>
+<text class="t-xs" x="36" y="999" text-anchor="middle">MK60</text>
+<rect class="keep dash" x="94" y="1004" width="20" height="14" rx="2" stroke-width="1.2"/>
+<path class="crit-s" d="M100.5,1007.5 l7,7 M100.5,1014.5 l7,-7" stroke-width="1.6"/>
+<text class="t-xs" x="122" y="999" text-anchor="end">DSC 5.7</text>
+</svg></div><figcaption>Figure 10. The two routes for a 325xi, seen from above. Keeping all-wheel drive, the risk is the front of your own oil pan: its welded axle tube runs where the S54's two-stage pump has its scavenge pickup, and one of the two documented cars wrecked its bottom end there. Prove every clearance with clay and the oil pressure against the donor's before you drive, and fit the diffs as a matched pair. Converting to rear drive swaps the front axle, gearbox and DSC for M3 parts and an MK60 wired signal by signal; behind the front seats the car is the same as a 325i Touring.</figcaption></figure>
+
+<p><strong>What changes against the guide's plan:</strong></p>
+<ul>
+<li><strong>Oil pan and pump:</strong> your xi pan, reworked around a single-stage pump (<a href="#route-2-the-oil-pan-and-why-a-shared-gasket-proves-nothing">below</a>).</li>
+<li><strong>Gearbox, transfer case and diffs:</strong> the 330xi six-speed and a matched pair of diffs (<a href="#route-2-gearbox-transfer-case-and-differentials">below</a>).</li>
+<li><strong>Front axle, steering and DSC:</strong> keep the xi's (<a href="#route-2-front-axle-dsc-57-and-what-is-still-open">below</a>).</li>
+<li><strong>Rear axle:</strong> keep the xi's, with the rear half of your matched diff pair. The guide's M3 rear axle doesn't apply: its 3.62 limited-slip diff has no front partner.</li>
+<li><strong>Body, floor, arches, fuel, cooling, wiring and coding:</strong> as the guide describes. Keep the xi's tunnel insulator, center underbody screen, right engine-mount heat shield and gearbox exhaust bracket, which are shaped for the xi (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/vehicle_trim/insulation_2/">ETK</a>).</li>
+<li><strong>Left over:</strong> the donor's 420G, front axle, MK60 and diff.</li>
+</ul>
+<h3 id="route-2-the-oil-pan-and-why-a-shared-gasket-proves-nothing">Route 2: the oil pan, and why a shared gasket proves nothing</h3>
+<p><strong>Same gasket, same pan? No.</strong> BMW uses one oil-pan gasket, 11131437237, on essentially every M50, M52, M54, S50, S52 and S54 six since 1997: the rear-drive 325i, the 325xi and 330xi, the M3, the Z4 M and the E36 M3 (<a href="https://bmwfans.info/parts-catalog/11131437237/">ETK</a>). It fixes the flange where the pan meets the block, and nothing more: the rear-drive 325i's pan (11131432703) takes the same gasket and is a third, different pan (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325i-M54/L-N/browse/engine/oil_pan_oil_level_indicator/">ETK</a>). What matters sits inside the pan, and there the xi and the S54 clash:</p>
+<ul>
+<li><strong>The xi pan carries the front axle.</strong> BMW: "The differential for the front axle is bolted to left side of the engine oil pan. … A connecting tube is welded into the oil pan. A shaft runs inside of the connecting tube between the front differential and the axle shaft on the right side" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>). The tube crosses the front of the pan, on the front axle line.</li>
+<li><strong>The S54's pump draws from the front of the pan.</strong> "The S54 oil pump is two stage, supply and scavenge … the scavenge chamber (1) draws oil from the pickup at the front of the oil pan" (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/2%20M3%20DriveLine_djvu.txt">BMW ST041</a>). Its pump (11417838123) and pickup (11417834887) are shared only with the Z3 M and Z4 M, and the pickup and its return pipe (11417834889) are made for the M3's pan (<a href="https://bmwfans.info/parts-catalog/11417838123/">ETK</a>, <a href="https://bmwfans.info/parts-catalog/11417834887/">ETK</a>).</li>
+<li><strong>The "330xi pan" is your own pan.</strong> Both documented builds bought a "330xi oil pan". ETK lists one pan, 11137519432, for the 325xi, the 330xi and the M54 X3 (<a href="https://bmwfans.info/parts-catalog/11137519432/">ETK</a>). Even the M54's pickup differs between the xi and the rear-drive pan (11417502667 against 11417503258), so the sumps differ too (<a href="https://bmwfans.info/parts-catalog/11417502667/">ETK</a>). Buy a second xi pan to rework and keep yours as a spare.</li>
+<li><strong>Both builds changed the pump.</strong> Each fitted a single-stage M50-family pump, which has no front scavenge pickup, and machined or re-made the pan. Baca's car also has an S52 windage tray (<a href="https://bimmerlife.com/2022/07/04/a-perfect-one-car-solution-the-e46-m3-touring/">BimmerLife</a>, <a href="https://germancarsforsaleblog.com/superb-swap-2001-bmw-325xi-touring-s54-6-speed">German Cars For Sale</a>). The US M50, M52 and S52 pump is 11411740154 and the tray (oil deflector) 11131433060 (<a href="https://bmwfans.info/parts-catalog/11411740154/">ETK</a>, <a href="https://bmwfans.info/parts-catalog/11131433060/">ETK</a>). The pump's sprocket nut is a left-hand thread: the Colorado car's builder welded it, and a vendor sells a shaft kit for this conversion (<a href="https://www.turnermotorsport.com/p-1150774-achilles-motorsports-upgraded-oil-pump-shaft-kit-bmw-s54s50b30b32euro-engine-swap-using-m50-pump-conversion/">Turner</a>, unverified). Neither build says which pickup it ran.</li>
+</ul>
+<p><strong>What went wrong on the Colorado car.</strong> After FCP Euro bought it, "the oil pump chain was digging into the pan, and the pickup tube didn't have enough clearance to supply oil properly". The result was "spun bearings, cracked rods, and a damaged crankshaft" (<a href="https://www.fcpeuro.com/blog/bmw-e46-m3xi-an-m3-powered-bmw-rally-wagon-ready-for-almost-anything">FCP Euro, part 1</a>). The mechanic found the engine full of "really fine aluminum dust", yet the oil filter "looked clean". The fix was a rebuilt bottom end and a new pan cut from the old one "with correct clearances", with baffles. The car then covered 1,600 "trouble-free miles" (<a href="https://www.fcpeuro.com/blog/back-on-the-road-off-the-road-bmw-e46-m3xi-part-2">FCP Euro, part 2</a>).</p>
+<aside class="callout callout-crit"><span class="callout-label">Safety</span>
+<p>No BMW part fits this combination, and nobody has published the xi pan's inside dimensions. Treat the pan, pump and pickup as a fabrication job that you prove by measurement, not a parts swap. Prove it before the engine goes into the car.</p>
+</aside>
+<p><strong>The checks that would have caught it.</strong> BMW publishes no values for this combination, so the pass values come from your own two engines. That approach, and every pass value below except the guide's 0.7 bar, is our inference.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>When</th>
+<th>Check</th>
+<th>Pass</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Phase 1, donor running</td>
+<td>A mechanical gauge at the oil-pressure switch's port, as in <a href="step-by-step-build.html#phase-12-front-end-first-start-and-shakedown">Phase 12</a>. Record the pressure and oil temperature at hot idle, 3,000 rpm and 5,000 rpm</td>
+<td>Readings recorded: they're your pass values. 5,000 rpm keeps the later test inside the S54's break-in limit</td>
+</tr>
+<tr class="even">
+<td>Phase 4, the M54 out of the car but still in its xi pan</td>
+<td>Modelling clay on the pan's front wall facing the pump sprocket and chain, and under the pickup mouth; pan on with its gasket, crank turned two full turns, pan off; measure the clay</td>
+<td>Both gaps recorded: they're your minimums</td>
+</tr>
+<tr class="odd">
+<td>After that, the S54 on the stand (bench work)</td>
+<td>The M50-family pump, pickup and deflector fitted; the reworked pan trial-fitted on clay with its gasket; the crank turned two full turns by hand</td>
+<td>No contact anywhere, and no clay thinner than the M54's gaps. If it fails, rework the pan and repeat</td>
+</tr>
+<tr class="even">
+<td>Same, after the baffles</td>
+<td>The clay check again; the xi dipstick tube against the S54's intake side</td>
+<td>The same pass; the tube fits without force</td>
+</tr>
+<tr class="odd">
+<td>First fill</td>
+<td>A measured fill against the dipstick</td>
+<td>You know the volume that reaches each mark. The level sensor is common to both pans, but its warning point follows the xi pan's shape</td>
+</tr>
+<tr class="even">
+<td>First start</td>
+<td>The gauge at hot idle, 3,000 and 5,000 rpm</td>
+<td>At least 0.7 bar (10 psi) at hot idle (the guide's figure) and at least the donor's reading at each speed and oil temperature. Any shortfall: stop</td>
+</tr>
+<tr class="odd">
+<td>About 800 km (500 miles), then 1,600–2,400 km (1,000–1,500 miles)</td>
+<td>Oil analysis for aluminium</td>
+<td>Aluminium not rising between samples. Don't rely on the filter: the FCP car's looked clean</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="route-2-gearbox-transfer-case-and-differentials">Route 2: gearbox, transfer case and differentials</h3>
+<p><strong>Not your five-speed.</strong> The 325xi's five-speed is "S5D 320Z" in ETK and "S5D-280Z" in BMW's training text (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/manual_transmission/manual_transmission_s5d_z_4_wheel/">ETK</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST034%20E46%20Complete%20Vehicle/1%20models_djvu.txt">BMW ST034</a>). In BMW's naming that number is the torque rating in Nm (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST045%20Z4%20Complete%20Vehicle/05%20E85%20Driveline.pdf">BMW ST045</a>), so either way it's below the US S54's 355 Nm (262 ft-lb) (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/2%20M3%20DriveLine_djvu.txt">BMW ST041</a>) (our reading). No build used it.</p>
+<p><strong>Fit the 330xi six-speed, as both builds did.</strong> It's the ZF GS6X37BZ (23007563053), built from 03/2003 (<a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/manual_transmission/manual_transmission_gs6x37bz_dz_4_wheel/">ETK</a>). BMW ran the S54 through the same gearbox family in the Z4 M (GS6-37BZ, 23007837983), where it makes "262 lb-ft at 4900 rpm" (<a href="https://bmwfans.info/parts-catalog/E85/USA/Z4_M3.2-S54/L-N/browse/manual_transmission/manual_transmission_gs6_37bz_dz/">ETK</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST601%20E85%20LCI%20and%20M%20Roadster/E85%20M%20Roadster_djvu.txt">BMW ST601</a>). The 330xi box's input guide tube and seal are the Z4 M's parts, and the Z4 M pairs the M3's dual-mass flywheel (21212229900) with its own clutch set (21217837984, disc 21217837095) and the M3's release bearing (21511223582) (<a href="https://bmwfans.info/parts-catalog/E85/USA/Z4_M3.2-S54/L-N/browse/clutch/clutch/">ETK: clutch</a>, <a href="https://bmwfans.info/parts-catalog/E85/USA/Z4_M3.2-S54/L-N/browse/manual_transmission/gs6_37bz_dz_sealing_and_mount_parts/">ETK: seals</a>). So the M3 flywheel with the Z4 M clutch is BMW's own way of joining an S54 to this gearbox (our inference). Fit the flywheel as the guide does (<a href="chassis-and-drivetrain.html#driveline-and-rear-axle">Driveline and rear axle</a>). The Colorado car ran a 330 clutch kit, which fits the spline but is built for M54 torque.</p>
+<p><strong>Buy it as a set.</strong> Take the box with its NV 124 transfer case (27107530812), both adapter shafts, the 723 mm (28.5 in) front prop shaft (26207525970) and the six-speed shift parts (<a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/drive_shaft/drive_shaft_4_wheel/">ETK: prop shafts</a>, <a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/gearshift/gear_shift_parts_manual_transm_4_wheel/">ETK: shift parts</a>). A 325xi built from 03/2003 already has that transfer case and front shaft. An earlier one has the older pair (27107509763, and a 718 mm shaft), so use the 330xi's (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/transfer_box_electric_gearbox/transfer_case_nv_124/">ETK</a>). The crossmember (22316750856) and the 1,244 mm rear prop shaft are the same on both cars: keep yours.</p>
+<p><strong>There is no all-wheel-drive 420G.</strong> ETK lists the M3's gearbox (23002229721) for the E46 M3 only, with no transfer-case version (<a href="https://bmwfans.info/parts-catalog/23002229721/">ETK</a>). The Baca car's sale listing says "420G", but BimmerLife's "330xi six-speed" is the account that fits.</p>
+<p><strong>No gear switch.</strong> The 330xi box carries only a reversing-light switch (23147524811). The 420G's gear-recognition switch, which the MSS54's clutch chain expects, isn't there (<a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/manual_transmission/gs6x37bz_grbx_housing_and_mount_parts/">ETK</a>, <a href="wiring-and-coding.html#clutch-switch-gear-switch-and-cruise">Clutch switch, gear switch and cruise</a>). Without it the car starts and runs, but cruise doesn't work (<a href="chassis-and-drivetrain.html#driveline-and-rear-axle">Driveline and rear axle</a>). Bridging the switch's plug would make the DME read "in gear" whenever the pedal is up, even in neutral; nobody has tested that (our inference).</p>
+<p><strong>Transfer case.</strong> The NV 124 is a single-speed gear unit with an open planetary center: "Torque Distribution: 38%: 62%. Maximum Torque: 300Nm", with both outputs at the same speed (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>). That 300 Nm (221 ft-lb) is below the US S54's 355 Nm (262 ft-lb) and equal to the US 330xi's own engine torque. Yet BMW fitted the same NV 124 part numbers to the European 330xd (<a href="https://bmwfans.info/parts-catalog/27107530812/">ETK</a>), a diesel of 390–410 Nm (288–302 ft-lb) (<a href="https://www.bmwgroup-classic.com/en/models/bmw-classics/product-description-page.ad-998-1.bmw-330xd-e46.html">BMW Group Classic</a>, unverified). So 300 Nm isn't the case's hard limit, but BMW never rated it behind an S54 (our inference). It takes 0.24 L (0.25 US qt) of MTF-LT-1 (83229408942), with drain and fill plugs at 33 Nm (24 ft-lb); BMW lists only its three oil seals and its mount as repairable (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>).</p>
+<p><strong>Matched differentials.</strong> The NV 124 turns both prop shafts at the same speed, so the front and rear diffs must have the same ratio. BMW never sold a mismatched pair and publishes no tolerance, and both builds changed both diffs together. With an open planetary center a small mismatch wouldn't bind the driveline, but it would keep the planetary turning all the time; nobody has tested that, so don't (our inference). Both builds fitted X3 3.91 pairs (the X3 2.5i's ratio), which shorten the gearing about 11% against an M3's. The xi automatic's 3.46 pair comes within 2% of the M3 and is E46 xi hardware at both ends (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/front_axle/front_diff_components_all_wheel/">ETK: xi front</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/rear_axle/final_drive_input_output_4_wheel/">ETK: xi rear</a>, <a href="https://bmwfans.info/parts-catalog/E83/USA/X3_2.5i-M54/L-N/browse/front_axle/front_diff_components_all_wheel/">ETK: X3 front</a>, <a href="https://bmwfans.info/parts-catalog/E83/USA/X3_2.5i-M54/L-N/browse/rear_axle/differential_drive_output/">ETK: X3 rear</a>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Pair, front and rear</th>
+<th>Part numbers</th>
+<th>First gear, overall</th>
+<th>Against the M3's 15.30</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3.23, 325xi manual (yours)</td>
+<td>31507526216 (31507500797 before 03/2003); 33107500783</td>
+<td>14.05</td>
+<td>8% taller</td>
+<td>Stock</td>
+</tr>
+<tr class="even">
+<td>3.46, 325xi and 330xi automatic</td>
+<td>31507500799; 33107531623 (or 33107531622)</td>
+<td>15.05</td>
+<td>2% taller</td>
+<td>Our pick: the xi's mountings, 94 mm rear flanges and support bracket</td>
+</tr>
+<tr class="odd">
+<td>3.64, X3 3.0i (M54)</td>
+<td>31507523653; 33107523667</td>
+<td>15.83</td>
+<td>3.5% shorter</td>
+<td>X3 diffs need the changes below</td>
+</tr>
+<tr class="even">
+<td>3.91, X3 2.5i (the builds' ratio)</td>
+<td>31507523651; 33107537722</td>
+<td>17.01</td>
+<td>11% shorter</td>
+<td>As above</td>
+</tr>
+</tbody>
+</table></div>
+<p>The overall ratios are our arithmetic: first gear 4.350 times the diff, assuming the 330xi box has the GS6-37BZ's petrol ratios, which ETK doesn't print, against the M3's 4.227 × 3.62 (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST045%20Z4%20Complete%20Vehicle/05%20E85%20Driveline.pdf">BMW ST045</a>, <a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST041%20M3%20Complete%20Vehicle/1%20M3%20Complete%20Vehicle_djvu.txt">BMW ST041</a>). Bench-check each diff before it goes in: hold both output flanges so they turn together and count the input turns for one output turn. Pass: the stated ratio within a tenth of a turn (our check).</p>
+<ul>
+<li><strong>X3 diffs need adapting.</strong> The X3's rear output flanges have an 86 mm bolt circle against the xi's 94 mm. Moving your E46 flanges into it should work, since the seal (33107505604) and lock ring (33131214961) are common, but neither build says so (our inference). The X3 front diff shares the xi's seals, gaskets and bolt size, but its support bracket differs (31507516064): keep the xi's (31537500850, $166.73 at <a href="https://www.bimmerworld.com/Driveline-Shifter/Differentials-Accessories/Genuine-BMW-Supporting-Bracket-31537500850-E46.html">BimmerWorld</a>, October 2026) and its right-hand shaft.</li>
+<li><strong>Not the M3's limited-slip diff.</strong> Its 3.62 has no front partner, and it's a larger unit with other mountings. FCP Euro fitted a Wavetrac limited-slip unit in a matched-ratio diff instead (<a href="https://www.fcpeuro.com/blog/bmw-e46-m3xi-an-m3-powered-bmw-rally-wagon-ready-for-almost-anything">FCP Euro, part 1</a>).</li>
+<li><strong>Tires.</strong> BMW asks for tires "of the same manufacture and tread configuration" on an xi (<a href="https://manualsnet.com/pdf-content/0945ee845d7bf99b78315dcf/html/127.page.html">2004 Sports Wagon owner's manual, p.127</a>). The M3's 225/45R18 front and 255/40R18 rear tires are within 0.2% of each other in diameter (our arithmetic).</li>
+</ul>
+<p><strong>Torque margins (our arithmetic).</strong> In first gear a US S54 puts about 1,544 Nm (1,139 ft-lb) into the NV 124: 587 Nm forward and 957 Nm back. With 3.91 diffs that's about 2,294 Nm (1,692 ft-lb) at the front axle and 3,744 Nm (2,761 ft-lb) at the rear, 15% and 25% above BMW's figures of 2,000 Nm (1,475 ft-lb) and 3,000 Nm (2,213 ft-lb) for the two diffs; with 3.46 diffs it's 2% and 10% above (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>). BMW doesn't say where its figures apply. Neither documented car has reported a diff, transfer-case or shaft failure, over roughly 16,000 km (10,000 miles) and 8,000 km (5,000 miles) (our estimate).</p>
+<h3 id="route-2-front-axle-dsc-57-and-what-is-still-open">Route 2: front axle, DSC 5.7 and what is still open</h3>
+<p><strong>Keep the xi's front axle and rack.</strong> The M3's front axle can't carry drive shafts. Keep the xi's subframe (31101096954), steel arms, struts, knuckles, hubs and front shafts (605 mm and 926 mm, 31607505199/200), and its rack (32136759815) with its lower joint (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>, <a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/front_axle/final_drive_frnt_axle_output_shaft_4whl/">ETK</a>). Fit new front shafts and keep a spare, as both builds did; Baca's are new GKN units (<a href="https://bimmerlife.com/2022/07/04/a-perfect-one-car-solution-the-e46-m3-touring/">BimmerLife</a>, <a href="https://germancarsforsaleblog.com/superb-swap-2001-bmw-325xi-touring-s54-6-speed">German Cars For Sale</a>). FCP's driver found the xi rack less quick and communicative than an M3's (<a href="https://www.fcpeuro.com/blog/back-on-the-road-off-the-road-bmw-e46-m3xi-part-2">FCP Euro, part 2</a>).</p>
+<ul>
+<li><strong>Brakes.</strong> The 330xi's 325 × 25 mm front brake (discs 34116864047, calipers 34116765881/882, carriers 34106765880) bolts to the xi knuckle used from 03/2002 (31216759311/312) and its dust shields (<a href="https://bmwfans.info/parts-catalog/E46-Sedan/USA/330xi-M54/L-N/browse/brakes/front_brake_pad_wear_sensor/">ETK</a>). The M3's 325 × 28 mm brake needs longer carrier bolts (M12×1.5×41, 34116767217), M3 dust shields and possibly machining.</li>
+<li><strong>Engine brackets.</strong> Use the xi's brackets (left 22116750853, right 22116750852) and mounts; its left mount is already the M3's part (11812283798). The right bracket should bolt to the S54, because the 325i and M3 share theirs. The left differs between the 325i and M3, so offer the xi's up and check. Use bolt lengths that suit the S54's iron block: the M3 uses M8×26 and M8×35 where the M54 uses M8×34 (<a href="https://bmwfans.info/parts-catalog/E46-Touring/USA/325xi-M54/L-N/browse/engine_and_gearbox_suspension/engine_suspension/">ETK: xi</a>, <a href="https://bmwfans.info/parts-catalog/E46-Coupe/USA/M3-S54/L-N/browse/engine_and_gearbox_suspension/engine_suspension/">ETK: M3</a>) (our inference).</li>
+<li><strong>Power steering.</strong> The S54's pump and the xi rack share no hose, so plan a custom pressure line; both builds appear to have made one (our inference).</li>
+<li><strong>Ride height and wheels.</strong> Keep the car at the xi's stock height or higher. BMW cut its front spring travel by about 20 mm (0.8 in) for the shaft angles, and the Colorado car wore out its front CV boots when lowered (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/7%20E46%204wd%202010-24-00.pdf">BMW ST040</a>, <a href="https://germancarsforsaleblog.com/superb-swap-2001-bmw-325xi-touring-s54-6-speed">German Cars For Sale</a>). BMW also gave the xi 17 × 7.0 wheels "to ensure there is enough room for the front axles and brakes", so check M3 wheels and brakes at full lock and full bump.</li>
+</ul>
+<p><strong>Keep the DSC 5.7.</strong> It's the only unit that reads the xi's Bosch sensors and runs four-wheel ADB-X, its brake-based traction control, and an MK60's front sensors won't fit the xi's hubs (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/8%20dsc%20205_djvu.txt">BMW ST040: DSC 5.7</a>). Keep its sensors, yaw sensor and steering-angle sensor too. Its coding comes from your car's order, so the engine change gives no reason to recode it (our inference). Whether it talks cleanly to the MSS54 is undocumented. The DSC 5.7 reads engine speed and fill from the DME and sends road speed back, and the MSS54 logs a fault if the DSC's or the steering-angle sensor's message goes missing (<a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/DSC57.md">SGBD: DSC57</a>, <a href="https://github.com/emdzej/ediabasx-docs-sgbd/blob/main/docs/sgbd/MSS54DS0.md">SGBD: MSS54</a>). The M3 cluster takes the DSC and yellow brake lamps over CAN, while the DSC 5.7 drives the ABS lamp directly. Run these checks:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Pass</th>
+<th>If it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Phase 0, before anything changes: Tool32 <code>DSC57.PRG</code> → <code>FS_LESEN</code>, then <code>STATUS_IO_LESEN_ANALOG</code> with the wheel straight</td>
+<td>No stored faults; <code>STAT_LENKWINKEL_WERT</code> near 0°. This is your baseline</td>
+<td>Fix the xi's DSC first</td>
+</tr>
+<tr class="even">
+<td>Key on, engine started, car rolled a few metres</td>
+<td>The DSC, yellow BRAKE and ABS lamps light, then go out</td>
+<td>Read both fault memories</td>
+</tr>
+<tr class="odd">
+<td>MSS54 fault memory</td>
+<td>None of 131 (0x83) DSC intervention implausible, 132 (0x84) DSC message timeout, 133 (0x85) steering-angle message timeout or 134 (0x86) cluster message timeout; no fault of type "DSC meldet V-Fehler"</td>
+<td>132: no road speed from the DSC, which also stops cruise. 133: the steering-angle sensor's message isn't what the MSS54 expects</td>
+</tr>
+<tr class="even">
+<td><code>DSC57.PRG</code> → <code>STATUS_IO_LESEN_CAN</code> at idle and at 3,000 rpm</td>
+<td><code>STAT_MOTORDREHZAHL_WERT</code> matches the tachometer, and <code>STAT_NORM_FUELLUNG_FAHRER_WERT</code> rises with throttle</td>
+<td>The DSC 5.7 isn't reading the MSS54: check the CAN at the DME</td>
+</tr>
+<tr class="odd">
+<td>MSS54 <code>STATUS_V_CAN</code> on a drive</td>
+<td>Matches the speedometer</td>
+<td>As for fault 132</td>
+</tr>
+<tr class="even">
+<td>After the alignment: <code>DSC57.PRG</code> → <code>TEST_LENKWINKEL</code></td>
+<td>Job OK and <code>ABGL_LWS_ID</code> returned; about 0° straight ahead; DSC lamp off</td>
+<td>Repeat with the wheel dead straight</td>
+</tr>
+<tr class="odd">
+<td>Low-speed traction test on a loose surface</td>
+<td>The DSC lamp flashes and power drops during wheelspin; with DSC switched off, ADB still brakes a spinning wheel (<a href="https://archive.org/download/BMWTechnicalTrainingDocuments/ST040%202001%20System%20Diagnosis/8%20dsc%20205_djvu.txt">BMW ST040: DSC 5.7</a>)</td>
+<td>Read the faults</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mechanical checks</strong> (our checks; BMW gives no figures):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>When</th>
+<th>Check</th>
+<th>Pass</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Phase 9</td>
+<td>xi engine brackets on the S54</td>
+<td>Every hole lines up without force; full thread engagement in the iron block</td>
+</tr>
+<tr class="even">
+<td>Phase 9, at full droop and full bump with the steering at both locks</td>
+<td>The headers against the right front shaft and its support bracket; the front prop shaft against the starter and oil-cooler lines; the exhaust against the NV 124 and tunnel insulator</td>
+<td>No contact, with every heat shield refitted. A rub mark found later is a fail</td>
+</tr>
+<tr class="odd">
+<td>Phase 8, at full droop</td>
+<td>The front CV boots</td>
+<td>Not stretched or kinked</td>
+</tr>
+<tr class="even">
+<td>About 800 km (500 miles)</td>
+<td>The NV 124, diff and gearbox seals; the boots; any rub marks</td>
+<td>Seals dry, boots intact, no marks</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Still open.</strong> Nobody has published:</p>
+<ul>
+<li>the clearance between the S54's headers and the right front shaft and its support bracket, or between the M3's front pipes and the NV 124;</li>
+<li>whether the xi's left engine bracket bolts to the S54 block;</li>
+<li>whether the MSS54 and the DSC 5.7 talk cleanly (the checks above settle it for your car);</li>
+<li>the xi pan's inside dimensions, how either builder reworked it, and which pickup each ran;</li>
+<li>an S54 oil-pressure figure on an M50-family pump, and torque ratings for the GS6X37BZ, NV 124 and diffs behind an S54;</li>
+<li>how the MSS54's clutch chain should be wired without the gear switch.</li>
+</ul>
+<h3 id="emissions-and-massachusetts-for-an-xi">Emissions and Massachusetts for an xi</h3>
+<p><strong>An xi is the best case for the engine-switch rule.</strong> EPA certified every 2001–05 325xi Sport Wagon in a LEV test group, the S54's category. For 2004–05 that meant California LEV and federal Bin 9, exactly as for the S54 (<a href="https://www.epa.gov/compliance-and-fuel-economy-data/annual-certification-data-vehicles-engines-and-equipment">EPA certification data</a>):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Model year</th>
+<th>325xi Sport Wagon test group</th>
+<th>Level</th>
+<th>The S54 (M3), same year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2001</td>
+<td>1BMXV02.5M54 or 1BMXV03.0LER</td>
+<td>LEV</td>
+<td>1BMXV03.2S54, LEV</td>
+</tr>
+<tr class="even">
+<td>2002</td>
+<td>2BMXV03.0LER</td>
+<td>LEV</td>
+<td>2BMXV03.2S54, LEV</td>
+</tr>
+<tr class="odd">
+<td>2003</td>
+<td>3BMXV03.0LER</td>
+<td>LEV</td>
+<td>3BMXV03.2S54, LEV</td>
+</tr>
+<tr class="even">
+<td>2004</td>
+<td>4BMXV03.0LER</td>
+<td>LEV (California), Bin 9 (federal)</td>
+<td>4BMXV03.2S54, LEV and Bin 9</td>
+</tr>
+<tr class="odd">
+<td>2005</td>
+<td>5BMXV03.0LER</td>
+<td>LEV (California), Bin 9 (federal)</td>
+<td>5BMXV03.2S54, LEV and Bin 9</td>
+</tr>
+</tbody>
+</table></div>
+<p>So under the "same emissions certification category" test in <a href="registration-and-legal.html#massachusetts">Massachusetts</a>, an xi matches in every year, where a 2003–05 325i Touring may be ULEV or SULEV (our reading). Your VECI label should name an LER group; if it names another, go by the label. EPA's policy also expects a donor of the same model year or newer.</p>
+<p><strong>Ride height.</strong> Your Massachusetts baseline is your xi's own height, which BMW lists 20 mm (0.8 in) above a 325i Touring's: 1,429 mm (56.3 in) against 1,409 mm (55.5 in) (<a href="https://manualsnet.com/bmw/325i-sports-wagon-3-series-2004">2004 Sports Wagon owner's manual</a>). Record it in Phase 0 as the guide describes (<a href="chassis-and-drivetrain.html#massachusetts-ride-height-baseline">Massachusetts ride-height baseline</a>). A rear-drive conversion on M3 axles will probably sit lower than that, so check your spring choice against the 2-inch rule at mock-up (our inference).</p>
+<p><strong>The four-wheel-drive rule.</strong> 540 CMR 6.00 covers "Any vehicle that is capable of providing torque to all four wheels". In place of the general 2-inch rule it sets such a vehicle's own limits for raising or lowering it more than two inches from the maker's height; it also keeps the body level to within two inches front to rear, bans wheel spacers and limits a track increase through tires and rims to four inches (<a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-4-04">540 CMR 4.04(13)</a>, <a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-6-01">6.01</a>, <a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-6-03">6.03</a>, <a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-6-04">6.04</a>). A Route 2 car stays under it, so check the M3 wheels' widths and offsets against it, and in Phase 0 also record the height the way 6.00 measures it: unladen, from the floor to the lower edge of the driver's door at its center line (<a href="https://www.law.cornell.edu/regulations/massachusetts/540-CMR-6-03">6.03</a>). A Route 1 car can't drive all four wheels, so 6.00 no longer applies and the general 2-inch rule does (our reading; say so in your letter to the RMV).</p>
+<p><strong>Title and insurance.</strong> Massachusetts titles don't record the drive layout, and no rule we found ties certification or title to it. The VIN will still decode as a 325xi. Tell your insurer the car is now rear-drive, and keep the receipts. Ask MassDEP whether it treats the change of drive as part of the engine switch (<a href="registration-and-legal.html#questions-for-your-state-program">Questions for your state program</a>).</p>
+<h3 id="documented-xi-builds">Documented xi builds</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>Build</th>
+<th>Route</th>
+<th>What was done</th>
+<th>What went wrong</th>
+<th>Outcome</th>
+<th>Sources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>JMCCRNA (e46fanatics), 2003 xi Touring, 2018</td>
+<td>Rear drive</td>
+<td>Blown xi engine replaced; made rear-drive; the M3's DSC module; the M3 sensors' plugs mated with the xi harness ("plugged right in"). No wiring published</td>
+<td>The gearbox mount in the xi tunnel needed a custom bracket, which then clashed with a Euro exhaust</td>
+<td>Started 10/2018, to paint 11/2018</td>
+<td><a href="https://www.e46fanatics.com/threads/m3-touring-project.1240087/">e46fanatics</a></td>
+</tr>
+<tr class="even">
+<td>Bring a Trailer car, Laguna Hills, California; 2001 325xi Touring</td>
+<td>Rear drive</td>
+<td>From a 2001 M3: the rebuilt S54 with a CSL-style airbox, six-speed, axles, subframes and diff. Fiberglass front fenders and rear arches by 2M Autowerks; a plate welded in and a custom brace across the xi tunnel; the donor's spare-tire floor for the muffler and canister; Porsche 996 brakes</td>
+<td>DSC route not stated; a 2001 donor had the MK20 (our inference). Registered in Montana: "The CSL intake and tune won't pass CA SMOG". The listing says "True mileage is unknown" because the donor's cluster wasn't set to the chassis mileage, which the guide's cluster method avoids</td>
+<td>Bid to $59,250 (reserve not met), 20 Aug 2024; Top Gear reported it sold</td>
+<td><a href="https://bringatrailer.com/listing/2001-bmw-e46-m3-wagon/">Bring a Trailer</a>, <a href="https://en.vmax.si/2024/12/21/this-is-a-near-perfect-m3-and-it-was-for-sale/">vmax.si</a>, <a href="https://www.topgear.com/car-news/used-cars/modified-bmw-e46-m3-touring-just-sold-nearly-60000">Top Gear</a>, <a href="https://www.bmwblog.com/2024/08/14/e46-bmw-m3-touring-on-bring-a-trailer/">BMWBlog</a></td>
+</tr>
+<tr class="odd">
+<td>Seller in Buffalo, New York; 2004 325xi Touring</td>
+<td>Rear drive</td>
+<td>S54 from a 2003 M3; 420G; the M3's front and rear subframes, rack and diff; MSS54HP DME</td>
+<td>Kept the xi's Bosch DSC 5.7, listed as a known flaw; a leaking selector-shaft seal</td>
+<td>Listed at $24,000 (04/2023); sold for $22,000 on Cars &amp; Bids (06/2023)</td>
+<td><a href="https://www.builtforbackroads.com/listing/2004-bmw-325xi-touring-s54-swap">Built for Backroads</a>, <a href="https://engineswapdepot.com/?p=101132">Engine Swap Depot</a></td>
+</tr>
+<tr class="even">
+<td>Kyle and Maggie Baca, Virginia; 2004 325xi Touring, 2018–22</td>
+<td>All-wheel drive</td>
+<td>330xi six-speed and NV 124; a machined "330xi" pan with an M50-family pump and an S52 windage tray; X3 3.91 diffs; new GKN front shafts; stronger ball joints; the M3 steering "adapted"; M3 front brakes; M3 body</td>
+<td>Clutch chatter with a lightweight flywheel, cured with an OEM LuK clutch; nothing else reported</td>
+<td>280 h of mechanical work; "over $70k invested"; listed at $65,000 and sold (09/2025). About 8,000 km (5,000 miles) in six years (our estimate)</td>
+<td><a href="https://bimmerlife.com/2022/07/04/a-perfect-one-car-solution-the-e46-m3-touring/">BimmerLife</a>, <a href="https://www.builtforbackroads.com/listing/2004-bmw-325xit-touring-awd-s54-swap">Built for Backroads</a></td>
+</tr>
+<tr class="odd">
+<td>Colorado car, later FCP Euro's "M3xi"; 2001 325xi Touring, built by a BMW master technician by 11/2018</td>
+<td>All-wheel drive</td>
+<td>S54 from a 2004 M3; 330xi six-speed with a 330 clutch kit; "330Xi Oil Pan w/ Custom Baffles"; "M50 Oil Pump w/ Welded Nut"; X3 3.91 diffs; riveted flares</td>
+<td>Front CV boots wore when the car was lowered. Then the pump chain ground into the pan and wrecked the bottom end: spun bearings, cracked rods and a damaged crank. Rebuilt with a re-made pan, then 1,600 "trouble-free miles" (08/2021)</td>
+<td>Asked $26,500 (11/2018), then $22,800 (03/2019), when FCP Euro's Daniel Sloan bought it</td>
+<td><a href="https://jalopnik.com/does-this-custom-s54-rocking-2001-bmw-325ix-touring-hav-1830305864">Jalopnik</a>, <a href="https://www.bmwblog.com/2018/11/09/want-this-s54-swapped-e46-3-series-touring/">BMWBlog (2018)</a>, <a href="https://germancarsforsaleblog.com/superb-swap-2001-bmw-325xi-touring-s54-6-speed">German Cars For Sale</a>, <a href="https://www.fcpeuro.com/blog/bmw-e46-m3xi-an-m3-powered-bmw-rally-wagon-ready-for-almost-anything">FCP Euro, part 1</a>, <a href="https://www.fcpeuro.com/blog/back-on-the-road-off-the-road-bmw-e46-m3xi-part-2">part 2</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>The Colorado car and the "rivet-flare" S54 Touring that BMWBlog showed in 2018 are the same car: listed in Denver in November 2018 and sold through Glen Shelly in March 2019 to FCP Euro's Daniel Sloan. BimmerLife names one more all-wheel-drive S54 builder, Austin Sera, whose car isn't documented.</p>
+</section><nav aria-label="Guide chapters" class="pager"><a class="prev" href="fuel-cooling-and-ac.html"><span>Previous</span>Fuel, cooling and A/C</a><a class="next" href="electronics-and-coding.html"><span>Next</span>Electronics and coding</a></nav></div></main>
+<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="search-form" role="search">
+      <input type="search" class="search-q" placeholder="Search the guide, manual, cards and sheets" autocomplete="off" spellcheck="false" aria-label="Search the site">
+      <button type="button" class="search-close">Close</button>
+    </form>
+    <p class="search-status" aria-live="polite"></p>
+    <ol class="search-results"></ol>
+  </div>
+</div>
+<footer class="colophon"><div class="wrap">
+  <p>Compiled from enthusiast forums, build logs, vendor DIYs and videos (see Sources). Specs and part numbers vary by build date and market: confirm against your VIN on RealOEM and BMW TIS before ordering or torquing.</p>
+  <p>This is a planning guide, not a substitute for the factory repair manual, a qualified welder or local legal advice. Work safely: support the car on stands, disconnect the battery, and never weld near fuel.</p>
+  <p>An independent enthusiast project, not affiliated with or endorsed by BMW AG. BMW and M3 are trademarks of BMW AG.</p>
+  <p>Source, history and diagrams: <a href="https://github.com/pniessen/e46-m3-touring">github.com/pniessen/e46-m3-touring</a>. Anything you tick or type on these pages is saved in your browser only.</p>
+</div></footer>
+<script>
+(function () {
+  "use strict";
+
+  // Chapter navigation: a chip bar on narrow screens, a sidebar with section links on wide ones.
+  // On a page whose chapters are its own sections, mark the chapter (and section) in view and keep
+  // its link visible. The guide's chapters are separate pages: the build marks the current one.
+  var nav = document.querySelector(".chapters");
+  var bar = document.querySelector(".chapters > ol");
+  var chapterLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters > ol > li > a"))
+    .filter(function (a) { return a.getAttribute("href").charAt(0) === "#"; });
+  var subLinks = Array.prototype.slice.call(document.querySelectorAll(".chapters .sub a"));
+  var chapterById = {}, subById = {};
+  chapterLinks.forEach(function (a) { chapterById[a.getAttribute("href").slice(1)] = a; });
+  subLinks.forEach(function (a) { subById[a.getAttribute("href").slice(1)] = a; });
+  function sidebarMode() { return window.matchMedia("(min-width: 1100px)").matches; }
+  function reveal(a) {
+    if (sidebarMode()) {
+      var top = a.offsetTop - nav.clientHeight / 3;
+      if (a.offsetTop < nav.scrollTop || a.offsetTop > nav.scrollTop + nav.clientHeight - 40) {
+        nav.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      }
+    } else if (bar) {
+      var left = a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2;
+      bar.scrollTo({ left: Math.max(0, left), behavior: "auto" });
+    }
+  }
+  function setCurrent(id) {
+    var a = chapterById[id];
+    if (!a || a.getAttribute("aria-current") === "true") return;
+    chapterLinks.forEach(function (l) { l.removeAttribute("aria-current"); l.parentNode.classList.remove("open"); });
+    a.setAttribute("aria-current", "true");
+    a.parentNode.classList.add("open");
+    reveal(a);
+  }
+  function setSection(id) {
+    var a = subById[id];
+    if (!a) return;
+    subLinks.forEach(function (l) { l.removeAttribute("aria-current"); });
+    a.setAttribute("aria-current", "location");
+    if (sidebarMode()) reveal(a);
+  }
+  var herePage = document.querySelector('.chapters > ol > li > a[aria-current="page"]');
+  if (herePage) reveal(herePage);
+  if ("IntersectionObserver" in window) {
+    if (chapterLinks.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+    }
+    if (subLinks.length) {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) setSection(e.target.id); });
+      }, { rootMargin: "0px 0px -75% 0px" });
+      document.querySelectorAll("main section[id], main section h3[id]").forEach(function (h) { io2.observe(h); });
+    }
+  }
+
+  // Search: the button in the chapter bar (and the field on the guide's home page) opens a panel
+  // that searches every page of the site. The index, search-index.js, loads on first use.
+  var panel = document.querySelector(".search-panel");
+  if (panel) {
+    var qInput = panel.querySelector(".search-q");
+    var statusEl = panel.querySelector(".search-status");
+    var list = panel.querySelector(".search-results");
+    var items = null, pages = null, loading = false, timer = null, opener = null;
+    var norm = function (s) { return s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"'); };
+    var esc = function (s) {
+      return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var count = function (s, t) {
+      var n = 0, i = s.indexOf(t);
+      while (i > -1 && n < 5) { n++; i = s.indexOf(t, i + t.length); }
+      return n;
+    };
+    // Wrap each match of the search terms in <mark>; orig and lower are the same text, as typed and normalised.
+    var marked = function (orig, lower, terms) {
+      var ranges = [];
+      terms.forEach(function (t) {
+        var i = lower.indexOf(t);
+        while (i > -1) { ranges.push([i, i + t.length]); i = lower.indexOf(t, i + t.length); }
+      });
+      ranges.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [];
+      ranges.forEach(function (r) {
+        var last = merged[merged.length - 1];
+        if (last && r[0] <= last[1]) { last[1] = Math.max(last[1], r[1]); } else { merged.push([r[0], r[1]]); }
+      });
+      var out = "", pos = 0;
+      merged.forEach(function (r) {
+        out += esc(orig.slice(pos, r[0])) + "<mark>" + esc(orig.slice(r[0], r[1])) + "</mark>";
+        pos = r[1];
+      });
+      return out + esc(orig.slice(pos));
+    };
+    var snippet = function (it, terms, phrase) {
+      var at = it.tn.indexOf(phrase);
+      for (var j = 0; at < 0 && j < terms.length; j++) at = it.tn.indexOf(terms[j]);
+      if (at < 0) at = 0;
+      var start = Math.max(0, at - 60), end = Math.min(it.tn.length, at + 170);
+      if (start > 0) { var sp = it.tn.indexOf(" ", start); if (sp > -1 && sp < at) start = sp + 1; }
+      if (end < it.tn.length) { var sp2 = it.tn.lastIndexOf(" ", end); if (sp2 > at) end = sp2; }
+      return (start > 0 ? "… " : "") + marked(it.t.slice(start, end), it.tn.slice(start, end), terms) +
+        (end < it.tn.length ? " …" : "");
+    };
+    var run = function () {
+      var q = qInput.value.trim();
+      list.innerHTML = "";
+      if (q.length < 2) { statusEl.textContent = q ? "Type at least two characters." : ""; return; }
+      if (!items) { load(); return; }
+      // Every word must match. Rare words count for more than common ones (a part number beats "pin"),
+      // a match in a heading counts extra, and so does the whole query as a phrase.
+      var terms = norm(q).split(/\s+/).filter(Boolean), phrase = terms.join(" "), hits = [], cands = [];
+      var df = terms.map(function () { return 0; });
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], all = true, heads = [], counts = [];
+        for (var j = 0; j < terms.length; j++) {
+          var inHead = it.hn.indexOf(terms[j]) > -1, n = count(it.tn, terms[j]);
+          if (inHead || n) { df[j]++; } else { all = false; }
+          heads.push(inHead);
+          counts.push(n);
+        }
+        if (all) cands.push([i, heads, counts]);
+      }
+      var idf = df.map(function (d) { return Math.log(1 + items.length / (d || 1)); });
+      cands.forEach(function (c) {
+        var it = items[c[0]], score = 0;
+        for (var j = 0; j < terms.length; j++) score += idf[j] * ((c[1][j] ? 4 : 0) + c[2][j]);
+        if (terms.length > 1 && (it.hn.indexOf(phrase) > -1 || it.tn.indexOf(phrase) > -1)) score *= 1.5;
+        hits.push([score, c[0]]);
+      });
+      hits.sort(function (x, y) { return y[0] - x[0] || x[1] - y[1]; });
+      statusEl.textContent = hits.length
+        ? (hits.length === 1 ? "1 result" : hits.length + " results") + (hits.length > 60 ? ", the best 60 shown" : "")
+        : "Nothing found for “" + q + "”.";
+      var out = "";
+      hits.slice(0, 60).forEach(function (h) {
+        var it = items[h[1]], pg = pages[it.p];
+        out += '<li><a href="' + esc(pg[0] + (it.a ? "#" + it.a : "")) + '"><span class="where">' + esc(pg[1]) +
+          '</span><span class="head">' + marked(it.h, it.hn, terms) + '</span><span class="snip">' +
+          snippet(it, terms, phrase) + "</span></a></li>";
+      });
+      list.innerHTML = out;
+    };
+    var load = function () {
+      if (items || loading) return;
+      loading = true;
+      statusEl.textContent = "Loading the search index…";
+      var s = document.createElement("script");
+      s.src = "search-index.js";
+      s.onload = function () {
+        loading = false;
+        var d = window.E46_SEARCH;
+        if (!d) { statusEl.textContent = "Search isn't available on this copy of the site."; return; }
+        pages = d.pages;
+        items = d.items.map(function (x) { return { p: x[0], a: x[1], h: x[2], t: x[3], hn: norm(x[2]), tn: norm(x[3]) }; });
+        statusEl.textContent = "";
+        run();
+      };
+      s.onerror = function () { loading = false; statusEl.textContent = "Search isn't available on this copy of the site."; };
+      (document.head || document.body).appendChild(s);
+    };
+    var openSearch = function (e) {
+      opener = (e && e.currentTarget) || document.activeElement;
+      panel.hidden = false;
+      document.documentElement.classList.add("search-on");
+      qInput.focus();
+      qInput.select();
+      load();
+      if (items) run();
+    };
+    var closeSearch = function () {
+      panel.hidden = true;
+      document.documentElement.classList.remove("search-on");
+      if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { opener.focus(); } }
+    };
+    document.querySelectorAll(".search-open").forEach(function (b) { b.addEventListener("click", openSearch); });
+    panel.querySelector(".search-close").addEventListener("click", closeSearch);
+    panel.querySelector(".search-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = list.querySelector("a");
+      if (first) first.click();
+    });
+    qInput.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+    list.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) closeSearch(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) { e.preventDefault(); closeSearch(); return; }
+      var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "/" && panel.hidden && !/^(input|textarea|select)$/i.test(tag) && !(e.target && e.target.isContentEditable)) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
+  }
+
+  // Worksheets and job cards: empty table cells become text fields and task lists become tick
+  // boxes. Entries are a convenience saved in this browser only; printing keeps what's typed.
+  var fillMain = document.querySelector("main[data-fill]");
+  if (fillMain) {
+    var FKEY = "e46-m3-touring-" + fillMain.getAttribute("data-page") + "-v1";
+    var store = {};
+    try { store = JSON.parse(localStorage.getItem(FKEY) || "{}") || {}; } catch (e) { store = {}; }
+    var saveStore = function () { try { localStorage.setItem(FKEY, JSON.stringify(store)); } catch (e) { /* storage blocked */ } };
+    var fields = [];
+    fillMain.querySelectorAll("table").forEach(function (table, ti) {
+      var heads = table.tHead && table.tHead.rows[0]
+        ? Array.prototype.map.call(table.tHead.rows[0].cells, function (c) { return c.textContent.trim(); }) : [];
+      Array.prototype.forEach.call(table.tBodies, function (tb) {
+        Array.prototype.forEach.call(tb.rows, function (row, ri) {
+          Array.prototype.forEach.call(row.cells, function (cell, ci) {
+            if (cell.textContent.trim() !== "" || cell.children.length) return;
+            var id = "t" + ti + "r" + ri + "c" + ci;
+            var input = document.createElement("input");
+            input.type = "text";
+            input.className = "fill";
+            var rowLabel = row.cells[0] && row.cells[0] !== cell ? row.cells[0].textContent.trim() : "";
+            input.setAttribute("aria-label", (heads[ci] || "Entry") + (rowLabel ? ", " + rowLabel : ""));
+            input.value = store[id] || "";
+            input.addEventListener("input", function () {
+              if (input.value) { store[id] = input.value; } else { delete store[id]; }
+              saveStore();
+            });
+            cell.classList.add("fill-cell");
+            cell.appendChild(input);
+            fields.push(input);
+          });
+        });
+      });
+    });
+    fillMain.querySelectorAll('li input[type="checkbox"]').forEach(function (cb, i) {
+      var id = "c" + i;
+      cb.disabled = false;
+      cb.checked = !!store[id];
+      cb.addEventListener("change", function () {
+        if (cb.checked) { store[id] = 1; } else { delete store[id]; }
+        saveStore();
+      });
+      fields.push(cb);
+    });
+    if (fields.length) {
+      var bar = document.createElement("div");
+      bar.className = "fill-tools";
+      var note = document.createElement("span");
+      note.className = "note";
+      note.textContent = "Type in the blank cells and tick the boxes. Entries are saved in this browser on this device only.";
+      var printBtn = document.createElement("button");
+      printBtn.type = "button";
+      printBtn.textContent = "Print";
+      printBtn.addEventListener("click", function () { window.print(); });
+      var clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.textContent = "Clear my entries";
+      var armed = null;
+      clearBtn.addEventListener("click", function () {
+        if (!armed) {
+          clearBtn.textContent = "Tap again to clear everything";
+          armed = setTimeout(function () { armed = null; clearBtn.textContent = "Clear my entries"; }, 4000);
+          return;
+        }
+        clearTimeout(armed);
+        armed = null;
+        clearBtn.textContent = "Clear my entries";
+        store = {};
+        saveStore();
+        fields.forEach(function (f) { if (f.type === "checkbox") { f.checked = false; } else { f.value = ""; } });
+      });
+      bar.appendChild(note);
+      bar.appendChild(printBtn);
+      bar.appendChild(clearBtn);
+      var holder = fillMain.querySelector(".wrap") || fillMain;
+      holder.insertBefore(bar, holder.firstChild);
+    }
+  }
+
+  // Parts checklist. Ticks are a convenience saved in this browser only.
+  var KEY = "e46-m3-touring-parts-v1";
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage blocked */ } }
+
+  function slug(s) {
+    var h = 0;
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+    return "p" + (h >>> 0).toString(36);
+  }
+  function kindOf(text) {
+    var t = text.toLowerCase();
+    if (t.indexOf("donor") > -1) return "donor";
+    if (t.indexOf("fab") > -1 || t.indexOf("make") > -1) return "fab";
+    if (t.indexOf("keep") > -1 || t.indexOf("reuse") > -1) return "keep";
+    return "new";
+  }
+
+  var partsSection = document.querySelector('section[data-chapter="parts"]');
+  var rows = [];
+  if (partsSection) {
+    partsSection.querySelectorAll("table").forEach(function (table) {
+      var head = table.tHead && table.tHead.rows[0];
+      if (!head || !table.tBodies[0]) return;
+      var srcIdx = -1;
+      Array.prototype.forEach.call(head.cells, function (c, i) { if (/source/i.test(c.textContent)) srcIdx = i; });
+      if (srcIdx < 0) return;
+      table.classList.add("parts");
+      var th = document.createElement("th");
+      th.className = "tick-col";
+      th.textContent = "Got";
+      head.insertBefore(th, head.firstChild);
+      Array.prototype.forEach.call(table.tBodies[0].rows, function (row) {
+        var name = (row.cells[0] ? row.cells[0].textContent : "").trim();
+        var id = slug(name + "|" + (row.cells[srcIdx] ? row.cells[srcIdx].textContent : ""));
+        var srcCell = row.cells[srcIdx];
+        var kind = kindOf(srcCell ? srcCell.textContent : "");
+        row.setAttribute("data-kind", kind);
+        if (srcCell) {
+          var pill = document.createElement("span");
+          pill.className = "pill pill-" + kind;
+          pill.textContent = srcCell.textContent.trim();
+          srcCell.textContent = "";
+          srcCell.appendChild(pill);
+        }
+        var td = document.createElement("td");
+        td.className = "tick-col";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = id;
+        cb.checked = !!saved[id];
+        cb.setAttribute("aria-label", "Got it: " + name);
+        if (cb.checked) row.classList.add("done");
+        cb.addEventListener("change", function () {
+          if (cb.checked) { saved[id] = 1; } else { delete saved[id]; }
+          row.classList.toggle("done", cb.checked);
+          persist();
+          updateCount();
+        });
+        td.appendChild(cb);
+        row.insertBefore(td, row.firstChild);
+        rows.push(row);
+      });
+    });
+  }
+
+  var countEl = null;
+  function updateCount() {
+    if (!countEl) return;
+    var done = rows.filter(function (r) { return r.classList.contains("done"); }).length;
+    countEl.textContent = done + " of " + rows.length + " ticked";
+  }
+
+  if (partsSection && rows.length) {
+    var tools = document.createElement("div");
+    tools.className = "parts-tools";
+    tools.setAttribute("role", "group");
+    tools.setAttribute("aria-label", "Filter parts by where they come from");
+    var label = document.createElement("span");
+    label.className = "label";
+    label.textContent = "Show";
+    tools.appendChild(label);
+    var filters = [["all", "All"], ["donor", "From donor M3"], ["new", "Buy new"], ["fab", "Fabricate"], ["keep", "Keep"]];
+    var buttons = [];
+    filters.forEach(function (f) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.id = "filter-" + f[0];
+      b.textContent = f[1];
+      b.setAttribute("aria-pressed", f[0] === "all" ? "true" : "false");
+      b.addEventListener("click", function () {
+        buttons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        rows.forEach(function (r) { r.hidden = !(f[0] === "all" || r.getAttribute("data-kind") === f[0]); });
+      });
+      buttons.push(b);
+      tools.appendChild(b);
+    });
+    countEl = document.createElement("span");
+    countEl.className = "count";
+    tools.appendChild(countEl);
+    var note = document.createElement("span");
+    note.className = "note";
+    note.textContent = "Ticks are saved in this browser on this device only.";
+    tools.appendChild(note);
+    var firstTable = partsSection.querySelector(".table-wrap");
+    if (firstTable) firstTable.parentNode.insertBefore(tools, firstTable);
+    updateCount();
+  }
+})();
+
+</script>
+</body>
+</html>
